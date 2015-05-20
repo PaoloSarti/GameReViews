@@ -7,6 +7,14 @@ using System.Drawing;
 namespace GameReViews.Model
 {
     // TODO: lanciare eccezioni
+
+    // NOTES: in vista di estensioni future (che non faremo, ma vabbè xD) si potrebbe fare una classe astratta/interfaccia 
+    // Utente e poi avere UtenteRegistrato che la estente/implementa.
+    // In questo modo se un giorno si volesse aggiungere un tipo alla gerarchia di utenti
+    // (che per ora è solo UtenteRegistrato e Recensore) si potrebbe fare senza dover modificare "troppo codice"
+    // ad esempio: UtenteNonRegistratoChePuoCommentare
+
+    // oppure si prende UtenteRegistrato come base e bona .. e aggiungere UtenteRegistratoCheNonPuoCommentarePercheNero
     public class UtenteRegistrato
     {
         private string _nome;
