@@ -52,12 +52,17 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Aspetti.cs" />
+    <Compile Include="Model\AspettiValori.cs" />
+    <Compile Include="Model\AspettiValutati.cs" />
     <Compile Include="Model\Aspetto.cs" />
-    <Compile Include="Model\AspettoValutato.cs" />
-    <Compile Include="Model\AspettiValutatiManager.cs" />
     <Compile Include="Model\Genere.cs" />
+    <Compile Include="Model\Model.cs" />
+    <Compile Include="Model\Preferenze.cs" />
     <Compile Include="Model\Recensione.cs" />
+    <Compile Include="Model\Recensioni.cs" />
     <Compile Include="Model\UtenteRegistrato.cs" />
+    <Compile Include="Model\Videogiochi.cs" />
     <Compile Include="Model\Videogioco.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

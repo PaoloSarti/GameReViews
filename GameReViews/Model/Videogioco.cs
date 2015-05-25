@@ -75,5 +75,24 @@ namespace GameReViews.Model
             }
         }
 
+        public Recensione Recensione
+        {
+            get { return _recensione; }
+            set { _recensione = value; }
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+                return false;
+            if (!(obj is Videogioco))
+                return false;
+            //Uaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+            Videogioco other = (Videogioco)obj;
+            if (other.Nome.Equals(this.Nome)&&other.DataRilascio.Equals(this.DataRilascio))
+                return true;
+            return false;
+        }
+
     }
 }

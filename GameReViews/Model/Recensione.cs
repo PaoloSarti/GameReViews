@@ -24,7 +24,7 @@ namespace GameReViews.Model
         //private Dictionary<Aspetto, int> _aspettiValutati;
         //private readonly Dictionary<Aspetto, int> _emptyAspettiValutati = new Dictionary<Aspetto, int>();
 
-        private AspettiValutatiManager _aspettiValutatoManager;
+        private AspettiValori _aspettiValutatoManager;
 
         public Recensione(Videogioco videogioco, string testo)
         {
@@ -37,7 +37,7 @@ namespace GameReViews.Model
             this._dataImmissione = DateTime.Now;
 
             //this._aspettiValutati = _emptyAspettiValutati;
-            _aspettiValutatoManager = new AspettiValutatiManager();
+            _aspettiValutatoManager = new AspettiValori();
         }
 
         public Videogioco Videogioco

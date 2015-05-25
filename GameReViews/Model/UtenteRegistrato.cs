@@ -22,7 +22,7 @@ namespace GameReViews.Model
 
         private Image _image;
 
-        private AspettiValutatiManager _aspettiValutatoManager;
+        private AspettiValori _aspettiValutatoManager;
 
         public UtenteRegistrato(string nome, string passowrd)
         {
@@ -32,7 +32,7 @@ namespace GameReViews.Model
             this._nome = nome;
             this._password = passowrd;
 
-            _aspettiValutatoManager = new AspettiValutatiManager();
+            _aspettiValutatoManager = new AspettiValori();
 
             // TODO
             this._image = Image.FromFile("default_image_utente");
