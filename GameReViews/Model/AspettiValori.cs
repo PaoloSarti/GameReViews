@@ -5,12 +5,14 @@ using System.Text;
 
 namespace GameReViews.Model
 {
-    // TODO: lanciare eccezioni
-    // lanciamo sempre eccezioni o diamo ad alcuni metodi valori di ritorno bool per distriminare successo da fallimento?
     public abstract class AspettiValori
     {
-        private Dictionary<Aspetto, int> _aspettiValori;
-        private static readonly Dictionary<Aspetto, int> _emptyAspettiValori = new Dictionary<Aspetto, int>();
+        // vedi requisiti non funzionali del progetto
+        private readonly static int valoreMinimo = 0;
+        private readonly static int valoreMassimo = 10;
+
+        protected Dictionary<Aspetto, int> _aspettiValori;
+        protected static readonly Dictionary<Aspetto, int> _emptyAspettiValori = new Dictionary<Aspetto, int>();
 
         public AspettiValori()
         {
@@ -28,32 +30,59 @@ namespace GameReViews.Model
             }
         }
 
-        public void RemoveAspetto(Aspetto aspetto)
+        public void Remove(Aspetto aspetto)
         {
-            // TODO update reference counting 
-
+            #region Precondizioni
             if (aspetto == null)
-                return;
+                throw new ArgumentNullException("aspetto == null");
+            #endregion
 
             if (this._aspettiValori == _emptyAspettiValori)
                 return;
 
             if (this._aspettiValori.ContainsKey(aspetto))
+            {
                 this._aspettiValori.Remove(aspetto);
+
+                // aggiorna il reference counter degli aspetti
+                Model.getInstance().Aspetti.Remove(aspetto);
+            }
         }
 
         public void ModificaValutazione(Aspetto aspetto, int valutazione)
         {
-            // TODO: creare valori parametrici per valore max e min di valutazione
-
-            if (aspetto == null) // || valutazione < 0 || valutazione > 10 )
-                return;
+            #region Precondizioni
+            if (aspetto == null)
+                throw new ArgumentNullException("aspetto == null");
+            if(!AspettiValori.IsValueValid(valutazione))
+                throw new ArgumentException("!AspettiValori.IsValueValid(value)");
+            #endregion
 
             if (this._aspettiValori == _emptyAspettiValori)
                 return;
 
             if (this._aspettiValori.ContainsKey(aspetto))
                 this._aspettiValori[aspetto] = valutazione;
+        }
+
+        public static int ValoreMinimo
+        {
+            get { return AspettiValori.valoreMinimo; }
+        }
+
+        public static int ValoreMassimo
+        {
+            get { return AspettiValori.valoreMassimo; }
+        }
+
+        public static Boolean IsValueValid(int value)
+        {
+            bool res = false;
+
+            if (value >= ValoreMinimo && value <= ValoreMassimo)
+                res = true;
+
+            return res;
         }
     }
 }

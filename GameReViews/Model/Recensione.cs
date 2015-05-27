@@ -5,39 +5,27 @@ using System.Text;
 
 namespace GameReViews.Model
 {
-    // TODO: lanciare eccezioni
-    class Recensione
+    public class Recensione
     {
         private readonly Videogioco _videogioco;
         private readonly DateTime _dataImmissione;
         private string _testo;
 
-        // questi due campi sono stati sostiuti da _aspettiValutatoManager
-        // in questo modo possiamo evitare di ripetere lo stesso esatto codice dei metodi
-        // GetAspettiValutati, AddAspettoValutato,  RemoveAspettoValutato, ModificaAspetto
-        // all'interno di utente registrato.
-
-        // volendo recensione e utente potrebbero estendere una bellissima classe astratta "aspettiValutatiUser"
-        // che fornisca l'implmentazione base di questi metodi ?? lol
-        // secondo me bisogna risolvere l'ambiguità tra AspettiValutati e Preferenze, in un qualche modo.
-
-        //private Dictionary<Aspetto, int> _aspettiValutati;
-        //private readonly Dictionary<Aspetto, int> _emptyAspettiValutati = new Dictionary<Aspetto, int>();
-
-        private AspettiValori _aspettiValutatoManager;
+        private AspettiValutati _aspettiValutati;
 
         public Recensione(Videogioco videogioco, string testo)
         {
+            #region Precondizioni
             if (videogioco == null || String.IsNullOrEmpty(testo))
-                return; // throws ...
+                throw new ArgumentException("videogioco == null || String.IsNullOrEmpty(testo)");
+            #endregion         
 
             this._videogioco = videogioco;
             this._testo = testo;
 
             this._dataImmissione = DateTime.Now;
 
-            //this._aspettiValutati = _emptyAspettiValutati;
-            _aspettiValutatoManager = new AspettiValori();
+            _aspettiValutati = new AspettiValutati();
         }
 
         public Videogioco Videogioco
@@ -56,31 +44,52 @@ namespace GameReViews.Model
 
             set 
             {
-                if (String.IsNullOrEmpty(_testo))
-                    return;
+                #region Precondizioni
+                if (String.IsNullOrEmpty(value))
+                    throw new ArgumentException("String.IsNullOrEmpty(value)");
+                #endregion
 
                 _testo = value; 
             }
         }
 
-        public IEnumerable<AspettoValutato> GetAspettiValutati()
+        public IEnumerable<KeyValuePair<Aspetto, int>> GetAspettiValutati()
         {
-            return this._aspettiValutatoManager.AspettiValutati;
+            return _aspettiValutati.AspettiValutati;
         }
 
-        public void AddAspettoValutato(AspettoValutato aspettoValutato)
+        public void AddAspettoValutato(Aspetto aspetto, int valutazione)
         {
-            this._aspettiValutatoManager.AddAspettoValutato(aspettoValutato);
+            #region Precondizioni
+            if (aspetto == null)
+                throw new ArgumentException("aspetto == null");
+            if (!AspettiValori.IsValueValid(valutazione))
+                throw new ArgumentException("!AspettiValori.IsValueValid(valutazione)");
+            #endregion
+
+            _aspettiValutati.Add(aspetto, valutazione);
         }
 
         public void RemoveAspettoValutato(Aspetto aspetto)
         {
-            _aspettiValutatoManager.RemoveAspettoValutato(aspetto);
+            #region Precondizioni
+            if (aspetto == null)
+                throw new ArgumentException("aspetto == null");
+            #endregion
+
+            _aspettiValutati.Remove(aspetto);
         }
 
         public void ModificaAspetto(Aspetto aspetto, int valutazione)
         {
-            _aspettiValutatoManager.ModificaValutazioneAspetto(aspetto, valutazione);
+            #region Precondizioni
+            if (aspetto == null)
+                throw new ArgumentException("aspetto == null");
+            if (!AspettiValori.IsValueValid(valutazione))
+                throw new ArgumentException("!AspettiValori.IsValueValid(valutazione)");
+            #endregion
+
+            _aspettiValutati.ModificaValutazione(aspetto, valutazione);
         }
     }
 }

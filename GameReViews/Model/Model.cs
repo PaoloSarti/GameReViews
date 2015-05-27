@@ -10,7 +10,7 @@ namespace GameReViews.Model
         private static Model _instance;
 
         private readonly Aspetti _aspetti;
-        private readonly List<UtenteRegistrato> _utenti;
+        private readonly UtentiRegistrati _utenti;
         private readonly Recensioni _recensioni;
         private readonly Videogiochi _videogiochi;
 
@@ -28,7 +28,7 @@ namespace GameReViews.Model
         private Model()
         {
             _aspetti = new Aspetti();
-            _utenti = new List<UtenteRegistrato>();
+            _utenti = new UtentiRegistrati();
             _recensioni = new Recensioni();
             _videogiochi = new Videogiochi();
         }
@@ -38,7 +38,7 @@ namespace GameReViews.Model
             get { return _aspetti; }
         }
 
-        public List<UtenteRegistrato> Utenti
+        public UtentiRegistrati Utenti
         {
             get { return _utenti; }
         }

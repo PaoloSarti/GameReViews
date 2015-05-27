@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GameReViews.Model
 {
-    public class Recensioni
+    class UtentiRegistrati
     {
     }
 }

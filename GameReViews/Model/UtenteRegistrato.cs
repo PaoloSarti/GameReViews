@@ -6,15 +6,6 @@ using System.Drawing;
 
 namespace GameReViews.Model
 {
-    // TODO: lanciare eccezioni
-
-    // NOTES: in vista di estensioni future (che non faremo, ma vabbè xD) si potrebbe fare una classe astratta/interfaccia 
-    // Utente e poi avere UtenteRegistrato che la estente/implementa.
-    // In questo modo se un giorno si volesse aggiungere un tipo alla gerarchia di utenti
-    // (che per ora è solo UtenteRegistrato e Recensore) si potrebbe fare senza dover modificare "troppo codice"
-    // ad esempio: UtenteNonRegistratoChePuoCommentare
-
-    // oppure si prende UtenteRegistrato come base e bona .. e aggiungere UtenteRegistratoCheNonPuoCommentarePercheNero
     public class UtenteRegistrato
     {
         private string _nome;
@@ -22,17 +13,19 @@ namespace GameReViews.Model
 
         private Image _image;
 
-        private AspettiValori _aspettiValutatoManager;
+        private Preferenze _preferenze;
 
         public UtenteRegistrato(string nome, string passowrd)
         {
+            #region Precondizioni
             if (String.IsNullOrEmpty(nome) || String.IsNullOrEmpty(passowrd))
-                return; // throws ...
+                throw new ArgumentException("String.IsNullOrEmpty(nome) || String.IsNullOrEmpty(passowrd)");
+            #endregion
 
             this._nome = nome;
             this._password = passowrd;
 
-            _aspettiValutatoManager = new AspettiValori();
+            _preferenze = new Preferenze();
 
             // TODO
             this._image = Image.FromFile("default_image_utente");
@@ -41,32 +34,53 @@ namespace GameReViews.Model
         public UtenteRegistrato(string nome, string passowrd, Image image)
             : this(nome, passowrd)
         {
+            #region Precondizioni
             if (image == null)
-                return; // throws ...
+                throw new ArgumentNullException("image == null");
+            #endregion
 
             this._image = image;
         }
 
         // TODO: add methods
 
-        public IEnumerable<AspettoValutato> GetPreferenze()
+        public IEnumerable<KeyValuePair<Aspetto, int>> GetPreferenze()
         {
-            return this._aspettiValutatoManager.AspettiValutati;
+            return this._preferenze.AspettiValutati;
         }
 
-        public void AddPreferenza(AspettoValutato aspettoValutato)
+        public void AddPreferenza(Aspetto aspetto, int valutazione)
         {
-            this._aspettiValutatoManager.AddAspettoValutato(aspettoValutato);
+            #region Precondizioni
+            if (aspetto == null)
+                throw new ArgumentNullException("aspetto == null");
+            if (!AspettiValori.IsValueValid(valutazione))
+                throw new ArgumentException("!AspettiValori.IsValueValid(valutazione)");
+            #endregion
+
+            this._preferenze.Add(aspetto, valutazione);
         }
 
         public void RemovePreferenza(Aspetto aspetto)
         {
-            _aspettiValutatoManager.RemoveAspettoValutato(aspetto);
+            #region Precondizioni
+            if (aspetto == null)
+                throw new ArgumentNullException("aspetto == null");
+            #endregion
+
+            _preferenze.Remove(aspetto);
         }
 
         public void ModificaPreferenza(Aspetto aspetto, int valutazione)
         {
-            _aspettiValutatoManager.ModificaValutazioneAspetto(aspetto, valutazione);
+            #region Precondizioni
+            if (aspetto == null)
+                throw new ArgumentNullException("aspetto == null");
+            if (!AspettiValori.IsValueValid(valutazione))
+                throw new ArgumentException("!AspettiValori.IsValueValid(valutazione)");
+            #endregion
+
+            _preferenze.ModificaValutazione(aspetto, valutazione);
         }
     }
 }

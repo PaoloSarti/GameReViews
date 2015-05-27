@@ -5,12 +5,25 @@ using System.Text;
 
 namespace GameReViews.Model
 {
-    class Preferenze : AspettiValori
+    public class Preferenze : AspettiValori
     {
         public override void Add(Aspetto aspetto, int value)
         {
-             // TODO 
-            throw new NotImplementedException();
+            #region Precondizioni
+            if (aspetto == null)
+                throw new ArgumentNullException("aspetto == null");
+            if (!AspettiValori.IsValueValid(value))
+                throw new ArgumentException("!AspettiValori.IsValueValid(value)");
+
+            // un utente non può inserire nuovi aspetti nel sistema
+            if (!Model.getInstance().Aspetti.Contains(aspetto))
+                throw new ArgumentException("!Model.getInstance().Aspetti.Contains(aspetto)");
+            #endregion
+            
+            this._aspettiValori.Add(aspetto, value);
+
+            // aggiorno reference counting
+            Model.getInstance().Aspetti.Add(aspetto);
         }
     }
 }

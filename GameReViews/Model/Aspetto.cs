@@ -5,17 +5,17 @@ using System.Text;
 
 namespace GameReViews.Model
 {
-    // TODO: lanciare eccezioni
     public class Aspetto
     {
         private readonly string _nome;
         private readonly string _descrizione;
 
-        public Aspetto(string nome, string descrizione)
+        public Aspetto(string nome, string descrizione = "")
         {
-            // la descrizione si può anche non mettere, ma non può essere null
+            #region Precondizioni
             if (String.IsNullOrEmpty(nome) || descrizione == null)
-                return; // throws ...
+                throw new ArgumentException("String.IsNullOrEmpty(nome) || descrizione == null");
+            #endregion
 
             this._nome = nome;
             this._descrizione = descrizione;
