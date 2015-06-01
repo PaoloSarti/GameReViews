@@ -7,47 +7,40 @@ namespace GameReViews.Model
 {
     public class Recensioni
     {
-        private readonly HashSet<Recensione> _recensioneSet;
+        private readonly HashSet<Recensione> _recensioniSet;
 
         public Recensioni()
         {
-            _recensioneSet = new HashSet<Recensione>();
+            _recensioniSet = new HashSet<Recensione>();
         }
 
-        public IEnumerable<Recensione> RecensioniList
+        public IEnumerable<Recensione> RecensioniSet
         {
-            get { return _recensioneSet; }
+            get { return _recensioniSet; }
         }
 
         public void AddRecensione(Recensione recensione)
         {
-            bool success = _recensioneSet.Add(recensione);
+            #region Precondizioni
+            if (recensione == null)
+                throw new ArgumentNullException("recensione == null");
+            #endregion
 
-            if (!success)
-                throw new InvalidOperationException("!success");
+            if ( !_recensioniSet.Add(recensione) )
+                throw new InvalidOperationException("!_recensioniSet.Add(recensione)");
         }
         
         public void RemoveRecensione(Recensione recensione)
         {
-            if (!_recensioneSet.Contains(recensione))
-                throw new InvalidOperationException("!_recensioneSet.Contains(recensione)");
+            #region Precondizioni
+            if (recensione == null)
+                throw new ArgumentException("recensione == null");
+            #endregion
+
+            if (_recensioniSet.Remove(recensione))
+                recensione.Videogioco.Recensione = null;
             else
-            {
-                GetRecensione(recensione).Videogioco.Recensione = null;
-                _recensioneSet.Remove(recensione);
-            }
+                throw new ArgumentException("_recensioneSet.Remove(recensione)");
         }
-
-        public Recensione GetRecensione(Recensione recensione)
-        {
-            foreach (Recensione v in _recensioneSet)
-            {
-                if (v.Equals(recensione))
-                    return v;
-            }
-
-            return null;
-        }
-
     }
 }

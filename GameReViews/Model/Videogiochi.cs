@@ -28,28 +28,19 @@ namespace GameReViews.Model
                 throw new InvalidOperationException("Videogioco già presente nel sistema");
         }
 
-        // non funziona. vedi equals di videioioco
         public void RemoveVideogioco(Videogioco videogioco)
         {
-            // TODO exception if null
+            #region Precondizioni
+            if (videogioco == null)
+                throw new ArgumentException("videogioco == null");
+            
+            // non si può eliminare un videogioco a cui è associata una recensione
+            if (videogioco.Recensione != null)
+                throw new InvalidOperationException("videogioco.Recensione != null");
+            #endregion
 
-            if (!_videogiochiSet.Contains(videogioco))
-                throw new InvalidOperationException("!_videogiochiSet.Contains(videogioco)");
-            else if(GetVideogioco(videogioco).Recensione != null)
-                throw new InvalidOperationException("GetVideogioco(videogioco).Recensione != null");
-            else
-                _videogiochiSet.Remove(videogioco);
-        }
-
-        public Videogioco GetVideogioco(Videogioco videogioco)
-        {
-            foreach (Videogioco v in _videogiochiSet)
-            {
-                if(v.Equals(videogioco))
-                    return v;
-            }
-
-            return null;
+            if (!_videogiochiSet.Remove(videogioco))
+                throw new ArgumentException("!_videogiochiSet.Remove(videogioco)");
         }
     }
 }

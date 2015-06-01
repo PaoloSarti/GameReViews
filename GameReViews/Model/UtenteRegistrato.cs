@@ -10,9 +10,6 @@ namespace GameReViews.Model
     {
         private string _nome;
         private string _password;
-
-        private Image _image;
-
         private Preferenze _preferenze;
 
         public UtenteRegistrato(string nome, string passowrd)
@@ -26,20 +23,6 @@ namespace GameReViews.Model
             this._password = passowrd;
 
             _preferenze = new Preferenze();
-
-            // TODO
-            this._image = Image.FromFile("default_image_utente");
-        }
-
-        public UtenteRegistrato(string nome, string passowrd, Image image)
-            : this(nome, passowrd)
-        {
-            #region Precondizioni
-            if (image == null)
-                throw new ArgumentNullException("image == null");
-            #endregion
-
-            this._image = image;
         }
 
         // TODO: add methods

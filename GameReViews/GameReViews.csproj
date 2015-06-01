@@ -61,6 +61,7 @@
     <Compile Include="Model\Preferenze.cs" />
     <Compile Include="Model\Recensione.cs" />
     <Compile Include="Model\Recensioni.cs" />
+    <Compile Include="Model\Recensore.cs" />
     <Compile Include="Model\UtenteRegistrato.cs" />
     <Compile Include="Model\UtentiRegistrati.cs" />
     <Compile Include="Model\Videogiochi.cs" />

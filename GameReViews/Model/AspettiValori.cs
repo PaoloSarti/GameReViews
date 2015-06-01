@@ -25,8 +25,7 @@ namespace GameReViews.Model
         {
             get
             {
-                // funzionerà ????
-                return (from aspetto in _aspettiValori select aspetto);
+                return _aspettiValori;
             }
         }
 
@@ -45,7 +44,7 @@ namespace GameReViews.Model
                 this._aspettiValori.Remove(aspetto);
 
                 // aggiorna il reference counter degli aspetti
-                Model.getInstance().Aspetti.Remove(aspetto);
+                Model.GetInstance().Aspetti.Remove(aspetto);
             }
         }
 

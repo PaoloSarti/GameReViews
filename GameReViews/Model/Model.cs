@@ -14,7 +14,7 @@ namespace GameReViews.Model
         private readonly Recensioni _recensioni;
         private readonly Videogiochi _videogiochi;
 
-        public static Model getInstance()
+        public static Model GetInstance()
         {
             if (_instance == null) 
             {

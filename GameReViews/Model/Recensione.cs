@@ -7,22 +7,23 @@ namespace GameReViews.Model
 {
     public class Recensione
     {
+        private readonly Recensore _autore;
         private readonly Videogioco _videogioco;
         private readonly DateTime _dataImmissione;
         private string _testo;
 
         private AspettiValutati _aspettiValutati;
 
-        public Recensione(Videogioco videogioco, string testo)
+        public Recensione(Videogioco videogioco, string testo, Recensore autore)
         {
             #region Precondizioni
-            if (videogioco == null || String.IsNullOrEmpty(testo))
-                throw new ArgumentException("videogioco == null || String.IsNullOrEmpty(testo)");
+            if (videogioco == null || String.IsNullOrEmpty(testo)||autore==null)
+                throw new ArgumentException("videogioco == null || String.IsNullOrEmpty(testo)||autore==null");
             #endregion         
 
             this._videogioco = videogioco;
             this._testo = testo;
-
+            this._autore = autore;
             this._dataImmissione = DateTime.Now;
             this._videogioco.Recensione = this;
             _aspettiValutati = new AspettiValutati();
@@ -52,6 +53,11 @@ namespace GameReViews.Model
                 _testo = value; 
             }
         }
+
+        public Recensore Autore
+        {
+            get { return _autore; }
+        } 
 
         public IEnumerable<KeyValuePair<Aspetto, int>> GetAspettiValutati()
         {

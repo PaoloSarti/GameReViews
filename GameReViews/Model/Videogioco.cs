@@ -17,7 +17,7 @@ namespace GameReViews.Model
 
         public Videogioco(string nome, DateTime dataRilascio, Genere genere)
         {
-            if (String.IsNullOrEmpty(nome) || dataRilascio == null || genere == null)
+            if (String.IsNullOrEmpty(nome) || dataRilascio == null || genere == ) //mah
                 return; // throws ...
 
             this._nome = nome;
@@ -80,19 +80,5 @@ namespace GameReViews.Model
             get { return _recensione; }
             set { _recensione = value; }
         }
-
-        public override bool Equals(object obj)
-        {
-            if (obj == null)
-                return false;
-            if (!(obj is Videogioco))
-                return false;
-            //Uaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-            Videogioco other = (Videogioco)obj;
-            if (other.Nome.Equals(this.Nome)&&other.DataRilascio.Equals(this.DataRilascio))
-                return true;
-            return false;
-        }
-
     }
 }

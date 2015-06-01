@@ -14,12 +14,11 @@ namespace GameReViews.Model
                 throw new ArgumentNullException("aspetto == null");
             if (!AspettiValori.IsValueValid(value))
                 throw new ArgumentException("!AspettiValori.IsValueValid(value)");
-            //non dovrebbe esserci il controllo aspetto giaà contenuto?
             if (this._aspettiValori == _emptyAspettiValori)
                 this._aspettiValori = new Dictionary<Aspetto, int>();
 
             // un utente non può inserire nuovi aspetti nel sistema
-            if (!Model.getInstance().Aspetti.Contains(aspetto))
+            if (!Model.GetInstance().Aspetti.Contains(aspetto))
                 throw new ArgumentException("!Model.getInstance().Aspetti.Contains(aspetto)");
             #endregion
 
@@ -27,11 +26,14 @@ namespace GameReViews.Model
             {
                 this._aspettiValori.Add(aspetto, value);
             }
-            catch (ArgumentNullException e) { throw new ArgumentNullException("aspetto == null"); }
-            catch (ArgumentException e) { throw new ArgumentException("this._aspettiValori.Add(aspetto, value) aspetto deve essere unico!"); }
+            catch (ArgumentException) 
+            { 
+                // TODO maH 8==D
+                throw new ArgumentException("this._aspettiValori.Add(aspetto, value) aspetto deve essere unico!");
+            }
 
             // aggiorno reference counting
-            Model.getInstance().Aspetti.Add(aspetto);
+            Model.GetInstance().Aspetti.Add(aspetto);
         }
     }
 }
