@@ -24,7 +24,7 @@ namespace GameReViews.Model
             this._testo = testo;
 
             this._dataImmissione = DateTime.Now;
-
+            this._videogioco.Recensione = this;
             _aspettiValutati = new AspettiValutati();
         }
 
