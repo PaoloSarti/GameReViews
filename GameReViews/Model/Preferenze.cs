@@ -28,7 +28,7 @@ namespace GameReViews.Model
             }
             catch (ArgumentException) 
             { 
-                // TODO maH 8==D
+                // TODO maH
                 throw new ArgumentException("this._aspettiValori.Add(aspetto, value) aspetto deve essere unico!");
             }
 

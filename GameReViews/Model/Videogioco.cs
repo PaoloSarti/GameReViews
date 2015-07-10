@@ -6,7 +6,7 @@ using System.Drawing;
 
 namespace GameReViews.Model
 {
-    // TODO: lanciare eccezioni
+
     public class Videogioco
     {
         private string _nome;
@@ -17,8 +17,10 @@ namespace GameReViews.Model
 
         public Videogioco(string nome, DateTime dataRilascio, Genere genere)
         {
-            if (String.IsNullOrEmpty(nome) || dataRilascio == null || genere == ) //mah
-                return; // throws ...
+            //l'enumerativo garantisce già che non si utilizzino valori non ammessi
+            //DateTime è una struct, non può avere come valore null
+            if (String.IsNullOrEmpty(nome)) 
+                throw new ArgumentNullException("String.IsNullOrEmpty(nome)");
 
             this._nome = nome;
             this._dataRilascio = dataRilascio;
@@ -34,7 +36,7 @@ namespace GameReViews.Model
             : this(nome, dataRilascio, genere)
         {
             if (image == null)
-                return; // throws ...
+                throw new ArgumentNullException("image == null");
 
             this._image = image;
         }
@@ -68,9 +70,7 @@ namespace GameReViews.Model
             get { return _genere; }
             set
             {
-                if (_genere == null)
-                    return;
-
+                //l'enumerativo garantisce già che non si utilizzino valori non ammessi
                 _genere = value;
             }
         }

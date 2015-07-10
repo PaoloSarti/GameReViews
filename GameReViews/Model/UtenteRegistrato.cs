@@ -6,6 +6,7 @@ using System.Drawing;
 
 namespace GameReViews.Model
 {
+
     public class UtenteRegistrato
     {
         private string _nome;

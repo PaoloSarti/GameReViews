@@ -6,6 +6,7 @@ using System.Text;
 namespace GameReViews.Model
 {
     // TODO checks
+    //non credo debba essere public 
     public class Videogiochi
     {
         private readonly HashSet<Videogioco> _videogiochiSet;
@@ -22,6 +23,11 @@ namespace GameReViews.Model
 
         public void AddVideogioco(Videogioco videogioco)
         {
+            #region Precondizioni
+            if (videogioco == null)
+                throw new ArgumentException("videogioco == null");
+            #endregion
+
             bool success = _videogiochiSet.Add(videogioco);
 
             if (!success)
