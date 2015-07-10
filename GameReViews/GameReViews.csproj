@@ -56,6 +56,7 @@
     <Compile Include="Model\AspettiValori.cs" />
     <Compile Include="Model\AspettiValutati.cs" />
     <Compile Include="Model\Aspetto.cs" />
+    <Compile Include="Model\CalcoloValutazioneTotale.cs" />
     <Compile Include="Model\Genere.cs" />
     <Compile Include="Model\Model.cs" />
     <Compile Include="Model\Preferenze.cs" />
