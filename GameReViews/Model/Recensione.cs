@@ -11,7 +11,7 @@ namespace GameReViews.Model
         private readonly Videogioco _videogioco;
         private readonly DateTime _dataImmissione;
         private string _testo;
-
+        private readonly List<Commento> _commenti;
         private AspettiValutati _aspettiValutati;
 
         public Recensione(Videogioco videogioco, string testo, Recensore autore)
@@ -26,6 +26,7 @@ namespace GameReViews.Model
             this._autore = autore;
             this._dataImmissione = DateTime.Now;
             this._videogioco.Recensione = this;
+            this._commenti = new List<Commento>();
             _aspettiValutati = new AspettiValutati();
         }
 
@@ -64,6 +65,11 @@ namespace GameReViews.Model
             return _aspettiValutati.AspettiValutati;
         }
 
+        public IEnumerable<Commento> Commenti
+        {
+            get { return _commenti; }
+        } 
+
         public void AddAspettoValutato(Aspetto aspetto, int valutazione)
         {
             #region Precondizioni
@@ -97,5 +103,15 @@ namespace GameReViews.Model
 
             _aspettiValutati.ModificaValutazione(aspetto, valutazione);
         }
+
+        //Inserimento alla radice (lista di commenti della recensione)
+        public void InserisciCommento(String testo, UtenteRegistrato autore)
+        {
+            Commento child = new Commento(testo, autore);
+
+            _commenti.Add(child);
+        }
+
+
     }
 }

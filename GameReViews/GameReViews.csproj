@@ -57,6 +57,7 @@
     <Compile Include="Model\AspettiValutati.cs" />
     <Compile Include="Model\Aspetto.cs" />
     <Compile Include="Model\CalcoloValutazioneTotale.cs" />
+    <Compile Include="Model\Commento.cs" />
     <Compile Include="Model\Genere.cs" />
     <Compile Include="Model\Model.cs" />
     <Compile Include="Model\Preferenze.cs" />
@@ -69,6 +70,9 @@
     <Compile Include="Model\Videogioco.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
