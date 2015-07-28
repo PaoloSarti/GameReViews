@@ -5,6 +5,11 @@ using System.Text;
 
 namespace GameReViews.Model
 {
+
+    /* 
+     * Classe contenitore per le recensioni presenti nel sistema,
+     * aggiorna il riferimento alla recensione del videogioco recensito sia in caso di aggiunta che in caso di rimozione
+     */
     public class Recensioni
     {
         private readonly HashSet<Recensione> _recensioniSet;

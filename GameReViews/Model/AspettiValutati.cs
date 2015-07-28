@@ -5,6 +5,9 @@ using System.Text;
 
 namespace GameReViews.Model
 {
+    /* Classe contenitore per gli Aspetti Valutati, eredita la modalità di interazione con Aspetti per quanto riguarda la rimozione/modifica,
+     * per l'aggiunta in questo caso non c'è bisogno di avere una precondizione in più, basta aggiornare il reference counting di Aspetti
+     */
 	class AspettiValutati : AspettiValori
 	{
         public override void Add(Aspetto aspetto, int value)
