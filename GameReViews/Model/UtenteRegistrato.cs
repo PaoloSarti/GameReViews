@@ -9,24 +9,35 @@ namespace GameReViews.Model
 
     public class UtenteRegistrato
     {
-        private string _nome;
-        private string _password;
-        private Preferenze _preferenze;
+        //i campi _nome e _password sono impostabili solo allla creazione del nuovo oggetto quindi readonly
+        private readonly string _nome;
+        private readonly string _password;
+        
+        //Poichè Preferenze è una classe contenitore, anch'essa è readonly
+        private readonly Preferenze _preferenze;
 
-        public UtenteRegistrato(string nome, string passowrd)
+        public UtenteRegistrato(string nome, string password)
         {
             #region Precondizioni
-            if (String.IsNullOrEmpty(nome) || String.IsNullOrEmpty(passowrd))
-                throw new ArgumentException("String.IsNullOrEmpty(nome) || String.IsNullOrEmpty(passowrd)");
+            if (String.IsNullOrEmpty(nome) || String.IsNullOrEmpty(password))
+                throw new ArgumentException("String.IsNullOrEmpty(nome) || String.IsNullOrEmpty(password)");
             #endregion
 
             this._nome = nome;
-            this._password = passowrd;
+            this._password = password;
 
             _preferenze = new Preferenze();
         }
 
-        // TODO: add methods
+        public string Nome
+        {
+            get { return _nome; }
+        }
+
+        public string Password
+        {
+            get { return _password; }
+        } 
 
         public IEnumerable<KeyValuePair<Aspetto, int>> GetPreferenze()
         {

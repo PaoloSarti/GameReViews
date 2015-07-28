@@ -5,8 +5,10 @@ using System.Text;
 
 namespace GameReViews.Model
 {
-    // TODO checks
-    //non credo debba essere public 
+    /* 
+     * Classe contenitore per i videogiochi presenti nel sistema,
+     * in particolare controlla che non sia rimosso un videogioco a cui è associata una recensione
+     */
     public class Videogiochi
     {
         private readonly HashSet<Videogioco> _videogiochiSet;
@@ -16,7 +18,7 @@ namespace GameReViews.Model
             _videogiochiSet = new HashSet<Videogioco>();
         }
 
-        public IEnumerable<Videogioco> VideogiochiList
+        public IEnumerable<Videogioco> List
         {
             get { return _videogiochiSet; }
         }

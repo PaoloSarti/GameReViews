@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GameReViews.Model
 {
-    class Commento
+    public class Commento
     {
         private String _testo;
         private readonly List<Commento> _risposte;
@@ -41,8 +41,5 @@ namespace GameReViews.Model
 
             _risposte.Add(child);
         }
-
-
-
     }
 }
