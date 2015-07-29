@@ -27,21 +27,24 @@ namespace GameReViews.Model
                  //    select recensione;
 
                 //solo con lambda, non c'è bisogno di usare linq in questo caso
-                return Model.GetInstance().Recensioni.RecensioniSet.Where(r => r.Autore.Equals(this));
+                return Model.GetInstance().Recensioni.List.Where(r => r.Autore.Equals(this));
             }
         }
 
-        public void AddRecensione(Recensione recensione)
-        {
-            #region Precondizioni
-            if (recensione == null)
-                throw new ArgumentNullException("recensione == null");
-            if (!recensione.Autore.Equals(this))
-                throw new ArgumentException("!recensione.Autore.Equals(this)");
-            #endregion
 
-            Model.GetInstance().Recensioni.AddRecensione(recensione);
-        }
+        //In recensione c'è già il riferimento all'autore...
+
+        //public void AddRecensione(Recensione recensione)
+        //{
+        //    #region Precondizioni
+        //    if (recensione == null)
+        //        throw new ArgumentNullException("recensione == null");
+        //    if (!recensione.Autore.Equals(this))
+        //        throw new ArgumentException("!recensione.Autore.Equals(this)");
+        //    #endregion
+
+        //    Model.GetInstance().Recensioni.AddRecensione(recensione);
+        //}
 
          
     }

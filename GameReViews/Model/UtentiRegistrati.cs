@@ -37,7 +37,7 @@ namespace GameReViews.Model
         /* Verifica la presenza nella collezione dell'utente e ne restituisce il riferimento, altrimenti lancia eccezione
          * 
          */
-        public UtenteRegistrato Login(String nome, String password)
+        public UtenteRegistrato Autentica(String nome, String password)
         {
             #region Precondizioni
             if (String.IsNullOrEmpty(nome) || String.IsNullOrEmpty(password))

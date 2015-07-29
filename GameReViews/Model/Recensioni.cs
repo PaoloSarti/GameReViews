@@ -19,7 +19,7 @@ namespace GameReViews.Model
             _recensioniSet = new HashSet<Recensione>();
         }
 
-        public IEnumerable<Recensione> RecensioniSet
+        public IEnumerable<Recensione> List
         {
             get { return _recensioniSet; }
         }
