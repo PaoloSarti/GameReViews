@@ -47,7 +47,7 @@ namespace GameReViews.Model
             set 
             {
                 if (String.IsNullOrEmpty(value))
-                    return;
+                    throw new ArgumentException("String.IsNullOrEmpty(value)");
 
                 _nome = value; 
             }
@@ -58,9 +58,6 @@ namespace GameReViews.Model
             get { return _dataRilascio; }
             set
             {
-                if (_dataRilascio == null)
-                    return;
-
                 _dataRilascio = value; 
             }
         }
