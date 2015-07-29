@@ -9,15 +9,14 @@ namespace GameReViews.Model
     {
         private static Model _instance;
 
-        //per avere una funzione Load(), non possono essere readonly, tuttavia, possono essere 
+        //per fare una funzione Load(), non possono essere readonly, tuttavia, possono essere 
         //acceduti solo in lettura al di fuori del Model
         private Aspetti _aspetti;
         private UtentiRegistrati _utenti;
         private Recensioni _recensioni;
         private Videogiochi _videogiochi;
 
-        //Evento scatenato da Load di tutto,
-        //potrebbe non essere necessario
+        //Evento scatenato da Load di tutto
         public event EventHandler Loaded;
 
         public static Model GetInstance()
@@ -55,7 +54,7 @@ namespace GameReViews.Model
             this._utenti = loader.LoadUtentiRegistrati();
             this._recensioni = loader.LoadRecensioni();
 
-            OnLoaded();
+            OnChanged();
         }
 
         public void Save(IModelPersister persister)

@@ -56,9 +56,10 @@
     <Compile Include="Model\AspettiValori.cs" />
     <Compile Include="Model\AspettiValutati.cs" />
     <Compile Include="Model\Aspetto.cs" />
-    <Compile Include="Model\CalcoloValutazioneTotale.cs" />
+    <Compile Include="Model\ICalcoloValutazioneTotale.cs" />
     <Compile Include="Model\Commento.cs" />
     <Compile Include="Model\Genere.cs" />
+    <Compile Include="Model\IModelPersister.cs" />
     <Compile Include="Model\Model.cs" />
     <Compile Include="Model\Preferenze.cs" />
     <Compile Include="Model\Recensione.cs" />
@@ -68,6 +69,7 @@
     <Compile Include="Model\UtentiRegistrati.cs" />
     <Compile Include="Model\Videogiochi.cs" />
     <Compile Include="Model\Videogioco.cs" />
+    <Compile Include="Persistence\MockModelPersister.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -92,6 +94,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

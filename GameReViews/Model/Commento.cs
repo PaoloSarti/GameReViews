@@ -11,6 +11,8 @@ namespace GameReViews.Model
         private readonly List<Commento> _risposte;
         private UtenteRegistrato _autore;
 
+        public event EventHandler CommentoChanged;
+
         public Commento(String testo, UtenteRegistrato autore)
         {
             #region Precondizioni
@@ -32,7 +34,11 @@ namespace GameReViews.Model
         public String Testo
         {
             get { return _testo; }
-            set { _testo = value; }
+            set 
+            {
+                _testo = value;
+                OnCommentoChanged();
+            }
         }
 
         public void Rispondi(String testo, UtenteRegistrato autore)
@@ -40,6 +46,16 @@ namespace GameReViews.Model
             Commento child = new Commento(testo, autore);
 
             _risposte.Add(child);
+
+            OnCommentoChanged();
+        }
+
+        protected void OnCommentoChanged()
+        {
+            if (CommentoChanged != null)
+            {
+                CommentoChanged(null, EventArgs.Empty);
+            }
         }
     }
 }

@@ -16,6 +16,8 @@ namespace GameReViews.Model
         //Poichè Preferenze è una classe contenitore, anch'essa è readonly
         private readonly Preferenze _preferenze;
 
+        public event EventHandler UtenteChanged;
+
         public UtenteRegistrato(string nome, string password)
         {
             #region Precondizioni
@@ -54,6 +56,8 @@ namespace GameReViews.Model
             #endregion
 
             this._preferenze.Add(aspetto, valutazione);
+
+            OnChanged();
         }
 
         public void RemovePreferenza(Aspetto aspetto)
@@ -64,6 +68,8 @@ namespace GameReViews.Model
             #endregion
 
             _preferenze.Remove(aspetto);
+
+            OnChanged();
         }
 
         public void ModificaPreferenza(Aspetto aspetto, int valutazione)
@@ -76,6 +82,17 @@ namespace GameReViews.Model
             #endregion
 
             _preferenze.ModificaValutazione(aspetto, valutazione);
+
+            OnChanged();
         }
+
+        protected void OnChanged()
+        {
+            if(UtenteChanged!=null)
+            {
+                UtenteChanged(null, EventArgs.Empty);
+            }
+        }
+
     }
 }

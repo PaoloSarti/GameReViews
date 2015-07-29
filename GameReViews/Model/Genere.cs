@@ -7,10 +7,15 @@ namespace GameReViews.Model
 {
     public enum Genere
     {
+        AVVENTURA,
         AZIONE,
         FANTASY,
         HORROR,
         MMORP,
-        RPG
+        RPG,
+        CORSE,
+        INDIE,
+        SIMULAZIONE,
+        SPORT
     }
 }

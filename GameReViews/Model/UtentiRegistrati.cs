@@ -13,6 +13,8 @@ namespace GameReViews.Model
     {
         private HashSet<UtenteRegistrato> _utenti;
 
+        public event EventHandler UtentiChanged;
+
         public UtentiRegistrati()
         {
             this._utenti = new HashSet<UtenteRegistrato>();
@@ -37,7 +39,7 @@ namespace GameReViews.Model
         /* Verifica la presenza nella collezione dell'utente e ne restituisce il riferimento, altrimenti lancia eccezione
          * 
          */
-        public UtenteRegistrato Login(String nome, String password)
+        public UtenteRegistrato Autentica(String nome, String password)
         {
             #region Precondizioni
             if (String.IsNullOrEmpty(nome) || String.IsNullOrEmpty(password))
@@ -67,6 +69,16 @@ namespace GameReViews.Model
             //se l'utente è già registrato, lancio eccezione
             if(!_utenti.Add(utente))
                 throw new ArgumentException("!_utenti.Add(utente)");
+
+            OnChanged();
+        }
+
+        protected void OnChanged()
+        {
+            if (UtentiChanged != null)
+            {
+                UtentiChanged(null, EventArgs.Empty);
+            }
         }
 
     }
