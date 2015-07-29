@@ -13,6 +13,8 @@ namespace GameReViews.Model
     {
         private HashSet<UtenteRegistrato> _utenti;
 
+        public event EventHandler UtentiChanged;
+
         public UtentiRegistrati()
         {
             this._utenti = new HashSet<UtenteRegistrato>();
@@ -67,6 +69,16 @@ namespace GameReViews.Model
             //se l'utente è già registrato, lancio eccezione
             if(!_utenti.Add(utente))
                 throw new ArgumentException("!_utenti.Add(utente)");
+
+            OnChanged();
+        }
+
+        protected void OnChanged()
+        {
+            if (UtentiChanged != null)
+            {
+                UtentiChanged(null, EventArgs.Empty);
+            }
         }
 
     }
