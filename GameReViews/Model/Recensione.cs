@@ -14,8 +14,6 @@ namespace GameReViews.Model
         private readonly List<Commento> _commenti;
         private AspettiValutati _aspettiValutati;
 
-        public event EventHandler RecensioneChanged;
-
         public Recensione(Videogioco videogioco, string testo, Recensore autore)
         {
             #region Precondizioni
@@ -53,8 +51,7 @@ namespace GameReViews.Model
                     throw new ArgumentException("String.IsNullOrEmpty(value)");
                 #endregion
 
-                _testo = value;
-                OnRecensioneChanged();
+                _testo = value; 
             }
         }
 
@@ -83,8 +80,6 @@ namespace GameReViews.Model
             #endregion
 
             _aspettiValutati.Add(aspetto, valutazione);
-
-            OnRecensioneChanged();
         }
 
         public void RemoveAspettoValutato(Aspetto aspetto)
@@ -95,8 +90,6 @@ namespace GameReViews.Model
             #endregion
 
             _aspettiValutati.Remove(aspetto);
-
-            OnRecensioneChanged();
         }
 
         public void ModificaAspetto(Aspetto aspetto, int valutazione)
@@ -109,8 +102,6 @@ namespace GameReViews.Model
             #endregion
 
             _aspettiValutati.ModificaValutazione(aspetto, valutazione);
-
-            OnRecensioneChanged();
         }
 
         //Inserimento alla radice (lista di commenti della recensione)
@@ -119,19 +110,7 @@ namespace GameReViews.Model
             Commento child = new Commento(testo, autore);
 
             _commenti.Add(child);
-
-            OnRecensioneChanged();
         }
-
-        protected void OnRecensioneChanged()
-        {
-            if (RecensioneChanged != null)
-            {
-                RecensioneChanged(null, EventArgs.Empty);
-            }
-        }
-
-
 
 
     }

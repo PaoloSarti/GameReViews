@@ -13,8 +13,6 @@ namespace GameReViews.Model
     {
         private readonly HashSet<Videogioco> _videogiochiSet;
 
-        public event EventHandler VideogiochiChanged;
-
         public Videogiochi()
         {
             _videogiochiSet = new HashSet<Videogioco>();
@@ -36,8 +34,6 @@ namespace GameReViews.Model
 
             if (!success)
                 throw new InvalidOperationException("Videogioco già presente nel sistema");
-
-            OnChanged();
         }
 
         public void RemoveVideogioco(Videogioco videogioco)
@@ -53,17 +49,6 @@ namespace GameReViews.Model
 
             if (!_videogiochiSet.Remove(videogioco))
                 throw new ArgumentException("!_videogiochiSet.Remove(videogioco)");
-
-            OnChanged();
         }
-
-        protected void OnChanged()
-        {
-            if(VideogiochiChanged!=null)
-            {
-                VideogiochiChanged(null, EventArgs.Empty);
-            }
-        }
-
     }
 }

@@ -14,8 +14,6 @@ namespace GameReViews.Model
     {
         private readonly HashSet<Recensione> _recensioniSet;
 
-        public event EventHandler RecensioniChanged;
-
         public Recensioni()
         {
             _recensioniSet = new HashSet<Recensione>();
@@ -35,8 +33,6 @@ namespace GameReViews.Model
 
             if ( !_recensioniSet.Add(recensione) )
                 throw new InvalidOperationException("!_recensioniSet.Add(recensione)");
-
-            OnChanged();
         }
         
         public void RemoveRecensione(Recensione recensione)
@@ -50,16 +46,6 @@ namespace GameReViews.Model
                 recensione.Videogioco.Recensione = null;
             else
                 throw new ArgumentException("_recensioneSet.Remove(recensione)");
-
-            OnChanged();
-        }
-
-        protected void OnChanged()
-        {
-            if (RecensioniChanged != null)
-            {
-                RecensioniChanged(null, EventArgs.Empty);
-            }
         }
     }
 }
