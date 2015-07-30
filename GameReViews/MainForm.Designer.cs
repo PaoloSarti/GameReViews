@@ -1,6 +1,6 @@
 ﻿namespace GameReViews
 {
-    partial class _root
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -47,7 +47,6 @@
             this._toolbar.Name = "_toolbar";
             this._toolbar.Size = new System.Drawing.Size(696, 100);
             this._toolbar.TabIndex = 0;
-            this._toolbar.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // _utenteButton
             // 
@@ -110,7 +109,6 @@
             this._viewsContainer.Name = "_viewsContainer";
             this._viewsContainer.Size = new System.Drawing.Size(696, 436);
             this._viewsContainer.TabIndex = 1;
-            this._viewsContainer.Paint += new System.Windows.Forms.PaintEventHandler(this._viewsContainer_Paint);
             // 
             // _root
             // 

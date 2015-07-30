@@ -9,94 +9,117 @@ using System.Windows.Forms;
 
 namespace GameReViews
 {
-    public partial class _root : Form
+    public partial class MainForm : Form
     {
 
         private Control _currentControl;
 
-        private CustomListView _recensioniListView;
-        private UserProfileView _userProfile;
+        private CustomDataGridView _recensioniView;
+        private VideogiochiView _videogiochiView;
+        private UserProfileView _userProfileView;
 
-        public _root()
+        public MainForm()
         {
             InitializeComponent();
 
-            _recensioniListView = new CustomListView();
-            _userProfile = new UserProfileView();
+            _recensioniView = new CustomDataGridView();
+            _videogiochiView = new VideogiochiView();
+            _userProfileView = new UserProfileView();
 
-            fetchData();
+            _recensioniView.Dock = DockStyle.Fill;
+            _userProfileView.Dock = DockStyle.Fill;
+            _videogiochiView.Dock = DockStyle.Fill;
 
-            _recensioniListView.Dock = DockStyle.Fill;
-            _userProfile.Dock = DockStyle.Fill;
-
-            _viewsContainer.Controls.Add(_recensioniListView);
-            _currentControl = _recensioniListView;
+            // da toligere quando avremo i dati
+            _recensioniButton_Click(null, null);
         }
 
-        private void fetchData()
+        private void fetchData(string[] columns, string[][] rows, CustomDataGridView view)
         {
-            string[] columns = new string[] { "Nome Gioco", "Nome Recensore", "Valutazione" };
-            _recensioniListView.addColumns(columns);
-
-            string[][] rows = new string[10][];
-            rows[0] = new string[] { "Nome Gioco", "Nome recensore", "Valutazione" };
-            rows[1] = new string[] { "Nome Gioco", "Nome recensore", "Valutazione" };
-            rows[2] = new string[] { "Nome Gioco", "Nome recensore", "Valutazione" };
-            rows[3] = new string[] { "Nome Gioco", "Nome recensore", "Valutazione" };
-            rows[4] = new string[] { "Nome Gioco", "Nome recensore", "Valutazione" };
-            rows[5] = new string[] { "Nome Gioco", "Nome recensore", "Valutazione" };
-            rows[6] = new string[] { "Nome Gioco", "Nome recensore", "Valutazione" };
-            rows[7] = new string[] { "Nome Gioco", "Nome recensore", "Valutazione" };
-            rows[8] = new string[] { "Nome Gioco", "Nome recensore", "Valutazione" };
-            rows[9] = new string[] { "Nome Gioco", "Nome recensore", "Valutazione" };
-            _recensioniListView.addRows(rows);
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void _dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
+            view.addColumns(columns);
+            view.addRows(rows);
         }
 
         private void _recensioniButton_Click(object sender, EventArgs e)
         {
-            if (_currentControl != _recensioniListView)
+            if (_currentControl != _recensioniView)
             {
                 _viewsContainer.Controls.Remove(_currentControl);
-                _viewsContainer.Controls.Add(_recensioniListView);
+                _viewsContainer.Controls.Add(_recensioniView);
 
-                _currentControl = _recensioniListView;
+                _currentControl = _recensioniView;
+
+                string[] columns = new string[] { "Nome Gioco", "Nome Recensore", "Valutazione" };
+                _recensioniView.addColumns(columns);
+
+                string[][] rows = new string[10][];
+                rows[0] = new string[] { "Nome Gioco", "Nome recensore", "Valutazione" };
+                rows[1] = new string[] { "Nome Gioco", "Nome recensore", "Valutazione" };
+                rows[2] = new string[] { "Nome Gioco", "Nome recensore", "Valutazione" };
+                rows[3] = new string[] { "Nome Gioco", "Nome recensore", "Valutazione" };
+                rows[4] = new string[] { "Nome Gioco", "Nome recensore", "Valutazione" };
+                rows[5] = new string[] { "Nome Gioco", "Nome recensore", "Valutazione" };
+                rows[6] = new string[] { "Nome Gioco", "Nome recensore", "Valutazione" };
+                rows[7] = new string[] { "Nome Gioco", "Nome recensore", "Valutazione" };
+                rows[8] = new string[] { "Nome Gioco", "Nome recensore", "Valutazione" };
+                rows[9] = new string[] { "Nome Gioco", "Nome recensore", "Valutazione" };
+
+                fetchData(columns, rows, _recensioniView);
             }
         }
 
         private void _videogiochiButton_Click(object sender, EventArgs e)
         {
-            
+            if (_currentControl != _videogiochiView)
+            {
+                _viewsContainer.Controls.Remove(_currentControl);
+                _viewsContainer.Controls.Add(_videogiochiView);
+
+                _currentControl = _videogiochiView;
+
+                string[] columns = new string[] { "Nome", "Recensito" };
+
+                string[][] rows = new string[10][];
+                rows[0] = new string[] { "Nome", "SI/NO" };
+                rows[1] = new string[] { "Nome", "SI/NO" };
+                rows[2] = new string[] { "Nome", "SI/NO" };
+                rows[3] = new string[] { "Nome", "SI/NO" };
+                rows[4] = new string[] { "Nome", "SI/NO" };
+                rows[5] = new string[] { "Nome", "SI/NO" };
+                rows[6] = new string[] { "Nome", "SI/NO" };
+                rows[7] = new string[] { "Nome", "SI/NO" };
+                rows[8] = new string[] { "Nome", "SI/NO" };
+                rows[9] = new string[] { "Nome", "SI/NO" };
+
+                fetchData(columns, rows, _videogiochiView.getCustomDataGrid());
+            }
         }
 
         private void _utenteButton_Click(object sender, EventArgs e)
         {
-            if (_currentControl != _userProfile)
+            if (_currentControl != _userProfileView)
             {
                 _viewsContainer.Controls.Remove(_currentControl);
-                _viewsContainer.Controls.Add(_userProfile);
+                _viewsContainer.Controls.Add(_userProfileView);
 
-                _currentControl = _userProfile;
+                _currentControl = _userProfileView;
+
+                string[] columns = new string[] { "Preferenza", "Peso" };
+
+                string[][] rows = new string[10][];
+                rows[0] = new string[] { "Grafica", "10" };
+                rows[1] = new string[] { "Grafica", "10" };
+                rows[2] = new string[] { "Grafica", "10" };
+                rows[3] = new string[] { "Grafica", "10" };
+                rows[4] = new string[] { "Grafica", "10" };
+                rows[5] = new string[] { "Grafica", "10" };
+                rows[6] = new string[] { "Grafica", "10" };
+                rows[7] = new string[] { "Grafica", "10" };
+                rows[8] = new string[] { "Grafica", "10" };
+                rows[9] = new string[] { "Grafica", "10" };
+
+                fetchData(columns, rows, _userProfileView.getCustomDataGrid());
             }
-        }
-
-        private void _viewsContainer_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

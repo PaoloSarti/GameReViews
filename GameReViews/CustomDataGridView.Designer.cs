@@ -1,6 +1,6 @@
 ﻿namespace GameReViews
 {
-    partial class CustomListView
+    partial class CustomDataGridView
     {
         /// <summary> 
         /// Required designer variable.

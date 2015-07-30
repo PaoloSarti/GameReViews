@@ -34,9 +34,9 @@
             this._aggiungiPreferenza = new System.Windows.Forms.Button();
             this._preferenzeLabel = new System.Windows.Forms.Label();
             this._userInfoPanel = new System.Windows.Forms.Panel();
-            this._userName = new System.Windows.Forms.Label();
-            this._preferenzeList = new GameReViews.CustomListView();
             this.circularPictureBox1 = new CircularPictureBox();
+            this._userName = new System.Windows.Forms.Label();
+            this._preferenzeList = new GameReViews.CustomDataGridView();
             this._userInfoContainer_root.SuspendLayout();
             this._userInfoContainer.SuspendLayout();
             this._preferenzeControlPanel.SuspendLayout();
@@ -53,7 +53,6 @@
             this._userInfoContainer_root.Name = "_userInfoContainer_root";
             this._userInfoContainer_root.Size = new System.Drawing.Size(883, 619);
             this._userInfoContainer_root.TabIndex = 0;
-            this._userInfoContainer_root.Paint += new System.Windows.Forms.PaintEventHandler(this._userInfoContainer_root_Paint);
             // 
             // _userInfoContainer
             // 
@@ -90,7 +89,6 @@
             this._aggiungiPreferenza.TabIndex = 1;
             this._aggiungiPreferenza.Text = "Aggiungi preferenza";
             this._aggiungiPreferenza.UseVisualStyleBackColor = false;
-            this._aggiungiPreferenza.Click += new System.EventHandler(this._aggiungiPreferenza_Click);
             // 
             // _preferenzeLabel
             // 
@@ -112,7 +110,17 @@
             this._userInfoPanel.Name = "_userInfoPanel";
             this._userInfoPanel.Size = new System.Drawing.Size(849, 234);
             this._userInfoPanel.TabIndex = 3;
-            this._userInfoPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // circularPictureBox1
+            // 
+            this.circularPictureBox1.BackColor = System.Drawing.Color.Purple;
+            this.circularPictureBox1.Image = global::GameReViews.Properties.Resources.nonsensCapture;
+            this.circularPictureBox1.Location = new System.Drawing.Point(71, 21);
+            this.circularPictureBox1.Name = "circularPictureBox1";
+            this.circularPictureBox1.Size = new System.Drawing.Size(223, 204);
+            this.circularPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.circularPictureBox1.TabIndex = 2;
+            this.circularPictureBox1.TabStop = false;
             // 
             // _userName
             // 
@@ -131,17 +139,6 @@
             this._preferenzeList.Name = "_preferenzeList";
             this._preferenzeList.Size = new System.Drawing.Size(849, 307);
             this._preferenzeList.TabIndex = 6;
-            // 
-            // circularPictureBox1
-            // 
-            this.circularPictureBox1.BackColor = System.Drawing.Color.Purple;
-            this.circularPictureBox1.Image = global::GameReViews.Properties.Resources.nonsensCapture;
-            this.circularPictureBox1.Location = new System.Drawing.Point(71, 21);
-            this.circularPictureBox1.Name = "circularPictureBox1";
-            this.circularPictureBox1.Size = new System.Drawing.Size(223, 204);
-            this.circularPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.circularPictureBox1.TabIndex = 2;
-            this.circularPictureBox1.TabStop = false;
             // 
             // UserProfileView
             // 
@@ -169,8 +166,8 @@
         private System.Windows.Forms.Panel _userInfoContainer;
         private System.Windows.Forms.Panel _userInfoPanel;
         private System.Windows.Forms.Panel _preferenzeControlPanel;
-        private CustomListView _preferenzeList;
         private System.Windows.Forms.Button _aggiungiPreferenza;
         private System.Windows.Forms.Label _preferenzeLabel;
+        private CustomDataGridView _preferenzeList;
     }
 }

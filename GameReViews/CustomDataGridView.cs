@@ -9,15 +9,12 @@ using System.Windows.Forms;
 
 namespace GameReViews
 {
-    public partial class CustomListView : UserControl
+    public partial class CustomDataGridView : UserControl
     {
 
-        public CustomListView()
+        public CustomDataGridView()
         {
             InitializeComponent();
-
-            //Control[] controls = listView.Controls.Find("_dataGridView", true);
-            //DataGridView dgw = (DataGridView)controls[0];
 
             _dataGridView.ColumnCount = 3;
             _dataGridView.Name = "dataGridViewName";

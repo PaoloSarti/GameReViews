@@ -49,11 +49,11 @@
     <Compile Include="CircularPictureBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="CustomListView.cs">
+    <Compile Include="CustomDataGridView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomListView.Designer.cs">
-      <DependentUpon>CustomListView.cs</DependentUpon>
+    <Compile Include="CustomDataGridView.Designer.cs">
+      <DependentUpon>CustomDataGridView.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -87,8 +87,14 @@
     <Compile Include="UserProfileView.Designer.cs">
       <DependentUpon>UserProfileView.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="CustomListView.resx">
-      <DependentUpon>CustomListView.cs</DependentUpon>
+    <Compile Include="VideogiochiView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="VideogiochiView.Designer.cs">
+      <DependentUpon>VideogiochiView.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="CustomDataGridView.resx">
+      <DependentUpon>CustomDataGridView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -105,6 +111,9 @@
     </Compile>
     <EmbeddedResource Include="UserProfileView.resx">
       <DependentUpon>UserProfileView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VideogiochiView.resx">
+      <DependentUpon>VideogiochiView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
