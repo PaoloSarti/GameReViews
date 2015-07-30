@@ -17,6 +17,7 @@ namespace GameReViews
         private CustomDataGridView _recensioniView;
         private VideogiochiView _videogiochiView;
         private UserProfileView _userProfileView;
+        private LogSignInView _logSignInView;
 
         public MainForm()
         {
@@ -26,9 +27,12 @@ namespace GameReViews
             _videogiochiView = new VideogiochiView();
             _userProfileView = new UserProfileView();
 
+            _logSignInView = new LogSignInView();
+
             _recensioniView.Dock = DockStyle.Fill;
             _userProfileView.Dock = DockStyle.Fill;
             _videogiochiView.Dock = DockStyle.Fill;
+            _logSignInView.Dock = DockStyle.Fill;
 
             // da toligere quando avremo i dati
             _recensioniButton_Click(null, null);
@@ -97,6 +101,7 @@ namespace GameReViews
 
         private void _utenteButton_Click(object sender, EventArgs e)
         {
+
             if (_currentControl != _userProfileView)
             {
                 _viewsContainer.Controls.Remove(_currentControl);

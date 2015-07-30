@@ -81,6 +81,12 @@
     <Compile Include="Persistence\MockModelPersister.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="LogSignInView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LogSignInView.Designer.cs">
+      <DependentUpon>LogSignInView.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserProfileView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -109,6 +115,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="LogSignInView.resx">
+      <DependentUpon>LogSignInView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserProfileView.resx">
       <DependentUpon>UserProfileView.cs</DependentUpon>
     </EmbeddedResource>
@@ -127,6 +136,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\nonsensCapture.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_exit_to_app_white_48dp.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
