@@ -12,7 +12,7 @@ namespace GameReViews.Persistence
     {
         public IModelLoader GetLoader()
         {
-            throw new NotImplementedException();
+            return new MockModelLoader();
         }
 
         public void Save(Model.Model model)
@@ -109,7 +109,7 @@ namespace GameReViews.Persistence
             r2.AddPreferenza(new Aspetto("aspetto4", "descrizione4"), 2);
             r2.AddPreferenza(new Aspetto("aspetto5", "descrizione5"), 5);
 
-            r2.AddPreferenza(new Aspetto("aspetto1", "descrizione1"), 7);
+            r3.AddPreferenza(new Aspetto("aspetto1", "descrizione1"), 7);
             r3.AddPreferenza(new Aspetto("aspetto2", "descrizione2"), 4);
             r3.AddPreferenza(new Aspetto("aspetto3", "descrizione3"), 1);
             r3.AddPreferenza(new Aspetto("aspetto4", "descrizione4"), 2);

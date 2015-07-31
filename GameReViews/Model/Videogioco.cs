@@ -29,7 +29,7 @@ namespace GameReViews.Model
             this._recensione = null;
 
             // TODO
-            this._image = Image.FromFile("default_image_videogioco");
+            //this._image = Image.FromFile("default_image_videogioco");
         }
 
         public Videogioco(string nome, DateTime dataRilascio, Genere genere, Image image) 

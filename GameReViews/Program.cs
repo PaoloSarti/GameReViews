@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GameReViews.Persistence;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
@@ -13,6 +14,8 @@ namespace GameReViews
         [STAThread]
         static void Main()
         {
+            Model.Model.GetInstance().Load(new MockModelPersister());
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());
