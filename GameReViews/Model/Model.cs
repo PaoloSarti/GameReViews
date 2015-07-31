@@ -34,9 +34,10 @@ namespace GameReViews.Model
         private Model()
         {
             _aspetti = new Aspetti();
-            _utenti = new UtentiRegistrati();
-            _recensioni = new Recensioni();
-            _videogiochi = new Videogiochi();
+            //si prendono i riferimenti dal loader
+            //_utenti = new UtentiRegistrati();
+            //_recensioni = new Recensioni();
+            //_videogiochi = new Videogiochi();
         }
 
         #region Persistenza

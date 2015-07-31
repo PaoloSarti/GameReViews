@@ -46,7 +46,7 @@ namespace GameReViews.Model
             return this._preferenze.AspettiValutati;
         }
 
-        public void AddPreferenza(Aspetto aspetto, int valutazione)
+        public virtual void AddPreferenza(Aspetto aspetto, int valutazione)
         {
             #region Precondizioni
             if (aspetto == null)
@@ -60,7 +60,7 @@ namespace GameReViews.Model
             OnChanged();
         }
 
-        public void RemovePreferenza(Aspetto aspetto)
+        public virtual void RemovePreferenza(Aspetto aspetto)
         {
             #region Precondizioni
             if (aspetto == null)
@@ -72,7 +72,7 @@ namespace GameReViews.Model
             OnChanged();
         }
 
-        public void ModificaPreferenza(Aspetto aspetto, int valutazione)
+        public virtual void ModificaPreferenza(Aspetto aspetto, int valutazione)
         {
             #region Precondizioni
             if (aspetto == null)
@@ -86,7 +86,7 @@ namespace GameReViews.Model
             OnChanged();
         }
 
-        protected void OnChanged()
+        protected virtual void OnChanged()
         {
             if(UtenteChanged!=null)
             {
