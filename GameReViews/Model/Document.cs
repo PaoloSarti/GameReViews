@@ -5,9 +5,9 @@ using System.Text;
 
 namespace GameReViews.Model
 {
-    public class Model
+    public class Document
     {
-        private static Model _instance;
+        private static Document _instance;
 
         //per avere una funzione Load(), non possono essere readonly, tuttavia, possono essere 
         //acceduti solo in lettura al di fuori del Model
@@ -20,18 +20,18 @@ namespace GameReViews.Model
         //potrebbe non essere necessario
         public event EventHandler Loaded;
 
-        public static Model GetInstance()
+        public static Document GetInstance()
         {
             if (_instance == null) 
             {
-                _instance = new Model();
+                _instance = new Document();
                 return _instance;
             }
             else
                 return _instance;
         }
 
-        private Model()
+        private Document()
         {
             _aspetti = new Aspetti();
             //si prendono i riferimenti dal loader
@@ -52,9 +52,9 @@ namespace GameReViews.Model
             IModelLoader loader = persister.GetLoader();
 
             //gli aspetti vengono popolati automaticamente utilizando i metodi di AspettiValori e figli (AspettiValutati e Preferenze)
-            this._videogiochi = loader.LoadVideogiochi();
-            this._utenti = loader.LoadUtentiRegistrati();
-            this._recensioni = loader.LoadRecensioni();
+            this._videogiochi = loader.GetVideogiochi();
+            this._utenti = loader.GetUtentiRegistrati();
+            this._recensioni = loader.GetRecensioni();
 
             OnLoaded();
         }

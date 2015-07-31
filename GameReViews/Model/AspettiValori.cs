@@ -51,7 +51,7 @@ namespace GameReViews.Model
                 this._aspettiValori.Remove(aspetto);
 
                 // aggiorna il reference counter degli aspetti
-                Model.GetInstance().Aspetti.Remove(aspetto);
+                Document.GetInstance().Aspetti.Remove(aspetto);
             }
         }
 

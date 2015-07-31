@@ -15,7 +15,7 @@ namespace GameReViews.Persistence
             return new MockModelLoader();
         }
 
-        public void Save(Model.Model model)
+        public void Save(Model.Document model)
         {
             //nel Mock non salvo nulla
             return;
@@ -151,17 +151,17 @@ namespace GameReViews.Persistence
         }
 
 
-        public Videogiochi LoadVideogiochi()
+        public Videogiochi GetVideogiochi()
         {
             return this._videogiochi;
         }
 
-        public Recensioni LoadRecensioni()
+        public Recensioni GetRecensioni()
         {
             return this._recensioni;
         }
 
-        public UtentiRegistrati LoadUtentiRegistrati()
+        public UtentiRegistrati GetUtentiRegistrati()
         {
             return this._utenti;
         }

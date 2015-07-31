@@ -10,19 +10,19 @@ namespace GameReViews.Model
     {
         IModelLoader GetLoader();
 
-        void Save(Model model);
+        void Save(Document model);
     }
 
     public interface IModelLoader
     {
-        Videogiochi LoadVideogiochi();
+        Videogiochi GetVideogiochi();
 
-        Recensioni LoadRecensioni();
+        Recensioni GetRecensioni();
 
         //gli aspetti vengono popolati automaticamente dal reference counting
         //Aspetti LoadAspetti();
 
-        UtentiRegistrati LoadUtentiRegistrati();
+        UtentiRegistrati GetUtentiRegistrati();
     }
 
 

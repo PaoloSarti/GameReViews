@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GameReViews.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -56,7 +57,14 @@ namespace GameReViews
                 string[] columns = new string[] { "Nome Gioco", "Nome Recensore", "Valutazione" };
                 _recensioniView.addColumns(columns);
 
-                string[][] rows = new string[10][];
+                string[][] rows = new string[Document.GetInstance().Recensioni.List.Count()][];
+                int i = 0;
+                foreach (Recensione r in Document.GetInstance().Recensioni.List) {
+                    rows[i] = new string[] { r.Videogioco.Nome, r.Autore.Nome, "NaN" };
+                    i++;
+                }
+
+                /*
                 rows[0] = new string[] { "Nome Gioco", "Nome recensore", "Valutazione" };
                 rows[1] = new string[] { "Nome Gioco", "Nome recensore", "Valutazione" };
                 rows[2] = new string[] { "Nome Gioco", "Nome recensore", "Valutazione" };
@@ -67,6 +75,7 @@ namespace GameReViews
                 rows[7] = new string[] { "Nome Gioco", "Nome recensore", "Valutazione" };
                 rows[8] = new string[] { "Nome Gioco", "Nome recensore", "Valutazione" };
                 rows[9] = new string[] { "Nome Gioco", "Nome recensore", "Valutazione" };
+                 */
 
                 fetchData(columns, rows, _recensioniView);
             }
@@ -83,6 +92,15 @@ namespace GameReViews
 
                 string[] columns = new string[] { "Nome", "Recensito" };
 
+                string[][] rows = new string[Document.GetInstance().Videogiochi.List.Count()][];
+                int i = 0;
+                foreach (Videogioco v in Document.GetInstance().Videogiochi.List)
+                {
+                    rows[i] = new string[] { v.Nome, v.Recensione == null ? "NO" : "SI" };
+                    i++;
+                }
+
+                /*
                 string[][] rows = new string[10][];
                 rows[0] = new string[] { "Nome", "SI/NO" };
                 rows[1] = new string[] { "Nome", "SI/NO" };
@@ -94,6 +112,7 @@ namespace GameReViews
                 rows[7] = new string[] { "Nome", "SI/NO" };
                 rows[8] = new string[] { "Nome", "SI/NO" };
                 rows[9] = new string[] { "Nome", "SI/NO" };
+                 */
 
                 fetchData(columns, rows, _videogiochiView.getCustomDataGrid());
             }

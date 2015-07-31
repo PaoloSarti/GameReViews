@@ -27,7 +27,7 @@ namespace GameReViews.Model
                  //    select recensione;
 
                 //solo con lambda, non c'è bisogno di usare linq in questo caso
-                return Model.GetInstance().Recensioni.List.Where(r => r.Autore.Equals(this));
+                return Document.GetInstance().Recensioni.List.Where(r => r.Autore.Equals(this));
             }
         }
 

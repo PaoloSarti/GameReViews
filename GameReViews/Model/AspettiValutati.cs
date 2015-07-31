@@ -33,7 +33,7 @@ namespace GameReViews.Model
             }
 
             // aggiorno reference counting
-            Model.GetInstance().Aspetti.Add(aspetto);
+            Document.GetInstance().Aspetti.Add(aspetto);
         }
     }
 }

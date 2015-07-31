@@ -21,7 +21,7 @@ namespace GameReViews.Model
                 this._aspettiValori = new Dictionary<Aspetto, int>();
 
             // un utente non può inserire nuovi aspetti nel sistema
-            if (!Model.GetInstance().Aspetti.Contains(aspetto))
+            if (!Document.GetInstance().Aspetti.Contains(aspetto))
                 throw new ArgumentException("!Model.getInstance().Aspetti.Contains(aspetto)");
             #endregion
 
@@ -36,7 +36,7 @@ namespace GameReViews.Model
             }
 
             // aggiorno reference counting
-            Model.GetInstance().Aspetti.Add(aspetto);
+            Document.GetInstance().Aspetti.Add(aspetto);
         }
     }
 }

@@ -14,7 +14,7 @@ namespace GameReViews
         [STAThread]
         static void Main()
         {
-            Model.Model.GetInstance().Load(new MockModelPersister());
+            Model.Document.GetInstance().Load(new MockModelPersister());
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
