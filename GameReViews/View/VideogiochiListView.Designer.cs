@@ -1,6 +1,6 @@
 ﻿namespace GameReViews
 {
-    partial class VideogiochiView
+    partial class VideogiochiListView
     {
         /// <summary> 
         /// Required designer variable.

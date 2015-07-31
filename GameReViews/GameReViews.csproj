@@ -93,11 +93,29 @@
     <Compile Include="View\UserProfileView.Designer.cs">
       <DependentUpon>UserProfileView.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\VideogiochiView.cs">
+    <Compile Include="View\VideogicoNoReviewDetailView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\VideogiochiView.Designer.cs">
-      <DependentUpon>VideogiochiView.cs</DependentUpon>
+    <Compile Include="View\VideogicoNoReviewDetailView.Designer.cs">
+      <DependentUpon>VideogicoNoReviewDetailView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\VideogiochiListView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\VideogiochiListView.Designer.cs">
+      <DependentUpon>VideogiochiListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\VideogiocoReviewDetailView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\VideogiocoReviewDetailView.Designer.cs">
+      <DependentUpon>VideogiocoReviewDetailView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\VideogiocoRootView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\VideogiocoRootView.Designer.cs">
+      <DependentUpon>VideogiocoRootView.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="View\CustomDataGridView.resx">
       <DependentUpon>CustomDataGridView.cs</DependentUpon>
@@ -121,8 +139,17 @@
     <EmbeddedResource Include="View\UserProfileView.resx">
       <DependentUpon>UserProfileView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\VideogiochiView.resx">
-      <DependentUpon>VideogiochiView.cs</DependentUpon>
+    <EmbeddedResource Include="View\VideogicoNoReviewDetailView.resx">
+      <DependentUpon>VideogicoNoReviewDetailView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\VideogiochiListView.resx">
+      <DependentUpon>VideogiochiListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\VideogiocoReviewDetailView.resx">
+      <DependentUpon>VideogiocoReviewDetailView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\VideogiocoRootView.resx">
+      <DependentUpon>VideogiocoRootView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -1,6 +1,6 @@
 ﻿namespace GameReViews
 {
-    partial class UserProfileView
+    partial class VideogiocoRootView
     {
         /// <summary> 
         /// Required designer variable.
@@ -140,12 +140,12 @@
             this._preferenzeList.Size = new System.Drawing.Size(849, 307);
             this._preferenzeList.TabIndex = 6;
             // 
-            // UserProfileView
+            // VideogiocoRootView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this._userInfoContainer_root);
-            this.Name = "UserProfileView";
+            this.Name = "VideogiocoRootView";
             this.Size = new System.Drawing.Size(883, 619);
             this._userInfoContainer_root.ResumeLayout(false);
             this._userInfoContainer.ResumeLayout(false);

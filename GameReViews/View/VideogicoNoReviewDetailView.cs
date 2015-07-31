@@ -7,18 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace GameReViews
+namespace GameReViews.View
 {
-    public partial class VideogiocoRootView : UserControl
+    public partial class VideogicoNoReviewDetailView : UserControl
     {
-        public VideogiocoRootView()
+        public VideogicoNoReviewDetailView()
         {
             InitializeComponent();
-        }
-
-        public CustomDataGridView getCustomDataGrid()
-        {
-            return _preferenzeList;
         }
     }
 }

@@ -16,8 +16,8 @@ namespace GameReViews
         private Control _currentControl;
 
         private CustomDataGridView _recensioniView;
-        private VideogiochiView _videogiochiView;
-        private UserProfileView _userProfileView;
+        private VideogiochiListView _videogiochiView;
+        private VideogiocoRootView _userProfileView;
         private LogSignInView _logSignInView;
 
         public MainForm()
@@ -25,8 +25,8 @@ namespace GameReViews
             InitializeComponent();
 
             _recensioniView = new CustomDataGridView();
-            _videogiochiView = new VideogiochiView();
-            _userProfileView = new UserProfileView();
+            _videogiochiView = new VideogiochiListView();
+            _userProfileView = new VideogiocoRootView();
 
             _logSignInView = new LogSignInView();
 
