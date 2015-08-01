@@ -104,6 +104,7 @@ namespace GameReViews
             }
         }
 
+        // serve una classe AspettoValore con due campi: Aspetto e string/int valore
         private void _utenteButton_Click(object sender, EventArgs e)
         {
 
@@ -127,8 +128,6 @@ namespace GameReViews
                 rows[7] = new string[] { "Grafica", "10" };
                 rows[8] = new string[] { "Grafica", "10" };
                 rows[9] = new string[] { "Grafica", "10" };
-
-                //fetchData(columns, rows, _userProfileView.getCustomDataGrid());
             }
         }
     }

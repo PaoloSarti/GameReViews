@@ -12,19 +12,23 @@ namespace GameReViews.View
 {
     public partial class VideogiocoRootView : UserControl
     {
-        public VideogiocoRootView()
+        private Videogioco _videogioco;
+        private Recensione _recensione;
+
+        private VideogiocoRootView()
         {
             InitializeComponent();
         }
-
-        private Videogioco _videogioco;
-        private Recensione _recensione;
 
 
         public VideogiocoRootView(Videogioco videogiocoSelezionato, Recensione recensione) : this()
         {
             _videogioco = videogiocoSelezionato;
             _recensione = recensione;
+
+            _nomeVideogiocoLabel.Text = videogiocoSelezionato.Nome;
+            _dataVideogiocoLabel.Text = videogiocoSelezionato.DataRilascio.ToString();
+            _genereVideogiocoLabel.Text = videogiocoSelezionato.Genere.ToString();
 
             if (recensione == null)
             {
@@ -35,7 +39,7 @@ namespace GameReViews.View
             }
             else
             {
-                VideogiocoYesReviewDetailView recensioneView = new VideogiocoYesReviewDetailView();
+                VideogiocoYesReviewDetailView recensioneView = new VideogiocoYesReviewDetailView(_videogioco);
                 recensioneView.Dock = DockStyle.Fill;
 
                 _recensioneContainer.Controls.Add(recensioneView);

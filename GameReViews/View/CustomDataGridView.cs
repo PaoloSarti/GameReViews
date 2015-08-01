@@ -24,24 +24,6 @@ namespace GameReViews
             _dataGridView.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
 
             _dataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-
-            /*
-            var list = Document.GetInstance().Videogiochi.List.ToList();
-
-             _dataGridView.ColumnCount = 3;
-             _dataGridView.AutoGenerateColumns = false;
-
-            _dataGridView.Columns[0].Name = "Nome Gioco";
-            _dataGridView.Columns[0].DataPropertyName = "nome";
-            _dataGridView.Columns[1].Name = "Data Rilascio";
-            _dataGridView.Columns[1].DataPropertyName = "dataRilascio";
-            _dataGridView.Columns[2].Name = "Genere";
-            _dataGridView.Columns[2].DataPropertyName = "genere";
-
-            BindingList<Videogioco> bindingList = new BindingList<Videogioco>(list);
-            BindingSource source = new BindingSource(bindingList, null);
-            _dataGridView.DataSource = source;
-             * */
              
         }
 
@@ -58,30 +40,6 @@ namespace GameReViews
 
             _dataGridView.DataSource = source;
         }
-
-        /*
-        public void addColumns(string[] columns)
-        {
-            _dataGridView.ColumnCount = columns.Length;
-            for (int i = 0; i < columns.Length; i++)
-            {
-                _dataGridView.Columns[i].Name = columns[i];
-            }
-        }
-        */
-
-        /*
-        public void addRows(string[][] rows)
-        {
-            for (int i = 0; i < rows.Length; i++)
-            {
-                _dataGridView.Rows.Add(rows[i]);
-
-                // reminder
-                //_dataGridView.Rows[i].Tag = "lul";
-            }
-        }
-        */
 
             
         private void dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)

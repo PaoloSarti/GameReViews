@@ -57,5 +57,10 @@ namespace GameReViews.Model
             return _nome.GetHashCode();
         }
 
+        public override string ToString()
+        {
+            return _nome;
+        }
+
     }
 }
