@@ -12,7 +12,7 @@ namespace GameReViews
 {
     public partial class CustomDataGridView : UserControl
     {
-        public delegate void CellClickedDelegate(string nomeGioco);
+        public delegate void CellClickedDelegate(Videogioco videogiocoSelezionato);
 
         public event CellClickedDelegate CellClicked;
 
@@ -45,8 +45,9 @@ namespace GameReViews
              
         }
 
-        public void setDataSource(BindingSource source, string[][] headers)
+        public void setDataSource(View.VideogiochiFilter source, string[][] headers)
         {
+            _dataGridView.AutoGenerateColumns = false;
             _dataGridView.ColumnCount = headers.Length;
 
             for (int i = 0; i < headers.Length; i++)
@@ -85,13 +86,11 @@ namespace GameReViews
             
         private void dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            /*
-            if (CellClicked != null)
+            if (CellClicked != null && e.RowIndex != -1) // è -1 se è una cella dell'header
             {
-                string nomeGioco = _dataGridView.Rows[e.RowIndex].
-                CellClicked(sender, e);
+                Videogioco videogiocoSelezionato = (Videogioco) _dataGridView.Rows[e.RowIndex].DataBoundItem;
+                CellClicked(videogiocoSelezionato);
             }
-             */
 
 
             // reminder
