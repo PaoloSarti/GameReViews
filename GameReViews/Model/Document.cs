@@ -16,9 +16,12 @@ namespace GameReViews.Model
         private Recensioni _recensioni;
         private Videogiochi _videogiochi;
 
-        //Evento scatenato da Load di tutto,
-        //potrebbe non essere necessario
-        public event EventHandler Loaded;
+        private UtenteRegistrato _utenteCorrente;
+        private ICalcoloValutazioneTotale _calcolo;
+
+        //Evento scatenato da modifiche al livello dell'intero Document,
+        //come modifiche all'utente corrente, o caricamento dei dati
+        public event EventHandler Changed;
 
         public static Document GetInstance()
         {
@@ -34,6 +37,9 @@ namespace GameReViews.Model
         private Document()
         {
             _aspetti = new Aspetti();
+
+            _calcolo = CalcoloValutazioneTotaleFactory.GetCalcoloValutazioneTotale();
+
             //si prendono i riferimenti dal loader
             //_utenti = new UtentiRegistrati();
             //_recensioni = new Recensioni();
@@ -56,7 +62,7 @@ namespace GameReViews.Model
             this._utenti = loader.GetUtentiRegistrati();
             this._recensioni = loader.GetRecensioni();
 
-            OnLoaded();
+            OnChanged();
         }
 
         public void Save(IModelPersister persister)
@@ -70,7 +76,6 @@ namespace GameReViews.Model
         }
         #endregion
 
-
         #region Proprietà Classi Contenitore
         //Proprietà "readonly" per accedere alle classi contenitore 
         //in cui sono raggruppate le operazioni pubbliche
@@ -79,10 +84,11 @@ namespace GameReViews.Model
             get { return _aspetti; }
         }
 
-        public UtentiRegistrati Utenti
-        {
-            get { return _utenti; }
-        }
+        //per questa classe metto i metodi di Login e Registrazione 
+        //public UtentiRegistrati Utenti
+        //{
+        //    get { return _utenti; }
+        //}
 
         public Recensioni Recensioni
         {
@@ -95,47 +101,45 @@ namespace GameReViews.Model
         }
         #endregion
 
+        #region utente
 
-        //#region Liste
-        //public IEnumerable<Videogioco> GetVideogiochi()
-        //{
-        //    return _videogiochi.List;
-        //}
+        public void Registra(UtenteRegistrato utente)
+        {
+            this._utenti.Registra(utente);
+            _utenteCorrente = utente;
+            _calcolo = CalcoloValutazioneTotaleFactory.GetCalcoloValutazioneTotale(utente);
+            OnChanged();
+        }
 
-        //public IEnumerable<Recensione> GetRecensioni()
-        //{
-        //    return _recensioni.List;
-        //}
+        public UtenteRegistrato UtenteCorrente
+        {
+          get { return _utenteCorrente; }
+        }
 
-        //public IEnumerable<UtenteRegistrato> GetUtenti()
-        //{
-        //    return _utenti.List;
-        //}
+        public UtenteRegistrato Autentica(String nome, String password)
+        {
+            _utenteCorrente = _utenti.Autentica(nome, password);
+            _calcolo = CalcoloValutazioneTotaleFactory.GetCalcoloValutazioneTotale(_utenteCorrente);
+            OnChanged();
 
-        //public IEnumerable<Recensore> GetRecensori()
-        //{
-        //    return _utenti.List.OfType<Recensore>();
-        //}
+            return _utenteCorrente;
+        }
 
-        //public IEnumerable<Aspetto> GetAspetti()
-        //{
-        //    return _aspetti.List;
-        //}
-        //#endregion
+        public void Logout()
+        {
+            _utenteCorrente=null;
+            _calcolo = CalcoloValutazioneTotaleFactory.GetCalcoloValutazioneTotale();
+            OnChanged();
+        }
+        #endregion
 
+        public ICalcoloValutazioneTotale Calcolo
+        {
+            get { return _calcolo; }
+        }
 
         //#region Metodi Pubblici
         ////Il model agisce da Facade raccogliendo i metodi delle classi contenitore da presentare all'esterno        
-        //public void Registra(UtenteRegistrato utente)
-        //{
-        //    this._utenti.Registra(utente);
-        //    OnChanged();
-        //}
-
-        //public UtenteRegistrato Autentica(String nome, String password)
-        //{
-        //    return this._utenti.Autentica(nome, password);
-        //}
 
         //public void AddVideogioco(Videogioco videogioco)
         //{
@@ -164,10 +168,10 @@ namespace GameReViews.Model
         //#endregion
 
 
-        protected virtual void OnLoaded()
+        protected virtual void OnChanged()
         {
-            if (Loaded != null)
-                Loaded(this, EventArgs.Empty);
+            if (Changed != null)
+                Changed(this, EventArgs.Empty);
         }
     }
 }

@@ -9,7 +9,7 @@ using System.Text;
  */
 namespace GameReViews.Model
 {
-    interface ICalcoloValutazioneTotale
+    public interface ICalcoloValutazioneTotale
     {
          float Calcola(Recensione recensione);
     }
