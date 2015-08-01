@@ -55,6 +55,7 @@
     <Compile Include="View\CustomDataGridView.Designer.cs">
       <DependentUpon>CustomDataGridView.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\FilterBindingListAdapter.cs" />
     <Compile Include="View\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +94,7 @@
     <Compile Include="View\UserProfileView.Designer.cs">
       <DependentUpon>UserProfileView.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\VideogiochiFilter.cs" />
     <Compile Include="View\VideogiocoNoReviewDetailView.cs">
       <SubType>UserControl</SubType>
     </Compile>

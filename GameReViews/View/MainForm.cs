@@ -32,24 +32,46 @@ namespace GameReViews
 
             _logSignInView = new LogSignInView();
 
-            _recensioniView.CellClicked += onGioco_RecensioneSelectet;
-            _videogiochiView.getCustomDataGrid().CellClicked += onGioco_RecensioneSelectet;
+            _recensioniView.CellClicked += onVideogiocoSelected;
+            _videogiochiView.getCustomDataGrid().CellClicked += onVideogiocoSelected;
+
+            bindData();
 
             _recensioniView.Dock = DockStyle.Fill;
             _userProfileView.Dock = DockStyle.Fill;
             _videogiochiView.Dock = DockStyle.Fill;
             _logSignInView.Dock = DockStyle.Fill;
 
-            // da toligere quando avremo i dati
+            // hack per partire dalla schermata delle recensioni
             _recensioniButton_Click(null, null);
         }
 
-        // questo gestore di eventi penso andrà messo nel presenter
-        private void onGioco_RecensioneSelectet(string nomeVidegioco)
+        private void bindData()
         {
-            String nomeGiocoSelezionato = nomeVidegioco; //_rowsVideogiochi[((DataGridViewCellEventArgs)e).RowIndex][0];
+            string[][] headers = new string[3][];
+            headers[0] = new string[2] { "Nome Gioco", "nome" };
+            headers[1] = new string[2] { "Data Rilascio", "dataRilascio" };
+            headers[2] = new string[2] { "Genere", "genere" };
 
-            Videogioco videogiocoSelezionato = Document.GetInstance().Videogiochi.getVideogioco(nomeGiocoSelezionato);
+            IList<Videogioco> videogiochi = Document.GetInstance().Videogiochi.List.ToList();
+            BindingList<Videogioco> bindingList = new BindingList<Videogioco>(videogiochi);
+
+            // hanno la stessa sorgente dati, però nel caso delle recensioni è filtrata, per non far vedere i videogiochi senza recensione
+            VideogiochiFilter source_recensioni = new VideogiochiFilter(bindingList);
+            source_recensioni.Filter = "true";
+
+            VideogiochiFilter source_videogiochi = new VideogiochiFilter(bindingList);
+
+            _recensioniView.setDataSource(source_recensioni, headers);
+            _videogiochiView.getCustomDataGrid().setDataSource(source_videogiochi, headers);
+        }
+
+        // scatta quando si seleziona un item dalla lista. Fa vedere la vista dettagliata del videogioco e della relativa recensione (se presente)
+        private void onVideogiocoSelected(Videogioco videogioco)
+        {
+            //String nomeGiocoSelezionato = nomeVidegioco; //_rowsVideogiochi[((DataGridViewCellEventArgs)e).RowIndex][0];
+
+            Videogioco videogiocoSelezionato = videogioco;
             Recensione recensione = videogiocoSelezionato.Recensione;
 
             VideogiocoRootView root = new VideogiocoRootView(videogiocoSelezionato, recensione);
@@ -60,14 +82,6 @@ namespace GameReViews
             _currentControl = root;
         }
 
-        private void fetchData(string[] columns, string[][] rows, CustomDataGridView view)
-        {
-            //view.addColumns(columns);
-            //view.addRows(rows);
-        }
-
-        // bisognerà vedere come farlo nel presenter...
-        private string[][] _rowsVideogiochi;
         private void _recensioniButton_Click(object sender, EventArgs e)
         {
             if (_currentControl != _recensioniView)
@@ -76,31 +90,6 @@ namespace GameReViews
                 _viewsContainer.Controls.Add(_recensioniView);
 
                 _currentControl = _recensioniView;
-
-                string[] columns = new string[] { "Nome Gioco", "Nome Recensore", "Valutazione" };
-                // _recensioniView.addColumns(columns);
-                
-                string[][] row = new string[Document.GetInstance().Recensioni.List.Count()][];
-                int i = 0;
-                foreach (Recensione r in Document.GetInstance().Recensioni.List) {
-                    row[i] = new string[] { r.Videogioco.Nome, r.Autore.Nome, "NaN" };
-                    i++;
-                }
-
-                /*
-                rows[0] = new string[] { "Nome Gioco", "Nome recensore", "Valutazione" };
-                rows[1] = new string[] { "Nome Gioco", "Nome recensore", "Valutazione" };
-                rows[2] = new string[] { "Nome Gioco", "Nome recensore", "Valutazione" };
-                rows[3] = new string[] { "Nome Gioco", "Nome recensore", "Valutazione" };
-                rows[4] = new string[] { "Nome Gioco", "Nome recensore", "Valutazione" };
-                rows[5] = new string[] { "Nome Gioco", "Nome recensore", "Valutazione" };
-                rows[6] = new string[] { "Nome Gioco", "Nome recensore", "Valutazione" };
-                rows[7] = new string[] { "Nome Gioco", "Nome recensore", "Valutazione" };
-                rows[8] = new string[] { "Nome Gioco", "Nome recensore", "Valutazione" };
-                rows[9] = new string[] { "Nome Gioco", "Nome recensore", "Valutazione" };
-                 */
-
-                fetchData(columns, row, _recensioniView);
             }
         }
 
@@ -112,32 +101,6 @@ namespace GameReViews
                 _viewsContainer.Controls.Add(_videogiochiView);
 
                 _currentControl = _videogiochiView;
-
-                string[] columns = new string[] { "Nome", "Recensito" };
-
-                _rowsVideogiochi = new string[Document.GetInstance().Videogiochi.List.Count()][];
-                int i = 0;
-                foreach (Videogioco v in Document.GetInstance().Videogiochi.List)
-                {
-                    _rowsVideogiochi[i] = new string[] { v.Nome, v.Recensione == null ? "NO" : "SI" };
-                    i++;
-                }
-
-                /*
-                string[][] rows = new string[10][];
-                rows[0] = new string[] { "Nome", "SI/NO" };
-                rows[1] = new string[] { "Nome", "SI/NO" };
-                rows[2] = new string[] { "Nome", "SI/NO" };
-                rows[3] = new string[] { "Nome", "SI/NO" };
-                rows[4] = new string[] { "Nome", "SI/NO" };
-                rows[5] = new string[] { "Nome", "SI/NO" };
-                rows[6] = new string[] { "Nome", "SI/NO" };
-                rows[7] = new string[] { "Nome", "SI/NO" };
-                rows[8] = new string[] { "Nome", "SI/NO" };
-                rows[9] = new string[] { "Nome", "SI/NO" };
-                 */
-
-                //fetchData(columns, _rowsVideogiochi, _videogiochiView.getCustomDataGrid());
             }
         }
 
