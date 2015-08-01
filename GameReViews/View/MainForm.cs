@@ -48,6 +48,7 @@ namespace GameReViews
 
         private void bindData()
         {
+            // videogiochi (e recensioni)
             string[][] headers = new string[3][];
             headers[0] = new string[2] { "Nome Gioco", "nome" };
             headers[1] = new string[2] { "Data Rilascio", "dataRilascio" };
@@ -57,13 +58,28 @@ namespace GameReViews
             BindingList<Videogioco> bindingList = new BindingList<Videogioco>(videogiochi);
 
             // hanno la stessa sorgente dati, però nel caso delle recensioni è filtrata, per non far vedere i videogiochi senza recensione
-            VideogiochiFilter source_recensioni = new VideogiochiFilter(bindingList);
+            BindingSource source_recensioni = new BindingSource(bindingList, null);
             source_recensioni.Filter = "true";
 
-            VideogiochiFilter source_videogiochi = new VideogiochiFilter(bindingList);
+            BindingSource source_videogiochi = new BindingSource(bindingList, null);
 
             _recensioniView.setDataSource(source_recensioni, headers);
             _videogiochiView.getCustomDataGrid().setDataSource(source_videogiochi, headers);
+
+            // utente
+            if (Document.GetInstance().UtenteCorrente != null)
+            {
+                string[][] headersPreferenze = new string[2][];
+                headersPreferenze[0] = new string[2] { "Aspetto", "aspetto" };
+                headersPreferenze[1] = new string[2] { "Valutazione/Peso", "valore" };
+
+                IList<AspettoValore> preferenzeUtente = Document.GetInstance().UtenteCorrente.Preferenze.getAspettiValori().ToList();
+                BindingList<AspettoValore> bindingListPreferenze = new BindingList<AspettoValore>(preferenzeUtente);
+                BindingSource source_preferenze = new BindingSource(bindingListPreferenze, null);
+
+                _userProfileView.getCustomDataGrid().setDataSource(source_preferenze, headersPreferenze);
+            }
+
         }
 
         // scatta quando si seleziona un item dalla lista. Fa vedere la vista dettagliata del videogioco e della relativa recensione (se presente)
@@ -72,9 +88,8 @@ namespace GameReViews
             //String nomeGiocoSelezionato = nomeVidegioco; //_rowsVideogiochi[((DataGridViewCellEventArgs)e).RowIndex][0];
 
             Videogioco videogiocoSelezionato = videogioco;
-            Recensione recensione = videogiocoSelezionato.Recensione;
 
-            VideogiocoRootView root = new VideogiocoRootView(videogiocoSelezionato, recensione);
+            VideogiocoRootView root = new VideogiocoRootView(videogiocoSelezionato);
 
             root.Dock = DockStyle.Fill;
             _viewsContainer.Controls.Remove(_currentControl);

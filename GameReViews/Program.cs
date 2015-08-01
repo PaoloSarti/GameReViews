@@ -16,6 +16,8 @@ namespace GameReViews
         {
             Model.Document.GetInstance().Load(new MockModelPersister());
 
+            Model.Document.GetInstance().Autentica("utente1", "password1");
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());

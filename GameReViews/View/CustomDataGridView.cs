@@ -27,7 +27,7 @@ namespace GameReViews
              
         }
 
-        public void setDataSource(View.VideogiochiFilter source, string[][] headers)
+        public void setDataSource(BindingSource source, string[][] headers)
         {
             _dataGridView.AutoGenerateColumns = false;
             _dataGridView.ColumnCount = headers.Length;

@@ -36,6 +36,11 @@ namespace GameReViews.Model
             }
         }
 
+        public IEnumerable<AspettoValore> getAspettiValori()
+        {
+            return from aspettoValore in _aspettiValori select new AspettoValore(aspettoValore.Key, aspettoValore.Value);
+        }
+
         public void Remove(Aspetto aspetto)
         {
             #region Precondizioni
@@ -90,5 +95,27 @@ namespace GameReViews.Model
 
             return res;
         }
+    }
+
+    public class AspettoValore
+    {
+        private readonly Aspetto _aspetto;
+        private readonly int _valore;
+
+        public AspettoValore(Aspetto aspetto, int valore)
+        {
+            _aspetto = aspetto;
+            _valore = valore;
+        }
+
+        public Aspetto Aspetto
+        {
+            get { return _aspetto; }
+        }
+
+        public int Valore
+        {
+            get { return _valore; }
+        } 
     }
 }

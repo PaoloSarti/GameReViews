@@ -22,6 +22,26 @@ namespace GameReViews.View
         public VideogiocoYesReviewDetailView(Videogioco videogioco) : this()
         {
             _videogioco = videogioco;
+
+            bindData();
+        }
+
+        private void bindData()
+        {
+            string[][] headersAspetti = new string[2][];
+            headersAspetti[0] = new string[2] { "Aspetto", "aspetto" };
+            headersAspetti[1] = new string[2] { "Valutazione/Peso", "valore" };
+
+            IList<AspettoValore> aspettiValutati = _videogioco.Recensione.AspettiValutati.getAspettiValori().ToList();
+            BindingList<AspettoValore> bindingListPreferenze = new BindingList<AspettoValore>(aspettiValutati);
+            BindingSource source_preferenze = new BindingSource(bindingListPreferenze, null);
+
+            _customDataGridView.setDataSource(source_preferenze, headersAspetti);
+        }
+
+        public CustomDataGridView getCustomDataGrid()
+        {
+            return _customDataGridView;
         }
     }
 }
