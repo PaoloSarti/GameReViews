@@ -76,6 +76,7 @@ namespace GameReViews
 
             VideogiocoRootView root = new VideogiocoRootView(videogiocoSelezionato, recensione);
 
+            root.Dock = DockStyle.Fill;
             _viewsContainer.Controls.Remove(_currentControl);
             _viewsContainer.Controls.Add(root);
 
