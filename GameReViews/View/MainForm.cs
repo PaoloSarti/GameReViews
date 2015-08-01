@@ -1,4 +1,5 @@
 ﻿using GameReViews.Model;
+using GameReViews.View;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,7 +18,8 @@ namespace GameReViews
 
         private CustomDataGridView _recensioniView;
         private VideogiochiListView _videogiochiView;
-        private VideogiocoRootView _userProfileView;
+        private UserProfileView _userProfileView;
+
         private LogSignInView _logSignInView;
 
         public MainForm()
@@ -26,9 +28,12 @@ namespace GameReViews
 
             _recensioniView = new CustomDataGridView();
             _videogiochiView = new VideogiochiListView();
-            _userProfileView = new VideogiocoRootView();
+            _userProfileView = new UserProfileView();
 
             _logSignInView = new LogSignInView();
+
+            _recensioniView.CellClicked += onGioco_RecensioneSelectet;
+            _videogiochiView.getCustomDataGrid().CellClicked += onGioco_RecensioneSelectet;
 
             _recensioniView.Dock = DockStyle.Fill;
             _userProfileView.Dock = DockStyle.Fill;
@@ -39,12 +44,30 @@ namespace GameReViews
             _recensioniButton_Click(null, null);
         }
 
-        private void fetchData(string[] columns, string[][] rows, CustomDataGridView view)
+        // questo gestore di eventi penso andrà messo nel presenter
+        private void onGioco_RecensioneSelectet(string nomeVidegioco)
         {
-            view.addColumns(columns);
-            view.addRows(rows);
+            String nomeGiocoSelezionato = nomeVidegioco; //_rowsVideogiochi[((DataGridViewCellEventArgs)e).RowIndex][0];
+
+            Videogioco videogiocoSelezionato = Document.GetInstance().Videogiochi.getVideogioco(nomeGiocoSelezionato);
+            Recensione recensione = videogiocoSelezionato.Recensione;
+
+            VideogiocoRootView root = new VideogiocoRootView(videogiocoSelezionato, recensione);
+
+            _viewsContainer.Controls.Remove(_currentControl);
+            _viewsContainer.Controls.Add(root);
+
+            _currentControl = root;
         }
 
+        private void fetchData(string[] columns, string[][] rows, CustomDataGridView view)
+        {
+            //view.addColumns(columns);
+            //view.addRows(rows);
+        }
+
+        // bisognerà vedere come farlo nel presenter...
+        private string[][] _rowsVideogiochi;
         private void _recensioniButton_Click(object sender, EventArgs e)
         {
             if (_currentControl != _recensioniView)
@@ -55,12 +78,12 @@ namespace GameReViews
                 _currentControl = _recensioniView;
 
                 string[] columns = new string[] { "Nome Gioco", "Nome Recensore", "Valutazione" };
-                _recensioniView.addColumns(columns);
-
-                string[][] rows = new string[Document.GetInstance().Recensioni.List.Count()][];
+                // _recensioniView.addColumns(columns);
+                
+                string[][] row = new string[Document.GetInstance().Recensioni.List.Count()][];
                 int i = 0;
                 foreach (Recensione r in Document.GetInstance().Recensioni.List) {
-                    rows[i] = new string[] { r.Videogioco.Nome, r.Autore.Nome, "NaN" };
+                    row[i] = new string[] { r.Videogioco.Nome, r.Autore.Nome, "NaN" };
                     i++;
                 }
 
@@ -77,7 +100,7 @@ namespace GameReViews
                 rows[9] = new string[] { "Nome Gioco", "Nome recensore", "Valutazione" };
                  */
 
-                fetchData(columns, rows, _recensioniView);
+                fetchData(columns, row, _recensioniView);
             }
         }
 
@@ -92,11 +115,11 @@ namespace GameReViews
 
                 string[] columns = new string[] { "Nome", "Recensito" };
 
-                string[][] rows = new string[Document.GetInstance().Videogiochi.List.Count()][];
+                _rowsVideogiochi = new string[Document.GetInstance().Videogiochi.List.Count()][];
                 int i = 0;
                 foreach (Videogioco v in Document.GetInstance().Videogiochi.List)
                 {
-                    rows[i] = new string[] { v.Nome, v.Recensione == null ? "NO" : "SI" };
+                    _rowsVideogiochi[i] = new string[] { v.Nome, v.Recensione == null ? "NO" : "SI" };
                     i++;
                 }
 
@@ -114,7 +137,7 @@ namespace GameReViews
                 rows[9] = new string[] { "Nome", "SI/NO" };
                  */
 
-                fetchData(columns, rows, _videogiochiView.getCustomDataGrid());
+                //fetchData(columns, _rowsVideogiochi, _videogiochiView.getCustomDataGrid());
             }
         }
 
@@ -142,7 +165,7 @@ namespace GameReViews
                 rows[8] = new string[] { "Grafica", "10" };
                 rows[9] = new string[] { "Grafica", "10" };
 
-                fetchData(columns, rows, _userProfileView.getCustomDataGrid());
+                //fetchData(columns, rows, _userProfileView.getCustomDataGrid());
             }
         }
     }

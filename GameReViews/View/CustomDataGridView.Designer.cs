@@ -87,15 +87,17 @@
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this._dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this._dataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this._dataGridView.Size = new System.Drawing.Size(150, 150);
+            this._dataGridView.Size = new System.Drawing.Size(944, 572);
             this._dataGridView.TabIndex = 0;
+            this._dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellClick);
             // 
-            // ListView
+            // CustomDataGridView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this._dataGridView);
-            this.Name = "ListView";
+            this.Name = "CustomDataGridView";
+            this.Size = new System.Drawing.Size(944, 572);
             ((System.ComponentModel.ISupportInitialize)(this._dataGridView)).EndInit();
             this.ResumeLayout(false);
 

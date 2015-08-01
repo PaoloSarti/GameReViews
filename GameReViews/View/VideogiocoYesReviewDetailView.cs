@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace GameReViews.View
 {
-    public partial class VideogiocoReviewDetailView : UserControl
+    public partial class VideogiocoYesReviewDetailView : UserControl
     {
-        public VideogiocoReviewDetailView()
+        public VideogiocoYesReviewDetailView()
         {
             InitializeComponent();
         }

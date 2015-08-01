@@ -6,48 +6,59 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using GameReViews.Model;
 
 namespace GameReViews
 {
     public partial class CustomDataGridView : UserControl
     {
+        public delegate void CellClickedDelegate(string nomeGioco);
+
+        public event CellClickedDelegate CellClicked;
 
         public CustomDataGridView()
         {
             InitializeComponent();
 
-            _dataGridView.ColumnCount = 3;
-            _dataGridView.Name = "dataGridViewName";
             _dataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
             _dataGridView.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            //_dataGridView.CellBorderStyle = DataGridViewCellBorderStyle.None;
-
-            //_dataGridView.Columns[0].Name = "Nome Gioco";
-            //_dataGridView.Columns[1].Name = "Nome Recensore";
-            //_dataGridView.Columns[2].Name = "Valutazione";
 
             _dataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
-            string[] row01 = { "Nome Gioco", "Nome recensore", "Valutazione" };
-            //string[] row11 = { "Nome Gioco", "Nome recensore", "Valutazione" };
-            //string[] row21 = { "Nome Gioco", "Nome recensore", "Valutazione" };
-            //string[] row31 = { "Nome Gioco", "Nome recensore", "Valutazione" };
-            //string[] row41 = { "Nome Gioco", "Nome recensore", "Valutazione" };
-            //string[] row51 = { "Nome Gioco", "Nome recensore", "Valutazione" };
-            //string[] row61 = { "Nome Gioco", "Nome recensore", "Valutazione" };
+            /*
+            var list = Document.GetInstance().Videogiochi.List.ToList();
 
-            //_dataGridView.Rows.Add(row01);
-            //_dataGridView.Rows.Add(row11);
-            //_dataGridView.Rows.Add(row21);
-            //_dataGridView.Rows.Add(row31);
-            //_dataGridView.Rows.Add(row41);
-            //_dataGridView.Rows.Add(row51);
-            //_dataGridView.Rows.Add(row61);
+             _dataGridView.ColumnCount = 3;
+             _dataGridView.AutoGenerateColumns = false;
 
-            _dataGridView.Columns[0].DisplayIndex = 0;
-            _dataGridView.Dock = DockStyle.Fill;
+            _dataGridView.Columns[0].Name = "Nome Gioco";
+            _dataGridView.Columns[0].DataPropertyName = "nome";
+            _dataGridView.Columns[1].Name = "Data Rilascio";
+            _dataGridView.Columns[1].DataPropertyName = "dataRilascio";
+            _dataGridView.Columns[2].Name = "Genere";
+            _dataGridView.Columns[2].DataPropertyName = "genere";
+
+            BindingList<Videogioco> bindingList = new BindingList<Videogioco>(list);
+            BindingSource source = new BindingSource(bindingList, null);
+            _dataGridView.DataSource = source;
+             * */
+             
         }
 
+        public void setDataSource(BindingSource source, string[][] headers)
+        {
+            _dataGridView.ColumnCount = headers.Length;
+
+            for (int i = 0; i < headers.Length; i++)
+            {
+                _dataGridView.Columns[i].Name = headers[i][0];
+                _dataGridView.Columns[i].DataPropertyName = headers[i][1];
+            }
+
+            _dataGridView.DataSource = source;
+        }
+
+        /*
         public void addColumns(string[] columns)
         {
             _dataGridView.ColumnCount = columns.Length;
@@ -56,13 +67,36 @@ namespace GameReViews
                 _dataGridView.Columns[i].Name = columns[i];
             }
         }
+        */
 
+        /*
         public void addRows(string[][] rows)
         {
             for (int i = 0; i < rows.Length; i++)
             {
                 _dataGridView.Rows.Add(rows[i]);
+
+                // reminder
+                //_dataGridView.Rows[i].Tag = "lul";
             }
+        }
+        */
+
+            
+        private void dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            /*
+            if (CellClicked != null)
+            {
+                string nomeGioco = _dataGridView.Rows[e.RowIndex].
+                CellClicked(sender, e);
+            }
+             */
+
+
+            // reminder
+            //if ( ((string) _dataGridView.Rows[e.RowIndex].Tag) == "lul" )
+            //    Environment.Exit(1);
         }
     }
 }

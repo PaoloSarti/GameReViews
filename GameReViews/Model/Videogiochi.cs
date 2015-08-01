@@ -25,6 +25,16 @@ namespace GameReViews.Model
             get { return _videogiochiSet; }
         }
 
+        public Videogioco getVideogioco(string nome)
+        {
+            foreach (Videogioco v in _videogiochiSet)
+                if (v.Nome == nome)
+                    return v;
+
+            // return null o throw exception??????????????
+            return null;
+        }
+
         public void AddVideogioco(Videogioco videogioco)
         {
             #region Precondizioni

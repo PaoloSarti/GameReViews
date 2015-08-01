@@ -9,16 +9,16 @@ using System.Windows.Forms;
 
 namespace GameReViews
 {
-    public partial class VideogiocoRootView : UserControl
+    public partial class UserProfileView : UserControl
     {
-        public VideogiocoRootView()
+        public UserProfileView()
         {
             InitializeComponent();
         }
 
         public CustomDataGridView getCustomDataGrid()
         {
-            return _preferenzeList;
+            return _customDataGridView;
         }
     }
 }

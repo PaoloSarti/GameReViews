@@ -30,13 +30,13 @@
         {
             this._videogiochiContainer = new System.Windows.Forms.Panel();
             this._aggiungiVideogiocoButton = new System.Windows.Forms.Button();
-            this._videogiochiList = new GameReViews.CustomDataGridView();
+            this._dataGridView = new GameReViews.CustomDataGridView();
             this._videogiochiContainer.SuspendLayout();
             this.SuspendLayout();
             // 
             // _videogiochiContainer
             // 
-            this._videogiochiContainer.Controls.Add(this._videogiochiList);
+            this._videogiochiContainer.Controls.Add(this._dataGridView);
             this._videogiochiContainer.Controls.Add(this._aggiungiVideogiocoButton);
             this._videogiochiContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this._videogiochiContainer.Location = new System.Drawing.Point(0, 0);
@@ -61,20 +61,20 @@
             this._aggiungiVideogiocoButton.Text = "Aggiungi Videogioco";
             this._aggiungiVideogiocoButton.UseVisualStyleBackColor = false;
             // 
-            // _videogiochiList
+            // _dataGridView
             // 
-            this._videogiochiList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._videogiochiList.Location = new System.Drawing.Point(0, 92);
-            this._videogiochiList.Name = "_videogiochiList";
-            this._videogiochiList.Size = new System.Drawing.Size(917, 531);
-            this._videogiochiList.TabIndex = 1;
+            this._dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._dataGridView.Location = new System.Drawing.Point(0, 92);
+            this._dataGridView.Name = "_dataGridView";
+            this._dataGridView.Size = new System.Drawing.Size(917, 531);
+            this._dataGridView.TabIndex = 1;
             // 
-            // VideogiochiView
+            // VideogiochiListView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this._videogiochiContainer);
-            this.Name = "VideogiochiView";
+            this.Name = "VideogiochiListView";
             this.Size = new System.Drawing.Size(917, 623);
             this._videogiochiContainer.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -84,7 +84,7 @@
         #endregion
 
         private System.Windows.Forms.Panel _videogiochiContainer;
-        private CustomDataGridView _videogiochiList;
         private System.Windows.Forms.Button _aggiungiVideogiocoButton;
+        private CustomDataGridView _dataGridView;
     }
 }

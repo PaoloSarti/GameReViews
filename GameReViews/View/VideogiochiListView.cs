@@ -18,7 +18,8 @@ namespace GameReViews
 
         public CustomDataGridView getCustomDataGrid()
         {
-            return _videogiochiList;
+            return _dataGridView;
         }
+        
     }
 }

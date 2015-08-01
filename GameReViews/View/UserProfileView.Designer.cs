@@ -1,6 +1,6 @@
 ﻿namespace GameReViews
 {
-    partial class VideogiocoRootView
+    partial class UserProfileView
     {
         /// <summary> 
         /// Required designer variable.
@@ -36,7 +36,7 @@
             this._userInfoPanel = new System.Windows.Forms.Panel();
             this.circularPictureBox1 = new CircularPictureBox();
             this._userName = new System.Windows.Forms.Label();
-            this._preferenzeList = new GameReViews.CustomDataGridView();
+            this._customDataGridView = new GameReViews.CustomDataGridView();
             this._userInfoContainer_root.SuspendLayout();
             this._userInfoContainer.SuspendLayout();
             this._preferenzeControlPanel.SuspendLayout();
@@ -58,7 +58,7 @@
             // 
             this._userInfoContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this._userInfoContainer.BackColor = System.Drawing.Color.White;
-            this._userInfoContainer.Controls.Add(this._preferenzeList);
+            this._userInfoContainer.Controls.Add(this._customDataGridView);
             this._userInfoContainer.Controls.Add(this._preferenzeControlPanel);
             this._userInfoContainer.Controls.Add(this._userInfoPanel);
             this._userInfoContainer.Location = new System.Drawing.Point(17, 0);
@@ -132,20 +132,20 @@
             this._userName.TabIndex = 1;
             this._userName.Text = "Smoky ChickenFish";
             // 
-            // _preferenzeList
+            // _customDataGridView
             // 
-            this._preferenzeList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._preferenzeList.Location = new System.Drawing.Point(0, 312);
-            this._preferenzeList.Name = "_preferenzeList";
-            this._preferenzeList.Size = new System.Drawing.Size(849, 307);
-            this._preferenzeList.TabIndex = 6;
+            this._customDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._customDataGridView.Location = new System.Drawing.Point(0, 312);
+            this._customDataGridView.Name = "_customDataGridView";
+            this._customDataGridView.Size = new System.Drawing.Size(849, 307);
+            this._customDataGridView.TabIndex = 6;
             // 
-            // VideogiocoRootView
+            // UserProfileView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this._userInfoContainer_root);
-            this.Name = "VideogiocoRootView";
+            this.Name = "UserProfileView";
             this.Size = new System.Drawing.Size(883, 619);
             this._userInfoContainer_root.ResumeLayout(false);
             this._userInfoContainer.ResumeLayout(false);
@@ -168,6 +168,6 @@
         private System.Windows.Forms.Panel _preferenzeControlPanel;
         private System.Windows.Forms.Button _aggiungiPreferenza;
         private System.Windows.Forms.Label _preferenzeLabel;
-        private CustomDataGridView _preferenzeList;
+        private CustomDataGridView _customDataGridView;
     }
 }
