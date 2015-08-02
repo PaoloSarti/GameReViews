@@ -70,10 +70,12 @@ namespace GameReViews
             if (Document.GetInstance().UtenteCorrente != null)
             {
                 string[][] headersPreferenze = new string[2][];
+
+                //Per far funzionare KeyValuePair, bisogna indicare i nomi delle proprietà: key e value
                 headersPreferenze[0] = new string[2] { "Aspetto", "aspetto" };
                 headersPreferenze[1] = new string[2] { "Valutazione/Peso", "valore" };
 
-                IList<AspettoValore> preferenzeUtente = Document.GetInstance().UtenteCorrente.Preferenze.getAspettiValori().ToList();
+                IList<AspettoValore> preferenzeUtente = Document.GetInstance().UtenteCorrente.Preferenze.List.ToList();
                 BindingList<AspettoValore> bindingListPreferenze = new BindingList<AspettoValore>(preferenzeUtente);
                 BindingSource source_preferenze = new BindingSource(bindingListPreferenze, null);
 

@@ -28,17 +28,20 @@ namespace GameReViews.Model
 
         public abstract void Add(Aspetto aspetto, int value);
 
-        public IEnumerable<KeyValuePair<Aspetto, int>> AspettiValutati
+        //public IEnumerable<KeyValuePair<Aspetto, int>> AspettiValutati
+        //{
+        //    get
+        //    {
+        //        return _aspettiValori;
+        //    }
+        //}
+
+        public IEnumerable<AspettoValore> List
         {
             get
             {
-                return _aspettiValori;
+                return from aspettoValore in _aspettiValori select new AspettoValore(aspettoValore.Key, aspettoValore.Value);
             }
-        }
-
-        public IEnumerable<AspettoValore> getAspettiValori()
-        {
-            return from aspettoValore in _aspettiValori select new AspettoValore(aspettoValore.Key, aspettoValore.Value);
         }
 
         public void Remove(Aspetto aspetto)
@@ -97,6 +100,12 @@ namespace GameReViews.Model
         }
     }
 
+
+    /*
+     * Classe che contiene una singola coppia chiave valore,
+     * Per non mostrare all'esterno l'implementazione a dizionario
+     * 
+     */ 
     public class AspettoValore
     {
         private readonly Aspetto _aspetto;
@@ -116,6 +125,6 @@ namespace GameReViews.Model
         public int Valore
         {
             get { return _valore; }
-        } 
+        }
     }
 }

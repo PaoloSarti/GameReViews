@@ -41,9 +41,9 @@ namespace GameReViews.Model
             get { return _password; }
         } 
 
-        public IEnumerable<KeyValuePair<Aspetto, int>> GetPreferenze()
+        public IEnumerable<AspettoValore> GetPreferenze()
         {
-            return this._preferenze.AspettiValutati;
+            return this._preferenze.List;
         }
 
         public Preferenze Preferenze

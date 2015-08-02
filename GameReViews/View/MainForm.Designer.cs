@@ -45,7 +45,7 @@
             this._toolbar.Dock = System.Windows.Forms.DockStyle.Top;
             this._toolbar.Location = new System.Drawing.Point(0, 0);
             this._toolbar.Name = "_toolbar";
-            this._toolbar.Size = new System.Drawing.Size(696, 100);
+            this._toolbar.Size = new System.Drawing.Size(889, 100);
             this._toolbar.TabIndex = 0;
             // 
             // _utenteButton
@@ -76,7 +76,7 @@
             this._videogiochiButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._videogiochiButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._videogiochiButton.ForeColor = System.Drawing.Color.White;
-            this._videogiochiButton.Location = new System.Drawing.Point(368, 0);
+            this._videogiochiButton.Location = new System.Drawing.Point(561, 0);
             this._videogiochiButton.Name = "_videogiochiButton";
             this._videogiochiButton.Size = new System.Drawing.Size(173, 100);
             this._videogiochiButton.TabIndex = 1;
@@ -94,7 +94,7 @@
             this._recensioniButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._recensioniButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._recensioniButton.ForeColor = System.Drawing.Color.White;
-            this._recensioniButton.Location = new System.Drawing.Point(541, 0);
+            this._recensioniButton.Location = new System.Drawing.Point(734, 0);
             this._recensioniButton.Name = "_recensioniButton";
             this._recensioniButton.Size = new System.Drawing.Size(155, 100);
             this._recensioniButton.TabIndex = 0;
@@ -107,18 +107,18 @@
             this._viewsContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this._viewsContainer.Location = new System.Drawing.Point(0, 100);
             this._viewsContainer.Name = "_viewsContainer";
-            this._viewsContainer.Size = new System.Drawing.Size(696, 436);
+            this._viewsContainer.Size = new System.Drawing.Size(889, 551);
             this._viewsContainer.TabIndex = 1;
             // 
-            // _root
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(696, 536);
+            this.ClientSize = new System.Drawing.Size(889, 651);
             this.Controls.Add(this._viewsContainer);
             this.Controls.Add(this._toolbar);
-            this.Name = "_root";
+            this.Name = "MainForm";
             this.Text = "Form1";
             this._toolbar.ResumeLayout(false);
             this.ResumeLayout(false);
