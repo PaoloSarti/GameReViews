@@ -46,6 +46,11 @@ namespace GameReViews.Model
             return this._preferenze.AspettiValutati;
         }
 
+        public Preferenze Preferenze
+        {
+            get { return _preferenze; }
+        } 
+
         public virtual void AddPreferenza(Aspetto aspetto, int valutazione)
         {
             #region Precondizioni

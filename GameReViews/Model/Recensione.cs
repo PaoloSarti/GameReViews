@@ -68,6 +68,11 @@ namespace GameReViews.Model
             return _aspettiValutati.AspettiValutati;
         }
 
+        public AspettiValutati AspettiValutati
+        {
+            get { return _aspettiValutati; }
+        }
+
         public IEnumerable<Commento> Commenti
         {
             get { return _commenti; }

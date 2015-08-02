@@ -8,7 +8,7 @@ namespace GameReViews.Model
     /* Classe contenitore per le Preferenze, eredita la modalità di interazione con Aspetti per quanto riguarda la rimozione/modifica,
      * mentre per l'aggiunta, c'è la precondizione che un utente non può inserire nuovi aspetti nel sistema
      */
-    class Preferenze : AspettiValori
+    public class Preferenze : AspettiValori
     {
         public override void Add(Aspetto aspetto, int value)
         {

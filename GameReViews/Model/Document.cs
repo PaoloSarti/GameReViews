@@ -103,8 +103,9 @@ namespace GameReViews.Model
 
         #region utente
 
-        public void Registra(UtenteRegistrato utente)
+        public void Registra(String nome, String password)
         {
+            UtenteRegistrato utente = new UtenteRegistrato(nome, password);
             this._utenti.Registra(utente);
             _utenteCorrente = utente;
             _calcolo = CalcoloValutazioneTotaleFactory.GetCalcoloValutazioneTotale(utente);
