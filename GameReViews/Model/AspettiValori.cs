@@ -36,6 +36,14 @@ namespace GameReViews.Model
             }
         }
 
+        public IEnumerable<KeyValuePair<string, int>> NomiAspettiValori
+        {
+            get
+            {
+                return from aspettoValore in _aspettiValori select new KeyValuePair<string, int>(aspettoValore.Key.Nome, aspettoValore.Value);
+            }
+        }
+
         public void Remove(Aspetto aspetto)
         {
             #region Precondizioni
