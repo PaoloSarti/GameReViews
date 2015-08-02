@@ -66,16 +66,16 @@ namespace GameReViews.Model
             //conteggio dei match
             int count=0;
 
-            foreach(KeyValuePair<Aspetto, int> aspettoValutato in recensione.GetAspettiValutati())
+            foreach(AspettoValore aspettoValutato in recensione.GetAspettiValutati())
             {
-                foreach(KeyValuePair<Aspetto, int> preferenza in _utente.GetPreferenze())
+                foreach(AspettoValore preferenza in _utente.GetPreferenze())
                 {
                     // == per le stringhe è uguaglianza dei valori
-                    if(aspettoValutato.Key.Nome==preferenza.Key.Nome)
+                    if(aspettoValutato.Aspetto.Nome==preferenza.Aspetto.Nome)
                     {
                         //aggiorno le sommatorie
-                        sum += aspettoValutato.Value * preferenza.Value;
-                        sumPreferenze += preferenza.Value;
+                        sum += aspettoValutato.Valore * preferenza.Valore;
+                        sumPreferenze += preferenza.Valore;
                         count+=1;
 
                         //interrompo il for interno per efficienza
@@ -104,7 +104,7 @@ namespace GameReViews.Model
             #endregion
 
             //recupero solo le valutazioni
-            IEnumerable<int> valutazioni = from aspettoValutato in recensione.GetAspettiValutati() select aspettoValutato.Value;
+            IEnumerable<int> valutazioni = from aspettoValutato in recensione.GetAspettiValutati() select aspettoValutato.Valore;
 
             //ritorno NaN se non ci sono valutazioni (O ECCEZIONE!?!?)
             if (valutazioni.Count() == 0)

@@ -63,9 +63,9 @@ namespace GameReViews.Model
             get { return _autore; }
         } 
 
-        public IEnumerable<KeyValuePair<Aspetto, int>> GetAspettiValutati()
+        public IEnumerable<AspettoValore> GetAspettiValutati()
         {
-            return _aspettiValutati.AspettiValutati;
+            return _aspettiValutati.List;
         }
 
         public AspettiValutati AspettiValutati

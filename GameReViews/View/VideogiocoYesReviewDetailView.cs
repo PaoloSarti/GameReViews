@@ -31,11 +31,11 @@ namespace GameReViews.View
             string[][] headersAspetti = new string[2][];
 
             //Per far funzionare KeyValuePair, bisogna indicare i nomi delle proprietà: key e value
-            headersAspetti[0] = new string[2] { "Aspetto", "key" };
-            headersAspetti[1] = new string[2] { "Valutazione/Peso", "value" };
+            headersAspetti[0] = new string[2] { "Aspetto", "aspetto" };
+            headersAspetti[1] = new string[2] { "Valutazione/Peso", "valore" };
 
-            IList<KeyValuePair<Aspetto, int>> aspettiValutati = _videogioco.Recensione.AspettiValutati.AspettiValutati.ToList();
-            BindingList<KeyValuePair<Aspetto, int>> bindingListPreferenze = new BindingList<KeyValuePair<Aspetto, int>>(aspettiValutati);
+            IList<AspettoValore> aspettiValutati = _videogioco.Recensione.AspettiValutati.List.ToList();
+            BindingList<AspettoValore> bindingListPreferenze = new BindingList<AspettoValore>(aspettiValutati);
             BindingSource source_preferenze = new BindingSource(bindingListPreferenze, null);
             
 
