@@ -61,7 +61,7 @@ namespace GameReViews.Model
         public Recensore Autore
         {
             get { return _autore; }
-        } 
+        }
 
         public IEnumerable<AspettoValore> GetAspettiValutati()
         {
