@@ -36,10 +36,10 @@ namespace GameReViews.Model
             }
         }
 
-        public IEnumerable<AspettoValore> getAspettiValori()
-        {
-            return from aspettoValore in _aspettiValori select new AspettoValore(aspettoValore.Key, aspettoValore.Value);
-        }
+        //public IEnumerable<AspettoValore> getAspettiValori()
+        //{
+        //    return from aspettoValore in _aspettiValori select new AspettoValore(aspettoValore.Key, aspettoValore.Value);
+        //}
 
         public void Remove(Aspetto aspetto)
         {
@@ -97,25 +97,25 @@ namespace GameReViews.Model
         }
     }
 
-    public class AspettoValore
-    {
-        private readonly Aspetto _aspetto;
-        private readonly int _valore;
+    //public class AspettoValore
+    //{
+    //    private readonly Aspetto _aspetto;
+    //    private readonly int _valore;
 
-        public AspettoValore(Aspetto aspetto, int valore)
-        {
-            _aspetto = aspetto;
-            _valore = valore;
-        }
+    //    public AspettoValore(Aspetto aspetto, int valore)
+    //    {
+    //        _aspetto = aspetto;
+    //        _valore = valore;
+    //    }
 
-        public Aspetto Aspetto
-        {
-            get { return _aspetto; }
-        }
+    //    public Aspetto Aspetto
+    //    {
+    //        get { return _aspetto; }
+    //    }
 
-        public int Valore
-        {
-            get { return _valore; }
-        } 
-    }
+    //    public int Valore
+    //    {
+    //        get { return _valore; }
+    //    } 
+    //}
 }

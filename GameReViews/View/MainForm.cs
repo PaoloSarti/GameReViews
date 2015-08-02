@@ -70,11 +70,13 @@ namespace GameReViews
             if (Document.GetInstance().UtenteCorrente != null)
             {
                 string[][] headersPreferenze = new string[2][];
-                headersPreferenze[0] = new string[2] { "Aspetto", "aspetto" };
-                headersPreferenze[1] = new string[2] { "Valutazione/Peso", "valore" };
 
-                IList<AspettoValore> preferenzeUtente = Document.GetInstance().UtenteCorrente.Preferenze.getAspettiValori().ToList();
-                BindingList<AspettoValore> bindingListPreferenze = new BindingList<AspettoValore>(preferenzeUtente);
+                //Per far funzionare KeyValuePair, bisogna indicare i nomi delle proprietà: key e value
+                headersPreferenze[0] = new string[2] { "Aspetto", "key" };
+                headersPreferenze[1] = new string[2] { "Valutazione/Peso", "value" };
+
+                IList<KeyValuePair<Aspetto, int>> preferenzeUtente = Document.GetInstance().UtenteCorrente.Preferenze.AspettiValutati.ToList();
+                BindingList<KeyValuePair<Aspetto, int>> bindingListPreferenze = new BindingList<KeyValuePair<Aspetto, int>>(preferenzeUtente);
                 BindingSource source_preferenze = new BindingSource(bindingListPreferenze, null);
 
                 _userProfileView.getCustomDataGrid().setDataSource(source_preferenze, headersPreferenze);

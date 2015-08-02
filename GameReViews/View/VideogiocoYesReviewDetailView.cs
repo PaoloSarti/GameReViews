@@ -29,12 +29,15 @@ namespace GameReViews.View
         private void bindData()
         {
             string[][] headersAspetti = new string[2][];
-            headersAspetti[0] = new string[2] { "Aspetto", "aspetto" };
-            headersAspetti[1] = new string[2] { "Valutazione/Peso", "valore" };
 
-            IList<AspettoValore> aspettiValutati = _videogioco.Recensione.AspettiValutati.getAspettiValori().ToList();
-            BindingList<AspettoValore> bindingListPreferenze = new BindingList<AspettoValore>(aspettiValutati);
+            //Per far funzionare KeyValuePair, bisogna indicare i nomi delle proprietà: key e value
+            headersAspetti[0] = new string[2] { "Aspetto", "key" };
+            headersAspetti[1] = new string[2] { "Valutazione/Peso", "value" };
+
+            IList<KeyValuePair<Aspetto, int>> aspettiValutati = _videogioco.Recensione.AspettiValutati.AspettiValutati.ToList();
+            BindingList<KeyValuePair<Aspetto, int>> bindingListPreferenze = new BindingList<KeyValuePair<Aspetto, int>>(aspettiValutati);
             BindingSource source_preferenze = new BindingSource(bindingListPreferenze, null);
+            
 
             _customDataGridView.setDataSource(source_preferenze, headersAspetti);
         }
