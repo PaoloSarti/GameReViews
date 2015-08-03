@@ -110,6 +110,7 @@
             this._viewsContainer.Name = "_viewsContainer";
             this._viewsContainer.Size = new System.Drawing.Size(696, 436);
             this._viewsContainer.TabIndex = 1;
+            this._viewsContainer.Paint += new System.Windows.Forms.PaintEventHandler(this._viewsContainer_Paint);
             // 
             // _root
             // 

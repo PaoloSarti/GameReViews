@@ -89,7 +89,6 @@
             this._dataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this._dataGridView.Size = new System.Drawing.Size(150, 150);
             this._dataGridView.TabIndex = 0;
-            this._dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this._dataGridView_CellContentClick);
             // 
             // ListView
             // 

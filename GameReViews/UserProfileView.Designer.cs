@@ -29,11 +29,18 @@
         private void InitializeComponent()
         {
             this._userInfoContainer_root = new System.Windows.Forms.Panel();
-            this._userName = new System.Windows.Forms.Label();
             this._userInfoContainer = new System.Windows.Forms.Panel();
+            this._preferenzeControlPanel = new System.Windows.Forms.Panel();
+            this._aggiungiPreferenza = new System.Windows.Forms.Button();
+            this._preferenzeLabel = new System.Windows.Forms.Label();
+            this._userInfoPanel = new System.Windows.Forms.Panel();
+            this._userName = new System.Windows.Forms.Label();
+            this._preferenzeList = new GameReViews.CustomListView();
             this.circularPictureBox1 = new CircularPictureBox();
             this._userInfoContainer_root.SuspendLayout();
             this._userInfoContainer.SuspendLayout();
+            this._preferenzeControlPanel.SuspendLayout();
+            this._userInfoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.circularPictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,34 +55,88 @@
             this._userInfoContainer_root.TabIndex = 0;
             this._userInfoContainer_root.Paint += new System.Windows.Forms.PaintEventHandler(this._userInfoContainer_root_Paint);
             // 
-            // _userName
-            // 
-            this._userName.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this._userName.AutoSize = true;
-            this._userName.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._userName.Location = new System.Drawing.Point(382, 55);
-            this._userName.Name = "_userName";
-            this._userName.Size = new System.Drawing.Size(336, 39);
-            this._userName.TabIndex = 1;
-            this._userName.Text = "Smoky ChickenFish";
-            // 
             // _userInfoContainer
             // 
             this._userInfoContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this._userInfoContainer.BackColor = System.Drawing.Color.White;
-            this._userInfoContainer.Controls.Add(this.circularPictureBox1);
-            this._userInfoContainer.Controls.Add(this._userName);
+            this._userInfoContainer.Controls.Add(this._preferenzeList);
+            this._userInfoContainer.Controls.Add(this._preferenzeControlPanel);
+            this._userInfoContainer.Controls.Add(this._userInfoPanel);
             this._userInfoContainer.Location = new System.Drawing.Point(17, 0);
             this._userInfoContainer.Name = "_userInfoContainer";
             this._userInfoContainer.Size = new System.Drawing.Size(849, 619);
             this._userInfoContainer.TabIndex = 3;
             // 
+            // _preferenzeControlPanel
+            // 
+            this._preferenzeControlPanel.Controls.Add(this._aggiungiPreferenza);
+            this._preferenzeControlPanel.Controls.Add(this._preferenzeLabel);
+            this._preferenzeControlPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this._preferenzeControlPanel.Location = new System.Drawing.Point(0, 234);
+            this._preferenzeControlPanel.Name = "_preferenzeControlPanel";
+            this._preferenzeControlPanel.Size = new System.Drawing.Size(849, 78);
+            this._preferenzeControlPanel.TabIndex = 5;
+            // 
+            // _aggiungiPreferenza
+            // 
+            this._aggiungiPreferenza.BackColor = System.Drawing.Color.Silver;
+            this._aggiungiPreferenza.FlatAppearance.BorderSize = 0;
+            this._aggiungiPreferenza.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._aggiungiPreferenza.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
+            this._aggiungiPreferenza.ForeColor = System.Drawing.Color.White;
+            this._aggiungiPreferenza.Location = new System.Drawing.Point(368, 18);
+            this._aggiungiPreferenza.Name = "_aggiungiPreferenza";
+            this._aggiungiPreferenza.Size = new System.Drawing.Size(108, 46);
+            this._aggiungiPreferenza.TabIndex = 1;
+            this._aggiungiPreferenza.Text = "Aggiungi preferenza";
+            this._aggiungiPreferenza.UseVisualStyleBackColor = false;
+            this._aggiungiPreferenza.Click += new System.EventHandler(this._aggiungiPreferenza_Click);
+            // 
+            // _preferenzeLabel
+            // 
+            this._preferenzeLabel.AutoSize = true;
+            this._preferenzeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._preferenzeLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this._preferenzeLabel.Location = new System.Drawing.Point(71, 26);
+            this._preferenzeLabel.Name = "_preferenzeLabel";
+            this._preferenzeLabel.Size = new System.Drawing.Size(127, 25);
+            this._preferenzeLabel.TabIndex = 0;
+            this._preferenzeLabel.Text = "Preferenze";
+            // 
+            // _userInfoPanel
+            // 
+            this._userInfoPanel.Controls.Add(this.circularPictureBox1);
+            this._userInfoPanel.Controls.Add(this._userName);
+            this._userInfoPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this._userInfoPanel.Location = new System.Drawing.Point(0, 0);
+            this._userInfoPanel.Name = "_userInfoPanel";
+            this._userInfoPanel.Size = new System.Drawing.Size(849, 234);
+            this._userInfoPanel.TabIndex = 3;
+            this._userInfoPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // _userName
+            // 
+            this._userName.AutoSize = true;
+            this._userName.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._userName.Location = new System.Drawing.Point(361, 21);
+            this._userName.Name = "_userName";
+            this._userName.Size = new System.Drawing.Size(336, 39);
+            this._userName.TabIndex = 1;
+            this._userName.Text = "Smoky ChickenFish";
+            // 
+            // _preferenzeList
+            // 
+            this._preferenzeList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._preferenzeList.Location = new System.Drawing.Point(0, 312);
+            this._preferenzeList.Name = "_preferenzeList";
+            this._preferenzeList.Size = new System.Drawing.Size(849, 307);
+            this._preferenzeList.TabIndex = 6;
+            // 
             // circularPictureBox1
             // 
-            this.circularPictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.circularPictureBox1.BackColor = System.Drawing.Color.Purple;
             this.circularPictureBox1.Image = global::GameReViews.Properties.Resources.nonsensCapture;
-            this.circularPictureBox1.Location = new System.Drawing.Point(102, 55);
+            this.circularPictureBox1.Location = new System.Drawing.Point(71, 21);
             this.circularPictureBox1.Name = "circularPictureBox1";
             this.circularPictureBox1.Size = new System.Drawing.Size(223, 204);
             this.circularPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -91,7 +152,10 @@
             this.Size = new System.Drawing.Size(883, 619);
             this._userInfoContainer_root.ResumeLayout(false);
             this._userInfoContainer.ResumeLayout(false);
-            this._userInfoContainer.PerformLayout();
+            this._preferenzeControlPanel.ResumeLayout(false);
+            this._preferenzeControlPanel.PerformLayout();
+            this._userInfoPanel.ResumeLayout(false);
+            this._userInfoPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.circularPictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -103,5 +167,10 @@
         private System.Windows.Forms.Label _userName;
         private CircularPictureBox circularPictureBox1;
         private System.Windows.Forms.Panel _userInfoContainer;
+        private System.Windows.Forms.Panel _userInfoPanel;
+        private System.Windows.Forms.Panel _preferenzeControlPanel;
+        private CustomListView _preferenzeList;
+        private System.Windows.Forms.Button _aggiungiPreferenza;
+        private System.Windows.Forms.Label _preferenzeLabel;
     }
 }

@@ -14,21 +14,42 @@ namespace GameReViews
 
         private Control _currentControl;
 
-        private CustomListView _customListView;
+        private CustomListView _recensioniListView;
         private UserProfileView _userProfile;
 
         public _root()
         {
             InitializeComponent();
 
-            _customListView = new CustomListView();
+            _recensioniListView = new CustomListView();
             _userProfile = new UserProfileView();
 
-            _customListView.Dock = DockStyle.Fill;
+            fetchData();
+
+            _recensioniListView.Dock = DockStyle.Fill;
             _userProfile.Dock = DockStyle.Fill;
 
-            _viewsContainer.Controls.Add(_customListView);
-            _currentControl = _customListView;
+            _viewsContainer.Controls.Add(_recensioniListView);
+            _currentControl = _recensioniListView;
+        }
+
+        private void fetchData()
+        {
+            string[] columns = new string[] { "Nome Gioco", "Nome Recensore", "Valutazione" };
+            _recensioniListView.addColumns(columns);
+
+            string[][] rows = new string[10][];
+            rows[0] = new string[] { "Nome Gioco", "Nome recensore", "Valutazione" };
+            rows[1] = new string[] { "Nome Gioco", "Nome recensore", "Valutazione" };
+            rows[2] = new string[] { "Nome Gioco", "Nome recensore", "Valutazione" };
+            rows[3] = new string[] { "Nome Gioco", "Nome recensore", "Valutazione" };
+            rows[4] = new string[] { "Nome Gioco", "Nome recensore", "Valutazione" };
+            rows[5] = new string[] { "Nome Gioco", "Nome recensore", "Valutazione" };
+            rows[6] = new string[] { "Nome Gioco", "Nome recensore", "Valutazione" };
+            rows[7] = new string[] { "Nome Gioco", "Nome recensore", "Valutazione" };
+            rows[8] = new string[] { "Nome Gioco", "Nome recensore", "Valutazione" };
+            rows[9] = new string[] { "Nome Gioco", "Nome recensore", "Valutazione" };
+            _recensioniListView.addRows(rows);
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -48,12 +69,12 @@ namespace GameReViews
 
         private void _recensioniButton_Click(object sender, EventArgs e)
         {
-            if (_currentControl != _customListView)
+            if (_currentControl != _recensioniListView)
             {
                 _viewsContainer.Controls.Remove(_currentControl);
-                _viewsContainer.Controls.Add(_customListView);
+                _viewsContainer.Controls.Add(_recensioniListView);
 
-                _currentControl = _customListView;
+                _currentControl = _recensioniListView;
             }
         }
 
@@ -71,6 +92,11 @@ namespace GameReViews
 
                 _currentControl = _userProfile;
             }
+        }
+
+        private void _viewsContainer_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
