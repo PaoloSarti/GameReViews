@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this._videogiochiContainer = new System.Windows.Forms.Panel();
-            this._aggiungiVideogiocoButton = new System.Windows.Forms.Button();
             this._dataGridView = new GameReViews.CustomDataGridView();
+            this._aggiungiVideogiocoButton = new System.Windows.Forms.Button();
             this._videogiochiContainer.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -43,6 +43,14 @@
             this._videogiochiContainer.Name = "_videogiochiContainer";
             this._videogiochiContainer.Size = new System.Drawing.Size(917, 623);
             this._videogiochiContainer.TabIndex = 0;
+            // 
+            // _dataGridView
+            // 
+            this._dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._dataGridView.Location = new System.Drawing.Point(0, 92);
+            this._dataGridView.Name = "_dataGridView";
+            this._dataGridView.Size = new System.Drawing.Size(917, 531);
+            this._dataGridView.TabIndex = 1;
             // 
             // _aggiungiVideogiocoButton
             // 
@@ -60,14 +68,6 @@
             this._aggiungiVideogiocoButton.TabIndex = 0;
             this._aggiungiVideogiocoButton.Text = "Aggiungi Videogioco";
             this._aggiungiVideogiocoButton.UseVisualStyleBackColor = false;
-            // 
-            // _dataGridView
-            // 
-            this._dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._dataGridView.Location = new System.Drawing.Point(0, 92);
-            this._dataGridView.Name = "_dataGridView";
-            this._dataGridView.Size = new System.Drawing.Size(917, 531);
-            this._dataGridView.TabIndex = 1;
             // 
             // VideogiochiListView
             // 

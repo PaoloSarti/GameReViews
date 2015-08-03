@@ -16,7 +16,7 @@ namespace GameReViews
             InitializeComponent();
         }
 
-        public CustomDataGridView getCustomDataGrid()
+        public CustomDataGridView GetCustomDataGrid()
         {
             return _customDataGridView;
         }

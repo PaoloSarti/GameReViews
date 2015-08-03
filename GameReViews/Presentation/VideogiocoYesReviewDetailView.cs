@@ -24,6 +24,8 @@ namespace GameReViews.View
             _videogioco = videogioco;
 
             bindData();
+
+            _valutazione.Text = Document.GetInstance().Calcolo.Calcola(_videogioco.Recensione) + "";
         }
 
         private void bindData()
@@ -39,7 +41,7 @@ namespace GameReViews.View
             BindingSource source_preferenze = new BindingSource(bindingListPreferenze, null);
             
 
-            _customDataGridView.setDataSource(source_preferenze, headersAspetti);
+            _customDataGridView.InitDataSource(source_preferenze, headersAspetti);
         }
 
         public CustomDataGridView getCustomDataGrid()

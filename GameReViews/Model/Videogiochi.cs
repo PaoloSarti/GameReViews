@@ -25,6 +25,14 @@ namespace GameReViews.Model
             get { return _videogiochiSet; }
         }
 
+        public IEnumerable<Videogioco> VideogiochiRecensiti
+        {
+            get
+            {
+                return _videogiochiSet.Where(videogioco => (videogioco.Recensione != null));
+            }
+        }
+
         public Videogioco getVideogioco(string nome)
         {
             foreach (Videogioco v in _videogiochiSet)

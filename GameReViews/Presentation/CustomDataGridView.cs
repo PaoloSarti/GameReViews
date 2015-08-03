@@ -10,10 +10,10 @@ using GameReViews.Model;
 
 namespace GameReViews
 {
+    public delegate void CellClickedDelegate(Videogioco videogiocoSelezionato);
+
     public partial class CustomDataGridView : UserControl
     {
-        public delegate void CellClickedDelegate(Videogioco videogiocoSelezionato);
-
         public event CellClickedDelegate CellClicked;
 
         public CustomDataGridView()
@@ -27,7 +27,7 @@ namespace GameReViews
              
         }
 
-        public void setDataSource(BindingSource source, string[][] headers)
+        public void InitDataSource(BindingSource source, string[][] headers)
         {
             _dataGridView.AutoGenerateColumns = false;
             _dataGridView.ColumnCount = headers.Length;
@@ -41,6 +41,10 @@ namespace GameReViews
             _dataGridView.DataSource = source;
         }
 
+        public void UpdateDataSource(BindingSource source)
+        {
+            _dataGridView.DataSource = source;
+        }
             
         private void dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {

@@ -46,20 +46,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="View\CircularPictureBox.cs">
+    <Compile Include="Presentation\CircularPictureBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="View\CustomDataGridView.cs">
+    <Compile Include="Presentation\CustomDataGridView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\CustomDataGridView.Designer.cs">
+    <Compile Include="Presentation\CustomDataGridView.Designer.cs">
       <DependentUpon>CustomDataGridView.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\FilterBindingListAdapter.cs" />
-    <Compile Include="View\MainForm.cs">
+    <Compile Include="Presentation\FilterBindingListAdapter.cs" />
+    <Compile Include="Presentation\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\MainForm.Designer.cs">
+    <Compile Include="Presentation\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Aspetti.cs" />
@@ -80,49 +80,54 @@
     <Compile Include="Model\Videogiochi.cs" />
     <Compile Include="Model\Videogioco.cs" />
     <Compile Include="Persistence\MockModelPersister.cs" />
+    <Compile Include="Presentation\Presenter\AbstractVideogiochiPresenter.cs" />
+    <Compile Include="Presentation\Presenter\ToolbarPresenter.cs" />
+    <Compile Include="Presentation\Presenter\UtentePresenter.cs" />
+    <Compile Include="Presentation\Presenter\VideogiochiPresenter.cs" />
+    <Compile Include="Presentation\Presenter\VideogiochiRecensitiPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="View\LogSignInView.cs">
+    <Compile Include="Presentation\LogSignInView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\LogSignInView.Designer.cs">
+    <Compile Include="Presentation\LogSignInView.Designer.cs">
       <DependentUpon>LogSignInView.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\UserProfileView.cs">
+    <Compile Include="Presentation\UserProfileView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\UserProfileView.Designer.cs">
+    <Compile Include="Presentation\UserProfileView.Designer.cs">
       <DependentUpon>UserProfileView.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\VideogiochiFilter.cs" />
-    <Compile Include="View\VideogiocoNoReviewDetailView.cs">
+    <Compile Include="Presentation\VideogiochiFilter.cs" />
+    <Compile Include="Presentation\VideogiocoNoReviewDetailView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\VideogiocoNoReviewDetailView.Designer.cs">
+    <Compile Include="Presentation\VideogiocoNoReviewDetailView.Designer.cs">
       <DependentUpon>VideogiocoNoReviewDetailView.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\VideogiochiListView.cs">
+    <Compile Include="Presentation\VideogiochiListView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\VideogiochiListView.Designer.cs">
+    <Compile Include="Presentation\VideogiochiListView.Designer.cs">
       <DependentUpon>VideogiochiListView.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\VideogiocoYesReviewDetailView.cs">
+    <Compile Include="Presentation\VideogiocoYesReviewDetailView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\VideogiocoYesReviewDetailView.Designer.cs">
+    <Compile Include="Presentation\VideogiocoYesReviewDetailView.Designer.cs">
       <DependentUpon>VideogiocoYesReviewDetailView.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\VideogiocoRootView.cs">
+    <Compile Include="Presentation\VideogiocoRootView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\VideogiocoRootView.Designer.cs">
+    <Compile Include="Presentation\VideogiocoRootView.Designer.cs">
       <DependentUpon>VideogiocoRootView.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="View\CustomDataGridView.resx">
+    <EmbeddedResource Include="Presentation\CustomDataGridView.resx">
       <DependentUpon>CustomDataGridView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\MainForm.resx">
+    <EmbeddedResource Include="Presentation\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -135,22 +140,22 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="View\LogSignInView.resx">
+    <EmbeddedResource Include="Presentation\LogSignInView.resx">
       <DependentUpon>LogSignInView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\UserProfileView.resx">
+    <EmbeddedResource Include="Presentation\UserProfileView.resx">
       <DependentUpon>UserProfileView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\VideogiocoNoReviewDetailView.resx">
+    <EmbeddedResource Include="Presentation\VideogiocoNoReviewDetailView.resx">
       <DependentUpon>VideogiocoNoReviewDetailView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\VideogiochiListView.resx">
+    <EmbeddedResource Include="Presentation\VideogiochiListView.resx">
       <DependentUpon>VideogiochiListView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\VideogiocoYesReviewDetailView.resx">
+    <EmbeddedResource Include="Presentation\VideogiocoYesReviewDetailView.resx">
       <DependentUpon>VideogiocoYesReviewDetailView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\VideogiocoRootView.resx">
+    <EmbeddedResource Include="Presentation\VideogiocoRootView.resx">
       <DependentUpon>VideogiocoRootView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
@@ -169,6 +174,7 @@
   <ItemGroup>
     <None Include="Resources\ic_exit_to_app_white_48dp.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using GameReViews.Model;
 
 namespace GameReViews
 {
@@ -16,10 +17,18 @@ namespace GameReViews
             InitializeComponent();
         }
 
-        public CustomDataGridView getCustomDataGrid()
+        public CustomDataGridView GetCustomDataGrid()
         {
             return _dataGridView;
         }
+
+        public Button GetAggiungiVideogiocoButton()
+        {
+            return _aggiungiVideogiocoButton;
+        }
+
+
+
         
     }
 }

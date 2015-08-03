@@ -29,12 +29,10 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this._customDataGridView = new GameReViews.CustomDataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
-            this._valutazionePersonalizzata = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this._valutazione = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this._customDataGridView = new GameReViews.CustomDataGridView();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -50,10 +48,16 @@
             this.panel1.Size = new System.Drawing.Size(1129, 649);
             this.panel1.TabIndex = 0;
             // 
+            // _customDataGridView
+            // 
+            this._customDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._customDataGridView.Location = new System.Drawing.Point(0, 100);
+            this._customDataGridView.Name = "_customDataGridView";
+            this._customDataGridView.Size = new System.Drawing.Size(1129, 549);
+            this._customDataGridView.TabIndex = 1;
+            // 
             // panel2
             // 
-            this.panel2.Controls.Add(this._valutazionePersonalizzata);
-            this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this._valutazione);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -61,24 +65,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1129, 100);
             this.panel2.TabIndex = 0;
-            // 
-            // _valutazionePersonalizzata
-            // 
-            this._valutazionePersonalizzata.AutoSize = true;
-            this._valutazionePersonalizzata.Location = new System.Drawing.Point(737, 43);
-            this._valutazionePersonalizzata.Name = "_valutazionePersonalizzata";
-            this._valutazionePersonalizzata.Size = new System.Drawing.Size(33, 13);
-            this._valutazionePersonalizzata.TabIndex = 3;
-            this._valutazionePersonalizzata.Text = "value";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(553, 43);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(132, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Valutazione personalizzata";
             // 
             // _valutazione
             // 
@@ -98,14 +84,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Valutazione";
             // 
-            // _customDataGridView
-            // 
-            this._customDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._customDataGridView.Location = new System.Drawing.Point(0, 100);
-            this._customDataGridView.Name = "_customDataGridView";
-            this._customDataGridView.Size = new System.Drawing.Size(1129, 549);
-            this._customDataGridView.TabIndex = 1;
-            // 
             // VideogiocoYesReviewDetailView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -124,8 +102,6 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label _valutazionePersonalizzata;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label _valutazione;
         private System.Windows.Forms.Label label1;
         private CustomDataGridView _customDataGridView;
