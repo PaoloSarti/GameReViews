@@ -81,6 +81,7 @@
             this._signinButton.TabIndex = 6;
             this._signinButton.Text = "Signin";
             this._signinButton.UseVisualStyleBackColor = false;
+            this._signinButton.Click += new System.EventHandler(this._signinButton_Click);
             // 
             // _loginButton
             // 
@@ -95,6 +96,7 @@
             this._loginButton.TabIndex = 5;
             this._loginButton.Text = "Login";
             this._loginButton.UseVisualStyleBackColor = false;
+            this._loginButton.Click += new System.EventHandler(this._loginButton_Click);
             // 
             // _passwordTextBox
             // 

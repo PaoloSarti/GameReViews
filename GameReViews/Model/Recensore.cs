@@ -21,13 +21,12 @@ namespace GameReViews.Model
         {
             get
             {
-                 //LINQLAMDA
                  // return from recensione in Model.GetInstance().Recensioni.RecensioniSet.Where(r => r.Autore.Equals(this))
                  //      //where recensione.Autore.Equals(this) //sarebbe così, però con le lambda si prendono più punti
                  //    select recensione;
 
                 //solo con lambda, non c'è bisogno di usare linq in questo caso
-                return Document.GetInstance().Recensioni.List.Where(r => r.Autore.Equals(this));
+                return Document.GetInstance().Videogiochi.Recensioni.Where(r => r.Autore.Equals(this));
             }
         }
 

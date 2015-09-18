@@ -23,9 +23,13 @@ namespace GameReViews
 
         private LogSignInView _logSignInView;
 
+        private Sessione _sessione;
+
         public MainForm()
         {
             InitializeComponent();
+
+            _sessione = new Sessione();
 
             _recensioniView = new VideogiochiListView();
             _videogiochiView = new VideogiochiListView();
@@ -42,16 +46,18 @@ namespace GameReViews
             _logSignInView.Dock = DockStyle.Fill;
 
             // hack per partire dalla schermata delle recensioni
-            _recensioniButton_Click(null, null);
+            //_recensioniButton_Click(null, null);
+            _utente_Login(null, null);
 
             new VideogiochiPresenter(_videogiochiView);
             new VideogiochiRecensitiPresenter(_recensioniView);
-            new UtentePresenter(_userProfileView);
-            ToolbarPresenter toolbarPresenter = new ToolbarPresenter(_utenteButton);
+            new UtentePresenter(_userProfileView, _sessione);
+            new LogSignInPresenter(_logSignInView, _sessione).Login+=_utente_Profilo;
+            ToolbarPresenter toolbarPresenter = new ToolbarPresenter(_utenteButton, _sessione);
             
             toolbarPresenter.LoginUtente += this._utente_Login;
             toolbarPresenter.ProfiloUtente += this._utente_Profilo;
-
+            
         }
 
         // scatta quando si seleziona un item dalla lista. Fa vedere la vista dettagliata del videogioco e della relativa recensione (se presente)
@@ -61,7 +67,7 @@ namespace GameReViews
 
             Videogioco videogiocoSelezionato = videogioco;
 
-            VideogiocoRootView root = new VideogiocoRootView(videogiocoSelezionato);
+            VideogiocoRootView root = new VideogiocoRootView(videogiocoSelezionato, _sessione);
 
             root.Dock = DockStyle.Fill;
             _viewsContainer.Controls.Remove(_currentControl);

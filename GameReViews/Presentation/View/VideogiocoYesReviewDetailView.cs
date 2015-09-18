@@ -19,13 +19,17 @@ namespace GameReViews.View
             InitializeComponent();
         }
 
-        public VideogiocoYesReviewDetailView(Videogioco videogioco) : this()
+        private Sessione _sessione;
+
+        public VideogiocoYesReviewDetailView(Videogioco videogioco, Sessione sessione) : this()
         {
             _videogioco = videogioco;
 
             bindData();
 
-            _valutazione.Text = Document.GetInstance().Calcolo.Calcola(_videogioco.Recensione) + "";
+            _sessione = sessione;
+
+            _valutazione.Text = _sessione.Calcolo.Calcola(_videogioco.Recensione) + "";
         }
 
         private void bindData()

@@ -14,16 +14,19 @@ namespace GameReViews.Presentation.Presenter
         public event EventHandler LoginUtente;
         public event EventHandler ProfiloUtente;
 
+        private Sessione _sessione;
 
-        public ToolbarPresenter(Button utenteButton)
+        public ToolbarPresenter(Button utenteButton, Sessione sessione)
         {
             _utenteButton = utenteButton;
             _utenteButton.Click += UtenteButton_click;
+
+            _sessione = sessione;
         }
 
         private void UtenteButton_click(object sender, EventArgs e)
         {
-            if(Document.GetInstance().UtenteCorrente==null)
+            if(_sessione.UtenteCorrente == null)
             {
                 if (LoginUtente != null)
                     LoginUtente(null, EventArgs.Empty);

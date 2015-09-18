@@ -23,4 +23,18 @@ class CircularPictureBox : PictureBox
             this.Region = new Region(gp);
         }
     }
+
+    private void InitializeComponent()
+    {
+            ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // CircularPictureBox
+            // 
+            this.InitialImage = global::GameReViews.Properties.Resources.nonsensCapture;
+            this.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
+            this.ResumeLayout(false);
+
+    }
 }

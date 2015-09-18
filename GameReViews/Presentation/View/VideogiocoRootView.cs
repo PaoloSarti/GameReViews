@@ -15,16 +15,20 @@ namespace GameReViews.View
         private Videogioco _videogioco;
         private Recensione _recensione;
 
+        private Sessione _sessione;
+
         private VideogiocoRootView()
         {
             InitializeComponent();
         }
 
 
-        public VideogiocoRootView(Videogioco videogiocoSelezionato) : this()
+        public VideogiocoRootView(Videogioco videogiocoSelezionato, Sessione sessione) : this()
         {
             _videogioco = videogiocoSelezionato;
             _recensione = videogiocoSelezionato.Recensione;
+
+            _sessione = sessione;
 
             _nomeVideogiocoLabel.Text = videogiocoSelezionato.Nome;
             _dataVideogiocoLabel.Text = videogiocoSelezionato.DataRilascio.ToString();
@@ -39,7 +43,7 @@ namespace GameReViews.View
             }
             else
             {
-                VideogiocoYesReviewDetailView recensioneView = new VideogiocoYesReviewDetailView(_videogioco);
+                VideogiocoYesReviewDetailView recensioneView = new VideogiocoYesReviewDetailView(_videogioco, _sessione);
                 recensioneView.Dock = DockStyle.Fill;
 
                 _recensioneContainer.Controls.Add(recensioneView);

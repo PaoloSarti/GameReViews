@@ -25,7 +25,6 @@ namespace GameReViews.Persistence
     class MockModelLoader : IModelLoader
     {
         Videogiochi _videogiochi;
-        Recensioni _recensioni;
         UtentiRegistrati _utenti;
 
         public MockModelLoader()
@@ -56,26 +55,25 @@ namespace GameReViews.Persistence
             Videogioco v7 = new Videogioco("Videogioco7", DateTime.Now, Genere.AZIONE);
 
             //aggiungo qualche recensione
-            //il costruttore di recensione aggiorna automaticamente il riferimento in videogioco
-            Recensione re1 = new Recensione(v1, "testo lunghissimo bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla 1", r1);
-            Recensione re2 = new Recensione(v2, "testo lunghissimo bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla 2", r1);
-            Recensione re3 = new Recensione(v3, "testo lunghissimo bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla 3", r2);
-            Recensione re4 = new Recensione(v4, "testo lunghissimo bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla 4", r3);
+            v1.Recensione = new Recensione("testo lunghissimo bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla 1", r1);
+            v2.Recensione = new Recensione("testo lunghissimo bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla 2", r1);
+            v3.Recensione = new Recensione("testo lunghissimo bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla 3", r2);
+            v4.Recensione=new Recensione("testo lunghissimo bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla 4", r3);
 
             //aggiungo aspetti valutati alle recensioni (viene popolata anche la classe Aspetti del Model)
-            re1.AddAspettoValutato(new Aspetto("aspetto1", "descrizione1"), 8);
-            re1.AddAspettoValutato(new Aspetto("aspetto2", "descrizione2"), 4);
-            re1.AddAspettoValutato(new Aspetto("aspetto3", "descrizione3"), 5);
+            v1.Recensione.AddAspettoValutato(new Aspetto("aspetto1", "descrizione1"), 8);
+            v1.Recensione.AddAspettoValutato(new Aspetto("aspetto2", "descrizione2"), 4);
+            v1.Recensione.AddAspettoValutato(new Aspetto("aspetto3", "descrizione3"), 5);
 
-            re2.AddAspettoValutato(new Aspetto("aspetto1", "descrizione1"), 6);
-            re2.AddAspettoValutato(new Aspetto("aspetto3", "descrizione3"), 7);
+            v2.Recensione.AddAspettoValutato(new Aspetto("aspetto1", "descrizione1"), 6);
+            v2.Recensione.AddAspettoValutato(new Aspetto("aspetto3", "descrizione3"), 7);
 
-            re3.AddAspettoValutato(new Aspetto("aspetto4", "descrizione4"), 6);
-            re3.AddAspettoValutato(new Aspetto("aspetto2", "descrizione2"), 7);
+            v3.Recensione.AddAspettoValutato(new Aspetto("aspetto4", "descrizione4"), 6);
+            v3.Recensione.AddAspettoValutato(new Aspetto("aspetto2", "descrizione2"), 7);
 
-            re4.AddAspettoValutato(new Aspetto("aspetto1", "descrizione1"), 3);
-            re4.AddAspettoValutato(new Aspetto("aspetto3", "descrizione3"), 10);
-            re4.AddAspettoValutato(new Aspetto("aspetto5", "descrizione5"), 2);
+            v4.Recensione.AddAspettoValutato(new Aspetto("aspetto1", "descrizione1"), 3);
+            v4.Recensione.AddAspettoValutato(new Aspetto("aspetto3", "descrizione3"), 10);
+            v4.Recensione.AddAspettoValutato(new Aspetto("aspetto5", "descrizione5"), 2);
 
             //aggiungo preferenze agli utenti/recensori
             u1.AddPreferenza(new Aspetto("aspetto1", "descrizione1"), 2);
@@ -116,8 +114,8 @@ namespace GameReViews.Persistence
             r3.AddPreferenza(new Aspetto("aspetto5", "descrizione5"), 5);
 
             //aggiungo un paio di commenti
-            re1.InserisciCommento("commento1", u1);
-            foreach(Commento c in re1.Commenti)
+            v1.Recensione.InserisciCommento("commento1", u1);
+            foreach(Commento c in v1.Recensione.Commenti)
             {
                 c.Rispondi("risposta1", u2);
                 c.Rispondi("risposta2", u4);
@@ -143,22 +141,12 @@ namespace GameReViews.Persistence
             _videogiochi.AddVideogioco(v6);
             _videogiochi.AddVideogioco(v7);
 
-            this._recensioni = new Recensioni();
-            _recensioni.AddRecensione(re1);
-            _recensioni.AddRecensione(re2);
-            _recensioni.AddRecensione(re3);
-            _recensioni.AddRecensione(re4);
         }
 
 
         public Videogiochi GetVideogiochi()
         {
             return this._videogiochi;
-        }
-
-        public Recensioni GetRecensioni()
-        {
-            return this._recensioni;
         }
 
         public UtentiRegistrati GetUtentiRegistrati()

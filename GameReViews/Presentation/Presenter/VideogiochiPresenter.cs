@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using GameReViews.Presentation.View;
 
 namespace GameReViews.Presentation.Presenter
 {
@@ -26,7 +27,24 @@ namespace GameReViews.Presentation.Presenter
 
         private void _aggiungiVideogiocoButton_Click(object sender, EventArgs e)
         {
-            Document.GetInstance().Videogiochi.AddVideogioco(new Videogioco("USUSUGDSAIDGSAJKDGBA", DateTime.Now, Genere.AZIONE));
+            //cument.GetInstance().Videogiochi.AddVideogioco(new Videogioco("USUSUGDSAIDGSAJKDGBA", DateTime.Now, Genere.AZIONE));
+            AddVideogioco addVideogiocoView = new AddVideogioco();
+            if (addVideogiocoView.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    Videogioco videogioco = new Videogioco(addVideogiocoView.Nome, addVideogiocoView.DataRilascio,
+                    addVideogiocoView.Genere, addVideogiocoView.Image);
+
+                    Document.GetInstance().Videogiochi.AddVideogioco(videogioco);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Impossibile inserire il videogioco", "ERRORE",
+                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+           
         }
     }
 }
