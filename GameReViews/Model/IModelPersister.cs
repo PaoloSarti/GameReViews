@@ -17,8 +17,6 @@ namespace GameReViews.Model
     {
         Videogiochi GetVideogiochi();
 
-        Recensioni GetRecensioni();
-
         //gli aspetti vengono popolati automaticamente dal reference counting
         //Aspetti LoadAspetti();
 

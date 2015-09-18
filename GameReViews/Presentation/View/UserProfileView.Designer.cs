@@ -30,13 +30,13 @@
         {
             this._userInfoContainer_root = new System.Windows.Forms.Panel();
             this._userInfoContainer = new System.Windows.Forms.Panel();
+            this._customDataGridView = new GameReViews.CustomDataGridView();
             this._preferenzeControlPanel = new System.Windows.Forms.Panel();
             this._aggiungiPreferenza = new System.Windows.Forms.Button();
             this._preferenzeLabel = new System.Windows.Forms.Label();
             this._userInfoPanel = new System.Windows.Forms.Panel();
             this.circularPictureBox1 = new CircularPictureBox();
             this._userName = new System.Windows.Forms.Label();
-            this._customDataGridView = new GameReViews.CustomDataGridView();
             this._userInfoContainer_root.SuspendLayout();
             this._userInfoContainer.SuspendLayout();
             this._preferenzeControlPanel.SuspendLayout();
@@ -66,6 +66,14 @@
             this._userInfoContainer.Size = new System.Drawing.Size(849, 619);
             this._userInfoContainer.TabIndex = 3;
             // 
+            // _customDataGridView
+            // 
+            this._customDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._customDataGridView.Location = new System.Drawing.Point(0, 312);
+            this._customDataGridView.Name = "_customDataGridView";
+            this._customDataGridView.Size = new System.Drawing.Size(849, 307);
+            this._customDataGridView.TabIndex = 6;
+            // 
             // _preferenzeControlPanel
             // 
             this._preferenzeControlPanel.Controls.Add(this._aggiungiPreferenza);
@@ -89,6 +97,7 @@
             this._aggiungiPreferenza.TabIndex = 1;
             this._aggiungiPreferenza.Text = "Aggiungi preferenza";
             this._aggiungiPreferenza.UseVisualStyleBackColor = false;
+            this._aggiungiPreferenza.Click += new System.EventHandler(this._aggiungiPreferenza_Click);
             // 
             // _preferenzeLabel
             // 
@@ -128,17 +137,9 @@
             this._userName.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._userName.Location = new System.Drawing.Point(361, 21);
             this._userName.Name = "_userName";
-            this._userName.Size = new System.Drawing.Size(336, 39);
+            this._userName.Size = new System.Drawing.Size(112, 39);
             this._userName.TabIndex = 1;
-            this._userName.Text = "Smoky ChickenFish";
-            // 
-            // _customDataGridView
-            // 
-            this._customDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._customDataGridView.Location = new System.Drawing.Point(0, 312);
-            this._customDataGridView.Name = "_customDataGridView";
-            this._customDataGridView.Size = new System.Drawing.Size(849, 307);
-            this._customDataGridView.TabIndex = 6;
+            this._userName.Text = "Nome";
             // 
             // UserProfileView
             // 

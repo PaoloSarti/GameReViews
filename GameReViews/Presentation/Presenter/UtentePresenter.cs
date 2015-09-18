@@ -8,15 +8,20 @@ using System.Windows.Forms;
 
 namespace GameReViews.Presentation.Presenter
 {
-    class UtentePresenter
+    public class UtentePresenter
     {
         private UserProfileView _userProfileView;
 
-        public UtentePresenter(UserProfileView userProfileView)
+        private Sessione _sessione;
+
+        public UtentePresenter(UserProfileView userProfileView, Sessione sessione)
         {
             _userProfileView = userProfileView;
 
-            BindData();
+            _sessione = sessione;
+
+            _sessione.SessionChanged += Sessione_Changed;
+            //BindData();
         }
 
         private void BindData()
@@ -33,7 +38,7 @@ namespace GameReViews.Presentation.Presenter
 
         protected BindingSource GetBindingSource()
         {
-            IList<AspettoValore> preferenze = Document.GetInstance().UtenteCorrente.Preferenze.List.ToList();
+            IList<AspettoValore> preferenze = _sessione.UtenteCorrente.Preferenze.List.ToList();
             BindingList<AspettoValore> bindingList = new BindingList<AspettoValore>(preferenze);
 
             return new BindingSource(bindingList, null);
@@ -42,11 +47,21 @@ namespace GameReViews.Presentation.Presenter
 
         private void Preferenze_Changed(object sender, EventArgs e)
         {
-            _userProfileView.GetCustomDataGrid().UpdateDataSource(GetBindingSource());
+            //_userProfileView.GetCustomDataGrid().UpdateDataSource(GetBindingSource());
+            BindData();
             _userProfileView.Refresh();
         }
 
-
+        private void Sessione_Changed(object sender, EventArgs e)
+        {
+            //_userProfileView.GetCustomDataGrid().UpdateDataSource(GetBindingSource());
+            if (_sessione.UtenteCorrente != null)
+            {
+                _userProfileView.NomeUtente = _sessione.UtenteCorrente.Nome;
+                BindData();
+                _userProfileView.Refresh();
+            }
+        }
 
 
     }

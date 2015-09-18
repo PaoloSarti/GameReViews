@@ -8,7 +8,6 @@ namespace GameReViews.Model
     public class Recensione
     {
         private readonly Recensore _autore;
-        private readonly Videogioco _videogioco;
         private readonly DateTime _dataImmissione;
         private string _testo;
         private readonly List<Commento> _commenti;
@@ -16,25 +15,18 @@ namespace GameReViews.Model
 
         public event EventHandler RecensioneChanged;
 
-        public Recensione(Videogioco videogioco, string testo, Recensore autore)
+        public Recensione(string testo, Recensore autore)
         {
             #region Precondizioni
-            if (videogioco == null || String.IsNullOrEmpty(testo)||autore==null)
+            if (String.IsNullOrEmpty(testo)||autore==null)
                 throw new ArgumentException("videogioco == null || String.IsNullOrEmpty(testo)||autore==null");
             #endregion         
 
-            this._videogioco = videogioco;
             this._testo = testo;
             this._autore = autore;
             this._dataImmissione = DateTime.Now;
-            this._videogioco.Recensione = this;
             this._commenti = new List<Commento>();
             _aspettiValutati = new AspettiValutati();
-        }
-
-        public Videogioco Videogioco
-        {
-            get { return _videogioco; }
         }
 
         public DateTime DataImmissione

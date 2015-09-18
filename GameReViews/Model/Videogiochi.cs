@@ -33,6 +33,15 @@ namespace GameReViews.Model
             }
         }
 
+        public IEnumerable<Recensione> Recensioni
+        {
+            get
+            {
+                return from videogioco in _videogiochiSet select videogioco.Recensione;
+            }
+        }
+
+
         public Videogioco getVideogioco(string nome)
         {
             foreach (Videogioco v in _videogiochiSet)
