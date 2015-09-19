@@ -18,10 +18,11 @@ namespace GameReViews.Presentation.Presenter
         {
             _userProfileView = userProfileView;
 
+            _userProfileView.Dock = DockStyle.Fill;
+
             _sessione = sessione;
 
             _sessione.SessionChanged += Sessione_Changed;
-            //BindData();
         }
 
         private void BindData()

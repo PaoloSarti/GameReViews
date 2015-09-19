@@ -35,24 +35,24 @@ namespace GameReViews.Persistence
         private void Initialize_1()
         {
             //aggiungo qualche utente
-            UtenteRegistrato u1 = new UtenteRegistrato("utente1", "password1");
-            UtenteRegistrato u2 = new UtenteRegistrato("utente2", "password2");
-            UtenteRegistrato u3 = new UtenteRegistrato("utente3", "password3");
-            UtenteRegistrato u4 = new UtenteRegistrato("utente4", "password4");
+            UtenteRegistrato u1 = new UtenteRegistrato("Filippo", "p");
+            UtenteRegistrato u2 = new UtenteRegistrato("Pier", "p");
+            UtenteRegistrato u3 = new UtenteRegistrato("Paolo", "p");
+            UtenteRegistrato u4 = new UtenteRegistrato("Antonio", "p");
 
             //aggiungo qualche recensore
-            Recensore r1 = new Recensore("recensore1", "password5");
-            Recensore r2 = new Recensore("recensore2", "password6");
-            Recensore r3 = new Recensore("recensore3", "password7");
+            Recensore r1 = new Recensore("Recensore1", "p");
+            Recensore r2 = new Recensore("Recensore2", "p");
+            Recensore r3 = new Recensore("Recensore3", "p");
 
             //aggiungo qualche videogioco
-            Videogioco v1 = new Videogioco("Videogioco1", DateTime.Now, Genere.AZIONE);
-            Videogioco v2 = new Videogioco("Videogioco2", DateTime.Now, Genere.FANTASY);
-            Videogioco v3 = new Videogioco("Videogioco3", DateTime.Now, Genere.HORROR);
-            Videogioco v4 = new Videogioco("Videogioco4", DateTime.Now, Genere.AZIONE);
-            Videogioco v5 = new Videogioco("Videogioco5", DateTime.Now, Genere.AZIONE);
-            Videogioco v6 = new Videogioco("Videogioco6", DateTime.Now, Genere.AZIONE);
-            Videogioco v7 = new Videogioco("Videogioco7", DateTime.Now, Genere.AZIONE);
+            Videogioco v1 = new Videogioco("Metal Gear Solid V", DateTime.Now, Genere.STEALTH);
+            Videogioco v2 = new Videogioco("No Man's Sky", DateTime.Now, Genere.FANTASY);
+            Videogioco v3 = new Videogioco("The Witcher 3", DateTime.Now, Genere.FANTASY);
+            Videogioco v4 = new Videogioco("The Elder Scrolls V: Skyrim", DateTime.Now, Genere.FANTASY);
+            Videogioco v5 = new Videogioco("Dishonored", DateTime.Now, Genere.STEALTH);
+            Videogioco v6 = new Videogioco("Faster Than Light", DateTime.Now, Genere.STRATEGIA);
+            Videogioco v7 = new Videogioco("Forza Motorsport 5", DateTime.Now, Genere.CORSE);
 
             //aggiungo qualche recensione
             v1.Recensione = new Recensione("testo lunghissimo bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla 1", r1);
@@ -61,57 +61,57 @@ namespace GameReViews.Persistence
             v4.Recensione=new Recensione("testo lunghissimo bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla 4", r3);
 
             //aggiungo aspetti valutati alle recensioni (viene popolata anche la classe Aspetti del Model)
-            v1.Recensione.AddAspettoValutato(new Aspetto("aspetto1", "descrizione1"), 8);
-            v1.Recensione.AddAspettoValutato(new Aspetto("aspetto2", "descrizione2"), 4);
-            v1.Recensione.AddAspettoValutato(new Aspetto("aspetto3", "descrizione3"), 5);
+            v1.Recensione.AddAspettoValutato(new Aspetto("grafica", "descrizione1"), 8);
+            v1.Recensione.AddAspettoValutato(new Aspetto("giocabilità", "descrizione2"), 4);
+            v1.Recensione.AddAspettoValutato(new Aspetto("storia", "descrizione3"), 5);
 
-            v2.Recensione.AddAspettoValutato(new Aspetto("aspetto1", "descrizione1"), 6);
-            v2.Recensione.AddAspettoValutato(new Aspetto("aspetto3", "descrizione3"), 7);
+            v2.Recensione.AddAspettoValutato(new Aspetto("grafica", "descrizione1"), 6);
+            v2.Recensione.AddAspettoValutato(new Aspetto("storia", "descrizione3"), 7);
 
-            v3.Recensione.AddAspettoValutato(new Aspetto("aspetto4", "descrizione4"), 6);
-            v3.Recensione.AddAspettoValutato(new Aspetto("aspetto2", "descrizione2"), 7);
+            v3.Recensione.AddAspettoValutato(new Aspetto("realismo", "descrizione4"), 6);
+            v3.Recensione.AddAspettoValutato(new Aspetto("giocabilità", "descrizione2"), 7);
 
-            v4.Recensione.AddAspettoValutato(new Aspetto("aspetto1", "descrizione1"), 3);
-            v4.Recensione.AddAspettoValutato(new Aspetto("aspetto3", "descrizione3"), 10);
-            v4.Recensione.AddAspettoValutato(new Aspetto("aspetto5", "descrizione5"), 2);
+            v4.Recensione.AddAspettoValutato(new Aspetto("grafica", "descrizione1"), 3);
+            v4.Recensione.AddAspettoValutato(new Aspetto("storia", "descrizione3"), 10);
+            v4.Recensione.AddAspettoValutato(new Aspetto("rigiocabilità", "descrizione5"), 2);
 
             //aggiungo preferenze agli utenti/recensori
-            u1.AddPreferenza(new Aspetto("aspetto1", "descrizione1"), 2);
-            u1.AddPreferenza(new Aspetto("aspetto2", "descrizione2"), 4);
-            u1.AddPreferenza(new Aspetto("aspetto3", "descrizione3"), 2);
-            u1.AddPreferenza(new Aspetto("aspetto4", "descrizione4"), 6);
+            u1.AddPreferenza(new Aspetto("grafica", "descrizione1"), 2);
+            u1.AddPreferenza(new Aspetto("giocabilità", "descrizione2"), 4);
+            u1.AddPreferenza(new Aspetto("storia", "descrizione3"), 2);
+            u1.AddPreferenza(new Aspetto("realismo", "descrizione4"), 6);
 
-            u2.AddPreferenza(new Aspetto("aspetto1", "descrizione1"), 2);
-            u2.AddPreferenza(new Aspetto("aspetto2", "descrizione2"), 1);
-            u2.AddPreferenza(new Aspetto("aspetto4", "descrizione4"), 7);
-            u2.AddPreferenza(new Aspetto("aspetto5", "descrizione5"), 2);
+            u2.AddPreferenza(new Aspetto("grafica", "descrizione1"), 2);
+            u2.AddPreferenza(new Aspetto("giocabilità", "descrizione2"), 1);
+            u2.AddPreferenza(new Aspetto("realismo", "descrizione4"), 7);
+            u2.AddPreferenza(new Aspetto("rigiocabilità", "descrizione5"), 2);
 
-            u3.AddPreferenza(new Aspetto("aspetto2", "descrizione2"), 4);
-            u3.AddPreferenza(new Aspetto("aspetto3", "descrizione3"), 1);
-            u3.AddPreferenza(new Aspetto("aspetto4", "descrizione4"), 2);
-            u3.AddPreferenza(new Aspetto("aspetto5", "descrizione5"), 5);
+            u3.AddPreferenza(new Aspetto("giocabilità", "descrizione2"), 4);
+            u3.AddPreferenza(new Aspetto("storia", "descrizione3"), 1);
+            u3.AddPreferenza(new Aspetto("realismo", "descrizione4"), 2);
+            u3.AddPreferenza(new Aspetto("rigiocabilità", "descrizione5"), 5);
 
-            u4.AddPreferenza(new Aspetto("aspetto1", "descrizione1"), 10);
-            u4.AddPreferenza(new Aspetto("aspetto2", "descrizione3"), 3);
-            u4.AddPreferenza(new Aspetto("aspetto5", "descrizione5"), 0);
+            u4.AddPreferenza(new Aspetto("grafica", "descrizione1"), 10);
+            u4.AddPreferenza(new Aspetto("storia", "descrizione3"), 3);
+            u4.AddPreferenza(new Aspetto("rigiocabilità", "descrizione5"), 0);
 
-            r1.AddPreferenza(new Aspetto("aspetto1", "descrizione1"), 8);
-            r1.AddPreferenza(new Aspetto("aspetto2", "descrizione2"), 4);
-            r1.AddPreferenza(new Aspetto("aspetto3", "descrizione3"), 1);
-            r1.AddPreferenza(new Aspetto("aspetto4", "descrizione4"), 2);
-            r1.AddPreferenza(new Aspetto("aspetto5", "descrizione5"), 5);
+            r1.AddPreferenza(new Aspetto("grafica", "descrizione1"), 8);
+            r1.AddPreferenza(new Aspetto("giocabilità", "descrizione2"), 4);
+            r1.AddPreferenza(new Aspetto("storia", "descrizione3"), 1);
+            r1.AddPreferenza(new Aspetto("realismo", "descrizione4"), 2);
+            r1.AddPreferenza(new Aspetto("rigiocabilità", "descrizione5"), 5);
 
-            r2.AddPreferenza(new Aspetto("aspetto1", "descrizione1"), 8);
-            r2.AddPreferenza(new Aspetto("aspetto2", "descrizione2"), 4);
-            r2.AddPreferenza(new Aspetto("aspetto3", "descrizione3"), 7);
-            r2.AddPreferenza(new Aspetto("aspetto4", "descrizione4"), 2);
-            r2.AddPreferenza(new Aspetto("aspetto5", "descrizione5"), 5);
+            r2.AddPreferenza(new Aspetto("grafica", "descrizione1"), 8);
+            r2.AddPreferenza(new Aspetto("giocabilità", "descrizione2"), 4);
+            r2.AddPreferenza(new Aspetto("storia", "descrizione3"), 7);
+            r2.AddPreferenza(new Aspetto("realismo", "descrizione4"), 2);
+            r2.AddPreferenza(new Aspetto("rigiocabilità", "descrizione5"), 5);
 
-            r3.AddPreferenza(new Aspetto("aspetto1", "descrizione1"), 7);
-            r3.AddPreferenza(new Aspetto("aspetto2", "descrizione2"), 4);
-            r3.AddPreferenza(new Aspetto("aspetto3", "descrizione3"), 1);
-            r3.AddPreferenza(new Aspetto("aspetto4", "descrizione4"), 2);
-            r3.AddPreferenza(new Aspetto("aspetto5", "descrizione5"), 5);
+            r3.AddPreferenza(new Aspetto("grafica", "descrizione1"), 7);
+            r3.AddPreferenza(new Aspetto("giocabilità", "descrizione2"), 4);
+            r3.AddPreferenza(new Aspetto("storia", "descrizione3"), 1);
+            r3.AddPreferenza(new Aspetto("realismo", "descrizione4"), 2);
+            r3.AddPreferenza(new Aspetto("rigiocabilità", "descrizione5"), 5);
 
             //aggiungo un paio di commenti
             v1.Recensione.InserisciCommento("commento1", u1);

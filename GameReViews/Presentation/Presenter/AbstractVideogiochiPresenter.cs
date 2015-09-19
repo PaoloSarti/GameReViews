@@ -18,6 +18,8 @@ namespace GameReViews.Presentation.Presenter
             _videogiochiView = videogichiView;
             _sessione = sessione;
 
+            _videogiochiView.Dock = DockStyle.Fill;
+
             BindData();
 
             Document.GetInstance().Videogiochi.VideogiochiChanged += VideogiochiList_Changed;
