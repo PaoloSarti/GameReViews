@@ -11,10 +11,14 @@ namespace GameReViews.Presentation.Presenter
     public abstract class AbstractVideogiochiPresenter
     {
         protected VideogiochiListView _videogiochiView;
+        protected Sessione _sessione;
 
-        public AbstractVideogiochiPresenter(VideogiochiListView videogichiView)
+        public AbstractVideogiochiPresenter(VideogiochiListView videogichiView, Sessione sessione)
         {
             _videogiochiView = videogichiView;
+            _sessione = sessione;
+
+            _videogiochiView.Dock = DockStyle.Fill;
 
             BindData();
 
@@ -40,6 +44,7 @@ namespace GameReViews.Presentation.Presenter
             _videogiochiView.Refresh();
         }
 
+        //Template Method
         protected abstract BindingSource GetBindingSource();
 
     }

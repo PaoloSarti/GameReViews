@@ -19,6 +19,8 @@ namespace GameReViews.Presentation.Presenter
             _view = logSignInView;
             _sessione = sessione;
 
+            _view.Dock = DockStyle.Fill;
+
             _view.LoginButtonClick += _login_Button_Click;
             _view.SignInButtonClick += _signin_Button_Click;
         }

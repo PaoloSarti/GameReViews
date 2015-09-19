@@ -16,6 +16,8 @@ namespace GameReViews.Model
         CORSE,
         INDIE,
         SIMULAZIONE,
-        SPORT
+        SPORT,
+        STEALTH,
+        STRATEGIA
     }
 }

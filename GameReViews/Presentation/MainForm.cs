@@ -40,24 +40,22 @@ namespace GameReViews
             _recensioniView.GetCustomDataGrid().CellClicked += onVideogiocoSelected;
             _videogiochiView.GetCustomDataGrid().CellClicked += onVideogiocoSelected;
 
-            _recensioniView.Dock = DockStyle.Fill;
-            _userProfileView.Dock = DockStyle.Fill;
-            _videogiochiView.Dock = DockStyle.Fill;
-            _logSignInView.Dock = DockStyle.Fill;
 
             // hack per partire dalla schermata delle recensioni
-            //_recensioniButton_Click(null, null);
-            _utente_Login(null, null);
+            _recensioniButton_Click(null, null);
+            //_utente_Login(null, EventArgs.Empty);
 
-            new VideogiochiPresenter(_videogiochiView);
-            new VideogiochiRecensitiPresenter(_recensioniView);
+            new VideogiochiPresenter(_videogiochiView, _sessione);
+            new VideogiochiRecensitiPresenter(_recensioniView, _sessione);
             new UtentePresenter(_userProfileView, _sessione);
             new LogSignInPresenter(_logSignInView, _sessione).Login+=_utente_Profilo;
             ToolbarPresenter toolbarPresenter = new ToolbarPresenter(_utenteButton, _sessione);
             
             toolbarPresenter.LoginUtente += this._utente_Login;
             toolbarPresenter.ProfiloUtente += this._utente_Profilo;
-            
+
+
+            TestoBottoneUtenteLogin();
         }
 
         // scatta quando si seleziona un item dalla lista. Fa vedere la vista dettagliata del videogioco e della relativa recensione (se presente)
@@ -98,12 +96,12 @@ namespace GameReViews
             }
         }
 
-        // serve una classe AspettoValore con due campi: Aspetto e string/int valore
         private void _utente_Login(object sender, EventArgs e)
         {
 
             if (_currentControl != _logSignInView)
             {
+                TestoBottoneUtenteLogin();
                 _viewsContainer.Controls.Remove(_currentControl);
                 _viewsContainer.Controls.Add(_logSignInView);
 
@@ -117,11 +115,20 @@ namespace GameReViews
 
             if (_currentControl != _userProfileView)
             {
+                TestoBottoneUtenteLogin();
                 _viewsContainer.Controls.Remove(_currentControl);
                 _viewsContainer.Controls.Add(_userProfileView);
 
                 _currentControl = _userProfileView;
             }
+        }
+
+        private void TestoBottoneUtenteLogin()
+        {
+            if(_sessione.UtenteCorrente!=null)
+                _utenteButton.Text = "Utente";
+            else
+                _utenteButton.Text = "Login";
         }
     }
 }
