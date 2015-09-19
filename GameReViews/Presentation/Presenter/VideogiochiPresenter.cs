@@ -12,9 +12,16 @@ namespace GameReViews.Presentation.Presenter
     public class VideogiochiPresenter : AbstractVideogiochiPresenter
     {
 
-        public VideogiochiPresenter(VideogiochiListView videogichiView) : base(videogichiView)
+        public VideogiochiPresenter(VideogiochiListView videogichiView, Sessione sessione) : base(videogichiView, sessione)
         {
             _videogiochiView.GetAggiungiVideogiocoButton().Click += _aggiungiVideogiocoButton_Click;
+
+            //mi registro al cambiamento della sessione
+            _sessione.SessionChanged += Sessione_Changed;
+
+            //verifico lo stato della sessione
+            Sessione_Changed(null, EventArgs.Empty);
+
         } 
 
         protected override BindingSource GetBindingSource()
@@ -22,12 +29,13 @@ namespace GameReViews.Presentation.Presenter
             IList<Videogioco> videogiochi = Document.GetInstance().Videogiochi.List.ToList();
             BindingList<Videogioco> bindingList = new BindingList<Videogioco>(videogiochi);
 
+
+
             return new BindingSource(bindingList, null);
         }
 
         private void _aggiungiVideogiocoButton_Click(object sender, EventArgs e)
         {
-            //cument.GetInstance().Videogiochi.AddVideogioco(new Videogioco("USUSUGDSAIDGSAJKDGBA", DateTime.Now, Genere.AZIONE));
             AddVideogioco addVideogiocoView = new AddVideogioco();
             if (addVideogiocoView.ShowDialog() == DialogResult.OK)
             {
@@ -46,5 +54,13 @@ namespace GameReViews.Presentation.Presenter
             }
            
         }
+
+        private void Sessione_Changed(object sender, EventArgs e)
+        {
+            //solo se l'utente corrente si è loggato può aggiungere videogiochi
+            _videogiochiView.GetAggiungiVideogiocoButton().Visible = _sessione.UtenteCorrente!=null;
+
+        }
+
     }
 }
