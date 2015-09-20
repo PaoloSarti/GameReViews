@@ -29,6 +29,7 @@ namespace GameReViews.View
 
             _sessione = sessione;
 
+            _recensioneText.Text = videogioco.Recensione.Testo;
             _valutazione.Text = _sessione.Calcolo.Calcola(_videogioco.Recensione) + "";
         }
 

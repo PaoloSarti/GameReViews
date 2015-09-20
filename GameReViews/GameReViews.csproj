@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Model\Sessione.cs" />
     <Compile Include="Presentation\Presenter\LogSignInPresenter.cs" />
+    <Compile Include="Presentation\Presenter\VideogiocoPresenter.cs" />
     <Compile Include="Presentation\View\AddVideogioco.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -59,6 +60,12 @@
     </Compile>
     <Compile Include="Presentation\View\AggiungiAspettoValore.Designer.cs">
       <DependentUpon>AggiungiAspettoValore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\View\AggiungiRecensione.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\View\AggiungiRecensione.Designer.cs">
+      <DependentUpon>AggiungiRecensione.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentation\View\Utils\CircularPictureBox.cs">
       <SubType>Component</SubType>
@@ -140,6 +147,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\View\AggiungiAspettoValore.resx">
       <DependentUpon>AggiungiAspettoValore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\View\AggiungiRecensione.resx">
+      <DependentUpon>AggiungiRecensione.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\View\Utils\CircularPictureBox.resx">
       <DependentUpon>CircularPictureBox.cs</DependentUpon>

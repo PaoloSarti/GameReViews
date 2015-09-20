@@ -13,9 +13,10 @@ namespace GameReViews.View
     public partial class VideogiocoRootView : UserControl
     {
         private Videogioco _videogioco;
-        private Recensione _recensione;
 
         private Sessione _sessione;
+
+        private UserControl _currentDetailView;
 
         private VideogiocoRootView()
         {
@@ -23,21 +24,32 @@ namespace GameReViews.View
         }
 
 
-        public VideogiocoRootView(Videogioco videogiocoSelezionato, Sessione sessione) : this()
+        public VideogiocoRootView(Videogioco videogioco, Sessione sessione) : this()
         {
-            _videogioco = videogiocoSelezionato;
-            _recensione = videogiocoSelezionato.Recensione;
+            _videogioco = videogioco;
 
             _sessione = sessione;
 
-            _nomeVideogiocoLabel.Text = videogiocoSelezionato.Nome;
-            _dataVideogiocoLabel.Text = videogiocoSelezionato.DataRilascio.ToString();
-            _genereVideogiocoLabel.Text = videogiocoSelezionato.Genere.ToString();
+            UpdateVideogiocoView();
+        }
 
-            if (_recensione == null)
+        private void UpdateVideogiocoView()
+        {
+            _nomeVideogiocoLabel.Text = _videogioco.Nome;
+            _dataVideogiocoLabel.Text = _videogioco.DataRilascio.ToString();
+            _genereVideogiocoLabel.Text = _videogioco.Genere.ToString();
+            _immagineVideogioco.Image = _videogioco.Image;
+
+            if (_videogioco.Recensione == null)
             {
-                VideogiocoNoReviewDetailView recensioneView = new VideogiocoNoReviewDetailView();
+                VideogiocoNoReviewDetailView recensioneView = new VideogiocoNoReviewDetailView(_sessione);
                 recensioneView.Dock = DockStyle.Fill;
+
+
+                if (_currentDetailView != null)
+                    _recensioneContainer.Controls.Remove(_currentDetailView);
+
+                _currentDetailView = recensioneView;
 
                 _recensioneContainer.Controls.Add(recensioneView);
             }
@@ -46,8 +58,31 @@ namespace GameReViews.View
                 VideogiocoYesReviewDetailView recensioneView = new VideogiocoYesReviewDetailView(_videogioco, _sessione);
                 recensioneView.Dock = DockStyle.Fill;
 
+                if (_currentDetailView != null)
+                    _recensioneContainer.Controls.Remove(_currentDetailView);
+
+                _currentDetailView = recensioneView;
+
                 _recensioneContainer.Controls.Add(recensioneView);
             }
+
+
         }
+
+
+
+        public Videogioco Videogioco
+        {
+            get
+            {
+                return _videogioco;
+            }
+            set
+            {
+                _videogioco = value;
+                this.UpdateVideogiocoView();
+            }
+        }
+
     }
 }

@@ -12,6 +12,8 @@ namespace GameReViews.Model
         private string _nome;
         private DateTime _dataRilascio;
         private Image _image;
+
+
         private Recensione _recensione;  //riferimento
         private Genere _genere;
 
@@ -77,5 +79,12 @@ namespace GameReViews.Model
             get { return _recensione; }
             set { _recensione = value; }
         }
+
+        public Image Image
+        {
+            get { return _image; }
+            set { _image = value; }
+        }
+
     }
 }
