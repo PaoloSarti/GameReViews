@@ -29,10 +29,11 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this._customDataGridView = new GameReViews.CustomDataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
+            this._recensioneText = new System.Windows.Forms.TextBox();
             this._valutazione = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this._customDataGridView = new GameReViews.CustomDataGridView();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -48,28 +49,32 @@
             this.panel1.Size = new System.Drawing.Size(1129, 649);
             this.panel1.TabIndex = 0;
             // 
-            // _customDataGridView
-            // 
-            this._customDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._customDataGridView.Location = new System.Drawing.Point(0, 100);
-            this._customDataGridView.Name = "_customDataGridView";
-            this._customDataGridView.Size = new System.Drawing.Size(1129, 549);
-            this._customDataGridView.TabIndex = 1;
-            // 
             // panel2
             // 
+            this.panel2.Controls.Add(this._recensioneText);
             this.panel2.Controls.Add(this._valutazione);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1129, 100);
+            this.panel2.Size = new System.Drawing.Size(1129, 132);
             this.panel2.TabIndex = 0;
+            // 
+            // _recensioneText
+            // 
+            this._recensioneText.BackColor = System.Drawing.Color.White;
+            this._recensioneText.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this._recensioneText.Location = new System.Drawing.Point(32, 21);
+            this._recensioneText.Multiline = true;
+            this._recensioneText.Name = "_recensioneText";
+            this._recensioneText.ReadOnly = true;
+            this._recensioneText.Size = new System.Drawing.Size(846, 78);
+            this._recensioneText.TabIndex = 2;
             // 
             // _valutazione
             // 
             this._valutazione.AutoSize = true;
-            this._valutazione.Location = new System.Drawing.Point(109, 43);
+            this._valutazione.Location = new System.Drawing.Point(111, 102);
             this._valutazione.Name = "_valutazione";
             this._valutazione.Size = new System.Drawing.Size(33, 13);
             this._valutazione.TabIndex = 1;
@@ -78,11 +83,20 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(28, 43);
+            this.label1.Location = new System.Drawing.Point(30, 102);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(62, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Valutazione";
+            // 
+            // _customDataGridView
+            // 
+            this._customDataGridView.AutoSize = true;
+            this._customDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._customDataGridView.Location = new System.Drawing.Point(0, 132);
+            this._customDataGridView.Name = "_customDataGridView";
+            this._customDataGridView.Size = new System.Drawing.Size(1129, 517);
+            this._customDataGridView.TabIndex = 1;
             // 
             // VideogiocoYesReviewDetailView
             // 
@@ -92,6 +106,7 @@
             this.Name = "VideogiocoYesReviewDetailView";
             this.Size = new System.Drawing.Size(1129, 649);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
@@ -105,5 +120,6 @@
         private System.Windows.Forms.Label _valutazione;
         private System.Windows.Forms.Label label1;
         private CustomDataGridView _customDataGridView;
+        private System.Windows.Forms.TextBox _recensioneText;
     }
 }

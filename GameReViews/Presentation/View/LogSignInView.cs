@@ -43,7 +43,6 @@ namespace GameReViews
             if (LoginButtonClick != null)
             {
                 LoginButtonClick(null, EventArgs.Empty);
-                Console.WriteLine("jfjj");
             }
         }
 

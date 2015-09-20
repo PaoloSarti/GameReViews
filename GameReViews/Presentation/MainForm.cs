@@ -20,8 +20,9 @@ namespace GameReViews
         private VideogiochiListView _recensioniView;
         private VideogiochiListView _videogiochiView;
         private UserProfileView _userProfileView;
-
         private LogSignInView _logSignInView;
+
+        private VideogiocoPresenter _videogiocoPresenter;
 
         private Sessione _sessione;
 
@@ -42,8 +43,8 @@ namespace GameReViews
 
 
             // hack per partire dalla schermata delle recensioni
-            _recensioniButton_Click(null, null);
-            //_utente_Login(null, EventArgs.Empty);
+            //_recensioniButton_Click(null, EventArgs.Empty);
+            _utente_Login(null, EventArgs.Empty);
 
             new VideogiochiPresenter(_videogiochiView, _sessione);
             new VideogiochiRecensitiPresenter(_recensioniView, _sessione);
@@ -54,7 +55,6 @@ namespace GameReViews
             toolbarPresenter.LoginUtente += this._utente_Login;
             toolbarPresenter.ProfiloUtente += this._utente_Profilo;
 
-
             TestoBottoneUtenteLogin();
         }
 
@@ -63,15 +63,19 @@ namespace GameReViews
         {
             //String nomeGiocoSelezionato = nomeVidegioco; //_rowsVideogiochi[((DataGridViewCellEventArgs)e).RowIndex][0];
 
-            Videogioco videogiocoSelezionato = videogioco;
+            if(_videogiocoPresenter==null)
+            {
+                _videogiocoPresenter = new VideogiocoPresenter(videogioco, _sessione);
+            }
+            else
+            {
+                _videogiocoPresenter.Videogioco = videogioco;
+            }
 
-            VideogiocoRootView root = new VideogiocoRootView(videogiocoSelezionato, _sessione);
-
-            root.Dock = DockStyle.Fill;
             _viewsContainer.Controls.Remove(_currentControl);
-            _viewsContainer.Controls.Add(root);
+            _viewsContainer.Controls.Add(_videogiocoPresenter.View);
 
-            _currentControl = root;
+            _currentControl = _videogiocoPresenter.View;
         }
 
         private void _recensioniButton_Click(object sender, EventArgs e)
