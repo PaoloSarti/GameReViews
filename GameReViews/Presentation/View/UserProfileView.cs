@@ -13,6 +13,8 @@ namespace GameReViews
     {
         public event EventHandler AggiungiPreferenza;
 
+        public event EventHandler Logout;
+
         public UserProfileView()
         {
             InitializeComponent();
@@ -41,6 +43,14 @@ namespace GameReViews
             if (AggiungiPreferenza != null)
             {
                 AggiungiPreferenza(null, EventArgs.Empty);
+            }
+        }
+
+        private void _logoutButton_Click(object sender, EventArgs e)
+        {
+            if(this.Logout!=null)
+            {
+                Logout(null, EventArgs.Empty);
             }
         }
 

@@ -66,6 +66,7 @@
             this._newSessionButton.TabIndex = 3;
             this._newSessionButton.Text = "+";
             this._newSessionButton.UseVisualStyleBackColor = false;
+            this._newSessionButton.Click += new System.EventHandler(this._newSessionButton_Click);
             // 
             // _utenteButton
             // 

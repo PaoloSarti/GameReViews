@@ -30,7 +30,7 @@
         {
             this._valutazione = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this._aspettiCombo = new System.Windows.Forms.ComboBox();
             this._valutazioneLabel = new System.Windows.Forms.Label();
             this._cancelButton = new System.Windows.Forms.Button();
             this._okButton = new System.Windows.Forms.Button();
@@ -53,13 +53,13 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Aspetto";
             // 
-            // comboBox1
+            // _aspettiCombo
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(51, 47);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 2;
+            this._aspettiCombo.FormattingEnabled = true;
+            this._aspettiCombo.Location = new System.Drawing.Point(51, 47);
+            this._aspettiCombo.Name = "_aspettiCombo";
+            this._aspettiCombo.Size = new System.Drawing.Size(121, 21);
+            this._aspettiCombo.TabIndex = 2;
             // 
             // _valutazioneLabel
             // 
@@ -100,7 +100,7 @@
             this.Controls.Add(this._cancelButton);
             this.Controls.Add(this._okButton);
             this.Controls.Add(this._valutazioneLabel);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this._aspettiCombo);
             this.Controls.Add(this.label1);
             this.Controls.Add(this._valutazione);
             this.Name = "AggiungiAspettoValore";
@@ -115,7 +115,7 @@
 
         private System.Windows.Forms.NumericUpDown _valutazione;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox _aspettiCombo;
         private System.Windows.Forms.Label _valutazioneLabel;
         private System.Windows.Forms.Button _cancelButton;
         private System.Windows.Forms.Button _okButton;
