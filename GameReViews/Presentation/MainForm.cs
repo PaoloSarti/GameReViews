@@ -40,7 +40,7 @@ namespace GameReViews
 
             _recensioniView.GetCustomDataGrid().CellClicked += onVideogiocoSelected;
             _videogiochiView.GetCustomDataGrid().CellClicked += onVideogiocoSelected;
-
+            _userProfileView.Logout += _utente_Logout;
 
             // hack per partire dalla schermata delle recensioni
             //_recensioniButton_Click(null, EventArgs.Empty);
@@ -59,17 +59,17 @@ namespace GameReViews
         }
 
         // scatta quando si seleziona un item dalla lista. Fa vedere la vista dettagliata del videogioco e della relativa recensione (se presente)
-        private void onVideogiocoSelected(Videogioco videogioco)
+        private void onVideogiocoSelected(Object selectedObject)
         {
             //String nomeGiocoSelezionato = nomeVidegioco; //_rowsVideogiochi[((DataGridViewCellEventArgs)e).RowIndex][0];
 
             if(_videogiocoPresenter==null)
             {
-                _videogiocoPresenter = new VideogiocoPresenter(videogioco, _sessione);
+                _videogiocoPresenter = new VideogiocoPresenter((Videogioco) selectedObject, _sessione);
             }
             else
             {
-                _videogiocoPresenter.Videogioco = videogioco;
+                _videogiocoPresenter.Videogioco = (Videogioco) selectedObject;
             }
 
             _viewsContainer.Controls.Remove(_currentControl);
@@ -116,6 +116,15 @@ namespace GameReViews
             }
         }
 
+        private void _utente_Logout(object sender, EventArgs e)
+        {
+            TestoBottoneUtenteLogin();
+            _viewsContainer.Controls.Remove(_currentControl);
+            _viewsContainer.Controls.Add(_logSignInView);
+
+            _currentControl = _logSignInView;
+        }
+
 
         private void _utente_Profilo(object sender, EventArgs e)
         {
@@ -136,6 +145,12 @@ namespace GameReViews
                 _utenteButton.Text = "Utente";
             else
                 _utenteButton.Text = "Login";
+        }
+
+        private void _newSessionButton_Click(object sender, EventArgs e)
+        {
+            Form form = new MainForm();
+            form.Show();
         }
     }
 }

@@ -30,14 +30,14 @@
         {
             this._userInfoContainer_root = new System.Windows.Forms.Panel();
             this._userInfoContainer = new System.Windows.Forms.Panel();
+            this._customDataGridView = new GameReViews.CustomDataGridView();
             this._preferenzeControlPanel = new System.Windows.Forms.Panel();
             this._aggiungiPreferenza = new System.Windows.Forms.Button();
             this._preferenzeLabel = new System.Windows.Forms.Label();
             this._userInfoPanel = new System.Windows.Forms.Panel();
-            this._userName = new System.Windows.Forms.Label();
             this._logoutButton = new System.Windows.Forms.Button();
-            this._customDataGridView = new GameReViews.CustomDataGridView();
             this.circularPictureBox1 = new CircularPictureBox();
+            this._userName = new System.Windows.Forms.Label();
             this._userInfoContainer_root.SuspendLayout();
             this._userInfoContainer.SuspendLayout();
             this._preferenzeControlPanel.SuspendLayout();
@@ -66,6 +66,14 @@
             this._userInfoContainer.Name = "_userInfoContainer";
             this._userInfoContainer.Size = new System.Drawing.Size(849, 619);
             this._userInfoContainer.TabIndex = 3;
+            // 
+            // _customDataGridView
+            // 
+            this._customDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._customDataGridView.Location = new System.Drawing.Point(0, 312);
+            this._customDataGridView.Name = "_customDataGridView";
+            this._customDataGridView.Size = new System.Drawing.Size(849, 307);
+            this._customDataGridView.TabIndex = 6;
             // 
             // _preferenzeControlPanel
             // 
@@ -117,16 +125,6 @@
             this._userInfoPanel.Size = new System.Drawing.Size(849, 234);
             this._userInfoPanel.TabIndex = 3;
             // 
-            // _userName
-            // 
-            this._userName.AutoSize = true;
-            this._userName.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._userName.Location = new System.Drawing.Point(361, 48);
-            this._userName.Name = "_userName";
-            this._userName.Size = new System.Drawing.Size(112, 39);
-            this._userName.TabIndex = 1;
-            this._userName.Text = "Nome";
-            // 
             // _logoutButton
             // 
             this._logoutButton.BackColor = System.Drawing.Color.Silver;
@@ -140,14 +138,7 @@
             this._logoutButton.TabIndex = 3;
             this._logoutButton.Text = "Logout";
             this._logoutButton.UseVisualStyleBackColor = false;
-            // 
-            // _customDataGridView
-            // 
-            this._customDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._customDataGridView.Location = new System.Drawing.Point(0, 312);
-            this._customDataGridView.Name = "_customDataGridView";
-            this._customDataGridView.Size = new System.Drawing.Size(849, 307);
-            this._customDataGridView.TabIndex = 6;
+            this._logoutButton.Click += new System.EventHandler(this._logoutButton_Click);
             // 
             // circularPictureBox1
             // 
@@ -160,6 +151,16 @@
             this.circularPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.circularPictureBox1.TabIndex = 2;
             this.circularPictureBox1.TabStop = false;
+            // 
+            // _userName
+            // 
+            this._userName.AutoSize = true;
+            this._userName.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._userName.Location = new System.Drawing.Point(361, 48);
+            this._userName.Name = "_userName";
+            this._userName.Size = new System.Drawing.Size(112, 39);
+            this._userName.TabIndex = 1;
+            this._userName.Text = "Nome";
             // 
             // UserProfileView
             // 
