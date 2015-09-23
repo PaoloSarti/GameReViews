@@ -207,6 +207,12 @@
   <ItemGroup>
     <None Include="Resources\bubble42.gif" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_add_circle_outline_white_48dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_insert_photo_white_48dp.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

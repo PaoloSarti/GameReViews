@@ -73,9 +73,29 @@ namespace GameReViews.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ic_add_circle_outline_white_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_add_circle_outline_white_48dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ic_exit_to_app_white_48dp {
             get {
                 object obj = ResourceManager.GetObject("ic_exit_to_app_white_48dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ic_insert_photo_white_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_insert_photo_white_48dp", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

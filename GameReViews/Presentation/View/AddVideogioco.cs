@@ -44,28 +44,8 @@ namespace GameReViews.Presentation.View
         public AddVideogioco()
         {
             InitializeComponent();
-            _videogiocoImage.Image = GameReViews.Properties.Resources.nonsensCapture;
+            _videogiocoImage.Image = GameReViews.Properties.Resources.ic_insert_photo_white_48dp;
             _genereComboBox.DataSource = Enum.GetValues(typeof(Genere));
-        }
-
-        public static string ShowDialog(string text, string caption)
-        {
-            Form prompt = new Form();
-            prompt.Width = 500;
-            prompt.Height = 150;
-            prompt.FormBorderStyle = FormBorderStyle.FixedDialog;
-            prompt.Text = caption;
-            prompt.StartPosition = FormStartPosition.CenterScreen;
-            Label textLabel = new Label() { Left = 50, Top = 20, Text = text };
-            TextBox textBox = new TextBox() { Left = 50, Top = 50, Width = 400 };
-            Button confirmation = new Button() { Text = "Ok", Left = 350, Width = 100, Top = 70, DialogResult = DialogResult.OK };
-            confirmation.Click += (sender, e) => { prompt.Close(); };
-            prompt.Controls.Add(textBox);
-            prompt.Controls.Add(confirmation);
-            prompt.Controls.Add(textLabel);
-            prompt.AcceptButton = confirmation;
-
-            return prompt.ShowDialog() == DialogResult.OK ? textBox.Text : "";
         }
 
         private void _videogiocoImage_Click(object sender, EventArgs e)
@@ -75,6 +55,7 @@ namespace GameReViews.Presentation.View
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     _videogiocoImage.Image = Image.FromFile(openFileDialog.FileName);
+                    _videogiocoImage.Padding = new Padding(0);
                 }
             }
         }
@@ -85,6 +66,16 @@ namespace GameReViews.Presentation.View
             _dataRilascio = _dataRilascioPicker.Value;
             _image = _videogiocoImage.Image;
             _genere = (Genere) _genereComboBox.SelectedItem;
+        }
+
+        private void _videogiocoImage_MouseHover(object sender, EventArgs e)
+        {
+            _videogiocoImage.BackColor = Color.FromArgb(25, 118, 210);
+        }
+
+        private void _videogiocoImage_MouseLeave(object sender, EventArgs e)
+        {
+            _videogiocoImage.BackColor = Color.FromArgb(33, 150, 243);
         }
     }
 }

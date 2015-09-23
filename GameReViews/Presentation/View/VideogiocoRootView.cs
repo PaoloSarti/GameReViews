@@ -83,6 +83,5 @@ namespace GameReViews.View
                 this.UpdateVideogiocoView();
             }
         }
-
     }
 }

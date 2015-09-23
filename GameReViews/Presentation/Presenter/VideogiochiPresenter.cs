@@ -41,8 +41,7 @@ namespace GameReViews.Presentation.Presenter
             {
                 try
                 {
-                    Videogioco videogioco = new Videogioco(addVideogiocoView.Nome, addVideogiocoView.DataRilascio,
-                    addVideogiocoView.Genere, addVideogiocoView.Image);
+                    Videogioco videogioco = new Videogioco(addVideogiocoView.Nome, addVideogiocoView.DataRilascio, addVideogiocoView.Genere, addVideogiocoView.Image);
 
                     Document.GetInstance().Videogiochi.AddVideogioco(videogioco);
                 }
