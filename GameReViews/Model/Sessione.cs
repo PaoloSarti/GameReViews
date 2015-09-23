@@ -26,6 +26,8 @@ namespace GameReViews.Model
             UtenteRegistrato utente = new UtenteRegistrato(nome, password);
             Document.GetInstance().Utenti.Registra(utente);
             _utenteCorrente = utente;
+            _utenteCorrente.UtenteChanged += UtenteChanged;
+
             _calcolo = CalcoloValutazioneTotaleFactory.GetCalcoloValutazioneTotale(utente);
 
             OnChange();
@@ -39,6 +41,8 @@ namespace GameReViews.Model
         public UtenteRegistrato Autentica(String nome, String password)
         {
             _utenteCorrente = Document.GetInstance().Utenti.Autentica(nome, password);
+            _utenteCorrente.UtenteChanged += UtenteChanged;
+
             _calcolo = CalcoloValutazioneTotaleFactory.GetCalcoloValutazioneTotale(_utenteCorrente);
 
             OnChange();
@@ -48,6 +52,7 @@ namespace GameReViews.Model
 
         public void Logout()
         {
+            _utenteCorrente.UtenteChanged -= UtenteChanged;
             _utenteCorrente = null;
             _calcolo = CalcoloValutazioneTotaleFactory.GetCalcoloValutazioneTotale();
 
@@ -60,6 +65,10 @@ namespace GameReViews.Model
                 SessionChanged(null, EventArgs.Empty);
         }
 
+        private void UtenteChanged(object sender, EventArgs e)
+        {
+            OnChange();
+        }
 
         #endregion
 
