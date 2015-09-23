@@ -31,6 +31,7 @@ namespace GameReViews
         {
             _dataGridView.AutoGenerateColumns = false;
             _dataGridView.ColumnCount = headers.Length;
+            
 
             for (int i = 0; i < headers.Length; i++)
             {
@@ -53,11 +54,6 @@ namespace GameReViews
                 Videogioco videogiocoSelezionato = (Videogioco) _dataGridView.Rows[e.RowIndex].DataBoundItem;
                 CellClicked(videogiocoSelezionato);
             }
-
-
-            // reminder
-            //if ( ((string) _dataGridView.Rows[e.RowIndex].Tag) == "lul" )
-            //    Environment.Exit(1);
         }
     }
 }

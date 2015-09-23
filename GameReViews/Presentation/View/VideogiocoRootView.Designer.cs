@@ -34,6 +34,8 @@
             this._dataVideogiocoLabel = new System.Windows.Forms.Label();
             this._genereVideogiocoLabel = new System.Windows.Forms.Label();
             this._nomeVideogiocoLabel = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this._immagineVideogioco = new CircularPictureBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -61,6 +63,8 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this._dataVideogiocoLabel);
             this.panel2.Controls.Add(this._genereVideogiocoLabel);
             this.panel2.Controls.Add(this._nomeVideogiocoLabel);
@@ -74,39 +78,63 @@
             // _dataVideogiocoLabel
             // 
             this._dataVideogiocoLabel.AutoSize = true;
-            this._dataVideogiocoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._dataVideogiocoLabel.Location = new System.Drawing.Point(338, 166);
+            this._dataVideogiocoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._dataVideogiocoLabel.ForeColor = System.Drawing.Color.DimGray;
+            this._dataVideogiocoLabel.Location = new System.Drawing.Point(488, 203);
             this._dataVideogiocoLabel.Name = "_dataVideogiocoLabel";
-            this._dataVideogiocoLabel.Size = new System.Drawing.Size(88, 15);
+            this._dataVideogiocoLabel.Size = new System.Drawing.Size(118, 25);
             this._dataVideogiocoLabel.TabIndex = 3;
             this._dataVideogiocoLabel.Text = "Data rilascio";
             // 
             // _genereVideogiocoLabel
             // 
             this._genereVideogiocoLabel.AutoSize = true;
-            this._genereVideogiocoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._genereVideogiocoLabel.Location = new System.Drawing.Point(338, 90);
+            this._genereVideogiocoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._genereVideogiocoLabel.ForeColor = System.Drawing.Color.DimGray;
+            this._genereVideogiocoLabel.Location = new System.Drawing.Point(486, 130);
             this._genereVideogiocoLabel.Name = "_genereVideogiocoLabel";
-            this._genereVideogiocoLabel.Size = new System.Drawing.Size(54, 15);
+            this._genereVideogiocoLabel.Size = new System.Drawing.Size(130, 39);
             this._genereVideogiocoLabel.TabIndex = 2;
             this._genereVideogiocoLabel.Text = "Genere";
             // 
             // _nomeVideogiocoLabel
             // 
             this._nomeVideogiocoLabel.AutoSize = true;
-            this._nomeVideogiocoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._nomeVideogiocoLabel.Location = new System.Drawing.Point(335, 37);
+            this._nomeVideogiocoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._nomeVideogiocoLabel.Location = new System.Drawing.Point(298, 37);
             this._nomeVideogiocoLabel.Name = "_nomeVideogiocoLabel";
-            this._nomeVideogiocoLabel.Size = new System.Drawing.Size(178, 25);
+            this._nomeVideogiocoLabel.Size = new System.Drawing.Size(460, 63);
             this._nomeVideogiocoLabel.TabIndex = 1;
             this._nomeVideogiocoLabel.Text = "Nome videogioco";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(302, 130);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(130, 39);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Genere";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(304, 203);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(118, 25);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Data rilascio";
             // 
             // _immagineVideogioco
             // 
             this._immagineVideogioco.BackColor = System.Drawing.Color.DarkGray;
-            this._immagineVideogioco.Location = new System.Drawing.Point(56, 37);
+            this._immagineVideogioco.InitialImage = null;
+            this._immagineVideogioco.Location = new System.Drawing.Point(44, 37);
             this._immagineVideogioco.Name = "_immagineVideogioco";
-            this._immagineVideogioco.Size = new System.Drawing.Size(167, 160);
+            this._immagineVideogioco.Size = new System.Drawing.Size(205, 191);
+            this._immagineVideogioco.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this._immagineVideogioco.TabIndex = 0;
             this._immagineVideogioco.TabStop = false;
             // 
@@ -135,5 +163,7 @@
         private System.Windows.Forms.Label _genereVideogiocoLabel;
         private System.Windows.Forms.Label _nomeVideogiocoLabel;
         private CircularPictureBox _immagineVideogioco;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -85,6 +85,9 @@ namespace GameReViews
                 _viewsContainer.Controls.Remove(_currentControl);
                 _viewsContainer.Controls.Add(_recensioniView);
 
+                // le windows form fanno schifo
+                //_recensioniButton.BackColor = Color.FromArgb(25, 118, 210);
+
                 _currentControl = _recensioniView;
             }
         }
