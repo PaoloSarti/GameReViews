@@ -10,7 +10,7 @@ using GameReViews.Model;
 
 namespace GameReViews
 {
-    public delegate void CellClickedDelegate(Videogioco videogiocoSelezionato);
+    public delegate void CellClickedDelegate(Object selectedObject);
 
     public partial class CustomDataGridView : UserControl
     {
@@ -51,8 +51,7 @@ namespace GameReViews
         {
             if (CellClicked != null && e.RowIndex != -1) // è -1 se è una cella dell'header
             {
-                Videogioco videogiocoSelezionato = (Videogioco) _dataGridView.Rows[e.RowIndex].DataBoundItem;
-                CellClicked(videogiocoSelezionato);
+                CellClicked(_dataGridView.Rows[e.RowIndex].DataBoundItem);
             }
         }
     }
