@@ -207,6 +207,7 @@
             this.Padding = new System.Windows.Forms.Padding(30);
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
+            this.Text = "Aggiungi videogioco";
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();

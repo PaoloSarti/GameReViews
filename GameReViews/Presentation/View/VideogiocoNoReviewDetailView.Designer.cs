@@ -45,19 +45,21 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
+            this.panel1.Padding = new System.Windows.Forms.Padding(90, 0, 90, 0);
             this.panel1.Size = new System.Drawing.Size(1046, 628);
             this.panel1.TabIndex = 0;
             // 
             // _aggiungiRecensione
             // 
             this._aggiungiRecensione.BackColor = System.Drawing.Color.Silver;
+            this._aggiungiRecensione.Dock = System.Windows.Forms.DockStyle.Top;
             this._aggiungiRecensione.FlatAppearance.BorderSize = 0;
             this._aggiungiRecensione.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._aggiungiRecensione.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
             this._aggiungiRecensione.ForeColor = System.Drawing.Color.White;
-            this._aggiungiRecensione.Location = new System.Drawing.Point(161, 221);
+            this._aggiungiRecensione.Location = new System.Drawing.Point(90, 221);
             this._aggiungiRecensione.Name = "_aggiungiRecensione";
-            this._aggiungiRecensione.Size = new System.Drawing.Size(748, 90);
+            this._aggiungiRecensione.Size = new System.Drawing.Size(866, 90);
             this._aggiungiRecensione.TabIndex = 8;
             this._aggiungiRecensione.Text = "AGGIUNGI RECENSIONE";
             this._aggiungiRecensione.UseVisualStyleBackColor = false;
@@ -77,9 +79,9 @@
             this._recensioneNonDisponibile.Dock = System.Windows.Forms.DockStyle.Top;
             this._recensioneNonDisponibile.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._recensioneNonDisponibile.ForeColor = System.Drawing.Color.Firebrick;
-            this._recensioneNonDisponibile.Location = new System.Drawing.Point(0, 0);
+            this._recensioneNonDisponibile.Location = new System.Drawing.Point(90, 0);
             this._recensioneNonDisponibile.Name = "_recensioneNonDisponibile";
-            this._recensioneNonDisponibile.Size = new System.Drawing.Size(1046, 221);
+            this._recensioneNonDisponibile.Size = new System.Drawing.Size(866, 221);
             this._recensioneNonDisponibile.TabIndex = 0;
             this._recensioneNonDisponibile.Text = "Recensione non disponibile";
             this._recensioneNonDisponibile.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
