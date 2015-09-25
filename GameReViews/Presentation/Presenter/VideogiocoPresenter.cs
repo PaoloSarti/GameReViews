@@ -22,9 +22,7 @@ namespace GameReViews.Presentation.Presenter
 
             _rootView.Dock=DockStyle.Fill;
 
-            _sessione.UtenteCorrente.UtenteChanged += UtenteCorrente_UtenteChanged;
-
-
+            _sessione.SessionChanged += UtenteCorrente_UtenteChanged;
         }
 
         void UtenteCorrente_UtenteChanged(object sender, EventArgs e)
