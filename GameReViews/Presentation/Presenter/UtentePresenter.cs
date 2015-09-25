@@ -16,6 +16,7 @@ namespace GameReViews.Presentation.Presenter
         private Sessione _sessione;
 
 
+
         public UtentePresenter(UserProfileView userProfileView, Sessione sessione)
         {
             _userProfileView = userProfileView;
@@ -29,6 +30,39 @@ namespace GameReViews.Presentation.Presenter
             _userProfileView.Logout+=Logout;
 
             _userProfileView.AggiungiPreferenza += AggiungiPreferenza;
+
+            _userProfileView.GetCustomDataGrid().CellClicked += UtentePresenter_CellClicked;
+
+        }
+
+        void UtentePresenter_CellClicked(object selectedObject)
+        {
+            AspettoValore aspettoValore = (AspettoValore)selectedObject;
+            Console.WriteLine(aspettoValore.Aspetto.Nome + " " +aspettoValore.Aspetto.Descrizione +" " +aspettoValore.Valore);
+
+            ModificaEliminaValutazioneView dialog = new ModificaEliminaValutazioneView(aspettoValore);
+
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    if(dialog.Elimina==true)
+                    {
+                        _sessione.UtenteCorrente.RemovePreferenza(aspettoValore.Aspetto);
+                    }
+                    else
+                    {
+                        _sessione.UtenteCorrente.ModificaPreferenza(aspettoValore.Aspetto, dialog.Valore);
+                    }
+
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Impossibile modificare/eliminare la preferenza", "ERRORE",
+                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+
         }
 
         /*
@@ -75,6 +109,14 @@ namespace GameReViews.Presentation.Presenter
 
             IEnumerable<Aspetto> aspetti = Document.GetInstance().Aspetti.List.Where(aspetto => !aspettiPreferenze.Contains(aspetto));
 
+            if(aspetti.Count()==0)
+            {
+                MessageBox.Show("Hai già inserito tutte le preferenze", "ERRORE",
+                       MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+
             AggiungiAspettoValore add = new AggiungiAspettoValore(aspetti);
             if (add.ShowDialog() == DialogResult.OK)
             {
@@ -106,16 +148,11 @@ namespace GameReViews.Presentation.Presenter
             {
                 _userProfileView.NomeUtente = _sessione.UtenteCorrente.Nome;
 
-                _sessione.UtenteCorrente.UtenteChanged+=UtenteCorrente_UtenteChanged;
+                //_sessione.UtenteCorrente.UtenteChanged+=UtenteCorrente_UtenteChanged;
 
-                UtenteCorrente_UtenteChanged(null, EventArgs.Empty);
+                UpdateData();
+                _userProfileView.Refresh();
             }
-        }
-
-        private void UtenteCorrente_UtenteChanged(object sender, EventArgs e)
-        {
-            UpdateData();
-            _userProfileView.Refresh();
         }
 
         private void Logout(object sender, EventArgs e)

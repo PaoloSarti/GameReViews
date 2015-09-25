@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 
 using GameReViews.Model;
+using System.Drawing;
 
 
 namespace GameReViews.Persistence
@@ -44,6 +45,8 @@ namespace GameReViews.Persistence
             Recensore r1 = new Recensore("Recensore1", "p");
             Recensore r2 = new Recensore("Recensore2", "p");
             Recensore r3 = new Recensore("Recensore3", "p");
+
+            //Image image = GameReViews.Properties.Resources.NoMansSky;
 
             //aggiungo qualche videogioco
             Videogioco v1 = new Videogioco("Metal Gear Solid V", DateTime.Now, Genere.STEALTH);
@@ -142,7 +145,6 @@ namespace GameReViews.Persistence
             _videogiochi.AddVideogioco(v7);
 
         }
-
 
         public Videogiochi GetVideogiochi()
         {
