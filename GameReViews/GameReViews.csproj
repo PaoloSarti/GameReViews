@@ -67,6 +67,12 @@
     <Compile Include="Presentation\View\AggiungiRecensione.Designer.cs">
       <DependentUpon>AggiungiRecensione.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentation\View\ModificaEliminaValutazioneView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\View\ModificaEliminaValutazioneView.Designer.cs">
+      <DependentUpon>ModificaEliminaValutazioneView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentation\View\Utils\CircularPictureBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -151,6 +157,9 @@
     <EmbeddedResource Include="Presentation\View\AggiungiRecensione.resx">
       <DependentUpon>AggiungiRecensione.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\View\ModificaEliminaValutazioneView.resx">
+      <DependentUpon>ModificaEliminaValutazioneView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentation\View\Utils\CircularPictureBox.resx">
       <DependentUpon>CircularPictureBox.cs</DependentUpon>
     </EmbeddedResource>
@@ -212,6 +221,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ic_insert_photo_white_48dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\NoMansSky.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

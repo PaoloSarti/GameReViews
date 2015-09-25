@@ -22,7 +22,13 @@ namespace GameReViews.Presentation.Presenter
 
             _rootView.Dock=DockStyle.Fill;
 
+            _sessione.SessionChanged += UtenteCorrente_UtenteChanged;
+        }
 
+        void UtenteCorrente_UtenteChanged(object sender, EventArgs e)
+        {
+            //reinvoco la set del videogioco che scatena il refresh
+            this.Videogioco = _videogioco;
         }
 
 
