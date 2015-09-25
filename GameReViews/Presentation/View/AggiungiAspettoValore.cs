@@ -32,5 +32,11 @@ namespace GameReViews.Presentation.View
                 return (int) _valutazione.Value;
             }
         }
+
+        private void _aspettiCombo_SelectedIndexChanged(object sender, System.EventArgs e)
+        {
+            Aspetto aspetto = (Aspetto) _aspettiCombo.SelectedItem;
+            _descrizioneTextBox.Text = aspetto.Descrizione;
+        }
     }
 }

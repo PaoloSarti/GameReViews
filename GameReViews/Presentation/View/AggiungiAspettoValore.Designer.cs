@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AggiungiAspettoValore));
             this._valutazione = new System.Windows.Forms.NumericUpDown();
             this._aspettiCombo = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -38,6 +39,8 @@
             this._okButton = new System.Windows.Forms.Button();
             this._cancelButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this._descrizioneTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this._valutazione)).BeginInit();
             this.panel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -47,8 +50,9 @@
             // _valutazione
             // 
             this._valutazione.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this._valutazione.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this._valutazione.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._valutazione.Location = new System.Drawing.Point(341, 182);
+            this._valutazione.Location = new System.Drawing.Point(302, 302);
             this._valutazione.Maximum = new decimal(new int[] {
             10,
             0,
@@ -56,7 +60,7 @@
             0});
             this._valutazione.Name = "_valutazione";
             this._valutazione.ReadOnly = true;
-            this._valutazione.Size = new System.Drawing.Size(215, 23);
+            this._valutazione.Size = new System.Drawing.Size(254, 23);
             this._valutazione.TabIndex = 0;
             // 
             // _aspettiCombo
@@ -64,10 +68,11 @@
             this._aspettiCombo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this._aspettiCombo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._aspettiCombo.FormattingEnabled = true;
-            this._aspettiCombo.Location = new System.Drawing.Point(341, 119);
+            this._aspettiCombo.Location = new System.Drawing.Point(302, 119);
             this._aspettiCombo.Name = "_aspettiCombo";
-            this._aspettiCombo.Size = new System.Drawing.Size(215, 24);
+            this._aspettiCombo.Size = new System.Drawing.Size(254, 24);
             this._aspettiCombo.TabIndex = 2;
+            this._aspettiCombo.SelectedIndexChanged += new System.EventHandler(this._aspettiCombo_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -86,6 +91,8 @@
             // 
             this.panel2.AutoSize = true;
             this.panel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel2.Controls.Add(this._descrizioneTextBox);
+            this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this._valutazione);
             this.panel2.Controls.Add(this._valutazioneLabel);
             this.panel2.Controls.Add(this._aspettiCombo);
@@ -94,7 +101,7 @@
             this.panel2.Location = new System.Drawing.Point(30, 30);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(50, 0, 50, 0);
-            this.panel2.Size = new System.Drawing.Size(559, 300);
+            this.panel2.Size = new System.Drawing.Size(559, 427);
             this.panel2.TabIndex = 2;
             // 
             // _valutazioneLabel
@@ -102,7 +109,7 @@
             this._valutazioneLabel.AutoSize = true;
             this._valutazioneLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
             this._valutazioneLabel.ForeColor = System.Drawing.Color.DimGray;
-            this._valutazioneLabel.Location = new System.Drawing.Point(54, 182);
+            this._valutazioneLabel.Location = new System.Drawing.Point(3, 297);
             this._valutazioneLabel.Name = "_valutazioneLabel";
             this._valutazioneLabel.Size = new System.Drawing.Size(137, 26);
             this._valutazioneLabel.TabIndex = 5;
@@ -113,11 +120,11 @@
             this._aspettoLabel.AutoSize = true;
             this._aspettoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
             this._aspettoLabel.ForeColor = System.Drawing.Color.DimGray;
-            this._aspettoLabel.Location = new System.Drawing.Point(54, 115);
+            this._aspettoLabel.Location = new System.Drawing.Point(3, 115);
             this._aspettoLabel.Name = "_aspettoLabel";
-            this._aspettoLabel.Size = new System.Drawing.Size(93, 26);
+            this._aspettoLabel.Size = new System.Drawing.Size(75, 26);
             this._aspettoLabel.TabIndex = 4;
-            this._aspettoLabel.Text = "Aspetto";
+            this._aspettoLabel.Text = "Nome";
             // 
             // flowLayoutPanel1
             // 
@@ -127,7 +134,7 @@
             this.flowLayoutPanel1.Controls.Add(this._cancelButton);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(30, 250);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(30, 377);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
             this.flowLayoutPanel1.Size = new System.Drawing.Size(559, 80);
@@ -160,7 +167,7 @@
             this._cancelButton.Name = "_cancelButton";
             this._cancelButton.Size = new System.Drawing.Size(109, 54);
             this._cancelButton.TabIndex = 14;
-            this._cancelButton.Text = "CANCEL";
+            this._cancelButton.Text = "CHIUDI";
             this._cancelButton.UseVisualStyleBackColor = false;
             // 
             // panel1
@@ -172,6 +179,30 @@
             this.panel1.Size = new System.Drawing.Size(559, 69);
             this.panel1.TabIndex = 1;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.DimGray;
+            this.label1.Location = new System.Drawing.Point(3, 169);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(137, 26);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Descrizione";
+            // 
+            // _descrizioneTextBox
+            // 
+            this._descrizioneTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this._descrizioneTextBox.Location = new System.Drawing.Point(302, 169);
+            this._descrizioneTextBox.Margin = new System.Windows.Forms.Padding(0);
+            this._descrizioneTextBox.Multiline = true;
+            this._descrizioneTextBox.Name = "_descrizioneTextBox";
+            this._descrizioneTextBox.ReadOnly = true;
+            this._descrizioneTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this._descrizioneTextBox.Size = new System.Drawing.Size(257, 96);
+            this._descrizioneTextBox.TabIndex = 7;
+            this._descrizioneTextBox.Text = resources.GetString("_descrizioneTextBox.Text");
+            // 
             // AggiungiAspettoValore
             // 
             this.AcceptButton = this._okButton;
@@ -180,7 +211,7 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
             this.CancelButton = this._cancelButton;
-            this.ClientSize = new System.Drawing.Size(619, 340);
+            this.ClientSize = new System.Drawing.Size(619, 467);
             this.ControlBox = false;
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.flowLayoutPanel1);
@@ -212,5 +243,7 @@
         private System.Windows.Forms.Button _okButton;
         private System.Windows.Forms.Button _cancelButton;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox _descrizioneTextBox;
     }
 }

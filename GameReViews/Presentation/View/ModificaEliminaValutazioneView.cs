@@ -50,6 +50,5 @@ namespace GameReViews.Presentation.View
                 this.Close();
             }
         }
-
     }
 }

@@ -39,13 +39,13 @@
             this._cancelButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this._videogiocoImage = new CircularPictureBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._videogiocoImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -148,7 +148,7 @@
             this._cancelButton.Name = "_cancelButton";
             this._cancelButton.Size = new System.Drawing.Size(79, 54);
             this._cancelButton.TabIndex = 12;
-            this._cancelButton.Text = "CANCEL";
+            this._cancelButton.Text = "CHIUDI";
             this._cancelButton.UseVisualStyleBackColor = false;
             // 
             // panel1
@@ -173,19 +173,6 @@
             this.panel2.Size = new System.Drawing.Size(498, 266);
             this.panel2.TabIndex = 13;
             // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.AutoSize = true;
-            this.flowLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.flowLayoutPanel1.Controls.Add(this._okButton);
-            this.flowLayoutPanel1.Controls.Add(this._cancelButton);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(30, 196);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(438, 60);
-            this.flowLayoutPanel1.TabIndex = 13;
-            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.label2);
@@ -199,6 +186,19 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(438, 166);
             this.panel3.TabIndex = 14;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.AutoSize = true;
+            this.flowLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flowLayoutPanel1.Controls.Add(this._okButton);
+            this.flowLayoutPanel1.Controls.Add(this._cancelButton);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(30, 196);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(438, 60);
+            this.flowLayoutPanel1.TabIndex = 13;
             // 
             // _videogiocoImage
             // 
@@ -236,9 +236,9 @@
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.flowLayoutPanel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this._videogiocoImage)).EndInit();
             this.ResumeLayout(false);
 
