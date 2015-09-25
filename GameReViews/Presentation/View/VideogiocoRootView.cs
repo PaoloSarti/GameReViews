@@ -69,8 +69,6 @@ namespace GameReViews.View
 
         }
 
-
-
         public Videogioco Videogioco
         {
             get

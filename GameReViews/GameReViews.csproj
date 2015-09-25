@@ -61,11 +61,11 @@
     <Compile Include="Presentation\View\AggiungiAspettoValore.Designer.cs">
       <DependentUpon>AggiungiAspettoValore.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\View\AggiungiRecensione.cs">
+    <Compile Include="Presentation\View\AggiungiRecensioneForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentation\View\AggiungiRecensione.Designer.cs">
-      <DependentUpon>AggiungiRecensione.cs</DependentUpon>
+    <Compile Include="Presentation\View\AggiungiRecensioneForm.Designer.cs">
+      <DependentUpon>AggiungiRecensioneForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentation\View\ModificaEliminaValutazioneView.cs">
       <SubType>Form</SubType>
@@ -154,8 +154,8 @@
     <EmbeddedResource Include="Presentation\View\AggiungiAspettoValore.resx">
       <DependentUpon>AggiungiAspettoValore.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\View\AggiungiRecensione.resx">
-      <DependentUpon>AggiungiRecensione.cs</DependentUpon>
+    <EmbeddedResource Include="Presentation\View\AggiungiRecensioneForm.resx">
+      <DependentUpon>AggiungiRecensioneForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\View\ModificaEliminaValutazioneView.resx">
       <DependentUpon>ModificaEliminaValutazioneView.cs</DependentUpon>
@@ -221,9 +221,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ic_insert_photo_white_48dp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Resources\NoMansSky.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
