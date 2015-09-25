@@ -39,9 +39,13 @@
             this._cancelButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this._videogiocoImage = new CircularPictureBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
+            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._videogiocoImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,7 +67,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.DimGray;
-            this.label2.Location = new System.Drawing.Point(33, 30);
+            this.label2.Location = new System.Drawing.Point(-5, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(196, 26);
             this.label2.TabIndex = 2;
@@ -72,7 +76,7 @@
             // _nomeView
             // 
             this._nomeView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._nomeView.Location = new System.Drawing.Point(290, 37);
+            this._nomeView.Location = new System.Drawing.Point(243, 0);
             this._nomeView.Name = "_nomeView";
             this._nomeView.Size = new System.Drawing.Size(195, 26);
             this._nomeView.TabIndex = 3;
@@ -82,7 +86,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.DimGray;
-            this.label3.Location = new System.Drawing.Point(33, 93);
+            this.label3.Location = new System.Drawing.Point(-5, 53);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(62, 26);
             this.label3.TabIndex = 4;
@@ -93,7 +97,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.DimGray;
-            this.label4.Location = new System.Drawing.Point(33, 155);
+            this.label4.Location = new System.Drawing.Point(-5, 108);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(90, 26);
             this.label4.TabIndex = 6;
@@ -102,7 +106,7 @@
             // _dataRilascioPicker
             // 
             this._dataRilascioPicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._dataRilascioPicker.Location = new System.Drawing.Point(290, 104);
+            this._dataRilascioPicker.Location = new System.Drawing.Point(243, 59);
             this._dataRilascioPicker.Name = "_dataRilascioPicker";
             this._dataRilascioPicker.Size = new System.Drawing.Size(195, 20);
             this._dataRilascioPicker.TabIndex = 7;
@@ -111,7 +115,7 @@
             // 
             this._genereComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._genereComboBox.FormattingEnabled = true;
-            this._genereComboBox.Location = new System.Drawing.Point(290, 162);
+            this._genereComboBox.Location = new System.Drawing.Point(243, 112);
             this._genereComboBox.Name = "_genereComboBox";
             this._genereComboBox.Size = new System.Drawing.Size(195, 24);
             this._genereComboBox.TabIndex = 8;
@@ -124,7 +128,7 @@
             this._okButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._okButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
             this._okButton.ForeColor = System.Drawing.Color.White;
-            this._okButton.Location = new System.Drawing.Point(290, 213);
+            this._okButton.Location = new System.Drawing.Point(356, 3);
             this._okButton.Name = "_okButton";
             this._okButton.Size = new System.Drawing.Size(79, 54);
             this._okButton.TabIndex = 11;
@@ -140,7 +144,7 @@
             this._cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._cancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
             this._cancelButton.ForeColor = System.Drawing.Color.White;
-            this._cancelButton.Location = new System.Drawing.Point(406, 213);
+            this._cancelButton.Location = new System.Drawing.Point(271, 3);
             this._cancelButton.Name = "_cancelButton";
             this._cancelButton.Size = new System.Drawing.Size(79, 54);
             this._cancelButton.TabIndex = 12;
@@ -160,20 +164,41 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this._okButton);
-            this.panel2.Controls.Add(this._cancelButton);
-            this.panel2.Controls.Add(this._nomeView);
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this._genereComboBox);
-            this.panel2.Controls.Add(this._dataRilascioPicker);
-            this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.panel3);
+            this.panel2.Controls.Add(this.flowLayoutPanel1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(335, 40);
             this.panel2.Name = "panel2";
-            this.panel2.Padding = new System.Windows.Forms.Padding(30);
+            this.panel2.Padding = new System.Windows.Forms.Padding(30, 30, 30, 10);
             this.panel2.Size = new System.Drawing.Size(498, 266);
             this.panel2.TabIndex = 13;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.AutoSize = true;
+            this.flowLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flowLayoutPanel1.Controls.Add(this._okButton);
+            this.flowLayoutPanel1.Controls.Add(this._cancelButton);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(30, 196);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(438, 60);
+            this.flowLayoutPanel1.TabIndex = 13;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.label2);
+            this.panel3.Controls.Add(this._nomeView);
+            this.panel3.Controls.Add(this._genereComboBox);
+            this.panel3.Controls.Add(this.label3);
+            this.panel3.Controls.Add(this.label4);
+            this.panel3.Controls.Add(this._dataRilascioPicker);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(30, 30);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(438, 166);
+            this.panel3.TabIndex = 14;
             // 
             // _videogiocoImage
             // 
@@ -211,6 +236,9 @@
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this._videogiocoImage)).EndInit();
             this.ResumeLayout(false);
 
@@ -230,5 +258,7 @@
         private System.Windows.Forms.Button _cancelButton;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }
