@@ -75,7 +75,6 @@
             this._recensioneText.BackColor = System.Drawing.Color.White;
             this._recensioneText.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this._recensioneText.Dock = System.Windows.Forms.DockStyle.Top;
-            this._recensioneText.Enabled = false;
             this._recensioneText.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this._recensioneText.ForeColor = System.Drawing.Color.DimGray;
             this._recensioneText.Location = new System.Drawing.Point(35, 30);
