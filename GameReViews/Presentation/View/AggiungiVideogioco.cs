@@ -10,7 +10,7 @@ using GameReViews.Model;
 
 namespace GameReViews.Presentation.View
 {
-    public partial class AddVideogioco : Form
+    public partial class AggiungiVideogioco : Form
     {
         private string _nome;
         private DateTime _dataRilascio;
@@ -41,7 +41,7 @@ namespace GameReViews.Presentation.View
             set { _genere = value; }
         }
 
-        public AddVideogioco()
+        public AggiungiVideogioco()
         {
             InitializeComponent();
             _videogiocoImage.Image = GameReViews.Properties.Resources.ic_insert_photo_white_48dp;

@@ -10,7 +10,7 @@ using GameReViews.Model;
 
 namespace GameReViews
 {
-    public delegate void CellClickedDelegate(Object selectedObject);
+    public delegate void CellClickedDelegate(object selectedObject);
 
     public partial class CustomDataGridView : UserControl
     {

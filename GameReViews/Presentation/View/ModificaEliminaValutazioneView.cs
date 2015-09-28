@@ -39,6 +39,13 @@ namespace GameReViews.Presentation.View
             get { return (int) _valutazioneNumeric.Value; }
         }
 
+        public string Titolo
+        {
+            get { return _titoloLabel.Text; }
+            set { _titoloLabel.Text = value; }
+        }
+
+
         private void _eliminaButton_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult = MessageBox.Show("Sei sicuro di voler eliminare la valutazione?", "Elimina Preferenza", MessageBoxButtons.YesNo);

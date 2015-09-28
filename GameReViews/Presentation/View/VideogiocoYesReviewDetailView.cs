@@ -14,6 +14,8 @@ namespace GameReViews.View
     {
         private Videogioco _videogioco;
 
+        public event EventHandler ValutaAspettoClick;
+
         private VideogiocoYesReviewDetailView()
         {
             InitializeComponent();
@@ -24,16 +26,25 @@ namespace GameReViews.View
         public VideogiocoYesReviewDetailView(Videogioco videogioco, Sessione sessione) : this()
         {
             _videogioco = videogioco;
+            this.Dock = DockStyle.Fill;
 
-            bindData();
+            BindData();
 
             _sessione = sessione;
+
+            if(_sessione.UtenteCorrente!=null && _sessione.UtenteCorrente.Nome!=videogioco.Recensione.Autore.Nome)
+            {
+                Console.WriteLine("Nome utente: " +_sessione.UtenteCorrente.Nome);
+                Console.WriteLine("Nome autore: " + videogioco.Recensione.Autore.Nome);
+
+                _valutaAspettoButton.Visible = false;
+            }
 
             _recensioneText.Text = videogioco.Recensione.Testo;
             _valutazione.Text = _sessione.Calcolo.Calcola(_videogioco.Recensione) + "";
         }
 
-        private void bindData()
+        private void BindData()
         {
             string[][] headersAspetti = new string[2][];
 
@@ -49,9 +60,15 @@ namespace GameReViews.View
             _customDataGridView.InitDataSource(source_preferenze, headersAspetti);
         }
 
-        public CustomDataGridView getCustomDataGrid()
+        public CustomDataGridView GetCustomDataGrid()
         {
             return _customDataGridView;
+        }
+
+        private void _valutaAspettoButton_Click(object sender, EventArgs e)
+        {
+            if (ValutaAspettoClick != null)
+                ValutaAspettoClick(null, EventArgs.Empty);
         }
     }
 }

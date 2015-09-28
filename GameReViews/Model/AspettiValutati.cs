@@ -28,7 +28,6 @@ namespace GameReViews.Model
             }
             catch (ArgumentException) 
             {
-                // TODO mah
                 throw new ArgumentException("this._aspettiValori.Add(aspetto, value) aspetto deve essere unico!"); 
             }
 

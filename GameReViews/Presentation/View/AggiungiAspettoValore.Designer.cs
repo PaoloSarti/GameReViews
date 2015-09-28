@@ -31,16 +31,16 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AggiungiAspettoValore));
             this._valutazione = new System.Windows.Forms.NumericUpDown();
             this._aspettiCombo = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this._titoloLabel = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this._descrizioneTextBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this._valutazioneLabel = new System.Windows.Forms.Label();
             this._aspettoLabel = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this._okButton = new System.Windows.Forms.Button();
             this._cancelButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this._descrizioneTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this._valutazione)).BeginInit();
             this.panel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -74,18 +74,18 @@
             this._aspettiCombo.TabIndex = 2;
             this._aspettiCombo.SelectedIndexChanged += new System.EventHandler(this._aspettiCombo_SelectedIndexChanged);
             // 
-            // label2
+            // _titoloLabel
             // 
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
-            this.label2.Location = new System.Drawing.Point(0, 0);
-            this.label2.Name = "label2";
-            this.label2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label2.Size = new System.Drawing.Size(559, 69);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "AGGIUNGI PREFERENZA";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this._titoloLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._titoloLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Bold);
+            this._titoloLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
+            this._titoloLabel.Location = new System.Drawing.Point(0, 0);
+            this._titoloLabel.Name = "_titoloLabel";
+            this._titoloLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this._titoloLabel.Size = new System.Drawing.Size(559, 69);
+            this._titoloLabel.TabIndex = 1;
+            this._titoloLabel.Text = "AGGIUNGI PREFERENZA";
+            this._titoloLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel2
             // 
@@ -103,6 +103,30 @@
             this.panel2.Padding = new System.Windows.Forms.Padding(50, 0, 50, 0);
             this.panel2.Size = new System.Drawing.Size(559, 427);
             this.panel2.TabIndex = 2;
+            // 
+            // _descrizioneTextBox
+            // 
+            this._descrizioneTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this._descrizioneTextBox.Location = new System.Drawing.Point(302, 169);
+            this._descrizioneTextBox.Margin = new System.Windows.Forms.Padding(0);
+            this._descrizioneTextBox.Multiline = true;
+            this._descrizioneTextBox.Name = "_descrizioneTextBox";
+            this._descrizioneTextBox.ReadOnly = true;
+            this._descrizioneTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this._descrizioneTextBox.Size = new System.Drawing.Size(257, 96);
+            this._descrizioneTextBox.TabIndex = 7;
+            this._descrizioneTextBox.Text = resources.GetString("_descrizioneTextBox.Text");
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.DimGray;
+            this.label1.Location = new System.Drawing.Point(3, 169);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(137, 26);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Descrizione";
             // 
             // _valutazioneLabel
             // 
@@ -172,36 +196,12 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this._titoloLabel);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(30, 30);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(559, 69);
             this.panel1.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.DimGray;
-            this.label1.Location = new System.Drawing.Point(3, 169);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(137, 26);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Descrizione";
-            // 
-            // _descrizioneTextBox
-            // 
-            this._descrizioneTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this._descrizioneTextBox.Location = new System.Drawing.Point(302, 169);
-            this._descrizioneTextBox.Margin = new System.Windows.Forms.Padding(0);
-            this._descrizioneTextBox.Multiline = true;
-            this._descrizioneTextBox.Name = "_descrizioneTextBox";
-            this._descrizioneTextBox.ReadOnly = true;
-            this._descrizioneTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this._descrizioneTextBox.Size = new System.Drawing.Size(257, 96);
-            this._descrizioneTextBox.TabIndex = 7;
-            this._descrizioneTextBox.Text = resources.GetString("_descrizioneTextBox.Text");
             // 
             // AggiungiAspettoValore
             // 
@@ -220,7 +220,7 @@
             this.Padding = new System.Windows.Forms.Padding(30, 30, 30, 10);
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.Text = "Aggiungi preferenza";
+            this.Text = "Aggiungi";
             ((System.ComponentModel.ISupportInitialize)(this._valutazione)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -235,7 +235,7 @@
 
         private System.Windows.Forms.NumericUpDown _valutazione;
         private System.Windows.Forms.ComboBox _aspettiCombo;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label _titoloLabel;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label _aspettoLabel;
         private System.Windows.Forms.Label _valutazioneLabel;

@@ -32,7 +32,7 @@ namespace GameReViews.View
             }
         }
 
-        private void _aggiungiRecensione_Click(object sender, EventArgs e)
+        private void _aggiungiRecensione_Click_1(object sender, EventArgs e)
         {
             if (aggiuntaRecensione != null)
                 aggiuntaRecensione(null, EventArgs.Empty);

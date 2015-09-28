@@ -36,7 +36,7 @@ namespace GameReViews.Presentation.Presenter
 
         private void _aggiungiVideogiocoButton_Click(object sender, EventArgs e)
         {
-            AddVideogioco addVideogiocoView = new AddVideogioco();
+            AggiungiVideogioco addVideogiocoView = new AggiungiVideogioco();
             if (addVideogiocoView.ShowDialog() == DialogResult.OK)
             {
                 try

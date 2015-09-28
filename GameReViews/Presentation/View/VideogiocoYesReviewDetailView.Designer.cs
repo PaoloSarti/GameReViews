@@ -29,11 +29,12 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this._customDataGridView = new GameReViews.CustomDataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this._recensioneText = new System.Windows.Forms.TextBox();
             this._valutazione = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this._valutaAspettoButton = new System.Windows.Forms.Button();
+            this._customDataGridView = new GameReViews.CustomDataGridView();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -49,17 +50,9 @@
             this.panel1.Size = new System.Drawing.Size(1129, 649);
             this.panel1.TabIndex = 0;
             // 
-            // _customDataGridView
-            // 
-            this._customDataGridView.AutoSize = true;
-            this._customDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._customDataGridView.Location = new System.Drawing.Point(0, 232);
-            this._customDataGridView.Name = "_customDataGridView";
-            this._customDataGridView.Size = new System.Drawing.Size(1129, 417);
-            this._customDataGridView.TabIndex = 1;
-            // 
             // panel2
             // 
+            this.panel2.Controls.Add(this._valutaAspettoButton);
             this.panel2.Controls.Add(this._recensioneText);
             this.panel2.Controls.Add(this._valutazione);
             this.panel2.Controls.Add(this.label1);
@@ -107,6 +100,30 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Valutazione";
             // 
+            // _valutaAspettoButton
+            // 
+            this._valutaAspettoButton.BackColor = System.Drawing.Color.Silver;
+            this._valutaAspettoButton.FlatAppearance.BorderSize = 0;
+            this._valutaAspettoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._valutaAspettoButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
+            this._valutaAspettoButton.ForeColor = System.Drawing.Color.White;
+            this._valutaAspettoButton.Location = new System.Drawing.Point(413, 164);
+            this._valutaAspettoButton.Name = "_valutaAspettoButton";
+            this._valutaAspettoButton.Size = new System.Drawing.Size(250, 57);
+            this._valutaAspettoButton.TabIndex = 3;
+            this._valutaAspettoButton.Text = "Valuta Aspetto";
+            this._valutaAspettoButton.UseVisualStyleBackColor = false;
+            this._valutaAspettoButton.Click += new System.EventHandler(this._valutaAspettoButton_Click);
+            // 
+            // _customDataGridView
+            // 
+            this._customDataGridView.AutoSize = true;
+            this._customDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._customDataGridView.Location = new System.Drawing.Point(0, 232);
+            this._customDataGridView.Name = "_customDataGridView";
+            this._customDataGridView.Size = new System.Drawing.Size(1129, 417);
+            this._customDataGridView.TabIndex = 1;
+            // 
             // VideogiocoYesReviewDetailView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -130,5 +147,6 @@
         private System.Windows.Forms.Label label1;
         private CustomDataGridView _customDataGridView;
         private System.Windows.Forms.TextBox _recensioneText;
+        private System.Windows.Forms.Button _valutaAspettoButton;
     }
 }
