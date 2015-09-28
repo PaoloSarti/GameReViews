@@ -32,7 +32,9 @@ namespace GameReViews.View
 
             _sessione = sessione;
 
-            if(_sessione.UtenteCorrente!=null && _sessione.UtenteCorrente.Nome!=videogioco.Recensione.Autore.Nome)
+            if (_sessione.UtenteCorrente == null)
+                _valutaAspettoButton.Visible = false;
+            else if (_sessione.UtenteCorrente!=null && _sessione.UtenteCorrente.Nome!=videogioco.Recensione.Autore.Nome)
             {
                 Console.WriteLine("Nome utente: " +_sessione.UtenteCorrente.Nome);
                 Console.WriteLine("Nome autore: " + videogioco.Recensione.Autore.Nome);
@@ -42,6 +44,7 @@ namespace GameReViews.View
 
             _recensioneText.Text = videogioco.Recensione.Testo;
             _valutazione.Text = _sessione.Calcolo.Calcola(_videogioco.Recensione) + "";
+            _recensoreLabel.Text = videogioco.Recensione.Autore.Nome;
         }
 
         private void BindData()
