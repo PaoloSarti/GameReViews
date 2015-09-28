@@ -37,6 +37,8 @@ namespace GameReViews.Presentation.Presenter
             //Console.WriteLine(aspettoValore.Aspetto.Nome + " " +aspettoValore.Aspetto.Descrizione +" " +aspettoValore.Valore);
 
             ModificaEliminaValutazioneView dialog = new ModificaEliminaValutazioneView(aspettoValore);
+            dialog.Titolo = "VALUTA ASPETTO";
+
 
             if (dialog.ShowDialog() == DialogResult.OK)
             {
@@ -68,7 +70,7 @@ namespace GameReViews.Presentation.Presenter
 
             AggiungiAspettoValore aggiungiAspettoValoreView = new AggiungiAspettoValore(aspetti);
 
-            aggiungiAspettoValoreView.Titolo = "Valuta aspetto";
+            aggiungiAspettoValoreView.Titolo = "VALUTA ASPETTO";
             aggiungiAspettoValoreView.EnableEdit(true);
 
             if (aggiungiAspettoValoreView.ShowDialog() == DialogResult.OK)

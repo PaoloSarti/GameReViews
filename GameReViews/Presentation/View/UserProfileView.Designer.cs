@@ -142,9 +142,9 @@
             // 
             // circularPictureBox1
             // 
-            this.circularPictureBox1.BackColor = System.Drawing.Color.Purple;
+            this.circularPictureBox1.BackColor = System.Drawing.Color.MintCream;
             this.circularPictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.circularPictureBox1.Image = global::GameReViews.Properties.Resources.nonsensCapture;
+            this.circularPictureBox1.Image = global::GameReViews.Properties.Resources.user_512x512;
             this.circularPictureBox1.Location = new System.Drawing.Point(25, 10);
             this.circularPictureBox1.Name = "circularPictureBox1";
             this.circularPictureBox1.Size = new System.Drawing.Size(245, 214);
