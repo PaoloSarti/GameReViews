@@ -46,7 +46,7 @@ namespace GameReViews.Persistence
             Recensore r2 = new Recensore("Recensore2", "p");
             Recensore r3 = new Recensore("Recensore3", "p");
 
-            //Image image = GameReViews.Properties.Resources.NoMansSky;
+            Image image = GameReViews.Properties.Resources.ic_insert_photo_white_48dp;
 
             //aggiungo qualche videogioco
             Videogioco v1 = new Videogioco("Metal Gear Solid V", DateTime.Now, Genere.STEALTH);

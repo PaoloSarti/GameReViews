@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GameReViews.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,9 +12,20 @@ namespace GameReViews.Presentation.View
 {
     public partial class AggiungiRecensione : Form
     {
+
         public AggiungiRecensione()
         {
             InitializeComponent();
+
         }
+
+        public string Testo
+        {
+            get
+            {
+                return _recensioneText.Text;
+            }
+        }
+
     }
 }

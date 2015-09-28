@@ -1,6 +1,6 @@
 ﻿namespace GameReViews.Presentation.View
 {
-    partial class AddVideogioco
+    partial class AggiungiVideogioco
     {
         /// <summary>
         /// Required designer variable.

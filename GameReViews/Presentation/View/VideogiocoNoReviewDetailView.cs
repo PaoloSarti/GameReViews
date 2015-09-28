@@ -22,18 +22,6 @@ namespace GameReViews.View
 
             _sessione = sessione;
 
-            _sessione.SessionChanged += SessioneChanged;
-
-            SessioneChanged(null, EventArgs.Empty);
-        }
-
-        private void _aggiungiRecensione_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void SessioneChanged(object sender, EventArgs e)
-        {
             if (!(_sessione.UtenteCorrente is Recensore))
             {
                 _aggiungiRecensione.Visible = false;
@@ -42,6 +30,12 @@ namespace GameReViews.View
             {
                 _aggiungiRecensione.Visible = true;
             }
+        }
+
+        private void _aggiungiRecensione_Click_1(object sender, EventArgs e)
+        {
+            if (aggiuntaRecensione != null)
+                aggiuntaRecensione(null, EventArgs.Empty);
         }
 
     }

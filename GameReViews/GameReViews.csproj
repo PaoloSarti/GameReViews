@@ -49,11 +49,11 @@
     <Compile Include="Model\Sessione.cs" />
     <Compile Include="Presentation\Presenter\LogSignInPresenter.cs" />
     <Compile Include="Presentation\Presenter\VideogiocoPresenter.cs" />
-    <Compile Include="Presentation\View\AddVideogioco.cs">
+    <Compile Include="Presentation\View\AggiungiVideogioco.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentation\View\AddVideogioco.Designer.cs">
-      <DependentUpon>AddVideogioco.cs</DependentUpon>
+    <Compile Include="Presentation\View\AggiungiVideogioco.Designer.cs">
+      <DependentUpon>AggiungiVideogioco.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentation\View\AggiungiAspettoValore.cs">
       <SubType>Form</SubType>
@@ -148,8 +148,8 @@
     <Compile Include="Presentation\View\VideogiocoRootView.Designer.cs">
       <DependentUpon>VideogiocoRootView.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Presentation\View\AddVideogioco.resx">
-      <DependentUpon>AddVideogioco.cs</DependentUpon>
+    <EmbeddedResource Include="Presentation\View\AggiungiVideogioco.resx">
+      <DependentUpon>AggiungiVideogioco.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\View\AggiungiAspettoValore.resx">
       <DependentUpon>AggiungiAspettoValore.cs</DependentUpon>
@@ -221,9 +221,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ic_insert_photo_white_48dp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Resources\NoMansSky.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

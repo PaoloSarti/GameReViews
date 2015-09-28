@@ -13,6 +13,7 @@ namespace GameReViews.Model
         private DateTime _dataRilascio;
         private Image _image;
 
+        private static Image _defaultImage= GameReViews.Properties.Resources.ic_insert_photo_white_48dp;
 
         private Recensione _recensione;  //riferimento
         private Genere _genere;
@@ -30,8 +31,7 @@ namespace GameReViews.Model
 
             this._recensione = null;
 
-            // TODO
-            //this._image = Image.FromFile("default_image_videogioco");
+            this._image = _defaultImage;
         }
 
         public Videogioco(string nome, DateTime dataRilascio, Genere genere, Image image) 

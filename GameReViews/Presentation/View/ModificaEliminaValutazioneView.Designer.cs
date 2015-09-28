@@ -32,7 +32,7 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this._okButton = new System.Windows.Forms.Button();
             this._cancelButton = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
+            this._titoloLabel = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this._modificaPanel = new System.Windows.Forms.Panel();
             this._valutazioneNumeric = new System.Windows.Forms.NumericUpDown();
@@ -93,18 +93,18 @@
             this._cancelButton.Text = "CHIUDI";
             this._cancelButton.UseVisualStyleBackColor = false;
             // 
-            // label4
+            // _titoloLabel
             // 
-            this.label4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Bold);
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
-            this.label4.Location = new System.Drawing.Point(30, 30);
-            this.label4.Name = "label4";
-            this.label4.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label4.Size = new System.Drawing.Size(557, 69);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "MODIFICA PREFERENZA";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this._titoloLabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this._titoloLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Bold);
+            this._titoloLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
+            this._titoloLabel.Location = new System.Drawing.Point(30, 30);
+            this._titoloLabel.Name = "_titoloLabel";
+            this._titoloLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this._titoloLabel.Size = new System.Drawing.Size(557, 69);
+            this._titoloLabel.TabIndex = 10;
+            this._titoloLabel.Text = "MODIFICA PREFERENZA";
+            this._titoloLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel1
             // 
@@ -236,7 +236,7 @@
             this.ClientSize = new System.Drawing.Size(617, 483);
             this.ControlBox = false;
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this._titoloLabel);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.Name = "ModificaEliminaValutazioneView";
@@ -259,7 +259,7 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button _okButton;
         private System.Windows.Forms.Button _cancelButton;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label _titoloLabel;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel _modificaPanel;

@@ -38,7 +38,7 @@ namespace GameReViews.Presentation.Presenter
         void UtentePresenter_CellClicked(object selectedObject)
         {
             AspettoValore aspettoValore = (AspettoValore)selectedObject;
-            Console.WriteLine(aspettoValore.Aspetto.Nome + " " +aspettoValore.Aspetto.Descrizione +" " +aspettoValore.Valore);
+            //Console.WriteLine(aspettoValore.Aspetto.Nome + " " +aspettoValore.Aspetto.Descrizione +" " +aspettoValore.Valore);
 
             ModificaEliminaValutazioneView dialog = new ModificaEliminaValutazioneView(aspettoValore);
 
@@ -117,13 +117,13 @@ namespace GameReViews.Presentation.Presenter
             }
 
 
-            AggiungiAspettoValore add = new AggiungiAspettoValore(aspetti);
-            if (add.ShowDialog() == DialogResult.OK)
+            AggiungiAspettoValore aggiungiAspettoValoreView = new AggiungiAspettoValore(aspetti);
+            if (aggiungiAspettoValoreView.ShowDialog() == DialogResult.OK)
             {
                 try
                 {
-                    Aspetto aspettoSelezionato = add.AspettoSelezionato;
-                    int valutazione = add.Valutazione;
+                    Aspetto aspettoSelezionato = aggiungiAspettoValoreView.AspettoSelezionato;
+                    int valutazione = aggiungiAspettoValoreView.Valutazione;
 
                     if(aspettoSelezionato==null)
                         throw new Exception();
