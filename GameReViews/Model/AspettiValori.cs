@@ -63,6 +63,17 @@ namespace GameReViews.Model
             }
         }
 
+        public void RemoveAll()
+        {
+            if (this._aspettiValori == _emptyAspettiValori)
+                return;
+
+            foreach(Aspetto a in _aspettiValori.Keys)
+            {
+                this.Remove(a);
+            }
+        }
+
         public void ModificaValutazione(Aspetto aspetto, int valutazione)
         {
             #region Precondizioni

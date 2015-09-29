@@ -84,7 +84,12 @@ namespace GameReViews.Model
             get { return _recensione; }
             set 
             {
+                //dobbiamo aggiornare il reference counting degli aspetti
+                if(_recensione!=null)
+                    _recensione.RemoveAllAspettiValutati();
+
                 _recensione = value; 
+
                 OnChange(); 
             }
         }

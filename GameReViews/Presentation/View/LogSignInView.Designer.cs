@@ -53,7 +53,7 @@
             this._userInfoContainer_root.Name = "_userInfoContainer_root";
             this._userInfoContainer_root.Size = new System.Drawing.Size(883, 619);
             this._userInfoContainer_root.TabIndex = 0;
-            this._userInfoContainer_root.Paint += new System.Windows.Forms.PaintEventHandler(this._userInfoContainer_root_Paint);
+
             // 
             // _userInfoContainer
             // 

@@ -22,6 +22,7 @@ namespace GameReViews.View
 
         public event CellClickedDelegate ModificaValutazione;
 
+        public event EventHandler EliminaVideogioco;
 
         private VideogiocoRootView()
         {
@@ -44,6 +45,11 @@ namespace GameReViews.View
             _genereVideogiocoLabel.Text = _videogioco.Genere.ToString();
             _immagineVideogioco.Image = _videogioco.Image;
             this.Dock = DockStyle.Fill;
+
+            if (_sessione.UtenteCorrente is Recensore)
+                _eliminaButton.Visible = true;
+            else
+                _eliminaButton.Visible = false;
 
 
             if (_videogioco.Recensione == null)
@@ -123,6 +129,12 @@ namespace GameReViews.View
                 _videogioco = value;
                 this.UpdateVideogiocoView();
             }
+        }
+
+        private void _eliminaButton_Click(object sender, EventArgs e)
+        {
+            if (EliminaVideogioco != null)
+                EliminaVideogioco(null, EventArgs.Empty);
         }
     }
 }

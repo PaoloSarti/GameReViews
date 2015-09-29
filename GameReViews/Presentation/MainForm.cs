@@ -66,6 +66,8 @@ namespace GameReViews
             if(_videogiocoPresenter==null)
             {
                 _videogiocoPresenter = new VideogiocoPresenter((Videogioco) selectedObject, _sessione);
+
+                _videogiocoPresenter.EliminaVideogioco += _videogiochiButton_Click;
             }
             else
             {

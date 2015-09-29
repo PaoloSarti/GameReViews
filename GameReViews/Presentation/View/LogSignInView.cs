@@ -56,9 +56,5 @@ namespace GameReViews
 
         #endregion
 
-        private void _userInfoContainer_root_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }

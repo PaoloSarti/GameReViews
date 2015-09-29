@@ -16,6 +16,8 @@ namespace GameReViews.Presentation.Presenter
         private Sessione _sessione;
         private Videogioco _videogioco;
 
+        public event EventHandler EliminaVideogioco;
+
         public VideogiocoPresenter(Videogioco videogioco, Sessione sessione)
         {
             this._videogioco = videogioco;
@@ -35,6 +37,26 @@ namespace GameReViews.Presentation.Presenter
             if (videogioco.Recensione != null)
             {
                 videogioco.Recensione.RecensioneChanged += Recensione_RecensioneChanged;
+            }
+
+            _rootView.EliminaVideogioco += _rootView_EliminaVideogioco;
+
+        }
+
+        void _rootView_EliminaVideogioco(object sender, EventArgs e)
+        {
+
+            try
+            {
+                Document.GetInstance().Videogiochi.RemoveVideogioco(_videogioco);
+
+                if (EliminaVideogioco != null)
+                    EliminaVideogioco(null, EventArgs.Empty);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "ERRORE",
+                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 

@@ -31,14 +31,15 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this._recensioneContainer = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this._dataVideogiocoLabel = new System.Windows.Forms.Label();
-            this._genereVideogiocoLabel = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this._nomeVideogiocoLabel = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this._genereVideogiocoLabel = new System.Windows.Forms.Label();
+            this._dataVideogiocoLabel = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this._nomeVideogiocoLabel = new System.Windows.Forms.TextBox();
             this._immagineVideogioco = new CircularPictureBox();
+            this._eliminaButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -76,15 +77,29 @@
             this.panel2.Size = new System.Drawing.Size(828, 255);
             this.panel2.TabIndex = 0;
             // 
-            // label2
+            // panel3
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 63);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(118, 25);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Data rilascio";
+            this.panel3.Controls.Add(this.panel4);
+            this.panel3.Controls.Add(this._nomeVideogiocoLabel);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(235, 30);
+            this.panel3.Name = "panel3";
+            this.panel3.Padding = new System.Windows.Forms.Padding(10);
+            this.panel3.Size = new System.Drawing.Size(563, 195);
+            this.panel3.TabIndex = 6;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this._eliminaButton);
+            this.panel4.Controls.Add(this.label1);
+            this.panel4.Controls.Add(this._genereVideogiocoLabel);
+            this.panel4.Controls.Add(this._dataVideogiocoLabel);
+            this.panel4.Controls.Add(this.label2);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(10, 94);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(543, 91);
+            this.panel4.TabIndex = 6;
             // 
             // label1
             // 
@@ -95,17 +110,6 @@
             this.label1.Size = new System.Drawing.Size(130, 39);
             this.label1.TabIndex = 4;
             this.label1.Text = "Genere";
-            // 
-            // _dataVideogiocoLabel
-            // 
-            this._dataVideogiocoLabel.AutoSize = true;
-            this._dataVideogiocoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._dataVideogiocoLabel.ForeColor = System.Drawing.Color.DimGray;
-            this._dataVideogiocoLabel.Location = new System.Drawing.Point(229, 63);
-            this._dataVideogiocoLabel.Name = "_dataVideogiocoLabel";
-            this._dataVideogiocoLabel.Size = new System.Drawing.Size(118, 25);
-            this._dataVideogiocoLabel.TabIndex = 3;
-            this._dataVideogiocoLabel.Text = "Data rilascio";
             // 
             // _genereVideogiocoLabel
             // 
@@ -118,16 +122,26 @@
             this._genereVideogiocoLabel.TabIndex = 2;
             this._genereVideogiocoLabel.Text = "Genere";
             // 
-            // panel3
+            // _dataVideogiocoLabel
             // 
-            this.panel3.Controls.Add(this.panel4);
-            this.panel3.Controls.Add(this._nomeVideogiocoLabel);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(235, 30);
-            this.panel3.Name = "panel3";
-            this.panel3.Padding = new System.Windows.Forms.Padding(10);
-            this.panel3.Size = new System.Drawing.Size(563, 195);
-            this.panel3.TabIndex = 6;
+            this._dataVideogiocoLabel.AutoSize = true;
+            this._dataVideogiocoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._dataVideogiocoLabel.ForeColor = System.Drawing.Color.DimGray;
+            this._dataVideogiocoLabel.Location = new System.Drawing.Point(229, 63);
+            this._dataVideogiocoLabel.Name = "_dataVideogiocoLabel";
+            this._dataVideogiocoLabel.Size = new System.Drawing.Size(118, 25);
+            this._dataVideogiocoLabel.TabIndex = 3;
+            this._dataVideogiocoLabel.Text = "Data rilascio";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(3, 63);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(118, 25);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Data rilascio";
             // 
             // _nomeVideogiocoLabel
             // 
@@ -144,18 +158,6 @@
             this._nomeVideogiocoLabel.TabIndex = 0;
             this._nomeVideogiocoLabel.Text = "Nome videogioco";
             // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.label1);
-            this.panel4.Controls.Add(this._genereVideogiocoLabel);
-            this.panel4.Controls.Add(this._dataVideogiocoLabel);
-            this.panel4.Controls.Add(this.label2);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(10, 94);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(543, 91);
-            this.panel4.TabIndex = 6;
-            // 
             // _immagineVideogioco
             // 
             this._immagineVideogioco.BackColor = System.Drawing.Color.DarkGray;
@@ -167,6 +169,17 @@
             this._immagineVideogioco.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this._immagineVideogioco.TabIndex = 0;
             this._immagineVideogioco.TabStop = false;
+            // 
+            // _eliminaButton
+            // 
+            this._eliminaButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this._eliminaButton.Location = new System.Drawing.Point(468, 0);
+            this._eliminaButton.Name = "_eliminaButton";
+            this._eliminaButton.Size = new System.Drawing.Size(75, 91);
+            this._eliminaButton.TabIndex = 7;
+            this._eliminaButton.Text = "ELIMINA";
+            this._eliminaButton.UseVisualStyleBackColor = true;
+            this._eliminaButton.Click += new System.EventHandler(this._eliminaButton_Click);
             // 
             // VideogiocoRootView
             // 
@@ -200,5 +213,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TextBox _nomeVideogiocoLabel;
         private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Button _eliminaButton;
     }
 }
