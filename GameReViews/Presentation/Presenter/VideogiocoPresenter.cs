@@ -12,7 +12,7 @@ namespace GameReViews.Presentation.Presenter
 {
     class VideogiocoPresenter
     {
-        private VideogiocoRootView _rootView;
+        private VideogiocoRootView _view;
         private Sessione _sessione;
         private Videogioco _videogioco;
 
@@ -21,16 +21,16 @@ namespace GameReViews.Presentation.Presenter
         public VideogiocoPresenter(Videogioco videogioco, Sessione sessione)
         {
             this._videogioco = videogioco;
-            this._rootView = new VideogiocoRootView(videogioco, sessione);
+            this._view = new VideogiocoRootView(videogioco, sessione);
             this._sessione = sessione;
 
-            _rootView.AggiuntaRecensione += _rootView_AggiuntaRecensione;
+            _view.AggiuntaRecensione += _rootView_AggiuntaRecensione;
 
             _sessione.SessionChanged += UtenteCorrente_UtenteChanged;
 
-            _rootView.ValutaAspetto += _rootView_ValutaAspetto;
+            _view.ValutaAspetto += _rootView_ValutaAspetto;
 
-            _rootView.ModificaValutazione += _rootView_ModificaValutazione;
+            _view.ModificaValutazione += _rootView_ModificaValutazione;
 
             videogioco.VideogiocoChanged +=videogioco_VideogiocoChanged;
 
@@ -39,7 +39,7 @@ namespace GameReViews.Presentation.Presenter
                 videogioco.Recensione.RecensioneChanged += Recensione_RecensioneChanged;
             }
 
-            _rootView.EliminaVideogioco += _rootView_EliminaVideogioco;
+            _view.EliminaVideogioco += _rootView_EliminaVideogioco;
 
         }
 
@@ -62,7 +62,7 @@ namespace GameReViews.Presentation.Presenter
 
         void videogioco_VideogiocoChanged(object sender, EventArgs e)
         {
-            _rootView.Videogioco = Videogioco;
+            _view.Videogioco = Videogioco;
             if (Videogioco.Recensione != null)
             {
                 Videogioco.Recensione.RecensioneChanged += Recensione_RecensioneChanged;
@@ -71,7 +71,7 @@ namespace GameReViews.Presentation.Presenter
 
         void Recensione_RecensioneChanged(object sender, EventArgs e)
         {
-            _rootView.Videogioco = Videogioco;
+            _view.Videogioco = Videogioco;
         }
 
 
@@ -171,11 +171,11 @@ namespace GameReViews.Presentation.Presenter
             this.Videogioco = _videogioco;
         }
 
-        public VideogiocoRootView View
+        public Control View
         {
             get
             {
-                return _rootView;
+                return _view;
             }
         }
 
@@ -187,7 +187,7 @@ namespace GameReViews.Presentation.Presenter
                 if (_videogioco != null)
                     _videogioco.VideogiocoChanged -= videogioco_VideogiocoChanged;
                 _videogioco = value;
-                _rootView.Videogioco = _videogioco;
+                _view.Videogioco = _videogioco;
                 _videogioco.VideogiocoChanged += videogioco_VideogiocoChanged;
             }
         }

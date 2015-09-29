@@ -54,16 +54,16 @@ namespace GameReViews.View
 
             if (_videogioco.Recensione == null)
             {
-                VideogiocoNoReviewDetailView recensioneView = new VideogiocoNoReviewDetailView(_sessione);
+                VideogiocoNoRecensioneView recensioneView = new VideogiocoNoRecensioneView(_sessione);
                 recensioneView.Dock = DockStyle.Fill;
 
                 if (_currentDetailView != null)
                 {
                     _recensioneContainer.Controls.Remove(_currentDetailView);
-                    if(_currentDetailView is VideogiocoNoReviewDetailView)
+                    if(_currentDetailView is VideogiocoNoRecensioneView)
                     {
                         //deregistrazione per evitare di mantenere il riferimento in memoria
-                        VideogiocoNoReviewDetailView view = (VideogiocoNoReviewDetailView)_currentDetailView;
+                        VideogiocoNoRecensioneView view = (VideogiocoNoRecensioneView)_currentDetailView;
                         view.aggiuntaRecensione -= recensioneView_aggiuntaRecensione;
                     }
                 }
@@ -76,12 +76,12 @@ namespace GameReViews.View
             }
             else
             {
-                VideogiocoYesReviewDetailView recensioneView = new VideogiocoYesReviewDetailView(_videogioco, _sessione);
+                VideogiocoRecensioneView recensioneView = new VideogiocoRecensioneView(_videogioco, _sessione);
 
-                if(_currentDetailView is VideogiocoYesReviewDetailView)
+                if(_currentDetailView is VideogiocoRecensioneView)
                 {
                     //deregistrazione per evitare di mantenere il riferimento in memoria
-                    VideogiocoYesReviewDetailView view = (VideogiocoYesReviewDetailView)_currentDetailView;
+                    VideogiocoRecensioneView view = (VideogiocoRecensioneView)_currentDetailView;
                     view.ValutaAspettoClick -= recensioneView_ValutaAspettoClick;
                     view.GetCustomDataGrid().CellClicked -= VideogiocoRootView_CellClicked;
                 }

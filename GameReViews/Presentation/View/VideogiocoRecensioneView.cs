@@ -10,20 +10,20 @@ using GameReViews.Model;
 
 namespace GameReViews.View
 {
-    public partial class VideogiocoYesReviewDetailView : UserControl
+    public partial class VideogiocoRecensioneView : UserControl
     {
         private Videogioco _videogioco;
 
         public event EventHandler ValutaAspettoClick;
 
-        private VideogiocoYesReviewDetailView()
+        private VideogiocoRecensioneView()
         {
             InitializeComponent();
         }
 
         private Sessione _sessione;
 
-        public VideogiocoYesReviewDetailView(Videogioco videogioco, Sessione sessione) : this()
+        public VideogiocoRecensioneView(Videogioco videogioco, Sessione sessione) : this()
         {
             _videogioco = videogioco;
             this.Dock = DockStyle.Fill;

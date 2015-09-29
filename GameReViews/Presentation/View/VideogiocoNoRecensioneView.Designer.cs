@@ -1,6 +1,6 @@
 ﻿namespace GameReViews.View
 {
-    partial class VideogiocoNoReviewDetailView
+    partial class VideogiocoNoRecensioneView
     {
         /// <summary> 
         /// Required designer variable.
@@ -63,7 +63,7 @@
             this._aggiungiRecensione.TabIndex = 8;
             this._aggiungiRecensione.Text = "AGGIUNGI RECENSIONE";
             this._aggiungiRecensione.UseVisualStyleBackColor = false;
-            this._aggiungiRecensione.Click += new System.EventHandler(this._aggiungiRecensione_Click_1);
+            this._aggiungiRecensione.Click += new System.EventHandler(this._aggiungiRecensione_Click);
             // 
             // pictureBox1
             // 

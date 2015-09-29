@@ -11,28 +11,35 @@ namespace GameReViews.Presentation.Presenter
 {
     public class UtentePresenter
     {
-        private UserProfileView _userProfileView;
+        private UtenteView _view;
 
         private Sessione _sessione;
 
+        public event EventHandler Logout;
 
-
-        public UtentePresenter(UserProfileView userProfileView, Sessione sessione)
+        public UtentePresenter(Sessione sessione)
         {
-            _userProfileView = userProfileView;
+            _view = new UtenteView();
 
-            _userProfileView.Dock = DockStyle.Fill;
+            _view.Dock = DockStyle.Fill;
 
             _sessione = sessione;
 
             _sessione.SessionChanged += Sessione_Changed;
 
-            _userProfileView.Logout+=Logout;
+            _view.Logout += _view_Logout;
 
-            _userProfileView.AggiungiPreferenza += AggiungiPreferenza;
+            _view.AggiungiPreferenza += AggiungiPreferenza;
 
-            _userProfileView.GetCustomDataGrid().CellClicked += UtentePresenter_CellClicked;
+            _view.GetCustomDataGrid().CellClicked += UtentePresenter_CellClicked;
 
+        }
+
+        void _view_Logout(object sender, EventArgs e)
+        {
+            _sessione.Logout();
+            if (Logout != null)
+                Logout(null, EventArgs.Empty);
         }
 
         void UtentePresenter_CellClicked(object selectedObject)
@@ -65,19 +72,6 @@ namespace GameReViews.Presentation.Presenter
 
         }
 
-        /*
-        private void BindData()
-        {
-            string[][] headersPreferenze = new string[2][];
-
-            headersPreferenze[0] = new string[2] { "Aspetto", "aspetto" };
-            headersPreferenze[1] = new string[2] { "Valutazione/Peso", "valore" };
-
-            BindingSource source = GetBindingSource();
-
-            _userProfileView.GetCustomDataGrid().InitDataSource(source, headersPreferenze);
-        }*/
-
         private void UpdateData()
         {
             string[][] headersPreferenze = new string[2][];
@@ -89,7 +83,7 @@ namespace GameReViews.Presentation.Presenter
              
             BindingSource source = GetBindingSource();
 
-            _userProfileView.GetCustomDataGrid().UpdateDataSource(source);
+            _view.GetCustomDataGrid().UpdateDataSource(source);
         }
 
 
@@ -146,19 +140,20 @@ namespace GameReViews.Presentation.Presenter
             //_userProfileView.GetCustomDataGrid().UpdateDataSource(GetBindingSource());
             if (_sessione.UtenteCorrente != null)
             {
-                _userProfileView.NomeUtente = _sessione.UtenteCorrente.Nome;
+                _view.NomeUtente = _sessione.UtenteCorrente.Nome;
 
                 //_sessione.UtenteCorrente.UtenteChanged+=UtenteCorrente_UtenteChanged;
 
                 UpdateData();
-                _userProfileView.Refresh();
+                _view.Refresh();
             }
         }
 
-        private void Logout(object sender, EventArgs e)
+        public Control View
         {
-            _sessione.Logout();
+            get { return _view; }
         }
+
 
     }
 }

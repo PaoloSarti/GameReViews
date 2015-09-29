@@ -11,10 +11,10 @@ namespace GameReViews.Presentation.Presenter
     public class VideogiochiRecensitiPresenter : AbstractVideogiochiPresenter
     {
 
-        public VideogiochiRecensitiPresenter(VideogiochiListView videogichiView, Sessione sessione)
-            : base(videogichiView, sessione)
+        public VideogiochiRecensitiPresenter(Sessione sessione)
+            : base(sessione)
         {
-            videogichiView.GetAggiungiVideogiocoButton().Visible = false;
+            _view.GetAggiungiVideogiocoButton().Visible = false;
         }
 
         protected override BindingSource GetBindingSource()
