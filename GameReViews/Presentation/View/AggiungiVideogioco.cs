@@ -25,8 +25,8 @@ namespace GameReViews.Presentation.View
 
         public DateTime DataRilascio
         {
-            get { return _dataRilascio; }
-            set { _dataRilascio = value; }
+            get { return _dataRilascio.Date; }
+            set { _dataRilascio = value.Date; }
         }
 
         public Image Image

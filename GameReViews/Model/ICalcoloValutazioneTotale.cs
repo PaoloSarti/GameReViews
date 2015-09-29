@@ -3,10 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-
-/*
- * Metto tutto in questo file, non è tanta roba...
- */
 namespace GameReViews.Model
 {
     public interface ICalcoloValutazioneTotale
@@ -14,7 +10,7 @@ namespace GameReViews.Model
          float Calcola(Recensione recensione);
     }
 
-    //statica o singleton?
+    //statica
     static class CalcoloValutazioneTotaleFactory
     {
         public static ICalcoloValutazioneTotale GetCalcoloValutazioneTotale()
@@ -29,12 +25,6 @@ namespace GameReViews.Model
             return new CalcoloValutazionePersonalizzata(utente);
         }
     }
-
-    //per una soluzione meno vincolata alla conoscenza di UtenteRegistrato, si potrebbe accettare anche solo un delegato che dia le preferenze,
-    //che è meno vincolante anche di una interfaccia, perchè richiede solo la firma del metodo
-
-    //delegate IEnumerable<KeyValuePair<Aspetto, int>> GetPreferenze();
-    //dopo al posto di avere utente come campo, basta matenere il delegato
 
     //media pesata in base al match delle stringhe dei nomi degli aspetti tra recensione e utente
     class CalcoloValutazionePersonalizzata : ICalcoloValutazioneTotale
@@ -84,7 +74,7 @@ namespace GameReViews.Model
                 }
             }
 
-            //ritorno NaN se non c'è stato neanche un match oppure se al denominatore ho 0 (O ECCEZIONE!?!?)
+            //ritorno NaN se non c'è stato neanche un match oppure se al denominatore ho 0
             if (count == 0 || sumPreferenze==0)
                 return float.NaN;
 

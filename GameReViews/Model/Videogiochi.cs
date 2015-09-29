@@ -42,14 +42,13 @@ namespace GameReViews.Model
         }
 
 
-        public Videogioco getVideogioco(string nome)
+        public Videogioco GetVideogioco(string nome)
         {
             foreach (Videogioco v in _videogiochiSet)
                 if (v.Nome == nome)
                     return v;
 
-            // return null o throw exception??????????????
-            return null;
+            throw new ArgumentException("videogioco non trovato");
         }
 
         public void AddVideogioco(Videogioco videogioco)
@@ -91,6 +90,5 @@ namespace GameReViews.Model
                 VideogiochiChanged(null, EventArgs.Empty);
             }
         }
-
     }
 }

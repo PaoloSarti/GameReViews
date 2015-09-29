@@ -99,5 +99,30 @@ namespace GameReViews.Model
             }
         }
 
+        //per avere l'unicità nei Set, ridefinisco Equals e GetHashCode
+        public override bool Equals(System.Object obj)
+        {
+            // Se il paramentro è nullo ritorno falso
+            if (obj == null)
+            {
+                return false;
+            }
+
+            // Se il paramentro non può essere castato ad Aspetto ritorno false.
+            UtenteRegistrato a = obj as UtenteRegistrato;
+            if ((System.Object)a == null)
+            {
+                return false;
+            }
+
+            // Ritorno true se il nome è lo stesso
+            return (_nome == a._nome);
+        }
+
+        public override int GetHashCode()
+        {
+            return _nome.GetHashCode();
+        }
+
     }
 }

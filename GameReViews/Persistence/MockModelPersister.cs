@@ -49,13 +49,14 @@ namespace GameReViews.Persistence
             Image image = GameReViews.Properties.Resources.ic_insert_photo_white_48dp;
 
             //aggiungo qualche videogioco
-            Videogioco v1 = new Videogioco("Metal Gear Solid V", DateTime.Now, Genere.STEALTH);
-            Videogioco v2 = new Videogioco("No Man's Sky", DateTime.Now, Genere.FANTASY);
-            Videogioco v3 = new Videogioco("The Witcher 3", DateTime.Now, Genere.FANTASY);
-            Videogioco v4 = new Videogioco("The Elder Scrolls V: Skyrim", DateTime.Now, Genere.FANTASY);
-            Videogioco v5 = new Videogioco("Dishonored", DateTime.Now, Genere.STEALTH);
-            Videogioco v6 = new Videogioco("Faster Than Light", DateTime.Now, Genere.STRATEGIA);
-            Videogioco v7 = new Videogioco("Forza Motorsport 5", DateTime.Now, Genere.CORSE);
+            Videogioco v1 = new Videogioco("Metal Gear Solid V", DateTime.Now.Date, Genere.STEALTH);
+            Videogioco v2 = new Videogioco("No Man's Sky", DateTime.Now.Date, Genere.FANTASY);
+            Videogioco v3 = new Videogioco("The Witcher 3", DateTime.Now.Date, Genere.FANTASY);
+            Videogioco v4 = new Videogioco("The Elder Scrolls V: Skyrim", DateTime.Now.Date, Genere.FANTASY);
+            Videogioco v5 = new Videogioco("Dishonored", DateTime.Now.Date, Genere.STEALTH);
+            Videogioco v6 = new Videogioco("Faster Than Light", DateTime.Now.Date, Genere.STRATEGIA);
+            Videogioco v7 = new Videogioco("Forza Motorsport 5", DateTime.Now.Date, Genere.CORSE);
+            Videogioco v8 = new Videogioco("Super Mario", DateTime.Now.Date, Genere.AVVENTURA);
 
             //aggiungo qualche recensione
             v1.Recensione = new Recensione("testo lunghissimo bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla 1", r1);
@@ -77,6 +78,11 @@ namespace GameReViews.Persistence
             v4.Recensione.AddAspettoValutato(new Aspetto("grafica", "descrizione1"), 3);
             v4.Recensione.AddAspettoValutato(new Aspetto("storia", "descrizione3"), 10);
             v4.Recensione.AddAspettoValutato(new Aspetto("rigiocabilità", "descrizione5"), 2);
+
+            v8.Recensione = new Recensione("TESTO  TESTO  TESTO  TESTO  TESTO  TESTO  TESTO  TESTO  TESTO  TESTO  TESTO  TESTO", r1);
+            v8.Recensione.AddAspettoValutato(new Aspetto("grafica", "descrizione1"), 5);
+            v8.Recensione.AddAspettoValutato(new Aspetto("giocabilità", "descrizione2"), 10);
+            v8.Recensione.AddAspettoValutato(new Aspetto("storia", "descrizione3"), 3);
 
             //aggiungo preferenze agli utenti/recensori
             u1.AddPreferenza(new Aspetto("grafica", "descrizione1"), 2);
@@ -143,7 +149,7 @@ namespace GameReViews.Persistence
             _videogiochi.AddVideogioco(v5);
             _videogiochi.AddVideogioco(v6);
             _videogiochi.AddVideogioco(v7);
-
+            _videogiochi.AddVideogioco(v8);
         }
 
         public Videogiochi GetVideogiochi()

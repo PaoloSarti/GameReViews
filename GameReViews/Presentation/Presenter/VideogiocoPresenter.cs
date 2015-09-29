@@ -29,7 +29,29 @@ namespace GameReViews.Presentation.Presenter
             _rootView.ValutaAspetto += _rootView_ValutaAspetto;
 
             _rootView.ModificaValutazione += _rootView_ModificaValutazione;
+
+            videogioco.VideogiocoChanged +=videogioco_VideogiocoChanged;
+
+            if (videogioco.Recensione != null)
+            {
+                videogioco.Recensione.RecensioneChanged += Recensione_RecensioneChanged;
+            }
         }
+
+        void videogioco_VideogiocoChanged(object sender, EventArgs e)
+        {
+            _rootView.Videogioco = Videogioco;
+            if (Videogioco.Recensione != null)
+            {
+                Videogioco.Recensione.RecensioneChanged += Recensione_RecensioneChanged;
+            }
+        }
+
+        void Recensione_RecensioneChanged(object sender, EventArgs e)
+        {
+            _rootView.Videogioco = Videogioco;
+        }
+
 
         void _rootView_ModificaValutazione(object selectedObject)
         {
@@ -52,7 +74,7 @@ namespace GameReViews.Presentation.Presenter
                     {
                         _videogioco.Recensione.ModificaAspetto(aspettoValore.Aspetto, dialog.Valore);
                     }
-                    _rootView.Videogioco = Videogioco;
+                    //_rootView.Videogioco = Videogioco;
                 }
                 catch (Exception)
                 {
@@ -87,7 +109,7 @@ namespace GameReViews.Presentation.Presenter
 
                     Videogioco.Recensione.AddAspettoValutato(aspetto, valutazione);
 
-                    _rootView.Videogioco = Videogioco;
+                    //_rootView.Videogioco = Videogioco;
                 }
                 catch (Exception)
                 {
@@ -111,7 +133,7 @@ namespace GameReViews.Presentation.Presenter
 
                     Videogioco.Recensione = recensione;
 
-                    _rootView.Videogioco = Videogioco;
+                    //_rootView.Videogioco = Videogioco;
                 }
                 catch (Exception)
                 {
@@ -140,8 +162,11 @@ namespace GameReViews.Presentation.Presenter
             get { return _videogioco; }
             set
             {
+                if (_videogioco != null)
+                    _videogioco.VideogiocoChanged -= videogioco_VideogiocoChanged;
                 _videogioco = value;
-                _rootView.Videogioco = value;
+                _rootView.Videogioco = _videogioco;
+                _videogioco.VideogiocoChanged += videogioco_VideogiocoChanged;
             }
         }
 
