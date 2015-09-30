@@ -106,7 +106,6 @@
     <Compile Include="Model\Videogioco.cs" />
     <Compile Include="Persistence\MockModelPersister.cs" />
     <Compile Include="Presentation\Presenter\AbstractVideogiochiPresenter.cs" />
-    <Compile Include="Presentation\Presenter\ToolbarPresenter.cs" />
     <Compile Include="Presentation\Presenter\UtentePresenter.cs" />
     <Compile Include="Presentation\Presenter\VideogiochiPresenter.cs" />
     <Compile Include="Presentation\Presenter\VideogiochiRecensitiPresenter.cs" />
@@ -118,17 +117,17 @@
     <Compile Include="Presentation\View\LogSignInView.Designer.cs">
       <DependentUpon>LogSignInView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\View\UserProfileView.cs">
+    <Compile Include="Presentation\View\UtenteView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Presentation\View\UserProfileView.Designer.cs">
-      <DependentUpon>UserProfileView.cs</DependentUpon>
+    <Compile Include="Presentation\View\UtenteView.Designer.cs">
+      <DependentUpon>UtenteView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\View\VideogiocoNoReviewDetailView.cs">
+    <Compile Include="Presentation\View\VideogiocoNoRecensioneView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Presentation\View\VideogiocoNoReviewDetailView.Designer.cs">
-      <DependentUpon>VideogiocoNoReviewDetailView.cs</DependentUpon>
+    <Compile Include="Presentation\View\VideogiocoNoRecensioneView.Designer.cs">
+      <DependentUpon>VideogiocoNoRecensioneView.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentation\View\VideogiochiListView.cs">
       <SubType>UserControl</SubType>
@@ -136,11 +135,11 @@
     <Compile Include="Presentation\View\VideogiochiListView.Designer.cs">
       <DependentUpon>VideogiochiListView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\View\VideogiocoYesReviewDetailView.cs">
+    <Compile Include="Presentation\View\VideogiocoRecensioneView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Presentation\View\VideogiocoYesReviewDetailView.Designer.cs">
-      <DependentUpon>VideogiocoYesReviewDetailView.cs</DependentUpon>
+    <Compile Include="Presentation\View\VideogiocoRecensioneView.Designer.cs">
+      <DependentUpon>VideogiocoRecensioneView.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentation\View\VideogiocoRootView.cs">
       <SubType>UserControl</SubType>
@@ -182,17 +181,17 @@
     <EmbeddedResource Include="Presentation\View\LogSignInView.resx">
       <DependentUpon>LogSignInView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\View\UserProfileView.resx">
-      <DependentUpon>UserProfileView.cs</DependentUpon>
+    <EmbeddedResource Include="Presentation\View\UtenteView.resx">
+      <DependentUpon>UtenteView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\View\VideogiocoNoReviewDetailView.resx">
-      <DependentUpon>VideogiocoNoReviewDetailView.cs</DependentUpon>
+    <EmbeddedResource Include="Presentation\View\VideogiocoNoRecensioneView.resx">
+      <DependentUpon>VideogiocoNoRecensioneView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\View\VideogiochiListView.resx">
       <DependentUpon>VideogiochiListView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\View\VideogiocoYesReviewDetailView.resx">
-      <DependentUpon>VideogiocoYesReviewDetailView.cs</DependentUpon>
+    <EmbeddedResource Include="Presentation\View\VideogiocoRecensioneView.resx">
+      <DependentUpon>VideogiocoRecensioneView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\View\VideogiocoRootView.resx">
       <DependentUpon>VideogiocoRootView.cs</DependentUpon>
@@ -221,6 +220,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ic_insert_photo_white_48dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UserDefaultPicture.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_512x512.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

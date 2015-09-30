@@ -1,6 +1,6 @@
 ﻿namespace GameReViews.View
 {
-    partial class VideogiocoYesReviewDetailView
+    partial class VideogiocoRecensioneView
     {
         /// <summary> 
         /// Required designer variable.

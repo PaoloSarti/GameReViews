@@ -12,9 +12,9 @@ namespace GameReViews.Presentation.Presenter
     public class VideogiochiPresenter : AbstractVideogiochiPresenter
     {
 
-        public VideogiochiPresenter(VideogiochiListView videogichiView, Sessione sessione) : base(videogichiView, sessione)
+        public VideogiochiPresenter(Sessione sessione) : base( sessione)
         {
-            _videogiochiView.GetAggiungiVideogiocoButton().Click += _aggiungiVideogiocoButton_Click;
+            _view.GetAggiungiVideogiocoButton().Click += _aggiungiVideogiocoButton_Click;
 
             //mi registro al cambiamento della sessione
             _sessione.SessionChanged += Sessione_Changed;
@@ -57,8 +57,7 @@ namespace GameReViews.Presentation.Presenter
         private void Sessione_Changed(object sender, EventArgs e)
         {
             //solo se l'utente corrente si è loggato può aggiungere videogiochi
-            _videogiochiView.GetAggiungiVideogiocoButton().Visible = _sessione.UtenteCorrente!=null;
-
+            _view.GetAggiungiVideogiocoButton().Visible = _sessione.UtenteCorrente!=null;
         }
 
     }

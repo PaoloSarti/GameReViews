@@ -22,6 +22,7 @@ namespace GameReViews.View
 
         public event CellClickedDelegate ModificaValutazione;
 
+        public event EventHandler EliminaVideogioco;
 
         private VideogiocoRootView()
         {
@@ -45,19 +46,24 @@ namespace GameReViews.View
             _immagineVideogioco.Image = _videogioco.Image;
             this.Dock = DockStyle.Fill;
 
+            if (_sessione.UtenteCorrente is Recensore)
+                _eliminaButton.Visible = true;
+            else
+                _eliminaButton.Visible = false;
+
 
             if (_videogioco.Recensione == null)
             {
-                VideogiocoNoReviewDetailView recensioneView = new VideogiocoNoReviewDetailView(_sessione);
+                VideogiocoNoRecensioneView recensioneView = new VideogiocoNoRecensioneView(_sessione);
                 recensioneView.Dock = DockStyle.Fill;
 
                 if (_currentDetailView != null)
                 {
                     _recensioneContainer.Controls.Remove(_currentDetailView);
-                    if(_currentDetailView is VideogiocoNoReviewDetailView)
+                    if(_currentDetailView is VideogiocoNoRecensioneView)
                     {
                         //deregistrazione per evitare di mantenere il riferimento in memoria
-                        VideogiocoNoReviewDetailView view = (VideogiocoNoReviewDetailView)_currentDetailView;
+                        VideogiocoNoRecensioneView view = (VideogiocoNoRecensioneView)_currentDetailView;
                         view.aggiuntaRecensione -= recensioneView_aggiuntaRecensione;
                     }
                 }
@@ -70,12 +76,12 @@ namespace GameReViews.View
             }
             else
             {
-                VideogiocoYesReviewDetailView recensioneView = new VideogiocoYesReviewDetailView(_videogioco, _sessione);
+                VideogiocoRecensioneView recensioneView = new VideogiocoRecensioneView(_videogioco, _sessione);
 
-                if(_currentDetailView is VideogiocoYesReviewDetailView)
+                if(_currentDetailView is VideogiocoRecensioneView)
                 {
                     //deregistrazione per evitare di mantenere il riferimento in memoria
-                    VideogiocoYesReviewDetailView view = (VideogiocoYesReviewDetailView)_currentDetailView;
+                    VideogiocoRecensioneView view = (VideogiocoRecensioneView)_currentDetailView;
                     view.ValutaAspettoClick -= recensioneView_ValutaAspettoClick;
                     view.GetCustomDataGrid().CellClicked -= VideogiocoRootView_CellClicked;
                 }
@@ -123,6 +129,12 @@ namespace GameReViews.View
                 _videogioco = value;
                 this.UpdateVideogiocoView();
             }
+        }
+
+        private void _eliminaButton_Click(object sender, EventArgs e)
+        {
+            if (EliminaVideogioco != null)
+                EliminaVideogioco(null, EventArgs.Empty);
         }
     }
 }

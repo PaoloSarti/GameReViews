@@ -10,19 +10,30 @@ namespace GameReViews.Presentation.Presenter
 {
     public abstract class AbstractVideogiochiPresenter
     {
-        protected VideogiochiListView _videogiochiView;
+        protected VideogiochiListView _view;
+
         protected Sessione _sessione;
 
-        public AbstractVideogiochiPresenter(VideogiochiListView videogichiView, Sessione sessione)
+        public event CellClickedDelegate CellClicked;
+
+        public AbstractVideogiochiPresenter(Sessione sessione)
         {
-            _videogiochiView = videogichiView;
+            _view = new VideogiochiListView();
             _sessione = sessione;
 
-            _videogiochiView.Dock = DockStyle.Fill;
+            _view.Dock = DockStyle.Fill;
 
             BindData();
 
             Document.GetInstance().Videogiochi.VideogiochiChanged += VideogiochiList_Changed;
+
+            _view.GetCustomDataGrid().CellClicked += AbstractVideogiochiPresenter_CellClicked;
+        }
+
+        void AbstractVideogiochiPresenter_CellClicked(object selectedObject)
+        {
+            if(CellClicked!=null)
+                CellClicked(selectedObject);
         }
 
         private void BindData()
@@ -35,13 +46,18 @@ namespace GameReViews.Presentation.Presenter
 
             BindingSource source = GetBindingSource();
 
-            _videogiochiView.GetCustomDataGrid().InitDataSource(source, headers);
+            _view.GetCustomDataGrid().InitDataSource(source, headers);
         }
 
         private void VideogiochiList_Changed(object sender, EventArgs e)
         {
-            _videogiochiView.GetCustomDataGrid().UpdateDataSource(GetBindingSource());
-            _videogiochiView.Refresh();
+            _view.GetCustomDataGrid().UpdateDataSource(GetBindingSource());
+            _view.Refresh();
+        }
+
+        public Control View
+        {
+            get { return _view; }
         }
 
         //Template Method

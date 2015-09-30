@@ -85,6 +85,7 @@
             this._utenteButton.TabIndex = 2;
             this._utenteButton.Text = "Utente";
             this._utenteButton.UseVisualStyleBackColor = false;
+            this._utenteButton.Click += new System.EventHandler(this._utenteButton_Click);
             // 
             // _videogiochiButton
             // 

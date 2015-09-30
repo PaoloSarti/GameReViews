@@ -12,11 +12,12 @@ namespace GameReViews.Presentation.Presenter
         public event EventHandler Login;
 
         private LogSignInView _view;
+
         private Sessione _sessione;
 
-        public LogSignInPresenter(LogSignInView logSignInView, Sessione sessione)
+        public LogSignInPresenter(Sessione sessione)
         {
-            _view = logSignInView;
+            _view = new LogSignInView();
             _sessione = sessione;
 
             _view.Dock = DockStyle.Fill;
@@ -57,6 +58,10 @@ namespace GameReViews.Presentation.Presenter
 
         }
 
+        public Control View
+        {
+            get { return _view; }
+        }
 
     }
 }

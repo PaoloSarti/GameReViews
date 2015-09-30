@@ -18,6 +18,8 @@ namespace GameReViews.Model
         private Recensione _recensione;  //riferimento
         private Genere _genere;
 
+        public event EventHandler VideogiocoChanged;
+
         public Videogioco(string nome, DateTime dataRilascio, Genere genere)
         {
             //l'enumerativo garantisce già che non si utilizzino valori non ammessi
@@ -51,7 +53,8 @@ namespace GameReViews.Model
                 if (String.IsNullOrEmpty(value))
                     throw new ArgumentException("String.IsNullOrEmpty(value)");
 
-                _nome = value; 
+                _nome = value;
+                OnChange();
             }
         }
 
@@ -60,7 +63,8 @@ namespace GameReViews.Model
             get { return _dataRilascio; }
             set
             {
-                _dataRilascio = value; 
+                _dataRilascio = value;
+                OnChange();
             }
         }
 
@@ -71,20 +75,64 @@ namespace GameReViews.Model
             {
                 //l'enumerativo garantisce già che non si utilizzino valori non ammessi
                 _genere = value;
+                OnChange();
             }
         }
 
         public Recensione Recensione
         {
             get { return _recensione; }
-            set { _recensione = value; }
+            set 
+            {
+                //dobbiamo aggiornare il reference counting degli aspetti
+                if(_recensione!=null)
+                    _recensione.RemoveAllAspettiValutati();
+
+                _recensione = value; 
+
+                OnChange(); 
+            }
         }
 
         public Image Image
         {
             get { return _image; }
-            set { _image = value; }
+            set
+            {
+                _image = value;
+                OnChange();
+            }
         }
 
+        //per avere l'unicità nei Set, ridefinisco Equals e GetHashCode
+        public override bool Equals(System.Object obj)
+        {
+            // Se il paramentro è nullo ritorno falso
+            if (obj == null)
+            {
+                return false;
+            }
+
+            // Se il paramentro non può essere castato ad Aspetto ritorno false.
+            Videogioco a = obj as Videogioco;
+            if ((System.Object)a == null)
+            {
+                return false;
+            }
+
+            // Ritorno true se il nome e la data sono gli stessi
+            return (_nome == a._nome && _dataRilascio == a._dataRilascio);
+        }
+
+        public override int GetHashCode()
+        {
+            return _nome.GetHashCode() + _dataRilascio.GetHashCode();
+        }
+
+        private void OnChange()
+        {
+            if(VideogiocoChanged!=null)
+                VideogiocoChanged(null, EventArgs.Empty);
+        }
     }
 }

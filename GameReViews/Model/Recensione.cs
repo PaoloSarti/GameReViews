@@ -96,6 +96,11 @@ namespace GameReViews.Model
             OnRecensioneChanged();
         }
 
+        public void RemoveAllAspettiValutati()
+        {
+            _aspettiValutati.RemoveAll();
+        }
+
         public void ModificaAspetto(Aspetto aspetto, int valutazione)
         {
             #region Precondizioni

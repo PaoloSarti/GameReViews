@@ -12,24 +12,68 @@ namespace GameReViews.Presentation.Presenter
 {
     class VideogiocoPresenter
     {
-        private VideogiocoRootView _rootView;
+        private VideogiocoRootView _view;
         private Sessione _sessione;
         private Videogioco _videogioco;
+
+        public event EventHandler EliminaVideogioco;
 
         public VideogiocoPresenter(Videogioco videogioco, Sessione sessione)
         {
             this._videogioco = videogioco;
-            this._rootView = new VideogiocoRootView(videogioco, sessione);
+            this._view = new VideogiocoRootView(videogioco, sessione);
             this._sessione = sessione;
 
-            _rootView.AggiuntaRecensione += _rootView_AggiuntaRecensione;
+            _view.AggiuntaRecensione += _rootView_AggiuntaRecensione;
 
             _sessione.SessionChanged += UtenteCorrente_UtenteChanged;
 
-            _rootView.ValutaAspetto += _rootView_ValutaAspetto;
+            _view.ValutaAspetto += _rootView_ValutaAspetto;
 
-            _rootView.ModificaValutazione += _rootView_ModificaValutazione;
+            _view.ModificaValutazione += _rootView_ModificaValutazione;
+
+            videogioco.VideogiocoChanged +=videogioco_VideogiocoChanged;
+
+            if (videogioco.Recensione != null)
+            {
+                videogioco.Recensione.RecensioneChanged += Recensione_RecensioneChanged;
+            }
+
+            _view.EliminaVideogioco += _rootView_EliminaVideogioco;
+
         }
+
+        void _rootView_EliminaVideogioco(object sender, EventArgs e)
+        {
+
+            try
+            {
+                Document.GetInstance().Videogiochi.RemoveVideogioco(_videogioco);
+
+                if (EliminaVideogioco != null)
+                    EliminaVideogioco(null, EventArgs.Empty);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "ERRORE",
+                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        void videogioco_VideogiocoChanged(object sender, EventArgs e)
+        {
+            _view.Videogioco = Videogioco;
+            if (Videogioco.Recensione != null)
+            {
+                Videogioco.Recensione.RecensioneChanged += Recensione_RecensioneChanged;
+            }
+        }
+
+        void Recensione_RecensioneChanged(object sender, EventArgs e)
+        {
+            _view.Videogioco = Videogioco;
+        }
+
 
         void _rootView_ModificaValutazione(object selectedObject)
         {
@@ -37,6 +81,8 @@ namespace GameReViews.Presentation.Presenter
             //Console.WriteLine(aspettoValore.Aspetto.Nome + " " +aspettoValore.Aspetto.Descrizione +" " +aspettoValore.Valore);
 
             ModificaEliminaValutazioneView dialog = new ModificaEliminaValutazioneView(aspettoValore);
+            dialog.Titolo = "VALUTA ASPETTO";
+
 
             if (dialog.ShowDialog() == DialogResult.OK)
             {
@@ -50,7 +96,7 @@ namespace GameReViews.Presentation.Presenter
                     {
                         _videogioco.Recensione.ModificaAspetto(aspettoValore.Aspetto, dialog.Valore);
                     }
-                    _rootView.Videogioco = Videogioco;
+                    //_rootView.Videogioco = Videogioco;
                 }
                 catch (Exception)
                 {
@@ -68,7 +114,7 @@ namespace GameReViews.Presentation.Presenter
 
             AggiungiAspettoValore aggiungiAspettoValoreView = new AggiungiAspettoValore(aspetti);
 
-            aggiungiAspettoValoreView.Titolo = "Valuta aspetto";
+            aggiungiAspettoValoreView.Titolo = "VALUTA ASPETTO";
             aggiungiAspettoValoreView.EnableEdit(true);
 
             if (aggiungiAspettoValoreView.ShowDialog() == DialogResult.OK)
@@ -85,7 +131,7 @@ namespace GameReViews.Presentation.Presenter
 
                     Videogioco.Recensione.AddAspettoValutato(aspetto, valutazione);
 
-                    _rootView.Videogioco = Videogioco;
+                    //_rootView.Videogioco = Videogioco;
                 }
                 catch (Exception)
                 {
@@ -109,7 +155,7 @@ namespace GameReViews.Presentation.Presenter
 
                     Videogioco.Recensione = recensione;
 
-                    _rootView.Videogioco = Videogioco;
+                    //_rootView.Videogioco = Videogioco;
                 }
                 catch (Exception)
                 {
@@ -125,11 +171,11 @@ namespace GameReViews.Presentation.Presenter
             this.Videogioco = _videogioco;
         }
 
-        public VideogiocoRootView View
+        public Control View
         {
             get
             {
-                return _rootView;
+                return _view;
             }
         }
 
@@ -138,8 +184,11 @@ namespace GameReViews.Presentation.Presenter
             get { return _videogioco; }
             set
             {
+                if (_videogioco != null)
+                    _videogioco.VideogiocoChanged -= videogioco_VideogiocoChanged;
                 _videogioco = value;
-                _rootView.Videogioco = value;
+                _view.Videogioco = _videogioco;
+                _videogioco.VideogiocoChanged += videogioco_VideogiocoChanged;
             }
         }
 
