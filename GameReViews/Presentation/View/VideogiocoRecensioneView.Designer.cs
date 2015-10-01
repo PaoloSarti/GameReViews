@@ -29,14 +29,15 @@
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
+            this._commentaButton = new System.Windows.Forms.Button();
             this._recensoreLabel = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this._valutaAspettoButton = new System.Windows.Forms.Button();
             this._recensioneText = new System.Windows.Forms.TextBox();
             this._valutazione = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this._customDataGridView = new GameReViews.CustomDataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this._customDataGridView = new GameReViews.CustomDataGridView();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -44,6 +45,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this._commentaButton);
             this.panel2.Controls.Add(this._recensoreLabel);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this._valutaAspettoButton);
@@ -56,6 +58,22 @@
             this.panel2.Padding = new System.Windows.Forms.Padding(35, 30, 30, 30);
             this.panel2.Size = new System.Drawing.Size(1027, 232);
             this.panel2.TabIndex = 0;
+            // 
+            // _commentaButton
+            // 
+            this._commentaButton.BackColor = System.Drawing.Color.Silver;
+            this._commentaButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this._commentaButton.FlatAppearance.BorderSize = 0;
+            this._commentaButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._commentaButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
+            this._commentaButton.ForeColor = System.Drawing.Color.White;
+            this._commentaButton.Location = new System.Drawing.Point(837, 161);
+            this._commentaButton.Name = "_commentaButton";
+            this._commentaButton.Size = new System.Drawing.Size(80, 41);
+            this._commentaButton.TabIndex = 6;
+            this._commentaButton.Text = "Commenta";
+            this._commentaButton.UseVisualStyleBackColor = false;
+            this._commentaButton.Click += new System.EventHandler(this._commentaButton_Click);
             // 
             // _recensoreLabel
             // 
@@ -80,15 +98,15 @@
             // 
             // _valutaAspettoButton
             // 
-            this._valutaAspettoButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this._valutaAspettoButton.BackColor = System.Drawing.Color.Silver;
+            this._valutaAspettoButton.Dock = System.Windows.Forms.DockStyle.Right;
             this._valutaAspettoButton.FlatAppearance.BorderSize = 0;
             this._valutaAspettoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._valutaAspettoButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
             this._valutaAspettoButton.ForeColor = System.Drawing.Color.White;
-            this._valutaAspettoButton.Location = new System.Drawing.Point(835, 164);
+            this._valutaAspettoButton.Location = new System.Drawing.Point(917, 161);
             this._valutaAspettoButton.Name = "_valutaAspettoButton";
-            this._valutaAspettoButton.Size = new System.Drawing.Size(162, 57);
+            this._valutaAspettoButton.Size = new System.Drawing.Size(80, 41);
             this._valutaAspettoButton.TabIndex = 3;
             this._valutaAspettoButton.Text = "Valuta Aspetto";
             this._valutaAspettoButton.UseVisualStyleBackColor = false;
@@ -131,15 +149,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Valutazione";
             // 
-            // _customDataGridView
-            // 
-            this._customDataGridView.AutoSize = true;
-            this._customDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._customDataGridView.Location = new System.Drawing.Point(0, 232);
-            this._customDataGridView.Name = "_customDataGridView";
-            this._customDataGridView.Size = new System.Drawing.Size(1027, 400);
-            this._customDataGridView.TabIndex = 1;
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
@@ -151,12 +160,21 @@
             this.panel1.Size = new System.Drawing.Size(1027, 632);
             this.panel1.TabIndex = 2;
             // 
-            // VideogiocoYesReviewDetailView
+            // _customDataGridView
+            // 
+            this._customDataGridView.AutoSize = true;
+            this._customDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._customDataGridView.Location = new System.Drawing.Point(0, 232);
+            this._customDataGridView.Name = "_customDataGridView";
+            this._customDataGridView.Size = new System.Drawing.Size(1027, 400);
+            this._customDataGridView.TabIndex = 1;
+            // 
+            // VideogiocoRecensioneView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel1);
-            this.Name = "VideogiocoYesReviewDetailView";
+            this.Name = "VideogiocoRecensioneView";
             this.Size = new System.Drawing.Size(1027, 632);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -177,5 +195,6 @@
         private System.Windows.Forms.Label label1;
         private CustomDataGridView _customDataGridView;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button _commentaButton;
     }
 }

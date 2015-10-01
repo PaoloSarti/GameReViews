@@ -66,6 +66,7 @@
             // _aspettiCombo
             // 
             this._aspettiCombo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this._aspettiCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._aspettiCombo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._aspettiCombo.FormattingEnabled = true;
             this._aspettiCombo.Location = new System.Drawing.Point(302, 119);

@@ -93,6 +93,9 @@ namespace GameReViews.Presentation.View
 
         public void EnableEdit(bool enable)
         {
+            if (enable)
+                _aspettiCombo.DropDownStyle = ComboBoxStyle.DropDown;
+
             _descrizioneTextBox.ReadOnly = !enable;
         }
 

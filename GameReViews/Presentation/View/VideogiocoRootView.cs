@@ -41,7 +41,7 @@ namespace GameReViews.View
         private void UpdateVideogiocoView()
         {
             _nomeVideogiocoLabel.Text = _videogioco.Nome;
-            _dataVideogiocoLabel.Text = _videogioco.DataRilascio.ToString();
+            _dataVideogiocoLabel.Text = _videogioco.DataRilascio.ToShortDateString();
             _genereVideogiocoLabel.Text = _videogioco.Genere.ToString();
             _immagineVideogioco.Image = _videogioco.Image;
             this.Dock = DockStyle.Fill;

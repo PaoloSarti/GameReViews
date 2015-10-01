@@ -36,8 +36,8 @@
             this._preferenzeLabel = new System.Windows.Forms.Label();
             this._userInfoPanel = new System.Windows.Forms.Panel();
             this._logoutButton = new System.Windows.Forms.Button();
-            this.circularPictureBox1 = new CircularPictureBox();
             this._userName = new System.Windows.Forms.Label();
+            this.circularPictureBox1 = new CircularPictureBox();
             this._userInfoContainer_root.SuspendLayout();
             this._userInfoContainer.SuspendLayout();
             this._preferenzeControlPanel.SuspendLayout();
@@ -121,7 +121,7 @@
             this._userInfoPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this._userInfoPanel.Location = new System.Drawing.Point(0, 0);
             this._userInfoPanel.Name = "_userInfoPanel";
-            this._userInfoPanel.Padding = new System.Windows.Forms.Padding(25, 10, 8, 10);
+            this._userInfoPanel.Padding = new System.Windows.Forms.Padding(25, 15, 8, 10);
             this._userInfoPanel.Size = new System.Drawing.Size(849, 234);
             this._userInfoPanel.TabIndex = 3;
             // 
@@ -140,34 +140,34 @@
             this._logoutButton.UseVisualStyleBackColor = false;
             this._logoutButton.Click += new System.EventHandler(this._logoutButton_Click);
             // 
-            // circularPictureBox1
-            // 
-            this.circularPictureBox1.BackColor = System.Drawing.Color.MintCream;
-            this.circularPictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.circularPictureBox1.Image = global::GameReViews.Properties.Resources.user_512x512;
-            this.circularPictureBox1.Location = new System.Drawing.Point(25, 10);
-            this.circularPictureBox1.Name = "circularPictureBox1";
-            this.circularPictureBox1.Size = new System.Drawing.Size(245, 214);
-            this.circularPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.circularPictureBox1.TabIndex = 2;
-            this.circularPictureBox1.TabStop = false;
-            // 
             // _userName
             // 
             this._userName.AutoSize = true;
             this._userName.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._userName.Location = new System.Drawing.Point(361, 48);
+            this._userName.Location = new System.Drawing.Point(361, 53);
             this._userName.Name = "_userName";
             this._userName.Size = new System.Drawing.Size(112, 39);
             this._userName.TabIndex = 1;
             this._userName.Text = "Nome";
             // 
-            // UserProfileView
+            // circularPictureBox1
+            // 
+            this.circularPictureBox1.BackColor = System.Drawing.Color.MintCream;
+            this.circularPictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.circularPictureBox1.Image = global::GameReViews.Properties.Resources.userplaceholder;
+            this.circularPictureBox1.Location = new System.Drawing.Point(25, 15);
+            this.circularPictureBox1.Name = "circularPictureBox1";
+            this.circularPictureBox1.Size = new System.Drawing.Size(231, 209);
+            this.circularPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.circularPictureBox1.TabIndex = 2;
+            this.circularPictureBox1.TabStop = false;
+            // 
+            // UtenteView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this._userInfoContainer_root);
-            this.Name = "UserProfileView";
+            this.Name = "UtenteView";
             this.Size = new System.Drawing.Size(883, 619);
             this._userInfoContainer_root.ResumeLayout(false);
             this._userInfoContainer.ResumeLayout(false);

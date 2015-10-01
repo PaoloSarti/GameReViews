@@ -113,6 +113,7 @@
             // 
             // _genereComboBox
             // 
+            this._genereComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._genereComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._genereComboBox.FormattingEnabled = true;
             this._genereComboBox.Location = new System.Drawing.Point(243, 112);
@@ -217,7 +218,7 @@
             this._videogiocoImage.MouseLeave += new System.EventHandler(this._videogiocoImage_MouseLeave);
             this._videogiocoImage.MouseHover += new System.EventHandler(this._videogiocoImage_MouseHover);
             // 
-            // AddVideogioco
+            // AggiungiVideogioco
             // 
             this.AcceptButton = this._okButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -228,7 +229,7 @@
             this.ControlBox = false;
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
-            this.Name = "AddVideogioco";
+            this.Name = "AggiungiVideogioco";
             this.Padding = new System.Windows.Forms.Padding(30);
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
