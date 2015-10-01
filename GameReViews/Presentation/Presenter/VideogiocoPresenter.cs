@@ -190,6 +190,7 @@ namespace GameReViews.Presentation.Presenter
                 _videogioco = value;
                 _view.Videogioco = _videogioco;
                 _videogioco.VideogiocoChanged += videogioco_VideogiocoChanged;
+                videogioco_VideogiocoChanged(null, EventArgs.Empty);
             }
         }
 
