@@ -47,7 +47,7 @@ namespace GameReViews
             _dataGridView.DataSource = source;
         }
             
-        private void dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void _dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (CellClicked != null && e.RowIndex != -1) // è -1 se è una cella dell'header
             {

@@ -47,7 +47,7 @@ namespace GameReViews.Presentation.Presenter
             AspettoValore aspettoValore = (AspettoValore)selectedObject;
             //Console.WriteLine(aspettoValore.Aspetto.Nome + " " +aspettoValore.Aspetto.Descrizione +" " +aspettoValore.Valore);
 
-            ModificaEliminaValutazioneView dialog = new ModificaEliminaValutazioneView(aspettoValore);
+            ModificaEliminaValutazione dialog = new ModificaEliminaValutazione(aspettoValore);
 
             if (dialog.ShowDialog() == DialogResult.OK)
             {

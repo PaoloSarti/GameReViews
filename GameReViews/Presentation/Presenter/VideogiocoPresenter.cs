@@ -65,6 +65,7 @@ namespace GameReViews.Presentation.Presenter
             _view.Videogioco = Videogioco;
             if (Videogioco.Recensione != null)
             {
+                Videogioco.Recensione.RecensioneChanged -= Recensione_RecensioneChanged;
                 Videogioco.Recensione.RecensioneChanged += Recensione_RecensioneChanged;
             }
         }
@@ -80,7 +81,7 @@ namespace GameReViews.Presentation.Presenter
             AspettoValore aspettoValore = (AspettoValore)selectedObject;
             //Console.WriteLine(aspettoValore.Aspetto.Nome + " " +aspettoValore.Aspetto.Descrizione +" " +aspettoValore.Valore);
 
-            ModificaEliminaValutazioneView dialog = new ModificaEliminaValutazioneView(aspettoValore);
+            ModificaEliminaValutazione dialog = new ModificaEliminaValutazione(aspettoValore);
             dialog.Titolo = "VALUTA ASPETTO";
 
 

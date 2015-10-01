@@ -14,14 +14,14 @@ namespace GameReViews.View
     {
         private Videogioco _videogioco;
 
+        private Sessione _sessione;
+
         public event EventHandler ValutaAspettoClick;
 
         private VideogiocoRecensioneView()
         {
             InitializeComponent();
         }
-
-        private Sessione _sessione;
 
         public VideogiocoRecensioneView(Videogioco videogioco, Sessione sessione) : this()
         {

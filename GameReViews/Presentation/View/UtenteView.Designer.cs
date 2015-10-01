@@ -162,12 +162,12 @@
             this._userName.TabIndex = 1;
             this._userName.Text = "Nome";
             // 
-            // UserProfileView
+            // UtenteView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this._userInfoContainer_root);
-            this.Name = "UserProfileView";
+            this.Name = "UtenteView";
             this.Size = new System.Drawing.Size(883, 619);
             this._userInfoContainer_root.ResumeLayout(false);
             this._userInfoContainer.ResumeLayout(false);
