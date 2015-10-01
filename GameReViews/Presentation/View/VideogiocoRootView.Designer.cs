@@ -33,13 +33,13 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this._eliminaButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this._genereVideogiocoLabel = new System.Windows.Forms.Label();
             this._dataVideogiocoLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this._nomeVideogiocoLabel = new System.Windows.Forms.TextBox();
             this._immagineVideogioco = new CircularPictureBox();
-            this._eliminaButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -100,6 +100,22 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(543, 91);
             this.panel4.TabIndex = 6;
+            // 
+            // _eliminaButton
+            // 
+            this._eliminaButton.BackColor = System.Drawing.Color.Silver;
+            this._eliminaButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this._eliminaButton.FlatAppearance.BorderSize = 0;
+            this._eliminaButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._eliminaButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
+            this._eliminaButton.ForeColor = System.Drawing.Color.White;
+            this._eliminaButton.Location = new System.Drawing.Point(476, 0);
+            this._eliminaButton.Name = "_eliminaButton";
+            this._eliminaButton.Size = new System.Drawing.Size(67, 91);
+            this._eliminaButton.TabIndex = 8;
+            this._eliminaButton.Text = "ELIMINA";
+            this._eliminaButton.UseVisualStyleBackColor = false;
+            this._eliminaButton.Click += new System.EventHandler(this._eliminaButton_Click);
             // 
             // label1
             // 
@@ -169,21 +185,6 @@
             this._immagineVideogioco.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this._immagineVideogioco.TabIndex = 0;
             this._immagineVideogioco.TabStop = false;
-            // 
-            // _eliminaButton
-            // 
-            this._eliminaButton.BackColor = System.Drawing.Color.Silver;
-            this._eliminaButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this._eliminaButton.FlatAppearance.BorderSize = 0;
-            this._eliminaButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._eliminaButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
-            this._eliminaButton.ForeColor = System.Drawing.Color.White;
-            this._eliminaButton.Location = new System.Drawing.Point(476, 0);
-            this._eliminaButton.Name = "_eliminaButton";
-            this._eliminaButton.Size = new System.Drawing.Size(67, 91);
-            this._eliminaButton.TabIndex = 8;
-            this._eliminaButton.Text = "ELIMINA";
-            this._eliminaButton.UseVisualStyleBackColor = false;
             // 
             // VideogiocoRootView
             // 
