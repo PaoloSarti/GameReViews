@@ -1,6 +1,6 @@
 ﻿namespace GameReViews.Presentation.View
 {
-    partial class ModificaEliminaValutazioneView
+    partial class ModificaEliminaValutazione
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ModificaEliminaValutazioneView));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ModificaEliminaValutazione));
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this._okButton = new System.Windows.Forms.Button();
             this._cancelButton = new System.Windows.Forms.Button();

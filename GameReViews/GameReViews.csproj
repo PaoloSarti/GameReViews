@@ -70,11 +70,11 @@
     <Compile Include="Presentation\View\AggiungiRecensione.Designer.cs">
       <DependentUpon>AggiungiRecensione.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\View\ModificaEliminaValutazioneView.cs">
+    <Compile Include="Presentation\View\ModificaEliminaValutazione.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentation\View\ModificaEliminaValutazioneView.Designer.cs">
-      <DependentUpon>ModificaEliminaValutazioneView.cs</DependentUpon>
+    <Compile Include="Presentation\View\ModificaEliminaValutazione.Designer.cs">
+      <DependentUpon>ModificaEliminaValutazione.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentation\View\Utils\CircularPictureBox.cs">
       <SubType>Component</SubType>
@@ -159,8 +159,8 @@
     <EmbeddedResource Include="Presentation\View\AggiungiRecensione.resx">
       <DependentUpon>AggiungiRecensione.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\View\ModificaEliminaValutazioneView.resx">
-      <DependentUpon>ModificaEliminaValutazioneView.cs</DependentUpon>
+    <EmbeddedResource Include="Presentation\View\ModificaEliminaValutazione.resx">
+      <DependentUpon>ModificaEliminaValutazione.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\View\Utils\CircularPictureBox.resx">
       <DependentUpon>CircularPictureBox.cs</DependentUpon>

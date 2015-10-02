@@ -5,7 +5,8 @@ namespace GameReViews.Model
 {
 
 
-    /* Classe che fattorizza la interazione tra Preferenze (degli UtentiRegistrati) e AspettiValutati (nelle Recensioni)
+    /*
+     * Classe che fattorizza la interazione tra Preferenze (degli UtentiRegistrati) e AspettiValutati (nelle Recensioni)
      * con la classe che mantiene gli Aspetti correntemente utilizzati nel sistema.
      * Questa classe implementa le azioni di rimozione e modifica della valutazione,
      * lasciando astratta la aggiunta.

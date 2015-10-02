@@ -26,17 +26,17 @@ namespace GameReViews.Presentation.Presenter
 
             _view.AggiuntaRecensione += _rootView_AggiuntaRecensione;
 
-            _sessione.SessionChanged += UtenteCorrente_UtenteChanged;
+            _sessione.Changed += UtenteCorrente_UtenteChanged;
 
             _view.ValutaAspetto += _rootView_ValutaAspetto;
 
             _view.ModificaValutazione += _rootView_ModificaValutazione;
 
-            videogioco.VideogiocoChanged +=videogioco_VideogiocoChanged;
+            videogioco.Changed +=videogioco_VideogiocoChanged;
 
             if (videogioco.Recensione != null)
             {
-                videogioco.Recensione.RecensioneChanged += Recensione_RecensioneChanged;
+                videogioco.Recensione.Changed += Recensione_RecensioneChanged;
             }
 
             _view.EliminaVideogioco += _rootView_EliminaVideogioco;
@@ -65,7 +65,8 @@ namespace GameReViews.Presentation.Presenter
             _view.Videogioco = Videogioco;
             if (Videogioco.Recensione != null)
             {
-                Videogioco.Recensione.RecensioneChanged += Recensione_RecensioneChanged;
+                Videogioco.Recensione.Changed -= Recensione_RecensioneChanged;
+                Videogioco.Recensione.Changed += Recensione_RecensioneChanged;
             }
         }
 
@@ -80,7 +81,7 @@ namespace GameReViews.Presentation.Presenter
             AspettoValore aspettoValore = (AspettoValore)selectedObject;
             //Console.WriteLine(aspettoValore.Aspetto.Nome + " " +aspettoValore.Aspetto.Descrizione +" " +aspettoValore.Valore);
 
-            ModificaEliminaValutazioneView dialog = new ModificaEliminaValutazioneView(aspettoValore);
+            ModificaEliminaValutazione dialog = new ModificaEliminaValutazione(aspettoValore);
             dialog.Titolo = "VALUTA ASPETTO";
 
 
@@ -108,7 +109,7 @@ namespace GameReViews.Presentation.Presenter
 
         void _rootView_ValutaAspetto(object sender, EventArgs e)
         {
-            List<Aspetto> aspettiList = (from aspettoValutato in Videogioco.Recensione.AspettiValutati.List select aspettoValutato.Aspetto).ToList();
+            List<Aspetto> aspettiList = (from aspettoValutato in Videogioco.Recensione.AspettiValutati select aspettoValutato.Aspetto).ToList();
 
             IEnumerable<Aspetto> aspetti = Document.GetInstance().Aspetti.List.Where(aspetto => !aspettiList.Contains(aspetto));
 
@@ -185,10 +186,10 @@ namespace GameReViews.Presentation.Presenter
             set
             {
                 if (_videogioco != null)
-                    _videogioco.VideogiocoChanged -= videogioco_VideogiocoChanged;
+                    _videogioco.Changed -= videogioco_VideogiocoChanged;
                 _videogioco = value;
                 _view.Videogioco = _videogioco;
-                _videogioco.VideogiocoChanged += videogioco_VideogiocoChanged;
+                _videogioco.Changed += videogioco_VideogiocoChanged;
                 videogioco_VideogiocoChanged(null, EventArgs.Empty);
             }
         }

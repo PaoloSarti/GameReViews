@@ -11,7 +11,7 @@ namespace GameReViews.Model
         private readonly List<Commento> _risposte;
         private UtenteRegistrato _autore;
 
-        public event EventHandler CommentoChanged;
+        public event EventHandler Changed;
 
         public Commento(String testo, UtenteRegistrato autore)
         {
@@ -52,9 +52,9 @@ namespace GameReViews.Model
 
         protected void OnCommentoChanged()
         {
-            if (CommentoChanged != null)
+            if (Changed != null)
             {
-                CommentoChanged(null, EventArgs.Empty);
+                Changed(null, EventArgs.Empty);
             }
         }
     }

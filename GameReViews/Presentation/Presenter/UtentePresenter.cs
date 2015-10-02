@@ -25,7 +25,7 @@ namespace GameReViews.Presentation.Presenter
 
             _sessione = sessione;
 
-            _sessione.SessionChanged += Sessione_Changed;
+            _sessione.Changed += Sessione_Changed;
 
             _view.Logout += _view_Logout;
 
@@ -47,7 +47,7 @@ namespace GameReViews.Presentation.Presenter
             AspettoValore aspettoValore = (AspettoValore)selectedObject;
             //Console.WriteLine(aspettoValore.Aspetto.Nome + " " +aspettoValore.Aspetto.Descrizione +" " +aspettoValore.Valore);
 
-            ModificaEliminaValutazioneView dialog = new ModificaEliminaValutazioneView(aspettoValore);
+            ModificaEliminaValutazione dialog = new ModificaEliminaValutazione(aspettoValore);
 
             if (dialog.ShowDialog() == DialogResult.OK)
             {
@@ -89,7 +89,7 @@ namespace GameReViews.Presentation.Presenter
 
         protected BindingSource GetBindingSource()
         {
-            IList<Preferenza> preferenze = _sessione.UtenteCorrente.Preferenze.List.ToList();
+            IList<Preferenza> preferenze = _sessione.UtenteCorrente.Preferenze.ToList();
             BindingList<Preferenza> bindingList = new BindingList<Preferenza>(preferenze);
 
             return new BindingSource(bindingList, null);
@@ -99,7 +99,7 @@ namespace GameReViews.Presentation.Presenter
         {
 
             //Prendo gli aspetti che non sono contenuti già nelle preferenze
-            List<Aspetto> aspettiPreferenze = (from aspettoValore in _sessione.UtenteCorrente.GetPreferenze().ToList() select aspettoValore.Aspetto).ToList();
+            List<Aspetto> aspettiPreferenze = (from aspettoValore in _sessione.UtenteCorrente.Preferenze.ToList() select aspettoValore.Aspetto).ToList();
 
             IEnumerable<Aspetto> aspetti = Document.GetInstance().Aspetti.List.Where(aspetto => !aspettiPreferenze.Contains(aspetto));
 

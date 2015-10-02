@@ -9,9 +9,9 @@ namespace GameReViews.Model
         private readonly DateTime _dataImmissione;
         private string _testo;
         private readonly List<Commento> _commenti;
-        private AspettiValutati _aspettiValutati;
+        private readonly AspettiValutati _aspettiValutati;
 
-        public event EventHandler RecensioneChanged;
+        public event EventHandler Changed;
 
         public Recensione(string testo, Recensore autore)
         {
@@ -53,20 +53,18 @@ namespace GameReViews.Model
             get { return _autore; }
         }
 
-        public IEnumerable<AspettoValore> GetAspettiValutati()
-        {
-            return _aspettiValutati.List;
-        }
-
-        public AspettiValutati AspettiValutati
-        {
-            get { return _aspettiValutati; }
-        }
-
         public IEnumerable<Commento> Commenti
         {
             get { return _commenti; }
         } 
+
+        public IEnumerable<AspettoValutato> AspettiValutati
+        {
+            get
+            {
+                return _aspettiValutati.List;
+            }
+        }
 
         public void AddAspettoValutato(Aspetto aspetto, int valutazione)
         {
@@ -125,9 +123,9 @@ namespace GameReViews.Model
 
         protected void OnRecensioneChanged()
         {
-            if (RecensioneChanged != null)
+            if (Changed != null)
             {
-                RecensioneChanged(null, EventArgs.Empty);
+                Changed(null, EventArgs.Empty);
             }
         }
     }

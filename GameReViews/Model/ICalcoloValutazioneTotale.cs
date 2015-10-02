@@ -34,7 +34,7 @@ namespace GameReViews.Model
         public CalcoloValutazionePersonalizzata(UtenteRegistrato utente)
         {
             #region Precondizioni
-            if (utente == null||utente.GetPreferenze()==null)
+            if (utente == null||utente.Preferenze==null)
                 throw new ArgumentNullException("utente==null||utente.GetPreferenze()==null");
             #endregion
 
@@ -45,7 +45,7 @@ namespace GameReViews.Model
         public float Calcola(Recensione recensione)
         {
             #region Precondizioni
-            if (recensione == null || recensione.GetAspettiValutati() == null)
+            if (recensione == null || recensione.AspettiValutati== null)
                 throw new ArgumentNullException("recensione==null||recensione.GetAspettiValutati()==null");
             #endregion
 
@@ -56,9 +56,9 @@ namespace GameReViews.Model
             //conteggio dei match
             int count=0;
 
-            foreach(AspettoValore aspettoValutato in recensione.GetAspettiValutati())
+            foreach(AspettoValore aspettoValutato in recensione.AspettiValutati)
             {
-                foreach(AspettoValore preferenza in _utente.GetPreferenze())
+                foreach(AspettoValore preferenza in _utente.Preferenze)
                 {
                     // == per le stringhe è uguaglianza dei valori
                     if(aspettoValutato.Aspetto.Nome==preferenza.Aspetto.Nome)
@@ -89,12 +89,12 @@ namespace GameReViews.Model
         public float Calcola(Recensione recensione)
         {
             #region Precondizioni
-            if (recensione == null || recensione.GetAspettiValutati()==null)
+            if (recensione == null || recensione.AspettiValutati==null)
                 throw new ArgumentNullException("recensione==null||recensione.GetAspettiValutati()==null");
             #endregion
 
             //recupero solo le valutazioni
-            IEnumerable<int> valutazioni = from aspettoValutato in recensione.GetAspettiValutati() select aspettoValutato.Valore;
+            IEnumerable<int> valutazioni = from aspettoValutato in recensione.AspettiValutati select aspettoValutato.Valore;
 
             //ritorno NaN se non ci sono valutazioni (O ECCEZIONE!?!?)
             if (valutazioni.Count() == 0)
