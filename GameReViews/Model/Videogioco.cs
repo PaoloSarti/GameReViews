@@ -18,7 +18,7 @@ namespace GameReViews.Model
         private Recensione _recensione;  //riferimento
         private Genere _genere;
 
-        public event EventHandler VideogiocoChanged;
+        public event EventHandler Changed;
 
         public Videogioco(string nome, DateTime dataRilascio, Genere genere)
         {
@@ -131,8 +131,8 @@ namespace GameReViews.Model
 
         private void OnChange()
         {
-            if(VideogiocoChanged!=null)
-                VideogiocoChanged(null, EventArgs.Empty);
+            if(Changed!=null)
+                Changed(null, EventArgs.Empty);
         }
     }
 }
