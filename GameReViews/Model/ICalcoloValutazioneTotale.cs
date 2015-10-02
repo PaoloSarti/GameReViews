@@ -11,18 +11,36 @@ namespace GameReViews.Model
     }
 
     //statica
-    static class CalcoloValutazioneTotaleFactory
+    //FlyWeightFactory
+    public static class CalcoloValutazioneTotaleFactory
     {
+        //una sola istanza, non c'è stato
+        private static CalcoloValutazioneNonPersonalizzata _calcoloValutazioneNonPersonalizzata;
+
+        //l'utente è lo stato intrinseco, la recensione da valutare lo stato estrinseco.
+        //viene fornita la stessa istanza nel caso uno stesso utente faccia parte di più sessioni
+        private static Dictionary<UtenteRegistrato, ICalcoloValutazioneTotale> _utenteCalcoloPersonalizzato;
+
         public static ICalcoloValutazioneTotale GetCalcoloValutazioneTotale()
         {
             //default, media non ponderata
-            return new CalcoloValutazioneNonPersonalizzata();
+            if (_calcoloValutazioneNonPersonalizzata == null)
+                _calcoloValutazioneNonPersonalizzata = new CalcoloValutazioneNonPersonalizzata();
+            return _calcoloValutazioneNonPersonalizzata;
         }
 
+        //Media ponderata
         public static ICalcoloValutazioneTotale GetCalcoloValutazioneTotale(UtenteRegistrato utente)
         {
-            //Media ponderata
-            return new CalcoloValutazionePersonalizzata(utente);
+            if (_utenteCalcoloPersonalizzato == null)
+                _utenteCalcoloPersonalizzato = new Dictionary<UtenteRegistrato, ICalcoloValutazioneTotale>();
+
+            if (!_utenteCalcoloPersonalizzato.ContainsKey(utente))
+            {
+                _utenteCalcoloPersonalizzato.Add(utente, new CalcoloValutazionePersonalizzata(utente));
+            }
+
+            return _utenteCalcoloPersonalizzato[utente];
         }
     }
 
