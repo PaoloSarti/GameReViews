@@ -16,6 +16,4 @@
 
         UtentiRegistrati GetUtentiRegistrati();
     }
-
-
 }

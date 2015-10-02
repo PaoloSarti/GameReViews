@@ -178,6 +178,7 @@
             // 
             this._immagineVideogioco.BackColor = System.Drawing.Color.DarkGray;
             this._immagineVideogioco.Dock = System.Windows.Forms.DockStyle.Left;
+            this._immagineVideogioco.Image = global::GameReViews.Properties.Resources.ic_insert_photo_white_48dp;
             this._immagineVideogioco.InitialImage = null;
             this._immagineVideogioco.Location = new System.Drawing.Point(30, 30);
             this._immagineVideogioco.Name = "_immagineVideogioco";

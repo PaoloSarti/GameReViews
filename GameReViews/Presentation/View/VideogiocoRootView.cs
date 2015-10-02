@@ -43,7 +43,10 @@ namespace GameReViews.View
             _nomeVideogiocoLabel.Text = _videogioco.Nome;
             _dataVideogiocoLabel.Text = _videogioco.DataRilascio.ToShortDateString();
             _genereVideogiocoLabel.Text = _videogioco.Genere.ToString();
+
+            if (_videogioco.Image != null)
             _immagineVideogioco.Image = _videogioco.Image;
+
             this.Dock = DockStyle.Fill;
 
             if (_sessione.UtenteCorrente is Recensore)

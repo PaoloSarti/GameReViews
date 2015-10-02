@@ -11,11 +11,9 @@ namespace GameReViews.Model
         private string _nome;
         private DateTime _dataRilascio;
         private Image _image;
-
-        private static Image _defaultImage = GameReViews.Properties.Resources.ic_insert_photo_white_48dp;
+        private Genere _genere;
 
         private Recensione _recensione;
-        private Genere _genere;
 
         public event EventHandler Changed;
 
@@ -31,8 +29,6 @@ namespace GameReViews.Model
             this._genere = genere;
 
             this._recensione = null;
-
-            this._image = _defaultImage;
         }
 
         public Videogioco(string nome, DateTime dataRilascio, Genere genere, Image image) 

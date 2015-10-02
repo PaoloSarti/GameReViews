@@ -5,7 +5,6 @@ using System.Text;
 
 namespace GameReViews.Model
 { 
-    // a posto
     public class Aspetti
     {
         private readonly Dictionary<Aspetto, int> _aspettiReferenceCount;

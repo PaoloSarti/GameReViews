@@ -1,19 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Drawing;
 
 namespace GameReViews.Model
 {
 
     public class UtenteRegistrato
     {
-        //i campi _nome e _password sono impostabili solo allla creazione del nuovo oggetto quindi readonly
+        // i campi _nome e _password sono impostabili solo allla creazione del nuovo oggetto quindi readonly
         private readonly string _nome;
         private readonly string _password;
         
-        //Poichè Preferenze è una classe contenitore, anch'essa è readonly
+        // Poichè Preferenze è una classe contenitore, anch'essa è readonly
         private readonly Preferenze _preferenze;
 
         public event EventHandler Changed;

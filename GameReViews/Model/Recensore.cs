@@ -12,9 +12,7 @@ namespace GameReViews.Model
         {
         }
 
-        /*
-         * Non manteniamo una lista (che dovrebbe essere consistente), ma lo calcoliamo dal modello 
-         */
+        // Non manteniamo una lista (che dovrebbe essere consistente), ma lo calcoliamo dal modello
         public IEnumerable<Recensione> Recensioni
         {
             get

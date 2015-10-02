@@ -5,11 +5,13 @@ namespace GameReViews.Model
 {
     public class Recensione
     {
-        private readonly Recensore _autore;
-        private readonly DateTime _dataImmissione;
         private string _testo;
-        private readonly List<Commento> _commenti;
+        private readonly DateTime _dataImmissione;
+
+        private readonly Recensore _autore;
         private readonly AspettiValutati _aspettiValutati;
+
+        private readonly List<Commento> _commenti;
 
         public event EventHandler Changed;
 
@@ -23,8 +25,9 @@ namespace GameReViews.Model
             this._testo = testo;
             this._autore = autore;
             this._dataImmissione = DateTime.Now;
-            this._commenti = new List<Commento>();
             _aspettiValutati = new AspettiValutati();
+
+            this._commenti = new List<Commento>();
         }
 
         public DateTime DataImmissione

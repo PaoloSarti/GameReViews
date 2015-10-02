@@ -7,17 +7,31 @@ namespace GameReViews.Model
 {
     public class Sessione
     {
-        public event EventHandler Changed;
-
         private UtenteRegistrato _utenteCorrente;
         private ICalcoloValutazioneTotale _calcolo;
+
+        public event EventHandler Changed;
 
         public Sessione()
         {
             _calcolo = CalcoloValutazioneTotaleFactory.GetCalcoloValutazioneTotale();
         }
 
+        #region Calcolo
+
+        public ICalcoloValutazioneTotale Calcolo
+        {
+            get { return _calcolo; }
+        }
+
+        #endregion
+
         #region utente
+
+        public UtenteRegistrato UtenteCorrente
+        {
+            get { return _utenteCorrente; }
+        }
 
         public void Registra(String nome, String password)
         {
@@ -29,11 +43,6 @@ namespace GameReViews.Model
             _calcolo = CalcoloValutazioneTotaleFactory.GetCalcoloValutazioneTotale(utente);
 
             OnChange();
-        }
-
-        public UtenteRegistrato UtenteCorrente
-        {
-            get { return _utenteCorrente; }
         }
 
         public UtenteRegistrato Autentica(String nome, String password)
@@ -66,15 +75,6 @@ namespace GameReViews.Model
         private void UtenteChanged(object sender, EventArgs e)
         {
             OnChange();
-        }
-
-        #endregion
-
-        #region Calcolo
-
-        public ICalcoloValutazioneTotale Calcolo
-        {
-            get { return _calcolo; }
         }
 
         #endregion
