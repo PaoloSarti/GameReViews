@@ -12,7 +12,7 @@ namespace GameReViews.View
 {
     public partial class VideogiocoNoRecensioneView : UserControl
     {
-        public event EventHandler aggiuntaRecensione;
+        public event EventHandler AggiuntaRecensione;
 
         public Sessione _sessione;
 
@@ -34,8 +34,8 @@ namespace GameReViews.View
 
         private void _aggiungiRecensione_Click(object sender, EventArgs e)
         {
-            if (aggiuntaRecensione != null)
-                aggiuntaRecensione(null, EventArgs.Empty);
+            if (AggiuntaRecensione != null)
+                AggiuntaRecensione(null, EventArgs.Empty);
         }
 
     }

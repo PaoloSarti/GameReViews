@@ -7,7 +7,8 @@ namespace GameReViews.Model
 {
 
 
-    /* Classe che fattorizza la interazione tra Preferenze (degli UtentiRegistrati) e AspettiValutati (nelle Recensioni)
+    /*
+     * Classe che fattorizza la interazione tra Preferenze (degli UtentiRegistrati) e AspettiValutati (nelle Recensioni)
      * con la classe che mantiene gli Aspetti correntemente utilizzati nel sistema.
      * Questa classe implementa le azioni di rimozione e modifica della valutazione,
      * lasciando astratta la aggiunta.
@@ -27,14 +28,6 @@ namespace GameReViews.Model
         }
 
         public abstract void Add(Aspetto aspetto, int value);
-
-        //public IEnumerable<KeyValuePair<Aspetto, int>> AspettiValutati
-        //{
-        //    get
-        //    {
-        //        return _aspettiValori;
-        //    }
-        //}
 
         public IEnumerable<AspettoValore> List
         {
@@ -115,8 +108,7 @@ namespace GameReViews.Model
     /*
      * Classe che contiene una singola coppia chiave valore,
      * Per non mostrare all'esterno l'implementazione a dizionario
-     * 
-     */ 
+     */
     public class AspettoValore
     {
         private readonly Aspetto _aspetto;

@@ -162,6 +162,7 @@
             this.circularPictureBox1.TabIndex = 2;
             this.circularPictureBox1.TabStop = false;
             // 
+
             // UtenteView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);

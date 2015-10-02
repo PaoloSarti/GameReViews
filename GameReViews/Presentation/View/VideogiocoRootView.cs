@@ -64,13 +64,13 @@ namespace GameReViews.View
                     {
                         //deregistrazione per evitare di mantenere il riferimento in memoria
                         VideogiocoNoRecensioneView view = (VideogiocoNoRecensioneView)_currentDetailView;
-                        view.aggiuntaRecensione -= recensioneView_aggiuntaRecensione;
+                        view.AggiuntaRecensione -= _recensioneView_aggiuntaRecensione;
                     }
                 }
 
                 _currentDetailView = recensioneView;
 
-                recensioneView.aggiuntaRecensione += recensioneView_aggiuntaRecensione;
+                recensioneView.AggiuntaRecensione += _recensioneView_aggiuntaRecensione;
 
                 _recensioneContainer.Controls.Add(recensioneView);
             }
@@ -82,14 +82,14 @@ namespace GameReViews.View
                 {
                     //deregistrazione per evitare di mantenere il riferimento in memoria
                     VideogiocoRecensioneView view = (VideogiocoRecensioneView)_currentDetailView;
-                    view.ValutaAspettoClick -= recensioneView_ValutaAspettoClick;
+                    view.ValutaAspettoClick -= _recensioneView_ValutaAspettoClick;
                     view.GetCustomDataGrid().CellClicked -= VideogiocoRootView_CellClicked;
                 }
 
                 if (_currentDetailView != null)
                     _recensioneContainer.Controls.Remove(_currentDetailView);
 
-                recensioneView.ValutaAspettoClick += recensioneView_ValutaAspettoClick;
+                recensioneView.ValutaAspettoClick += _recensioneView_ValutaAspettoClick;
 
                 recensioneView.GetCustomDataGrid().CellClicked += VideogiocoRootView_CellClicked;
 
@@ -106,13 +106,13 @@ namespace GameReViews.View
                 ModificaValutazione(selectedObject);
         }
 
-        void recensioneView_ValutaAspettoClick(object sender, EventArgs e)
+        void _recensioneView_ValutaAspettoClick(object sender, EventArgs e)
         {
             if (ValutaAspetto != null && _sessione.UtenteCorrente != null && _sessione.UtenteCorrente.Nome == _videogioco.Recensione.Autore.Nome)
                 ValutaAspetto(null, EventArgs.Empty);
         }
 
-        void recensioneView_aggiuntaRecensione(object sender, EventArgs e)
+        void _recensioneView_aggiuntaRecensione(object sender, EventArgs e)
         {
             if (AggiuntaRecensione != null)
                 AggiuntaRecensione(null, EventArgs.Empty);

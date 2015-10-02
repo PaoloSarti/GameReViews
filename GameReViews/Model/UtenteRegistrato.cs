@@ -16,7 +16,7 @@ namespace GameReViews.Model
         //Poichè Preferenze è una classe contenitore, anch'essa è readonly
         private readonly Preferenze _preferenze;
 
-        public event EventHandler UtenteChanged;
+        public event EventHandler Changed;
 
         public UtenteRegistrato(string nome, string password)
         {
@@ -41,15 +41,13 @@ namespace GameReViews.Model
             get { return _password; }
         } 
 
-        public IEnumerable<AspettoValore> GetPreferenze()
+        public IEnumerable<AspettoValore> PreferenzeList
         {
-            return this._preferenze.List;
+            get
+            {
+                return _preferenze.List;
+            }
         }
-
-        public Preferenze Preferenze
-        {
-            get { return _preferenze; }
-        } 
 
         public virtual void AddPreferenza(Aspetto aspetto, int valutazione)
         {
@@ -93,9 +91,9 @@ namespace GameReViews.Model
 
         protected virtual void OnChanged()
         {
-            if(UtenteChanged!=null)
+            if(Changed!=null)
             {
-                UtenteChanged(null, EventArgs.Empty);
+                Changed(null, EventArgs.Empty);
             }
         }
 

@@ -11,11 +11,11 @@ using System.Windows.Forms;
 namespace GameReViews.Presentation.View
 {
 
-    public partial class ModificaEliminaValutazioneView : Form
+    public partial class ModificaEliminaValutazione : Form
     {
         private bool _elimina;
 
-        public ModificaEliminaValutazioneView(AspettoValore a)
+        public ModificaEliminaValutazione(AspettoValore a)
         {
             InitializeComponent();
 

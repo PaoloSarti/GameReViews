@@ -17,7 +17,7 @@ namespace GameReViews.Presentation.Presenter
             _view.GetAggiungiVideogiocoButton().Click += _aggiungiVideogiocoButton_Click;
 
             //mi registro al cambiamento della sessione
-            _sessione.SessionChanged += Sessione_Changed;
+            _sessione.Changed += Sessione_Changed;
 
             //verifico lo stato della sessione
             Sessione_Changed(null, EventArgs.Empty);

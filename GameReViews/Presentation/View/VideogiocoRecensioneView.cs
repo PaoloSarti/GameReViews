@@ -14,14 +14,14 @@ namespace GameReViews.View
     {
         private Videogioco _videogioco;
 
+        private Sessione _sessione;
+
         public event EventHandler ValutaAspettoClick;
 
         private VideogiocoRecensioneView()
         {
             InitializeComponent();
         }
-
-        private Sessione _sessione;
 
         public VideogiocoRecensioneView(Videogioco videogioco, Sessione sessione) : this()
         {
@@ -55,7 +55,7 @@ namespace GameReViews.View
             headersAspetti[0] = new string[2] { "Aspetto", "aspetto" };
             headersAspetti[1] = new string[2] { "Valutazione/Peso", "valore" };
 
-            IList<AspettoValore> aspettiValutati = _videogioco.Recensione.AspettiValutati.List.ToList();
+            IList<AspettoValore> aspettiValutati = _videogioco.Recensione.AspettiValutatiList.ToList();
             BindingList<AspettoValore> bindingListPreferenze = new BindingList<AspettoValore>(aspettiValutati);
             BindingSource source_preferenze = new BindingSource(bindingListPreferenze, null);
             
