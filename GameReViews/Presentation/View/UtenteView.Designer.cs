@@ -36,8 +36,8 @@
             this._preferenzeLabel = new System.Windows.Forms.Label();
             this._userInfoPanel = new System.Windows.Forms.Panel();
             this._logoutButton = new System.Windows.Forms.Button();
-            this._userName = new System.Windows.Forms.Label();
             this.circularPictureBox1 = new CircularPictureBox();
+            this._userName = new System.Windows.Forms.Label();
             this._userInfoContainer_root.SuspendLayout();
             this._userInfoContainer.SuspendLayout();
             this._preferenzeControlPanel.SuspendLayout();
@@ -140,16 +140,6 @@
             this._logoutButton.UseVisualStyleBackColor = false;
             this._logoutButton.Click += new System.EventHandler(this._logoutButton_Click);
             // 
-            // _userName
-            // 
-            this._userName.AutoSize = true;
-            this._userName.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._userName.Location = new System.Drawing.Point(361, 53);
-            this._userName.Name = "_userName";
-            this._userName.Size = new System.Drawing.Size(112, 39);
-            this._userName.TabIndex = 1;
-            this._userName.Text = "Nome";
-            // 
             // circularPictureBox1
             // 
             this.circularPictureBox1.BackColor = System.Drawing.Color.MintCream;
@@ -162,7 +152,16 @@
             this.circularPictureBox1.TabIndex = 2;
             this.circularPictureBox1.TabStop = false;
             // 
-
+            // _userName
+            // 
+            this._userName.AutoSize = true;
+            this._userName.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._userName.Location = new System.Drawing.Point(361, 53);
+            this._userName.Name = "_userName";
+            this._userName.Size = new System.Drawing.Size(112, 39);
+            this._userName.TabIndex = 1;
+            this._userName.Text = "Nome";
+            // 
             // UtenteView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);

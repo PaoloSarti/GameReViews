@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AggiungiAspettoValore));
             this._valutazione = new System.Windows.Forms.NumericUpDown();
             this._aspettiCombo = new System.Windows.Forms.ComboBox();
             this._titoloLabel = new System.Windows.Forms.Label();
@@ -116,7 +115,7 @@
             this._descrizioneTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this._descrizioneTextBox.Size = new System.Drawing.Size(257, 96);
             this._descrizioneTextBox.TabIndex = 7;
-            this._descrizioneTextBox.Text = resources.GetString("_descrizioneTextBox.Text");
+            this._descrizioneTextBox.Text = "text";
             // 
             // label1
             // 

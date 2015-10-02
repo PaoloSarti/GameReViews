@@ -26,9 +26,5 @@ namespace GameReViews
         {
             return _aggiungiVideogiocoButton;
         }
-
-
-
-        
     }
 }

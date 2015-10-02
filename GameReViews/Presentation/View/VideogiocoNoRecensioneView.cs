@@ -37,6 +37,5 @@ namespace GameReViews.View
             if (AggiuntaRecensione != null)
                 AggiuntaRecensione(null, EventArgs.Empty);
         }
-
     }
 }

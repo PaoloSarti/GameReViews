@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ModificaEliminaValutazione));
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this._okButton = new System.Windows.Forms.Button();
             this._cancelButton = new System.Windows.Forms.Button();
@@ -192,7 +191,7 @@
             this._descrizioneText.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this._descrizioneText.Size = new System.Drawing.Size(257, 90);
             this._descrizioneText.TabIndex = 9;
-            this._descrizioneText.Text = resources.GetString("_descrizioneText.Text");
+            this._descrizioneText.Text = "text";
             // 
             // _nomeText
             // 
@@ -228,7 +227,7 @@
             this._aspettoLabel.TabIndex = 5;
             this._aspettoLabel.Text = "Nome";
             // 
-            // ModificaEliminaValutazioneView
+            // ModificaEliminaValutazione
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -239,7 +238,7 @@
             this.Controls.Add(this._titoloLabel);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.Name = "ModificaEliminaValutazioneView";
+            this.Name = "ModificaEliminaValutazione";
             this.Padding = new System.Windows.Forms.Padding(30, 30, 30, 10);
             this.ShowInTaskbar = false;
             this.Text = "ModificaEliminaValutazioneView";

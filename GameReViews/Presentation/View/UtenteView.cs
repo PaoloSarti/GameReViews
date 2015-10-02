@@ -52,8 +52,5 @@ namespace GameReViews
                 Logout(null, EventArgs.Empty);
             }
         }
-
-
-
     }
 }
