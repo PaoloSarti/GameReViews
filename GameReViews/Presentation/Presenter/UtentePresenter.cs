@@ -89,8 +89,8 @@ namespace GameReViews.Presentation.Presenter
 
         protected BindingSource GetBindingSource()
         {
-            IList<AspettoValore> preferenze = _sessione.UtenteCorrente.Preferenze.List.ToList();
-            BindingList<AspettoValore> bindingList = new BindingList<AspettoValore>(preferenze);
+            IList<Preferenza> preferenze = _sessione.UtenteCorrente.Preferenze.List.ToList();
+            BindingList<Preferenza> bindingList = new BindingList<Preferenza>(preferenze);
 
             return new BindingSource(bindingList, null);
         }

@@ -13,9 +13,9 @@ namespace GameReViews.Model
         private DateTime _dataRilascio;
         private Image _image;
 
-        private static Image _defaultImage= GameReViews.Properties.Resources.ic_insert_photo_white_48dp;
+        private static Image _defaultImage = GameReViews.Properties.Resources.ic_insert_photo_white_48dp;
 
-        private Recensione _recensione;  //riferimento
+        private Recensione _recensione;
         private Genere _genere;
 
         public event EventHandler VideogiocoChanged;

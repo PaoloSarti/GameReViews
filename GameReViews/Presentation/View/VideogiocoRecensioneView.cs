@@ -55,8 +55,8 @@ namespace GameReViews.View
             headersAspetti[0] = new string[2] { "Aspetto", "aspetto" };
             headersAspetti[1] = new string[2] { "Valutazione/Peso", "valore" };
 
-            IList<AspettoValore> aspettiValutati = _videogioco.Recensione.AspettiValutati.List.ToList();
-            BindingList<AspettoValore> bindingListPreferenze = new BindingList<AspettoValore>(aspettiValutati);
+            IList<AspettoValutato> aspettiValutati = _videogioco.Recensione.AspettiValutati.List.ToList();
+            BindingList<AspettoValutato> bindingListPreferenze = new BindingList<AspettoValutato>(aspettiValutati);
             BindingSource source_preferenze = new BindingSource(bindingListPreferenze, null);
             
 

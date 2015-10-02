@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace GameReViews.Model
 {
@@ -75,7 +73,7 @@ namespace GameReViews.Model
             #region Precondizioni
             if (aspetto == null)
                 throw new ArgumentException("aspetto == null");
-            if (!AspettiValori.IsValueValid(valutazione))
+            if (!AspettiValori<AspettoValore>.IsValueValid(valutazione))
                 throw new ArgumentException("!AspettiValori.IsValueValid(valutazione)");
             #endregion
 
@@ -106,7 +104,7 @@ namespace GameReViews.Model
             #region Precondizioni
             if (aspetto == null)
                 throw new ArgumentException("aspetto == null");
-            if (!AspettiValori.IsValueValid(valutazione))
+            if (!AspettiValori<AspettoValutato>.IsValueValid(valutazione))
                 throw new ArgumentException("!AspettiValori.IsValueValid(valutazione)");
             #endregion
 
@@ -132,9 +130,5 @@ namespace GameReViews.Model
                 RecensioneChanged(null, EventArgs.Empty);
             }
         }
-
-
-
-
     }
 }

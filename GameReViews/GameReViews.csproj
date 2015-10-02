@@ -46,6 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\AspettoValore.cs" />
+    <Compile Include="Model\AspettoValutato.cs" />
+    <Compile Include="Model\Preferenza.cs" />
     <Compile Include="Model\Sessione.cs" />
     <Compile Include="Presentation\Presenter\LogSignInPresenter.cs" />
     <Compile Include="Presentation\Presenter\VideogiocoPresenter.cs" />

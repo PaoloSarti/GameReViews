@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace GameReViews.Model
 {
@@ -12,14 +10,14 @@ namespace GameReViews.Model
      * Questa classe implementa le azioni di rimozione e modifica della valutazione,
      * lasciando astratta la aggiunta.
      */
-    public abstract class AspettiValori
+    public abstract class AspettiValori<T> where T : AspettoValore
     {
         // vedi requisiti non funzionali del progetto
         private readonly static int valoreMinimo = 0;
         private readonly static int valoreMassimo = 10;
 
-        protected Dictionary<Aspetto, int> _aspettiValori;
-        protected static readonly Dictionary<Aspetto, int> _emptyAspettiValori = new Dictionary<Aspetto, int>();
+        protected List<T> _aspettiValori;
+        protected static readonly List<T> _emptyAspettiValori = new List<T>();
 
         public AspettiValori()
         {
@@ -28,19 +26,11 @@ namespace GameReViews.Model
 
         public abstract void Add(Aspetto aspetto, int value);
 
-        //public IEnumerable<KeyValuePair<Aspetto, int>> AspettiValutati
-        //{
-        //    get
-        //    {
-        //        return _aspettiValori;
-        //    }
-        //}
-
-        public IEnumerable<AspettoValore> List
+        public IEnumerable<T> List
         {
             get
             {
-                return from aspettoValore in _aspettiValori select new AspettoValore(aspettoValore.Key, aspettoValore.Value);
+                return _aspettiValori;
             }
         }
 
@@ -54,13 +44,17 @@ namespace GameReViews.Model
             if (this._aspettiValori == _emptyAspettiValori)
                 return;
 
-            if (this._aspettiValori.ContainsKey(aspetto))
-            {
-                this._aspettiValori.Remove(aspetto);
-
-                // aggiorna il reference counter degli aspetti
-                Document.GetInstance().Aspetti.Remove(aspetto);
-            }
+            // controllo se l'aspetto è presente nella lista
+            // se lo trovo lo e elimino e aggiorno il reference counting
+            T item = null;
+            foreach (T aspettoValore in _aspettiValori)
+                if (aspettoValore.Aspetto.Equals(aspetto))
+                {
+                    item = aspettoValore;
+                    _aspettiValori.Remove(item);
+                    Document.GetInstance().Aspetti.Remove(aspetto);
+                    break;
+                }
         }
 
         public void RemoveAll()
@@ -68,9 +62,9 @@ namespace GameReViews.Model
             if (this._aspettiValori == _emptyAspettiValori)
                 return;
 
-            foreach(Aspetto a in _aspettiValori.Keys)
+            foreach(T a in _aspettiValori)
             {
-                this.Remove(a);
+                this.Remove(a.Aspetto);
             }
         }
 
@@ -79,25 +73,30 @@ namespace GameReViews.Model
             #region Precondizioni
             if (aspetto == null)
                 throw new ArgumentNullException("aspetto == null");
-            if(!AspettiValori.IsValueValid(valutazione))
+            if (!AspettiValori<T>.IsValueValid(valutazione))
                 throw new ArgumentException("!AspettiValori.IsValueValid(value)");
             #endregion
 
             if (this._aspettiValori == _emptyAspettiValori)
                 return;
 
-            if (this._aspettiValori.ContainsKey(aspetto))
-                this._aspettiValori[aspetto] = valutazione;
+            // controllo se l'aspetto è presente nella lista
+            // se c'è lo aggiorno
+            foreach (T aspettoValore in _aspettiValori)
+                if (aspettoValore.Aspetto.Equals(aspetto)) {
+                    aspettoValore.Valore = valutazione;
+                    break;
+                }
         }
 
         public static int ValoreMinimo
         {
-            get { return AspettiValori.valoreMinimo; }
+            get { return AspettiValori<T>.valoreMinimo; }
         }
 
         public static int ValoreMassimo
         {
-            get { return AspettiValori.valoreMassimo; }
+            get { return AspettiValori<T>.valoreMassimo; }
         }
 
         public static Boolean IsValueValid(int value)
@@ -108,34 +107,6 @@ namespace GameReViews.Model
                 res = true;
 
             return res;
-        }
-    }
-
-
-    /*
-     * Classe che contiene una singola coppia chiave valore,
-     * Per non mostrare all'esterno l'implementazione a dizionario
-     * 
-     */ 
-    public class AspettoValore
-    {
-        private readonly Aspetto _aspetto;
-        private readonly int _valore;
-
-        public AspettoValore(Aspetto aspetto, int valore)
-        {
-            _aspetto = aspetto;
-            _valore = valore;
-        }
-
-        public Aspetto Aspetto
-        {
-            get { return _aspetto; }
-        }
-
-        public int Valore
-        {
-            get { return _valore; }
         }
     }
 }
