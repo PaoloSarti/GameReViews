@@ -6,7 +6,6 @@ using System.Drawing;
 
 namespace GameReViews.Model
 {
-
     public class Videogioco
     {
         private string _nome;
@@ -22,8 +21,8 @@ namespace GameReViews.Model
 
         public Videogioco(string nome, DateTime dataRilascio, Genere genere)
         {
-            //l'enumerativo garantisce già che non si utilizzino valori non ammessi
-            //DateTime è una struct, non può avere come valore null
+            // l'enumerativo garantisce già che non si utilizzino valori non ammessi
+            // DateTime è una struct, non può avere come valore null
             if (String.IsNullOrEmpty(nome)) 
                 throw new ArgumentNullException("String.IsNullOrEmpty(nome)");
 
@@ -73,7 +72,7 @@ namespace GameReViews.Model
             get { return _genere; }
             set
             {
-                //l'enumerativo garantisce già che non si utilizzino valori non ammessi
+                // l'enumerativo garantisce già che non si utilizzino valori non ammessi
                 _genere = value;
                 OnChange();
             }
@@ -84,7 +83,7 @@ namespace GameReViews.Model
             get { return _recensione; }
             set 
             {
-                //dobbiamo aggiornare il reference counting degli aspetti
+                // dobbiamo aggiornare il reference counting degli aspetti
                 if(_recensione!=null)
                     _recensione.RemoveAllAspettiValutati();
 
@@ -104,7 +103,7 @@ namespace GameReViews.Model
             }
         }
 
-        //per avere l'unicità nei Set, ridefinisco Equals e GetHashCode
+        // per avere l'unicità nei Set, ridefinisco Equals e GetHashCode
         public override bool Equals(System.Object obj)
         {
             // Se il paramentro è nullo ritorno falso

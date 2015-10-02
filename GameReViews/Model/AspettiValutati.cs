@@ -23,14 +23,13 @@ namespace GameReViews.Model
             try
             {
                 this._aspettiValori.Add(new AspettoValutato(aspetto, value));
+                // aggiorno reference counting
+                Document.GetInstance().Aspetti.Add(aspetto);
             }
             catch (ArgumentException) 
             {
                 throw new ArgumentException("this._aspettiValori.Add(aspetto, value) aspetto deve essere unico!"); 
             }
-
-            // aggiorno reference counting
-            Document.GetInstance().Aspetti.Add(aspetto);
         }
     }
 }

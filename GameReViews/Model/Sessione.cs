@@ -5,10 +5,8 @@ using System.Text;
 
 namespace GameReViews.Model
 {
-
     public class Sessione
     {
-
         public event EventHandler Changed;
 
         private UtenteRegistrato _utenteCorrente;
@@ -80,6 +78,5 @@ namespace GameReViews.Model
         }
 
         #endregion
-
     }
 }

@@ -58,6 +58,5 @@ namespace GameReViews.Model
         {
             return _nome;
         }
-
     }
 }

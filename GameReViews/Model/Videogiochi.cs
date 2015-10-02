@@ -5,10 +5,8 @@ using System.Text;
 
 namespace GameReViews.Model
 {
-    /* 
-     * Classe contenitore per i videogiochi presenti nel sistema,
-     * in particolare controlla che non sia rimosso un videogioco a cui è associata una recensione
-     */
+    // Classe contenitore per i videogiochi presenti nel sistema,
+    // in particolare controlla che non sia rimosso un videogioco a cui è associata una recensione
     public class Videogiochi
     {
         private readonly HashSet<Videogioco> _videogiochiSet;

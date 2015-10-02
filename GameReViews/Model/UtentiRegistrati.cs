@@ -5,10 +5,9 @@ using System.Text;
 
 namespace GameReViews.Model
 {
-    /**classe contenitore per gli utenti e recensori memorizzati nel sistema,
-     * con metodi per il login (semplice verifica della presenza nel sistema e restituzione del riferimento)
-     * e registrazione (aggiunta di un nuovo utente/recensore)
-     */
+    // classe contenitore per gli utenti e recensori memorizzati nel sistema,
+    // con metodi per il login (semplice verifica della presenza nel sistema e restituzione del riferimento)
+    // e registrazione (aggiunta di un nuovo utente/recensore)
     public class UtentiRegistrati
     {
         private HashSet<UtenteRegistrato> _utenti;
@@ -30,15 +29,13 @@ namespace GameReViews.Model
             this._utenti = utenti;
         }
 
-        //restituisce l'IEnumerable di utenti
+        // restituisce l'IEnumerable di utenti
         public IEnumerable<UtenteRegistrato> List
         {
             get { return _utenti; }
         }
 
-        /* Verifica la presenza nella collezione dell'utente e ne restituisce il riferimento, altrimenti lancia eccezione
-         * 
-         */
+        // Verifica la presenza nella collezione dell'utente e ne restituisce il riferimento, altrimenti lancia eccezione
         public UtenteRegistrato Autentica(String nome, String password)
         {
             #region Precondizioni
@@ -66,7 +63,7 @@ namespace GameReViews.Model
 
             #endregion
 
-            //se l'utente è già registrato, lancio eccezione
+            // se l'utente è già registrato, lancio eccezione
             if(!_utenti.Add(utente))
                 throw new ArgumentException("!_utenti.Add(utente)");
 
@@ -80,6 +77,5 @@ namespace GameReViews.Model
                 UtentiChanged(null, EventArgs.Empty);
             }
         }
-
     }
 }
