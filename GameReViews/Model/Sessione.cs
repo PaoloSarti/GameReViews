@@ -24,7 +24,7 @@ namespace GameReViews.Model
         public void Registra(String nome, String password)
         {
             UtenteRegistrato utente = new UtenteRegistrato(nome, password);
-            Document.GetInstance().Utenti.Registra(utente);
+            Document.GetInstance().Autenticatore.Registra(utente);
             _utenteCorrente = utente;
             _utenteCorrente.Changed += UtenteChanged;
 
@@ -40,7 +40,7 @@ namespace GameReViews.Model
 
         public UtenteRegistrato Autentica(String nome, String password)
         {
-            _utenteCorrente = Document.GetInstance().Utenti.Autentica(nome, password);
+            _utenteCorrente = Document.GetInstance().Autenticatore.Autentica(nome, password);
             _utenteCorrente.Changed += UtenteChanged;
 
             _calcolo = CalcoloValutazioneTotaleFactory.GetCalcoloValutazioneTotale(_utenteCorrente);

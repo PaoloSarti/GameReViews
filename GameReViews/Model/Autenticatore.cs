@@ -5,22 +5,24 @@ using System.Text;
 
 namespace GameReViews.Model
 {
-    /**classe contenitore per gli utenti e recensori memorizzati nel sistema,
+    /**
+     * Classe concreta per l'autenticazione
      * con metodi per il login (semplice verifica della presenza nel sistema e restituzione del riferimento)
      * e registrazione (aggiunta di un nuovo utente/recensore)
+     * 
+     * Realizzata semplicemente mantenendo il riferimento alla lista delle istanze degli utenti 
+     * 
      */
-    public class UtentiRegistrati
+    public class Autenticatore : IAutenticatore
     {
         private HashSet<UtenteRegistrato> _utenti;
 
-        public event EventHandler UtentiChanged;
-
-        public UtentiRegistrati()
+        public Autenticatore()
         {
             this._utenti = new HashSet<UtenteRegistrato>();
         }
 
-        public UtentiRegistrati(HashSet<UtenteRegistrato> utenti)
+        public Autenticatore(HashSet<UtenteRegistrato> utenti)
         {
             #region Precondizioni
             if (utenti == null)
@@ -28,12 +30,6 @@ namespace GameReViews.Model
             #endregion
 
             this._utenti = utenti;
-        }
-
-        //restituisce l'IEnumerable di utenti
-        public IEnumerable<UtenteRegistrato> List
-        {
-            get { return _utenti; }
         }
 
         /* Verifica la presenza nella collezione dell'utente e ne restituisce il riferimento, altrimenti lancia eccezione
@@ -62,24 +58,13 @@ namespace GameReViews.Model
             #region Precondizioni
             if (utente == null)
                 throw new ArgumentNullException("utente == null");
-
-
             #endregion
 
             //se l'utente è già registrato, lancio eccezione
             if(!_utenti.Add(utente))
-                throw new ArgumentException("!_utenti.Add(utente)");
-
-            OnChanged();
+                throw new ArgumentException("Utente già registrato nel sistema");
         }
 
-        protected void OnChanged()
-        {
-            if (UtentiChanged != null)
-            {
-                UtentiChanged(null, EventArgs.Empty);
-            }
-        }
 
     }
 }

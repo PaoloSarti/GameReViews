@@ -12,7 +12,7 @@ namespace GameReViews.Model
         //per avere una funzione Load(), non possono essere readonly, tuttavia, possono essere 
         //acceduti solo in lettura al di fuori del Model
         private Aspetti _aspetti;
-        private UtentiRegistrati _utenti;
+        private IAutenticatore _autenticatore;
 
         private Videogiochi _videogiochi;
 
@@ -54,7 +54,7 @@ namespace GameReViews.Model
 
             //gli aspetti vengono popolati automaticamente utilizando i metodi di AspettiValori e figli (AspettiValutati e Preferenze)
             this._videogiochi = loader.GetVideogiochi();
-            this._utenti = loader.GetUtentiRegistrati();
+            this._autenticatore = loader.GetIAutenticatore();
 
             OnChanged();
         }
@@ -90,9 +90,9 @@ namespace GameReViews.Model
         }
 
 
-        public UtentiRegistrati Utenti
+        public IAutenticatore Autenticatore
         {
-            get { return _utenti; }
+            get { return _autenticatore; }
         }
 
         #endregion

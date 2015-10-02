@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\IAutenticatore.cs" />
     <Compile Include="Model\Sessione.cs" />
     <Compile Include="Presentation\Presenter\LogSignInPresenter.cs" />
     <Compile Include="Presentation\Presenter\VideogiocoPresenter.cs" />
@@ -101,7 +102,7 @@
     <Compile Include="Model\Recensione.cs" />
     <Compile Include="Model\Recensore.cs" />
     <Compile Include="Model\UtenteRegistrato.cs" />
-    <Compile Include="Model\UtentiRegistrati.cs" />
+    <Compile Include="Model\Autenticatore.cs" />
     <Compile Include="Model\Videogiochi.cs" />
     <Compile Include="Model\Videogioco.cs" />
     <Compile Include="Persistence\MockModelPersister.cs" />
