@@ -49,7 +49,7 @@ namespace GameReViews.View
 
             this.Dock = DockStyle.Fill;
 
-            if (_sessione.UtenteCorrente is Recensore)
+            if (_sessione.UtenteCorrente != null)
                 _eliminaButton.Visible = true;
             else
                 _eliminaButton.Visible = false;
@@ -81,7 +81,9 @@ namespace GameReViews.View
             {
                 VideogiocoRecensioneView recensioneView = new VideogiocoRecensioneView(_videogioco, _sessione);
 
-                if(_currentDetailView is VideogiocoRecensioneView)
+                _eliminaButton.Visible = false;
+
+                if (_currentDetailView is VideogiocoRecensioneView)
                 {
                     //deregistrazione per evitare di mantenere il riferimento in memoria
                     VideogiocoRecensioneView view = (VideogiocoRecensioneView)_currentDetailView;

@@ -30,14 +30,14 @@
         {
             this._userInfoContainer_root = new System.Windows.Forms.Panel();
             this._userInfoContainer = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this._loginButton = new System.Windows.Forms.Button();
             this._passwordTextBox = new System.Windows.Forms.TextBox();
             this._passwordLabel = new System.Windows.Forms.Label();
             this._usernameTextBox = new System.Windows.Forms.TextBox();
             this._userNameLabel = new System.Windows.Forms.Label();
-            this._signinButton = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.circularPictureBox1 = new CircularPictureBox();
+            this._signinButton = new System.Windows.Forms.Button();
             this._userInfoContainer_root.SuspendLayout();
             this._userInfoContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -53,7 +53,6 @@
             this._userInfoContainer_root.Name = "_userInfoContainer_root";
             this._userInfoContainer_root.Size = new System.Drawing.Size(883, 619);
             this._userInfoContainer_root.TabIndex = 0;
-
             // 
             // _userInfoContainer
             // 
@@ -71,6 +70,16 @@
             this._userInfoContainer.Size = new System.Drawing.Size(849, 619);
             this._userInfoContainer.TabIndex = 3;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::GameReViews.Properties.Resources.bubble42;
+            this.pictureBox1.Location = new System.Drawing.Point(-57, 593);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(1049, 328);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
+            // 
             // _loginButton
             // 
             this._loginButton.BackColor = System.Drawing.Color.Silver;
@@ -82,7 +91,7 @@
             this._loginButton.Name = "_loginButton";
             this._loginButton.Size = new System.Drawing.Size(79, 54);
             this._loginButton.TabIndex = 5;
-            this._loginButton.Text = "Login";
+            this._loginButton.Text = "Autenticati";
             this._loginButton.UseVisualStyleBackColor = false;
             this._loginButton.Click += new System.EventHandler(this._loginButton_Click);
             // 
@@ -123,6 +132,18 @@
             this._userNameLabel.TabIndex = 1;
             this._userNameLabel.Text = "Username";
             // 
+            // circularPictureBox1
+            // 
+            this.circularPictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
+            this.circularPictureBox1.Image = global::GameReViews.Properties.Resources.ic_exit_to_app_white_48dp;
+            this.circularPictureBox1.Location = new System.Drawing.Point(299, 85);
+            this.circularPictureBox1.Name = "circularPictureBox1";
+            this.circularPictureBox1.Padding = new System.Windows.Forms.Padding(35);
+            this.circularPictureBox1.Size = new System.Drawing.Size(228, 236);
+            this.circularPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.circularPictureBox1.TabIndex = 0;
+            this.circularPictureBox1.TabStop = false;
+            // 
             // _signinButton
             // 
             this._signinButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -135,31 +156,9 @@
             this._signinButton.Name = "_signinButton";
             this._signinButton.Size = new System.Drawing.Size(77, 54);
             this._signinButton.TabIndex = 6;
-            this._signinButton.Text = "Signin";
+            this._signinButton.Text = "Registrati";
             this._signinButton.UseVisualStyleBackColor = false;
             this._signinButton.Click += new System.EventHandler(this._signinButton_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::GameReViews.Properties.Resources.bubble42;
-            this.pictureBox1.Location = new System.Drawing.Point(-57, 593);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1049, 328);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
-            // 
-            // circularPictureBox1
-            // 
-            this.circularPictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
-            this.circularPictureBox1.Image = global::GameReViews.Properties.Resources.ic_exit_to_app_white_48dp;
-            this.circularPictureBox1.Location = new System.Drawing.Point(299, 85);
-            this.circularPictureBox1.Name = "circularPictureBox1";
-            this.circularPictureBox1.Padding = new System.Windows.Forms.Padding(35);
-            this.circularPictureBox1.Size = new System.Drawing.Size(228, 236);
-            this.circularPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.circularPictureBox1.TabIndex = 0;
-            this.circularPictureBox1.TabStop = false;
             // 
             // LogSignInView
             // 

@@ -47,7 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\AspettoValore.cs" />
-	<Compile Include="Model\IAutenticatore.cs" />
+    <Compile Include="Model\IAutenticatore.cs" />
     <Compile Include="Model\Sessione.cs" />
     <Compile Include="Presentation\Presenter\LogSignInPresenter.cs" />
     <Compile Include="Presentation\Presenter\VideogiocoPresenter.cs" />
@@ -109,7 +109,7 @@
     <Compile Include="Persistence\MockModelPersister.cs" />
     <Compile Include="Presentation\Presenter\AbstractVideogiochiPresenter.cs" />
     <Compile Include="Presentation\Presenter\UtentePresenter.cs" />
-    <Compile Include="Presentation\Presenter\VideogiochiPresenter.cs" />
+    <Compile Include="Presentation\Presenter\VideogiochiNonRecensitiPresenter.cs" />
     <Compile Include="Presentation\Presenter\VideogiochiRecensitiPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

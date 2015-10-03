@@ -16,7 +16,7 @@ namespace GameReViews
     {
         private Control _currentControl;
 
-        private VideogiochiPresenter _videogiochiPresenter;
+        private VideogiochiNonRecensitiPresenter _videogiochiPresenter;
         private VideogiochiRecensitiPresenter _videogiochiRecensitiPresenter;
         private UtentePresenter _utentePresenter;
         private LogSignInPresenter _logSignInPresenter;
@@ -30,7 +30,7 @@ namespace GameReViews
 
             _sessione = new Sessione();
 
-            _videogiochiPresenter = new VideogiochiPresenter(_sessione);
+            _videogiochiPresenter = new VideogiochiNonRecensitiPresenter(_sessione);
             _videogiochiRecensitiPresenter = new VideogiochiRecensitiPresenter(_sessione);
             _utentePresenter = new UtentePresenter(_sessione);
             _logSignInPresenter = new LogSignInPresenter(_sessione);
@@ -45,7 +45,7 @@ namespace GameReViews
             //Parto dal login
             _utente_Login(null, EventArgs.Empty);
 
-            TestoBottoneUtenteLogin();
+            UpdateTestoBottoneUtenteLogin();
         }
 
         // scatta quando si seleziona un item dalla lista. Fa vedere la vista dettagliata del videogioco e della relativa recensione (se presente)
@@ -71,11 +71,13 @@ namespace GameReViews
 
         private void _recensioniButton_Click(object sender, EventArgs e)
         {
+            _videogiochiRecensitiPresenter.VideogiochiList_Changed(null, e);
             ChangeView(_videogiochiRecensitiPresenter.View);
         }
 
         private void _videogiochiButton_Click(object sender, EventArgs e)
         {
+            _videogiochiPresenter.VideogiochiList_Changed(null, e);
             ChangeView(_videogiochiPresenter.View);
         }
 
@@ -99,7 +101,7 @@ namespace GameReViews
         {
             if (_currentControl != view)
             {
-                TestoBottoneUtenteLogin();
+                UpdateTestoBottoneUtenteLogin();
                 _viewsContainer.Controls.Remove(_currentControl);
                 _viewsContainer.Controls.Add(view);
 
@@ -107,12 +109,12 @@ namespace GameReViews
             }
         }
 
-        private void TestoBottoneUtenteLogin()
+        private void UpdateTestoBottoneUtenteLogin()
         {
             if(_sessione.UtenteCorrente!=null)
                 _utenteButton.Text = "Utente";
             else
-                _utenteButton.Text = "Login";
+                _utenteButton.Text = "Accesso";
         }
 
         private void _newSessionButton_Click(object sender, EventArgs e)
