@@ -14,10 +14,6 @@ namespace GameReViews.Model
     public abstract class AspettiValori<T> where T : AspettoValore
     {
 
-        // vedi requisiti non funzionali del progetto
-        private readonly static int _valoreMinimo = 0;
-        private readonly static int _valoreMassimo = 10;
-
         protected HashSet<T> _aspettiValori;
         protected static readonly HashSet<T> _emptyAspettiValori = new HashSet<T>();
 
@@ -75,8 +71,6 @@ namespace GameReViews.Model
             #region Precondizioni
             if (aspetto == null)
                 throw new ArgumentNullException("aspetto == null");
-            if (!AspettiValori<T>.IsValueValid(valutazione))
-                throw new ArgumentException("!AspettiValori.IsValueValid(value)");
             #endregion
 
             if (this._aspettiValori == _emptyAspettiValori)
@@ -91,24 +85,5 @@ namespace GameReViews.Model
                 }
         }
 
-        public static int ValoreMinimo
-        {
-            get { return _valoreMinimo; }
-        }
-
-        public static int ValoreMassimo
-        {
-            get { return _valoreMassimo; }
-        }
-
-        public static Boolean IsValueValid(int value)
-        {
-            bool res = false;
-
-            if (value >= _valoreMinimo && value <= _valoreMassimo)
-                res = true;
-
-            return res;
-        }
     }
 }
