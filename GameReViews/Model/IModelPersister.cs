@@ -14,6 +14,6 @@
         //gli aspetti vengono popolati automaticamente dal reference counting
         //Aspetti LoadAspetti();
 
-        UtentiRegistrati GetUtentiRegistrati();
+        IAutenticatore GetIAutenticatore();
     }
 }

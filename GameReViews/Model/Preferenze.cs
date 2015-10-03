@@ -13,8 +13,6 @@ namespace GameReViews.Model
             #region Precondizioni
             if (preferenza.Aspetto == null)
                 throw new ArgumentNullException("aspetto == null");
-            if (!AspettiValori<Preferenza>.IsValueValid(preferenza.Valore))
-                throw new ArgumentException("!AspettiValori.IsValueValid(value)");
             if (this._aspettiValori == _emptyAspettiValori)
                 this._aspettiValori = new HashSet<Preferenza>();
 

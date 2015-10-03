@@ -26,7 +26,7 @@ namespace GameReViews.Persistence
     class MockModelLoader : IModelLoader
     {
         Videogiochi _videogiochi;
-        UtentiRegistrati _utenti;
+        Autenticatore _autenticatore;
 
         public MockModelLoader()
         {
@@ -139,7 +139,7 @@ namespace GameReViews.Persistence
             utenti.Add(r2);
             utenti.Add(r3);
 
-            this._utenti = new UtentiRegistrati(utenti);
+            this._autenticatore = new Autenticatore(utenti);
 
             this._videogiochi = new Videogiochi();
             _videogiochi.AddVideogioco(v1);
@@ -157,9 +157,9 @@ namespace GameReViews.Persistence
             return this._videogiochi;
         }
 
-        public UtentiRegistrati GetUtentiRegistrati()
+        public IAutenticatore GetIAutenticatore()
         {
-            return this._utenti;
+            return this._autenticatore;
         }
     }
 
