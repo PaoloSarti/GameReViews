@@ -13,19 +13,20 @@ namespace GameReViews.Model
      */
     public abstract class AspettiValori<T> where T : AspettoValore
     {
-        // vedi requisiti non funzionali del progetto
-        private readonly static int valoreMinimo = 0;
-        private readonly static int valoreMassimo = 10;
 
-        protected List<T> _aspettiValori;
-        protected static readonly List<T> _emptyAspettiValori = new List<T>();
+        // vedi requisiti non funzionali del progetto
+        private readonly static int _valoreMinimo = 0;
+        private readonly static int _valoreMassimo = 10;
+
+        protected HashSet<T> _aspettiValori;
+        protected static readonly HashSet<T> _emptyAspettiValori = new HashSet<T>();
 
         public AspettiValori()
         {
             _aspettiValori = _emptyAspettiValori;
         }
 
-        public abstract void Add(Aspetto aspetto, int value);
+        public abstract void Add(T a);
 
         public IEnumerable<T> List
         {
@@ -92,19 +93,19 @@ namespace GameReViews.Model
 
         public static int ValoreMinimo
         {
-            get { return AspettiValori<T>.valoreMinimo; }
+            get { return _valoreMinimo; }
         }
 
         public static int ValoreMassimo
         {
-            get { return AspettiValori<T>.valoreMassimo; }
+            get { return _valoreMassimo; }
         }
 
         public static Boolean IsValueValid(int value)
         {
             bool res = false;
 
-            if (value >= ValoreMinimo && value <= ValoreMassimo)
+            if (value >= _valoreMinimo && value <= _valoreMassimo)
                 res = true;
 
             return res;

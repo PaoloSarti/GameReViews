@@ -8,28 +8,23 @@ namespace GameReViews.Model
      */
 	public class AspettiValutati : AspettiValori<AspettoValutato>
 	{
-        public override void Add(Aspetto aspetto, int value)
+        public override void Add(AspettoValutato aspettoValutato)
         {
             #region Precondizioni
-            if (aspetto == null)
-                throw new ArgumentNullException("aspetto == null");
-            if (!AspettiValori<AspettoValutato>.IsValueValid(value))
+            if (aspettoValutato == null)
+                throw new ArgumentNullException("aspettoValutato == null");
+            if (!AspettiValori<AspettoValutato>.IsValueValid(aspettoValutato.Valore))
                 throw new ArgumentException("!AspettiValori.IsValueValid(value)");
             
             if (this._aspettiValori == _emptyAspettiValori)
-                this._aspettiValori = new List<AspettoValutato>();
+                this._aspettiValori = new HashSet<AspettoValutato>();
             #endregion
 
-            try
-            {
-                this._aspettiValori.Add(new AspettoValutato(aspetto, value));
-                // aggiorno reference counting
-                Document.GetInstance().Aspetti.Add(aspetto);
-            }
-            catch (ArgumentException) 
-            {
-                throw new ArgumentException("this._aspettiValori.Add(aspetto, value) aspetto deve essere unico!"); 
-            }
+            if (!this._aspettiValori.Add(aspettoValutato))
+                throw new ArgumentException("this._aspettiValori.Add(aspetto, value) aspetto deve essere unico!");
+            // aggiorno reference counting
+            Document.GetInstance().Aspetti.Add(aspettoValutato.Aspetto);
+
         }
     }
 }

@@ -8,31 +8,26 @@ namespace GameReViews.Model
      */
     public class Preferenze : AspettiValori<Preferenza>
     {
-        public override void Add(Aspetto aspetto, int value)
+        public override void Add(Preferenza preferenza)
         {
             #region Precondizioni
-            if (aspetto == null)
+            if (preferenza.Aspetto == null)
                 throw new ArgumentNullException("aspetto == null");
-            if (!AspettiValori<Preferenza>.IsValueValid(value))
+            if (!AspettiValori<Preferenza>.IsValueValid(preferenza.Valore))
                 throw new ArgumentException("!AspettiValori.IsValueValid(value)");
             if (this._aspettiValori == _emptyAspettiValori)
-                this._aspettiValori = new List<Preferenza>();
+                this._aspettiValori = new HashSet<Preferenza>();
 
             // un utente non può inserire nuovi aspetti nel sistema
-            if (!Document.GetInstance().Aspetti.Contains(aspetto))
+            if (!Document.GetInstance().Aspetti.Contains(preferenza.Aspetto))
                 throw new ArgumentException("!Model.getInstance().Aspetti.Contains(aspetto)");
             #endregion
 
-            try
-            {
-                this._aspettiValori.Add(new Preferenza(aspetto, value));
-                // aggiorno reference counting
-                Document.GetInstance().Aspetti.Add(aspetto);
-            }
-            catch (ArgumentException) 
-            { 
+            if(!this._aspettiValori.Add(preferenza))
                 throw new ArgumentException("this._aspettiValori.Add(aspetto, value) aspetto deve essere unico!");
-            }
+
+            // aggiorno reference counting
+            Document.GetInstance().Aspetti.Add(preferenza.Aspetto);
         }
     }
 }

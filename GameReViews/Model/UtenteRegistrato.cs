@@ -51,11 +51,9 @@ namespace GameReViews.Model
             #region Precondizioni
             if (aspetto == null)
                 throw new ArgumentNullException("aspetto == null");
-            if (!AspettiValori<Preferenza>.IsValueValid(valutazione))
-                throw new ArgumentException("!AspettiValori.IsValueValid(valutazione)");
             #endregion
 
-            this._preferenze.Add(aspetto, valutazione);
+            this._preferenze.Add(new Preferenza(aspetto, valutazione));
 
             OnChanged();
         }
@@ -77,8 +75,6 @@ namespace GameReViews.Model
             #region Precondizioni
             if (aspetto == null)
                 throw new ArgumentNullException("aspetto == null");
-            if (!AspettiValori<Preferenza>.IsValueValid(valutazione))
-                throw new ArgumentException("!AspettiValori.IsValueValid(valutazione)");
             #endregion
 
             _preferenze.ModificaValutazione(aspetto, valutazione);
