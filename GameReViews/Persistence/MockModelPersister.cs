@@ -122,14 +122,6 @@ namespace GameReViews.Persistence
             r3.AddPreferenza(new Aspetto("realismo", "descrizione4"), 2);
             r3.AddPreferenza(new Aspetto("rigiocabilità", "descrizione5"), 5);
 
-            //aggiungo un paio di commenti
-            v1.Recensione.InserisciCommento("commento1", u1);
-            foreach(Commento c in v1.Recensione.Commenti)
-            {
-                c.Rispondi("risposta1", u2);
-                c.Rispondi("risposta2", u4);
-            }
-
             HashSet<UtenteRegistrato> utenti = new HashSet<UtenteRegistrato>();
             utenti.Add(u1);
             utenti.Add(u2);

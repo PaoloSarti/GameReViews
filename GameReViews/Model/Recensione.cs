@@ -11,8 +11,6 @@ namespace GameReViews.Model
         private readonly Recensore _autore;
         private readonly AspettiValutati _aspettiValutati;
 
-        private readonly List<Commento> _commenti;
-
         public event EventHandler Changed;
 
         public Recensione(string testo, Recensore autore)
@@ -26,8 +24,6 @@ namespace GameReViews.Model
             this._autore = autore;
             this._dataImmissione = DateTime.Now;
             _aspettiValutati = new AspettiValutati();
-
-            this._commenti = new List<Commento>();
         }
 
         public DateTime DataImmissione
@@ -55,11 +51,6 @@ namespace GameReViews.Model
         {
             get { return _autore; }
         }
-
-        public IEnumerable<Commento> Commenti
-        {
-            get { return _commenti; }
-        } 
 
         public IEnumerable<AspettoValutato> AspettiValutati
         {
@@ -107,16 +98,6 @@ namespace GameReViews.Model
             #endregion
 
             _aspettiValutati.ModificaValutazione(aspetto, valutazione);
-
-            OnRecensioneChanged();
-        }
-
-        //Inserimento alla radice (lista di commenti della recensione)
-        public void InserisciCommento(String testo, UtenteRegistrato autore)
-        {
-            Commento child = new Commento(testo, autore);
-
-            _commenti.Add(child);
 
             OnRecensioneChanged();
         }
