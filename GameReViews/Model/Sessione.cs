@@ -5,6 +5,12 @@ using System.Text;
 
 namespace GameReViews.Model
 {
+    /*
+     * La sessione mantiene le informazioni legate ad una interazione col sistema,
+     * mantenendo quindi il riferimento all'UtenteRegistrato corrente (null se non presente),
+     * e in ogni caso mantiene l'algoritmo di calcolo specifico per la sessione, fornendo
+     * la funzione di calcolo della valutazione totale.
+     */ 
     public class Sessione
     {
         private UtenteRegistrato _utenteCorrente;
@@ -19,9 +25,9 @@ namespace GameReViews.Model
 
         #region Calcolo
 
-        public ICalcoloValutazioneTotale Calcolo
+        public float CalcolaValutazioneTotale(Recensione recensione)
         {
-            get { return _calcolo; }
+            return _calcolo.Calcola(recensione);
         }
 
         #endregion

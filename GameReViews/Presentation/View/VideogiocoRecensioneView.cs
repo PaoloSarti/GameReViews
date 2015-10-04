@@ -43,7 +43,7 @@ namespace GameReViews.View
             }
 
             _recensioneText.Text = videogioco.Recensione.Testo;
-            _valutazione.Text = _sessione.Calcolo.Calcola(_videogioco.Recensione) + "";
+            _valutazione.Text = _sessione.CalcolaValutazioneTotale(_videogioco.Recensione) + "";
             _recensoreLabel.Text = videogioco.Recensione.Autore.Nome;
         }
 
