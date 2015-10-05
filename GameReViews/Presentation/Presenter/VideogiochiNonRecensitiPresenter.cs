@@ -9,10 +9,10 @@ using GameReViews.Presentation.View;
 
 namespace GameReViews.Presentation.Presenter
 {
-    public class VideogiochiPresenter : AbstractVideogiochiPresenter
+    public class VideogiochiNonRecensitiPresenter : AbstractVideogiochiPresenter
     {
 
-        public VideogiochiPresenter(Sessione sessione) : base( sessione)
+        public VideogiochiNonRecensitiPresenter(Sessione sessione) : base( sessione)
         {
             _view.GetAggiungiVideogiocoButton().Click += _aggiungiVideogiocoButton_Click;
 
@@ -26,7 +26,7 @@ namespace GameReViews.Presentation.Presenter
 
         protected override BindingSource GetBindingSource()
         {
-            IList<Videogioco> videogiochi = Document.GetInstance().Videogiochi.List.ToList();
+            IList<Videogioco> videogiochi = Document.GetInstance().Videogiochi.List.Where(videogioco => videogioco.Recensione == null).ToList();
             BindingList<Videogioco> bindingList = new BindingList<Videogioco>(videogiochi);
 
 

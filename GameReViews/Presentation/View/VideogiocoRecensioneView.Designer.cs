@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
-            this._commentaButton = new System.Windows.Forms.Button();
             this._recensoreLabel = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this._valutaAspettoButton = new System.Windows.Forms.Button();
@@ -45,7 +44,6 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this._commentaButton);
             this.panel2.Controls.Add(this._recensoreLabel);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this._valutaAspettoButton);
@@ -58,22 +56,6 @@
             this.panel2.Padding = new System.Windows.Forms.Padding(35, 30, 30, 30);
             this.panel2.Size = new System.Drawing.Size(1027, 232);
             this.panel2.TabIndex = 0;
-            // 
-            // _commentaButton
-            // 
-            this._commentaButton.BackColor = System.Drawing.Color.Silver;
-            this._commentaButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this._commentaButton.FlatAppearance.BorderSize = 0;
-            this._commentaButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._commentaButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
-            this._commentaButton.ForeColor = System.Drawing.Color.White;
-            this._commentaButton.Location = new System.Drawing.Point(837, 161);
-            this._commentaButton.Name = "_commentaButton";
-            this._commentaButton.Size = new System.Drawing.Size(80, 41);
-            this._commentaButton.TabIndex = 6;
-            this._commentaButton.Text = "Commenta";
-            this._commentaButton.UseVisualStyleBackColor = false;
-            this._commentaButton.Click += new System.EventHandler(this._commentaButton_Click);
             // 
             // _recensoreLabel
             // 
@@ -195,6 +177,5 @@
         private System.Windows.Forms.Label label1;
         private CustomDataGridView _customDataGridView;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button _commentaButton;
     }
 }
