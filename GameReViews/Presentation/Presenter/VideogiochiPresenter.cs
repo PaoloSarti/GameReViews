@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace GameReViews.Presentation.Presenter
 {
-    public abstract class AbstractVideogiochiPresenter
+    public abstract class VideogiochiPresenter
     {
         protected VideogiochiListView _view;
 
@@ -16,7 +16,7 @@ namespace GameReViews.Presentation.Presenter
 
         public event CellClickedDelegate CellClicked;
 
-        public AbstractVideogiochiPresenter(Sessione sessione)
+        public VideogiochiPresenter(Sessione sessione)
         {
             _view = new VideogiochiListView();
             _sessione = sessione;

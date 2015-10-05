@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace GameReViews.Presentation.Presenter
 {
-    public class VideogiochiRecensitiPresenter : AbstractVideogiochiPresenter
+    public class VideogiochiRecensitiPresenter : VideogiochiPresenter
     {
 
         public VideogiochiRecensitiPresenter(Sessione sessione)
