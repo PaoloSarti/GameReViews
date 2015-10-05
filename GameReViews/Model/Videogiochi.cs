@@ -11,7 +11,7 @@ namespace GameReViews.Model
     {
         private readonly HashSet<Videogioco> _videogiochiSet;
 
-        public event EventHandler VideogiochiChanged;
+        public event EventHandler Changed;
 
         public Videogiochi()
         {
@@ -83,9 +83,9 @@ namespace GameReViews.Model
 
         protected void OnChanged()
         {
-            if(VideogiochiChanged!=null)
+            if(Changed!=null)
             {
-                VideogiochiChanged(null, EventArgs.Empty);
+                Changed(null, EventArgs.Empty);
             }
         }
     }

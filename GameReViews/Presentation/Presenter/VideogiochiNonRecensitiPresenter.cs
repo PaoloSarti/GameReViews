@@ -9,7 +9,7 @@ using GameReViews.Presentation.View;
 
 namespace GameReViews.Presentation.Presenter
 {
-    public class VideogiochiNonRecensitiPresenter : AbstractVideogiochiPresenter
+    public class VideogiochiNonRecensitiPresenter : VideogiochiPresenter
     {
 
         public VideogiochiNonRecensitiPresenter(Sessione sessione) : base( sessione)

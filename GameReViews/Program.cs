@@ -22,7 +22,6 @@ namespace GameReViews
             Application.Run(new MainForm());
         }
 
-
         
     }
 }

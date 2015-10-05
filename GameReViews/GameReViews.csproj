@@ -106,7 +106,7 @@
     <Compile Include="Model\Videogiochi.cs" />
     <Compile Include="Model\Videogioco.cs" />
     <Compile Include="Persistence\MockModelPersister.cs" />
-    <Compile Include="Presentation\Presenter\AbstractVideogiochiPresenter.cs" />
+    <Compile Include="Presentation\Presenter\VideogiochiPresenter.cs" />
     <Compile Include="Presentation\Presenter\UtentePresenter.cs" />
     <Compile Include="Presentation\Presenter\VideogiochiNonRecensitiPresenter.cs" />
     <Compile Include="Presentation\Presenter\VideogiochiRecensitiPresenter.cs" />
