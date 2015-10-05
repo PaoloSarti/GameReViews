@@ -45,7 +45,9 @@ namespace GameReViews.View
             _genereVideogiocoLabel.Text = _videogioco.Genere.ToString();
 
             if (_videogioco.Image != null)
-            _immagineVideogioco.Image = _videogioco.Image;
+                _immagineVideogioco.Image = _videogioco.Image;
+            else
+                _immagineVideogioco.Image = GameReViews.Properties.Resources.ic_insert_photo_white_48dp;
 
             this.Dock = DockStyle.Fill;
 

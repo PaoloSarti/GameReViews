@@ -74,9 +74,9 @@ namespace GameReViews.Model
             // conteggio dei match
             int count=0;
 
-            foreach(AspettoValore aspettoValutato in recensione.AspettiValutati)
+            foreach(AspettoValutato aspettoValutato in recensione.AspettiValutati)
             {
-                foreach(AspettoValore preferenza in _utente.Preferenze)
+                foreach(Preferenza preferenza in _utente.Preferenze)
                 {
                     // == per le stringhe è uguaglianza dei valori
                     if(aspettoValutato.Aspetto.Nome==preferenza.Aspetto.Nome)

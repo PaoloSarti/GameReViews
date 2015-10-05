@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this._toolbar = new System.Windows.Forms.Panel();
             this._newSessionButton = new System.Windows.Forms.Button();
             this._utenteButton = new System.Windows.Forms.Button();
@@ -139,8 +140,9 @@
             this.ClientSize = new System.Drawing.Size(996, 742);
             this.Controls.Add(this._viewsContainer);
             this.Controls.Add(this._toolbar);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
-            this.Text = "Form1";
+            this.Text = "GameReViews";
             this._toolbar.ResumeLayout(false);
             this.ResumeLayout(false);
 

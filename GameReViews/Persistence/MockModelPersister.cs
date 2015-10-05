@@ -59,10 +59,10 @@ namespace GameReViews.Persistence
             Videogioco v8 = new Videogioco("Super Mario", DateTime.Now.Date, Genere.AVVENTURA);
 
             //aggiungo qualche recensione
-            v1.Recensione = new Recensione("testo lunghissimo bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla 1", r1);
-            v2.Recensione = new Recensione("testo lunghissimo bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla 2", r1);
-            v3.Recensione = new Recensione("testo lunghissimo bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla 3", r2);
-            v4.Recensione=new Recensione("testo lunghissimo bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla 4", r3);
+            v1.Recensione = new Recensione("testo recensione", r1);
+            v2.Recensione = new Recensione("testo recensione", r1);
+            v3.Recensione = new Recensione("testo recensione", r2);
+            v4.Recensione = new Recensione("testo recensione", r3);
 
             //aggiungo aspetti valutati alle recensioni (viene popolata anche la classe Aspetti del Model)
             v1.Recensione.AddAspettoValutato(new Aspetto("grafica", "descrizione1"), 8);
