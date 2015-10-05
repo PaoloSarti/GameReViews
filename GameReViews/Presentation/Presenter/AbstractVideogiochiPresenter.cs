@@ -25,7 +25,7 @@ namespace GameReViews.Presentation.Presenter
 
             BindData();
 
-            Document.GetInstance().Videogiochi.VideogiochiChanged += VideogiochiList_Changed;
+            Document.GetInstance().Videogiochi.Changed += VideogiochiList_Changed;
 
             _view.GetCustomDataGrid().CellClicked += AbstractVideogiochiPresenter_CellClicked;
         }
