@@ -14,8 +14,6 @@ namespace GameReViews.View
     {
         private Videogioco _videogioco;
 
-        private Sessione _sessione;
-
         public event EventHandler ValutaAspettoClick;
 
         private VideogiocoRecensioneView()
@@ -23,28 +21,21 @@ namespace GameReViews.View
             InitializeComponent();
         }
 
-        public VideogiocoRecensioneView(Videogioco videogioco, Sessione sessione) : this()
+        public VideogiocoRecensioneView(Videogioco videogioco, float valutazione) : this()
         {
             _videogioco = videogioco;
             this.Dock = DockStyle.Fill;
 
             BindData();
 
-            _sessione = sessione;
-
-            if (_sessione.UtenteCorrente == null)
-                _valutaAspettoButton.Visible = false;
-            else if (_sessione.UtenteCorrente!=null && _sessione.UtenteCorrente.Nome!=videogioco.Recensione.Autore.Nome)
-            {
-                Console.WriteLine("Nome utente: " +_sessione.UtenteCorrente.Nome);
-                Console.WriteLine("Nome autore: " + videogioco.Recensione.Autore.Nome);
-
-                _valutaAspettoButton.Visible = false;
-            }
-
             _recensioneText.Text = videogioco.Recensione.Testo;
-            _valutazione.Text = _sessione.CalcolaValutazioneTotale(_videogioco.Recensione) + "";
+            _valutazione.Text = valutazione +"";
             _recensoreLabel.Text = videogioco.Recensione.Autore.Nome;
+        }
+
+        public void DisabilitaValutaAspettoButton(bool value)
+        {
+            _valutaAspettoButton.Visible = !value;
         }
 
         private void BindData()

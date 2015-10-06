@@ -14,22 +14,14 @@ namespace GameReViews.View
     {
         public event EventHandler AggiuntaRecensione;
 
-        public Sessione _sessione;
-
-        public VideogiocoNoRecensioneView(Sessione sessione)
+        public VideogiocoNoRecensioneView()
         {
             InitializeComponent();
+        }
 
-            _sessione = sessione;
-
-            if (!(_sessione.UtenteCorrente is Recensore))
-            {
-                _aggiungiRecensione.Visible = false;
-            }
-            else
-            {
-                _aggiungiRecensione.Visible = true;
-            }
+        public void abilitaAggiuntaRecensione(bool value)
+        {
+            _aggiungiRecensione.Visible = value;
         }
 
         private void _aggiungiRecensione_Click(object sender, EventArgs e)
