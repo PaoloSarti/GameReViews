@@ -59,7 +59,8 @@ namespace GameReViews.View
 
             if (_videogioco.Recensione == null)
             {
-                VideogiocoNoRecensioneView recensioneView = new VideogiocoNoRecensioneView(_sessione);
+                VideogiocoNoRecensioneView recensioneView = new VideogiocoNoRecensioneView();
+                recensioneView.abilitaAggiuntaRecensione(_sessione.UtenteCorrente is Recensore);
                 recensioneView.Dock = DockStyle.Fill;
 
                 if (_currentDetailView != null)
@@ -81,7 +82,10 @@ namespace GameReViews.View
             }
             else
             {
-                VideogiocoRecensioneView recensioneView = new VideogiocoRecensioneView(_videogioco, _sessione);
+                VideogiocoRecensioneView recensioneView = new VideogiocoRecensioneView(_videogioco,
+                    _sessione.CalcolaValutazioneTotale(_videogioco.Recensione));
+                recensioneView.DisabilitaValutaAspettoButton((_sessione.UtenteCorrente == null)
+                        || (_sessione.UtenteCorrente != null && _sessione.UtenteCorrente.Nome != _videogioco.Recensione.Autore.Nome));
 
                 _eliminaButton.Visible = false;
 
@@ -89,6 +93,7 @@ namespace GameReViews.View
                 {
                     //deregistrazione per evitare di mantenere il riferimento in memoria
                     VideogiocoRecensioneView view = (VideogiocoRecensioneView)_currentDetailView;
+                    
                     view.ValutaAspettoClick -= _recensioneView_ValutaAspettoClick;
                     view.GetCustomDataGrid().CellClicked -= VideogiocoRootView_CellClicked;
                 }
