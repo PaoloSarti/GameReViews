@@ -1,11 +1,4 @@
-﻿using GameReViews.Model;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
+﻿using System;
 using System.Windows.Forms;
 
 namespace GameReViews.Presentation.View
@@ -15,17 +8,17 @@ namespace GameReViews.Presentation.View
     {
         private bool _elimina;
 
-        public ModificaEliminaValutazione(AspettoValore a)
+        public ModificaEliminaValutazione(Model.AspettoValore aspettoValore)
         {
             InitializeComponent();
 
             _elimina = false;
 
-            _nomeText.Text = a.Aspetto.Nome;
+            _nomeText.Text = aspettoValore.Aspetto.Nome;
 
-            _descrizioneText.Text = a.Aspetto.Descrizione;
+            _descrizioneText.Text = aspettoValore.Aspetto.Descrizione;
 
-            _valutazioneNumeric.Value = a.Valore;
+            _valutazioneNumeric.Value = aspettoValore.Valore;
 
         }
 

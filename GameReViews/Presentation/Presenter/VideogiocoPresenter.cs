@@ -3,9 +3,7 @@ using GameReViews.Presentation.View;
 using GameReViews.View;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace GameReViews.Presentation.Presenter
@@ -21,16 +19,12 @@ namespace GameReViews.Presentation.Presenter
         public VideogiocoPresenter(Videogioco videogioco, Sessione sessione)
         {
             this._videogioco = videogioco;
-            this._view = new VideogiocoRootView(videogioco, sessione);
             this._sessione = sessione;
+            this._view = new VideogiocoRootView(videogioco, BuildDetailView(videogioco));
 
-            _view.AggiuntaRecensione += _rootView_AggiuntaRecensione;
+            UpdateVideogiocoDetailView(videogioco);
 
             _sessione.Changed += UtenteCorrente_UtenteChanged;
-
-            _view.ValutaAspetto += _rootView_ValutaAspetto;
-
-            _view.ModificaValutazione += _rootView_ModificaValutazione;
 
             videogioco.Changed +=videogioco_VideogiocoChanged;
 
@@ -40,6 +34,44 @@ namespace GameReViews.Presentation.Presenter
             }
 
             _view.EliminaVideogioco += _rootView_EliminaVideogioco;
+
+        }
+
+        private void UpdateVideogiocoDetailView(Videogioco videogioco)
+        {
+            _view.UpdateVideogiocoView(BuildDetailView(videogioco));
+
+            if (_sessione.UtenteCorrente != null && videogioco.Recensione == null)
+                _view.abilitaEliminaButton(true);
+            else
+                _view.abilitaEliminaButton(false);
+        }
+
+        private UserControl BuildDetailView(Videogioco videogioco)
+        {
+            if (_videogioco.Recensione == null)
+            {
+                VideogiocoNoRecensioneView recensioneView = new VideogiocoNoRecensioneView();
+                recensioneView.abilitaAggiuntaRecensione(_sessione.UtenteCorrente != null && _sessione.UtenteCorrente is Recensore);
+                recensioneView.Dock = DockStyle.Fill;
+
+                recensioneView.AggiuntaRecensione += _rootView_AggiuntaRecensione;
+
+                return recensioneView;
+            }
+            else
+            {
+                VideogiocoRecensioneView recensioneView = new VideogiocoRecensioneView(_videogioco,
+                    _sessione.CalcolaValutazioneTotale(_videogioco.Recensione));
+                recensioneView.DisabilitaValutaAspettoButton((_sessione.UtenteCorrente == null)
+                        || (_sessione.UtenteCorrente != null && _sessione.UtenteCorrente.Nome != _videogioco.Recensione.Autore.Nome));
+
+                recensioneView.ValutaAspettoClick += _rootView_ValutaAspetto;
+
+                recensioneView.GetCustomDataGrid().CellClicked += _rootView_ModificaValutazione;
+
+                return recensioneView;
+            }
 
         }
 
@@ -63,6 +95,8 @@ namespace GameReViews.Presentation.Presenter
         void videogioco_VideogiocoChanged(object sender, EventArgs e)
         {
             _view.Videogioco = Videogioco;
+            UpdateVideogiocoDetailView(Videogioco);
+
             if (Videogioco.Recensione != null)
             {
                 Videogioco.Recensione.Changed -= Recensione_RecensioneChanged;
@@ -73,71 +107,78 @@ namespace GameReViews.Presentation.Presenter
         void Recensione_RecensioneChanged(object sender, EventArgs e)
         {
             _view.Videogioco = Videogioco;
+            UpdateVideogiocoDetailView(Videogioco);
         }
 
 
         void _rootView_ModificaValutazione(object selectedObject)
         {
-            AspettoValore aspettoValore = (AspettoValore)selectedObject;
-            //Console.WriteLine(aspettoValore.Aspetto.Nome + " " +aspettoValore.Aspetto.Descrizione +" " +aspettoValore.Valore);
-
-            ModificaEliminaValutazione dialog = new ModificaEliminaValutazione(aspettoValore);
-            dialog.Titolo = "VALUTA ASPETTO";
-
-
-            if (dialog.ShowDialog() == DialogResult.OK)
+            if (_sessione.UtenteCorrente != null && _sessione.UtenteCorrente.Nome == _videogioco.Recensione.Autore.Nome)
             {
-                try
+                AspettoValore aspettoValore = (AspettoValore)selectedObject;
+                //Console.WriteLine(aspettoValore.Aspetto.Nome + " " +aspettoValore.Aspetto.Descrizione +" " +aspettoValore.Valore);
+
+                ModificaEliminaValutazione dialog = new ModificaEliminaValutazione(aspettoValore);
+                dialog.Titolo = "VALUTA ASPETTO";
+
+
+                if (dialog.ShowDialog() == DialogResult.OK)
                 {
-                    if (dialog.Elimina == true)
+                    try
                     {
-                        _videogioco.Recensione.RemoveAspettoValutato(aspettoValore.Aspetto);
+                        if (dialog.Elimina == true)
+                        {
+                            _videogioco.Recensione.RemoveAspettoValutato(aspettoValore.Aspetto);
+                        }
+                        else
+                        {
+                            _videogioco.Recensione.ModificaAspetto(aspettoValore.Aspetto, dialog.Valore);
+                        }
+                        //_rootView.Videogioco = Videogioco;
                     }
-                    else
+                    catch (Exception)
                     {
-                        _videogioco.Recensione.ModificaAspetto(aspettoValore.Aspetto, dialog.Valore);
+                        MessageBox.Show("Impossibile modificare/eliminare la valutazione", "ERRORE",
+                            MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
-                    //_rootView.Videogioco = Videogioco;
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Impossibile modificare/eliminare la valutazione", "ERRORE",
-                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
         }
 
         void _rootView_ValutaAspetto(object sender, EventArgs e)
         {
-            List<Aspetto> aspettiList = (from aspettoValutato in Videogioco.Recensione.AspettiValutati select aspettoValutato.Aspetto).ToList();
-
-            IEnumerable<Aspetto> aspetti = Document.GetInstance().Aspetti.List.Where(aspetto => !aspettiList.Contains(aspetto));
-
-            AggiungiAspettoValore aggiungiAspettoValoreView = new AggiungiAspettoValore(aspetti);
-
-            aggiungiAspettoValoreView.Titolo = "VALUTA ASPETTO";
-            aggiungiAspettoValoreView.EnableEdit(true);
-
-            if (aggiungiAspettoValoreView.ShowDialog() == DialogResult.OK)
+            if (_sessione.UtenteCorrente != null && _sessione.UtenteCorrente.Nome == _videogioco.Recensione.Autore.Nome)
             {
+                List<Aspetto> aspettiList = (from aspettoValutato in Videogioco.Recensione.AspettiValutati select aspettoValutato.Aspetto).ToList();
 
-                try
+                IEnumerable<Aspetto> aspetti = Document.GetInstance().Aspetti.List.Where(aspetto => !aspettiList.Contains(aspetto));
+
+                AggiungiAspettoValore aggiungiAspettoValoreView = new AggiungiAspettoValore(aspetti);
+
+                aggiungiAspettoValoreView.Titolo = "VALUTA ASPETTO";
+                aggiungiAspettoValoreView.EnableEdit(true);
+
+                if (aggiungiAspettoValoreView.ShowDialog() == DialogResult.OK)
                 {
-                    string nome = aggiungiAspettoValoreView.Nome;
-                    string descrizione = aggiungiAspettoValoreView.Descrizione;
 
-                    Aspetto aspetto = new Aspetto(nome, descrizione);
+                    try
+                    {
+                        string nome = aggiungiAspettoValoreView.Nome;
+                        string descrizione = aggiungiAspettoValoreView.Descrizione;
 
-                    int valutazione = aggiungiAspettoValoreView.Valutazione;
+                        Aspetto aspetto = new Aspetto(nome, descrizione);
 
-                    Videogioco.Recensione.AddAspettoValutato(aspetto, valutazione);
+                        int valutazione = aggiungiAspettoValoreView.Valutazione;
 
-                    //_rootView.Videogioco = Videogioco;
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Impossibile inserire l'aspetto", "ERRORE",
-                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        Videogioco.Recensione.AddAspettoValutato(aspetto, valutazione);
+
+                        //_rootView.Videogioco = Videogioco;
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Impossibile inserire l'aspetto", "ERRORE",
+                            MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
                 }
             }
         }
@@ -188,11 +229,13 @@ namespace GameReViews.Presentation.Presenter
                 if (_videogioco != null)
                     _videogioco.Changed -= videogioco_VideogiocoChanged;
                 _videogioco = value;
+
                 _view.Videogioco = _videogioco;
+                UpdateVideogiocoDetailView(Videogioco);
+
                 _videogioco.Changed += videogioco_VideogiocoChanged;
                 videogioco_VideogiocoChanged(null, EventArgs.Empty);
             }
         }
-
     }
 }
