@@ -65,9 +65,5 @@ namespace GameReViews.View
                 ValutaAspettoClick(null, EventArgs.Empty);
         }
 
-        private void _commentaButton_Click(object sender, EventArgs e)
-        {
-            DialogResult dialogResult = MessageBox.Show("Questa funzione non è ancora stata implementata", "Commenta", MessageBoxButtons.OK);
-        }
     }
 }

@@ -194,10 +194,5 @@ namespace GameReViews.Presentation.Presenter
             }
         }
 
-
-
-
-
-
     }
 }
