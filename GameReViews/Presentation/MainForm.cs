@@ -71,13 +71,11 @@ namespace GameReViews
 
         private void _recensioniButton_Click(object sender, EventArgs e)
         {
-            _videogiochiRecensitiPresenter.VideogiochiList_Changed(null, e);
             ChangeView(_videogiochiRecensitiPresenter.View);
         }
 
         private void _videogiochiButton_Click(object sender, EventArgs e)
         {
-            _videogiochiPresenter.VideogiochiList_Changed(null, e);
             ChangeView(_videogiochiPresenter.View);
         }
 

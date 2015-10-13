@@ -6,7 +6,6 @@ namespace GameReViews.Model
     public class Recensione
     {
         private string _testo;
-        private readonly DateTime _dataImmissione;
 
         private readonly Recensore _autore;
         private readonly AspettiValutati _aspettiValutati;
@@ -22,13 +21,7 @@ namespace GameReViews.Model
 
             this._testo = testo;
             this._autore = autore;
-            this._dataImmissione = DateTime.Now;
             _aspettiValutati = new AspettiValutati();
-        }
-
-        public DateTime DataImmissione
-        {
-            get { return _dataImmissione; }
         }
 
         public string Testo

@@ -49,7 +49,7 @@ namespace GameReViews.Presentation.Presenter
             _view.GetCustomDataGrid().InitDataSource(source, headers);
         }
 
-        public void VideogiochiList_Changed(object sender, EventArgs e)
+        private void VideogiochiList_Changed(object sender, EventArgs e)
         {
             _view.GetCustomDataGrid().UpdateDataSource(GetBindingSource());
             _view.Refresh();

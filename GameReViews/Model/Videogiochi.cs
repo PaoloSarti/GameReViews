@@ -58,6 +58,8 @@ namespace GameReViews.Model
 
             bool success = _videogiochiSet.Add(videogioco);
 
+            videogioco.Changed += videogiocoChanged;
+
             if (!success)
                 throw new InvalidOperationException("Videogioco già presente nel sistema");
 
@@ -78,6 +80,11 @@ namespace GameReViews.Model
             if (!_videogiochiSet.Remove(videogioco))
                 throw new ArgumentException("!_videogiochiSet.Remove(videogioco)");
 
+            OnChanged();
+        }
+
+        private void videogiocoChanged(object sender, EventArgs e)
+        {
             OnChanged();
         }
 
